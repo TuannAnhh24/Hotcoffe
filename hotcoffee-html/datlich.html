@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-gb" class="no-js"> 
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+	<title>ĐẶT LỊCH</title>
+    
+    <meta name="description" content="" />
+	<meta name="author" content="" />
+    <link rel="stylesheet" href="css/datlich.css">
+    
+    <!-- **Google - Fonts** -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Norican' rel='stylesheet' type='text/css'> -->
+    
+</head>
+
+<body>
+
+<div class="main-container">
+    <div class="container">
+        <section id="primary" class="content-full-width menu-items-list">
+            <h2 class="block-title">Đặt lịch</h2>
+            <div class="dt-sc-one-half column first">
+                <div id="ajax_response_msg"></div>
+                <form name="frmreserve" class="reserve-frm" action="php/reservation.php" method="post">
+                    <p>
+                        <label>Tên người đặt *</label>
+                        <input type="text" required placeholder="Nhập Name" name="txtfname">
+                    </p>
+                    <p>
+                        <label>địa chỉ Email *</label>
+                        <input type="text" required placeholder="Nhập Email" name="txtemail">
+                    </p>
+                    <p>
+                        <label>Ngày đặt</label>
+                        <input type="date" placeholder="Set Date" name="txtddate">
+                    </p>
+                    <p>
+                        <label>Thời gian</label>
+                        <input type="time" placeholder="Set Time" name="txtdtime">
+                    </p>
+                    <p>
+                        <label>Chọn bàn</label>
+                        <select name="cmbpersons">
+                            <option value="">Chọn vị trí bàn</option>
+                            <option value="1">Bàn Số: 1</option>
+                            <option value="2">Bàn Số: 2</option>
+                            <option value="3">Bàn Số: 3</option>
+                            <option value="4">Bàn Số: 4</option>
+                            <option value="5">Bàn Số: 5</option>
+                            <option value="6">Bàn Số: 6</option>
+                            <option value="7">Bàn Số: 7</option>
+                            <option value="8">Bàn Số: 8</option>
+                            <option value="9">Bàn Số: 9</option>
+                            <option value="10">Bàn Số: 10</option>
+                            <option value="11">Bàn Số: 11</option>
+                            <option value="12">Bàn Số: 12</option>
+                            <option value="13">Bàn Số: 13</option>
+                            <option value="14">Bàn Số: 14</option>
+                            <option value="15">Bàn Số: 15</option>
+                            <option value="16">Bàn Số: 16</option>
+                            <option value="17">Bàn Số: 17</option>
+                            <option value="18">Bàn Số: 18</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label>Yêu cầu thêm</label>
+                        <textarea placeholder="Nhập Lời Nhắn" name="txtmessage"></textarea>
+                    </p>
+                    <input type="submit" name="btnreserve" class="small theme-btn dt-sc-button" value="Đặt Lịch">
+                </form>
+            </div>
+            <div class="dt-sc-one-half column">
+                <div class="dt-sc-one-fifth column first">
+                </div>
+                <div class="dt-sc-four-fifth column">
+                    <div class="border corner reservation-detail">
+                        <div class="content-bg">
+                            <h2>Giá Đặt Trước</h2>
+                            <p><span class="dropcap dropcap-default ">C</span>ảm mừng quý khách đã đặt bàn tại Bella Restaurant & Bakery. Chúng tôi rất hân hạnh được phục vụ quý khách và sẽ cố gắng mang đến cho quý khách một trải nghiệm tuyệt vời. Hẹn gặp lại quý khách. </p>
+                            <ul class="items">
+                                <li><a href="#"><span class="number">1</span>Buổi sáng - <span class="price">50.000 VNĐ</span></a></li>
+                                <li><a href="#"><span class="number">2</span>Buổi chiều - <span class="price">50.000 VNĐ</span></a></li>
+                                <li><a href="#"><span class="number">3</span>Buổi tối - <span class="price">80.000 VNĐ</span></a></li>
+                            </ul>
+                            <img src="images/reserve-add.png" alt="" title="" />
+                            <span class="bottom-left"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="margin40"></div>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>
