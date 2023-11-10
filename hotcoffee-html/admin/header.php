@@ -15,15 +15,11 @@
 
     <nav>
         <ul>
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#employees">Danh mục</a></li>
-<<<<<<< HEAD
-            <li><a href="sanpham.html">Sản phẩm</a></li>
-=======
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Danh mục</a></li>
             <li><a href="sanpham/list.php">Sản phẩm</a></li>
->>>>>>> 38218a41eb3418e80e3ba82072abcd00e944e4bf
-            <li><a href="#orders">Đơn đặt hàng</a></li>
-            <li><a href="#customers">Khách hàng</a></li>
-            <li><a href="#settings">Settings</a></li>
+            <li><a href="#">Đơn đặt hàng</a></li>
+            <li><a href="#">Khách hàng</a></li>
+            <li><a href="#">Settings</a></li>
         </ul>
     </nav>
