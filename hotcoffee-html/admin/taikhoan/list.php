@@ -7,15 +7,16 @@
             <div class="row2 mb10 formds_loai">
                 <table>
                     <tr>
-                        <th></th>
-                        <th>MÃ TÀI KHOẢN</th>
-                        <th>TÊN TÀI KHOẢN</th>
-                        <th>PASSWORD</th>
-                        <th>EMAIL</th>
+                        <th>Tên tài khoản</th>
+                        <th>Mật Khẩu</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
                         <th>ĐỊA CHỈ</th>
-                        <th>SỐ ĐIỆN THOẠI</th>
-                        <th>VAI TRÒ</th>
-                        <th></th>
+                        <th>Năm sinh</th>
+                        <th>Ảnh</th>
+                        <th>Giới tính</th>
+                        <th>Phân Quyền</th>
+                        <td></td>
                     </tr>
                     <?php 
                         foreach($listtaikhoan as $taikhoan){
@@ -24,13 +25,15 @@
 
                             echo ' <tr>
                                     <td><input type="checkbox" name="" id=""></td>
-                                    <td>'.$id.'</td>
                                     <td>'.$user.'</td>
                                     <td>'.$pass.'</td>
                                     <td>'.$email.'</td>
-                                    <td>'.$address.'</td>
-                                    <td>'.$tel.'</td>
-                                    <td>'.$role.'</td>
+                                    <td>'.$sdt.'</td>
+                                    <td>'.$dia_chi.'</td>
+                                    <td>'.$nam_sinh.'</td>
+                                    <td><img src="'.$img.'" alt=""></td>
+                                    <td>'.$gioi_tinh.'</td>
+                                    <td>'.$phan_quyen.'</td>
                                     <td><a href="'.$xoatk.'"><input type="button" value="Xóa"></td></a>
                                     </tr>';
                         }

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h2>Thêm Sản Phẩm và Chi Tiết Sản Phẩm</h2>
+    <h2>Thêm Sản Phẩm  </h2>
     <form action="process_data.php" method="post">
         <!-- Thông tin Sản Phẩm -->
         <label for="ten_sanpham">Tên Sản Phẩm:</label>
@@ -31,7 +31,7 @@
 
         <label for="ten_sanpham">Ảnh:</label>
         <input type="file" name="ảnh_sanpham" required><br>
-
+        <h2>Chi Tiết Sản Phẩm</h2>
         <!-- Thông tin Chi Tiết Sản Phẩm -->
         <label for="gia">Giá Chi Tiết:</label>
         <input type="number" name="gia" required><br>
