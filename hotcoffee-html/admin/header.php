@@ -18,8 +18,8 @@
             <li><a href="#">Trang chủ</a></li>
             <li><a href="#">Danh mục</a></li>
             <li><a href="sanpham/list.php">Sản phẩm</a></li>
-            <li><a href="#">Đơn đặt hàng</a></li>
             <li><a href="#">Khách hàng</a></li>
+            <li><a href="#">Đơn hàng</a></li>
             <li><a href="#">Settings</a></li>
         </ul>
     </nav>
