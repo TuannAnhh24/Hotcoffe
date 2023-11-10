@@ -19,13 +19,13 @@
            <div class="row2 mb10 formds_loai">
            <table>
             <tr>
-                <th></th>
-                <th>MÃ LOẠI</th>
-                <th>Tên Sản phẩm </th>
-                <th>Hình</th>
-                <th>Giá</th>
-                <th>Lượt xem</th>
-                <th></th>
+                <th>Tên sản phẩm</th>
+                <th>Giá gốc </th>
+                <th>Giá khuyến mãi</th>
+                <th>View</th>
+                <th>Số lượng</th>
+                <th> Mô tả</th>
+                <th>ẢNh</th>
             </tr>
             <?php 
                 foreach($listsanpham as $sanpham){
@@ -41,11 +41,14 @@
 
                     echo ' <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td>'.$id.'</td>
-                            <td>'.$name.'</td>
-                            <td>'.$hinh.'</td>
-                            <td>'.$price.'</td>
+                            <td>'.$name_sp.'</td>
+                            <td>'.$gia_goc.'</td>
+                            <td>'.$gia_km.'</td>
                             <td>'.$view.'</td>
+                            <td>'.$size.'</td>
+                            <td>'.$so_luong.'</td>
+                            <td>'.$mo_ta.'</td>
+                            <td>'.$img.'</td>
                             <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a>   <a href="'.$xoasp.'"><input type="button" value="Xóa"></td></a>
                             </tr>';
                 }
