@@ -1,6 +1,6 @@
 <div class="row2">
          <div class="row2 font_title">
-          <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
+          <h1>DANH MỤC</h1>
          </div>
          <div class="row2 form_content ">
           <form action="#" method="POST">
@@ -8,8 +8,8 @@
            <table>
             <tr>
                 <th></th>
-                <th>MÃ LOẠI</th>
-                <th>TÊN LOẠI</th>
+                <th>Tên danh mục</th>
+                <th>Trạng thái</th>
                 <th></th>
             </tr>
             <?php 
@@ -20,8 +20,8 @@
 
                     echo ' <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td>'.$id.'</td>
                             <td>'.$name.'</td>
+                            <td>'.$status.'</td>
                             <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a>   <a href="'.$xoadm.'"><input type="button" value="Xóa"></td></a>
                             </tr>';
                 }

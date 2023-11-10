@@ -8,10 +8,9 @@
             <table>
                 <tr>
                     <th></th>
-                    <th>ID</th>
+                    <th>Sản phẩm</th>
+                    <th>Tài Khoản</th>
                     <th>Nội dung</th>
-                    <th>Iduser</th>
-                    <th>Idpro</th>
                     <th>Ngày bình luận</th>
                     <th></th>
                 </tr>
