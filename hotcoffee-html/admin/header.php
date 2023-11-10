@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự án mẫu</title>
-    <link rel="stylesheet" href="../css/admin.css">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-     
-    </style>
+    <link rel="stylesheet" href="admin.css">
+    <title>Hot Coffee Shop Admin</title>
 </head>
+
 <body>
-    <div class="boxcenter">
-       <!-- BIGIN HEADER -->
-       <header>
-        <div class="row mb header_admin">
-            <h1>Admin</h1>
-        </div>
-        <div class="row mb menu">
-            <ul>
-                
-              <li><a href="../index.php">Trang chủ</a></li>
-              <li><a href="index.php?act=adddm">Danh mục</a></li>
-              <li><a href="index.php?act=addsp">Sản phẩm</a></li>
-              <li><a href="index.php?act=dskh">Khách hàng</a></li>
-              <li><a href="index.php?act=dsbl">Bình luận</a></li>
-              <li><a href="">Đơn hàng</a></li>
-              <li><a href="index.php?act=thongke">Thống kê</a></li>
-            </ul>
-        </div>
-       </header>
-        <!-- END HEADER -->
+    <header>
+        <h1>Hot Coffee Shop Admin</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#employees">Danh mục</a></li>
+            <li><a href="sanpham.html">Sản phẩm</a></li>
+            <li><a href="#orders">Đơn đặt hàng</a></li>
+            <li><a href="#customers">Khách hàng</a></li>
+            <li><a href="#settings">Settings</a></li>
+        </ul>
+    </nav>
