@@ -20,6 +20,8 @@
             <li><a href="sanpham/list.php">Sản phẩm</a></li>
             <li><a href="#">Khách hàng</a></li>
             <li><a href="#">Đơn hàng</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="#">Bình luận</a></li>
+            <li><a href="#">Đánh giá</a></li>
+            <li><a href="#">Thống kê</a></li>
         </ul>
     </nav>
