@@ -8,6 +8,7 @@
            <table>
             <tr>
                 <th></th>
+                <th>Mã danh mục</th>
                 <th>Tên danh mục</th>
                 <th>Trạng thái</th>
                 <th></th>
@@ -15,13 +16,21 @@
             <?php 
                 foreach($listdanhmuc as $danhmuc){
                     extract($danhmuc);
+                    // kiểm tra trạng thái theo kiểu tinyint "1 = tồn tại || 0 = đã xóa"
+                    if($trang_thai == 0){
+                        $trang_thai = "Đã xóa";
+                    } else {
+                        $trang_thai = "Tồn tại";
+                    }
+
                     $suadm = 'index.php?act=suadm&id='.$id;
                     $xoadm = 'index.php?act=xoadm&id='.$id;
 
                     echo ' <tr>
                             <td><input type="checkbox" name="" id=""></td>
+                            <td>'.$id_dm.'</td>
                             <td>'.$name.'</td>
-                            <td>'.$status.'</td>
+                            <td>'.$trang_thai.'</td>
                             <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a>   <a href="'.$xoadm.'"><input type="button" value="Xóa"></td></a>
                             </tr>';
                 }
