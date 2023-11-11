@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US" class="scheme_original">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <title>Hot Coffee &#8211; Uống là Nghiền</title>
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Grand+Hotel|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i|Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;subset=latin-ext"
+        type='text/css' media='all'>
+    <link rel='stylesheet' href='js/vendor/revslider/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='js/vendor/woo/woocommerce-layout.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='js/vendor/woo/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' href='js/vendor/woo/woocommerce.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/fontello/css/fontello.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/core.animation.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/shortcodes.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='js/vendor/woo/plugin.woocommerce.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/skin.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/doc-style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/skin.responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='js/vendor/comp/comp.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/custom.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/core.messages.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/core.portfolio.css' type='text/css' media='all' />
+</head>
+
+<body class="home page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide preloader vc_responsive">
+    <div id="page_preloader"></div>
+    <a id="toc_home" class="sc_anchor" title="Home" data-description="&lt;i&gt;Return to Home&lt;/i&gt; - &lt;br&gt;navigate to home page of the site" data-icon="icon-home" data-url="index.html" data-separator="yes"></a>
+    <a id="toc_top" class="sc_anchor" title="To Top" data-description="&lt;i&gt;Back to top&lt;/i&gt; - &lt;br&gt;scroll to top of the page" data-icon="icon-double-up" data-url="" data-separator="yes"></a>
+
+    <div class="body_wrap">
+        <div class="page_wrap">
+            <div class="top_panel_fixed_wrap"></div>
+            <!-- HEADER  -->
+            <header class="top_panel_wrap top_panel_style_3 scheme_original">
+                <div class="top_panel_wrap_inner top_panel_inner_style_3 top_panel_position_above">
+                    <div class="top_panel_middle">
+                        <div class="content_wrap">
+                            <div class="contact_logo">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="images/logo.png" class="logo_main" alt="" width="128" height="124">
+                                        <img src="images/alternative-logo.png" class="logo_fixed" alt="" width="161" height="47">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="menu_main_wrap">
+                                <a href="#" class="menu_main_responsive_button icon-menu"></a>
+                                <nav class="menu_main_nav_area">
+                                    <ul id="menu_main" class="menu_main_nav">
+                                        <li class="menu-item current-menu-item "><a href="index.html">Trang Chủ</a></li>
+
+                                        <li class="menu-item menu-item-has-children"><a href="tables.html">Bàn</a></li>
+                                        <li class="menu-item"><a href="shop.html">Thực đơn</a></li>
+                                        <li class="menu-item"><a href="lienhe.html">Liên hệ</a></li>
+                                        <li class="menu-item"><a href="gioithieu.html">Giới thiệu</a></li>
+                                    </ul>
+                                </nav>
+                                <div class="contact_cart">
+                                    <a href="#" class="top_panel_cart_button" data-items="0" data-summa="&#036;0.00">
+                                        <span class="contact_icon icon-shopping"></span>
+                                        <span class="contact_label contact_cart_label">Giỏ hàng:</span>
+                                        <span class="contact_cart_totals">
+		                                <span class="cart_items">0 món</span> -
+                                        <span class="cart_summa"> 0 VNĐ</span>
+                                        </span>
+                                    </a>
+                                    <ul class="widget_area sidebar_cart sidebar">
+                                        <li>
+                                            <div class="widget woocommerce widget_shopping_cart">
+                                                <div class="hide_cart_widget_if_empty">
+                                                    <div class="widget_shopping_cart_content">
+                                                        <ul class="cart_list product_list_widget ">
+                                                            <li class="empty">Không có vật phẩm trong giỏ hàng</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="dangnhap.html"><img src="images/dangnhap.png" class="dang_nhap"></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER  -->

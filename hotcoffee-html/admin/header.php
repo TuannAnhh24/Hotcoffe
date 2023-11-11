@@ -15,11 +15,13 @@
 
     <nav>
         <ul>
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#employees">Danh mục</a></li>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Danh mục</a></li>
             <li><a href="sanpham/list.php">Sản phẩm</a></li>
-            <li><a href="#orders">Đơn đặt hàng</a></li>
-            <li><a href="#customers">Khách hàng</a></li>
-            <li><a href="#settings">Settings</a></li>
+            <li><a href="#">Khách hàng</a></li>
+            <li><a href="#">Đơn hàng</a></li>
+            <li><a href="#">Bình luận</a></li>
+            <li><a href="#">Đánh giá</a></li>
+            <li><a href="#">Thống kê</a></li>
         </ul>
     </nav>
