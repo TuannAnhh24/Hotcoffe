@@ -21,6 +21,10 @@
                 $listdanhmuc = pdo_query($sql);
                 include "danhmuc/list.php";
                 break;
+            case "addsp":
+                
+                include "sanpham/add.php";
+                break;
         }
     }else {
         include "home.php";
