@@ -16,31 +16,32 @@
             <?php 
                 foreach($listdanhmuc as $danhmuc){
                     extract($danhmuc);
-                    // kiểm tra trạng thái theo kiểu tinyint "1 = tồn tại || 0 = đã xóa"
+                    // kiểm tra trạng thái theo kiểu tinyint "1 = Đã xóa || 0 = Tồn tại"
                     if($trang_thai == 0){
-                        $trang_thai = "Đã xóa";
+                        $trang_thai = "Tồn Tại";
                     } else {
-                        $trang_thai = "Tồn tại";
+                        $trang_thai = "Đã xóa";
                     }
 
-                    $suadm = 'index.php?act=suadm&id='.$id;
-                    $xoadm = 'index.php?act=xoadm&id='.$id;
+                    $suadm = 'index.php?act=suadm&id_dm='.$id_dm;
+                    $xoadm = 'index.php?act=xoadm&id_dm='.$id_dm;
+                    $kpdm = 'index.php?act=kpdm&id_dm='.$id_dm;
 
                     echo ' <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td>'.$id_dm.'</td>
                             <td>'.$name.'</td>
                             <td>'.$trang_thai.'</td>
-                            <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a>   <a href="'.$xoadm.'"><input type="button" value="Xóa"></td></a>
+                            <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a>   <a href="'.$xoadm.'"><input type="button" value="Xóa"></a>   <a href="'.$kpdm.'"><input type="button" value="Khôi phục"></a> </td>
                             </tr>';
                 }
             ?> 
            </table>
            </div>
            <div class="row mb10 ">
-         <input class="mr20" type="button" value="CHỌN TẤT CẢ">
-         <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-<a href="index.php?act=adddm"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
+                <input class="mr20" type="button" value="CHỌN TẤT CẢ">
+                <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
+                <a href="index.php?act=adddm"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
            </div>
           </form>
          </div>
