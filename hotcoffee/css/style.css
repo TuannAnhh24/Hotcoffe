@@ -8703,3 +8703,8 @@ button.mfp-arrow:after {
     position: relative; 
     margin-right: 100px;
 }
+
+.thong-bao-dk{
+    color: red;
+    text-align: center;
+}

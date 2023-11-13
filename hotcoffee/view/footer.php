@@ -161,6 +161,7 @@
     <script type='text/javascript' src='js/vendor/comp/comp_front.min.js'></script>
     <script type='text/javascript' src='js/vendor/isotope.pkgd.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.hoverdir.js'></script>
+    <script type='text/javascript' src='js/validate/form.dk.js'></script>
 
 </body>
 
