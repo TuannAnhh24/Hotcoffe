@@ -11,9 +11,9 @@
             <label>
             <input type="checkbox" checked="checked" name="remember" class="checkbox"> Nhớ đăng nhập
         </label>
-            <span class="psw"><a href="quenmk.html" class="link">Quên mật khẩu?</a></span>
+            <span class="psw"><a href="index.php?act=quenmk" class="link">Quên mật khẩu?</a></span>
         </div>
         <hr>
-        <p>Bạn chưa có tài khoản? <a href="dangky.html" class="link">Đăng ký ngay</a>.</p>
+        <p>Bạn chưa có tài khoản? <a href="index.php?act=dangky" class="link">Đăng ký ngay</a>.</p>
     </form>
     <!-- END CONTENT  -->

@@ -21,7 +21,7 @@
         <input type="checkbox" name="nu" class="checkbox"> nữ
         <button type="submit" class="btn">Đăng ký</button>
         <div class="container">
-            <span class="psw"><a href="dangnhap.html" class="link">Đăng nhập</a></span>
+            <span class="psw"><a href="index.php?act=dangnhap" class="link">Đăng nhập</a></span>
         </div>
         <hr class="solid">
     </form>
