@@ -100,3 +100,31 @@ function pdo_query_value($sql){
         unset($conn);
     }
 }
+//cái này của thao
+function pdo_query_value1($sql, $args = array()){
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($args);
+        $value = $stmt->fetchColumn();
+        return $value;
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+}
+/**
+ * Lấy ID của bản ghi vừa được chèn
+ * @return int ID của bản ghi vừa được chèn
+ */
+function pdo_last_insert_id() {
+    global $conn; // Thay $GLOBALS['pdo'] nếu bạn sử dụng biến khác
+
+    try {
+        $lastInsertId = $conn->lastInsertId();
+        return $lastInsertId;
+    } catch (PDOException $e) {
+        throw $e;
+    }
+}

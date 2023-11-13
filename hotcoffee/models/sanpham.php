@@ -1,6 +1,31 @@
 <?php
+        function test($nameSp, $giaGoc, $giaKm, $moTa, $img, $idDm)
+            {
+                // Chèn dữ liệu vào bảng sản phẩm
+                $sql = "INSERT INTO `san_pham` (`name_sp`, `gia_goc`, `gia_km`, `mo_ta`, `img`, `id_dm`) VALUES ('$nameSp', '$giaGoc', '$giaKm', '$moTa', '$img', '$idDm')";
+                pdo_execute($sql, $nameSp, $giaGoc, $giaKm, $moTa, $img, $idDm);
+
+                // Lấy ID của bản ghi sản phẩm vừa được chèn
+                $idSp = pdo_last_insert_id();
+
+                // Chèn dữ liệu vào bảng chi tiết sản phẩm
+                $size = array(
+                    array($_POST['sizeM'], 'M'),
+                    array($_POST['sizeL'], 'L'),
+                    array($_POST['sizeXL'], 'XL'),
+                );
+
+                foreach ($size as $ss) {
+                    $sql = "INSERT INTO `ct_san_pham` ( `gia`, `size`, `id_sp`) VALUES ( $ss[0], $ss[1], $idSp)";
+                    pdo_execute($sql, $ss[0], $ss[1], $idSp);
+                }
+        }
     function insert_sanpham($tenSp,$giaGoc,$giaKm,$view,$moTa,$img,$idDm){
         $sql = "INSERT INTO san_pham(name_sp,gia_goc,gia_km,view,mo_ta,img,id_dm) values('$tenSp','$giaGoc','$giaKm','$view','$moTa','$img','$idDm')";
+        pdo_execute($sql);
+    }
+    function insert_sanphamCT($gia,$size,$idSp){
+        $sql = "INSERT INTO ct_san_pham('gia,size,id_sp') values('$gia','$size','$idSp')";
         pdo_execute($sql);
     }
 

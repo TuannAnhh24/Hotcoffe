@@ -4,21 +4,21 @@
           <h1>THÊM MỚI SẢN PHẨM</h1>
         </div>
     <div class="row2 form_content ">
-        <form action="index.php?act=adddm" method="POST" enctype="multipart/form-data">
+        <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
         <div class="row2 mb10 form_content_container">
                     <label> Danh mục </label> <br>
-                    <select name="iddm" >
+                    <select name="id_dm" >
                         <?php 
                             foreach($listdanhmuc as $danhmuc){
                                 extract($danhmuc);
-                            echo "<option value='".$id."'> $name </option>";
+                            echo "<option value='".$id_dm."'> $name </option>";
                             }
                         ?>
                     </select>
             </div>
           <div class="row2 mb10 form_content_container">
             <label for="ten_sanpham">Tên Sản Phẩm:</label>
-            <input type="text" name="ten_sanpham" placeholder="Nhập tên sản phẩm" required ><br>
+            <input type="text" name="nameSp" placeholder="Nhập tên sản phẩm" required ><br>
           </div>
           <div class="row2 mb10 form_content_container">
             <label for="gia_goc">Giá Gốc:</label>
@@ -38,22 +38,24 @@
             <label for="siteL"> Giá size: L </label>
             <input type="text" id="sizeL" name="sizeL" required><br>
             <label for="sizeXL"> Giá size: XL </label>
-            <input type="text" id="sizeXl" name="sizeXl" required><br>
+            <input type="text" id="sizeXL" name="sizeXL" required><br>
           </div>
           <div class="row2 mb10 form_content_container">
             <label for="ten_sanpham">Mô tả:</label>
-            <textarea name="" id="" cols="250" rows="10"></textarea>
+            <textarea name="moTa" id="" cols="250" rows="10"></textarea>
           </div>
           <div class="row2 mb10 form_content_container">
             <label for="ten_sanpham">Ảnh:</label>
-            <input type="file" name="anh_sanpham" required><br>
+            <input type="file" name="anhSp" ><br>
           </div>
           <div class="row mb10 ">
-            <input class="mr20" type="submit" name='themmoi' value="THÊM MỚI">
+            <input class="mr20" type="submit" name='addSanpham' value="Thêm sản phẩm mới">
             <input class="mr20" type="reset" value="NHẬP LẠI">
             <a href="index.php?act=listdm"><input class="mr20" type="button" value="DANH SÁCH"></a>
           </div>
-          
+          <?php 
+              if(isset($thongbao)&&($thongbao!="")) echo $thongbao;
+              ?>
         </form>  
         </div>
     </div>

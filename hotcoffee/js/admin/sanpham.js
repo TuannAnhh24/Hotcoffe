@@ -9,7 +9,7 @@ function updatePrices() {
     document.getElementById('gia_Km').value = giaKm.toFixed(2);
     document.getElementById('sizeM').value = giaM.toFixed(2);
     document.getElementById('sizeL').value = giaL.toFixed(2);
-    document.getElementById('sizeXl').value = giaXl.toFixed(2);
+    document.getElementById('sizeXL').value = giaXl.toFixed(2);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
