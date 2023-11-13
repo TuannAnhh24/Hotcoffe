@@ -4,4 +4,9 @@
         pdo_execute($sql);
     }
 
+    function select_taikhoan_by_email($email){
+        $sql= "SELECT * FROM tai_khoan WHERE email = ? ";
+        return pdo_execute_and_fetch($sql,$email);
+    }
+
 ?>

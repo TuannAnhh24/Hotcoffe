@@ -5,7 +5,7 @@
         <!-- <label for="username"><b>Tên Đăng Nhập</b></label>
         <input type="text" placeholder="Nhập tên đăng nhập" name="username" class="common-class input-text" required> -->
         <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Nhập Email" name="email" class="common-class email" required>
+        <input type="email" placeholder="Nhập Email" name="email" id="email" class="common-class email" required>
         <label for="password"><b>Mật Khẩu</b></label>
         <input type="password" placeholder="Nhập mật khẩu" name="pass" id="pass" class="common-class password" required>
         <label for="password"><b>Nhập lại Mật Khẩu</b></label>
@@ -24,7 +24,6 @@
             <span class="psw"><a href="index.php?act=dangnhap" class="link">Đăng nhập</a></span>
         </div>
         <hr class="solid">
-        <h3 class="thong-bao-dk"><?php if(isset($thongbao) && ($thongbao != "" )) echo $thongbao ?></h3>
     </form>
     
     <!-- END CONTENT  -->
