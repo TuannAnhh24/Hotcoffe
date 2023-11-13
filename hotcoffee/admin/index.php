@@ -7,22 +7,56 @@
     if (isset($_GET['act']) ){
         $act = $_GET['act'];
         switch ($act){ 
+            // ------------------------------------ Thêm danh mục ------------------------------------
             case 'adddm':
-                // kiểm tra xem người dùng có click vào nút add hay không 
-                if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
-                    $tenDanhmuc = $_POST['tenDanhmuc'];
-                    // thêm cột thêm danh_muc(name,???) và VALUES('$tenDanhmuc'. '???' )
-                    $sql= "INSERT INTO danh_muc(name) VALUES('$tenDanhmuc') ";
-                    pdo_execute($sql);
-                    $thongbao = "Thêm thành công";
-                }
-                include "danhmuc/add.php";
-                break;
+            // kiểm tra xem người dùng có click vào nút add hay không 
+            if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
+                $tenDanhmuc = $_POST['tenDanhmuc'];
+                insert_danhmuc($tenDanhmuc);
+                $thongbao = "Thêm thành công";
+            }
+            include "danhmuc/add.php";
+            break;
+            // ------------------------------------ Danh sách danh mục ------------------------------------
             case 'listdm':
-                $sql = "SELECT * FROM danh_muc order by name ";
-                $listdanhmuc = pdo_query($sql);
+                $listdanhmuc = loadall_danhmuc();
                 include "danhmuc/list.php";
                 break;
+            // ------------------------------------ Xóa danh mục ------------------------------------
+            case 'xoadm':
+                if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
+                    delete_danhmuc($_GET['id_dm']);
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "danhmuc/list.php";
+                break;
+            // ------------------------------------ khôi phục danh mục ------------------------------------
+            case 'kpdm':
+                if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
+                    khoiphuc_danhmuc($_GET['id_dm']);
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "danhmuc/list.php";
+                break;
+            // ------------------------------------ Sửa danh mục ------------------------------------
+            case 'suadm':
+                if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
+                    $dm = loadone_danhmuc($_GET['id_dm']);
+                }
+                include "danhmuc/update.php";
+                break;
+            // ------------------------------------ Cập nhật danh mục ------------------------------------    
+            case 'updatedm':
+                if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+                    $tenDanhmuc = $_POST['tenDanhmuc'];
+                    $id_dm = $_POST['id_dm'];
+                    update_danhmuc($id_dm,$tenDanhmuc);
+                    $thongbao = "cập nhật thành công";
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "danhmuc/list.php";
+                break;
+
             case "addsp":
                 if(isset($_POST['addSanpham'])&& $_POST['addSanpham']){
                     $idDm = $_POST['id_dm'];
