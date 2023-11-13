@@ -22,7 +22,6 @@
                 $listdanhmuc = loadall_danhmuc();
                 include "danhmuc/list.php";
                 break;
-<<<<<<< HEAD
             // ------------------------------------ Xóa danh mục ------------------------------------
             case 'xoadm':
                 if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
@@ -62,11 +61,6 @@
                 
             default: 
                 include "home.php";
-=======
-            case "addsp":
-                
-                include "sanpham/add.php";
->>>>>>> 253526b689d7176de967ee26523ce743550e5a52
                 break;
         }
     }else {
