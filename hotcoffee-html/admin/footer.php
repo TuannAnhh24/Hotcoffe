@@ -1,6 +1,6 @@
-<footer>
+<!-- <footer>
         <p>&copy; 2023 Coffee Shop</p>
-    </footer>
+    </footer> -->
 </body>
 
 </html>
