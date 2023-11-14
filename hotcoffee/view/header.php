@@ -10,6 +10,7 @@
     <title>Hot Coffee &#8211; Uống là Nghiền</title>
     <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Grand+Hotel|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i|Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;subset=latin-ext"
         type='text/css' media='all'>
+    <link rel="stylesheet" href="css/dk.dn.css">
     <link rel='stylesheet' href='js/vendor/revslider/settings.css' type='text/css' media='all' />
     <link rel='stylesheet' href='js/vendor/woo/woocommerce-layout.css' type='text/css' media='all' />
     <link rel='stylesheet' href='js/vendor/woo/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
@@ -30,7 +31,7 @@
 </head>
 
 <body class="home page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide preloader vc_responsive">
-    <div id="page_preloader"></div>
+    <!-- <div id="page_preloader"></div> -->
     <a id="toc_home" class="sc_anchor" title="Home" data-description="&lt;i&gt;Return to Home&lt;/i&gt; - &lt;br&gt;navigate to home page of the site" data-icon="icon-home" data-url="index.html" data-separator="yes"></a>
     <a id="toc_top" class="sc_anchor" title="To Top" data-description="&lt;i&gt;Back to top&lt;/i&gt; - &lt;br&gt;scroll to top of the page" data-icon="icon-double-up" data-url="" data-separator="yes"></a>
 
@@ -44,7 +45,7 @@
                         <div class="content_wrap">
                             <div class="contact_logo">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="images/logo.png" class="logo_main" alt="" width="128" height="124">
                                         <img src="images/alternative-logo.png" class="logo_fixed" alt="" width="161" height="47">
                                     </a>
@@ -54,12 +55,12 @@
                                 <a href="#" class="menu_main_responsive_button icon-menu"></a>
                                 <nav class="menu_main_nav_area">
                                     <ul id="menu_main" class="menu_main_nav">
-                                        <li class="menu-item current-menu-item "><a href="index.html">Trang Chủ</a></li>
+                                        <li class="menu-item current-menu-item "><a href="index.php">Trang Chủ</a></li>
 
-                                        <li class="menu-item menu-item-has-children"><a href="tables.html">Bàn</a></li>
-                                        <li class="menu-item"><a href="shop.html">Thực đơn</a></li>
-                                        <li class="menu-item"><a href="lienhe.html">Liên hệ</a></li>
-                                        <li class="menu-item"><a href="gioithieu.html">Giới thiệu</a></li>
+                                        <li class="menu-item menu-item-has-children"><a href="index.php?act=ban">Bàn</a></li>
+                                        <li class="menu-item"><a href="index.php?act=menu">Thực đơn</a></li>
+                                        <li class="menu-item"><a href="index.php?act=lienhe">Liên hệ</a></li>
+                                        <li class="menu-item"><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                                     </ul>
                                 </nav>
                                 <div class="contact_cart">
@@ -88,7 +89,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="dangnhap.html"><img src="images/dangnhap.png" class="dang_nhap"></a>
+                            <a href="index.php?act=dangnhap"><img src="images/dangnhap.png" class="dang_nhap"></a>
                         </div>
                     </div>
                 </div>

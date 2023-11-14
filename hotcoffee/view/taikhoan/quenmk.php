@@ -7,7 +7,7 @@
         <button type="submit" class="btn">Lấy Mật Khẩu</button>
         <!-- <input type="submit" class="btn" value="Lấy lại mật khẩu"> -->
         <hr class="solid">
-        <p class="chuthich">Bạn chưa có tài khoản? <a href="dangky.html" class="link">Đăng ký ngay</a>.</p>
-        <p class="chuthich">Quay lại <a href="dangnhap.html" class="link">Đăng Nhập</a>.</p>
+        <p class="chuthich">Bạn chưa có tài khoản? <a href="index.php?act=dangky" class="link">Đăng ký ngay</a>.</p>
+        <p class="chuthich">Quay lại <a href="index.php?act=dangnhap" class="link">Đăng Nhập</a>.</p>
     </form>
     <!-- END CONTENT  -->
