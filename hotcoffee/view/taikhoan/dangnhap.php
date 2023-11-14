@@ -1,12 +1,12 @@
 <!-- CONTENT  -->
-<form action="/login" method="post" class="form">
+<form action="index.php?act=dangnhap" method="post" class="form">
         <img src="images/logo.png" alt="Avatar" class="avatar">
         <h2 class="title">Đăng Nhập</h2>
         <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Nhập Email" name="email" class="common-class email" required>
+        <input type="email" placeholder="Nhập Email" name="email" class="common-class email" >
         <label for="password"><b>Mật Khẩu</b></label>
-        <input type="password" placeholder="Nhập mật khẩu" name="password" class="common-class password" required>
-        <button type="submit" class="btn">Đăng Nhập</button>
+        <input type="password" placeholder="Nhập mật khẩu" name="pass" class="common-class password" >
+        <input type="submit" name="dangnhap" class="btn" value="Đăng Nhập"></input>
         <div class="container">
             <label>
             <input type="checkbox" checked="checked" name="remember" class="checkbox"> Nhớ đăng nhập

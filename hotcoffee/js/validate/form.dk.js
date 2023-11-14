@@ -9,3 +9,12 @@ function validatePassword() {
 
     return true;
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+const profile = document.querySelector(".profile");
+const dropdownMenu = document.querySelector(".dropdown-menu");
+
+profile.addEventListener("click", function() {
+    dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+});
+});

@@ -2588,7 +2588,12 @@ body:not(.top_panel_fixed) .top_panel_position_over .top_panel_bottom {
 .top_panel_middle .contact_cart {
     position: relative;
     float: right;
-    margin: 4px 0 4px 1.2em;
+    /* margin: 4px 0 4px 1.2em; */
+}
+.contact_cart{
+    margin-right: 100px;
+    position: relative;
+    float: right;
 }
 
 .top_panel_middle .sidebar_cart {
@@ -8695,11 +8700,3 @@ button.mfp-arrow:after {
     z-index: 10043 !important;
 }
 
-.dang_nhap{
-    height: 50px;
-    width: 50px;
-    float: right;
-    margin-top: -100px;
-    position: relative; 
-    margin-right: 100px;
-}

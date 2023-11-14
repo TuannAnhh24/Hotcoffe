@@ -28,6 +28,7 @@
     <link rel='stylesheet' href='css/custom.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/core.messages.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/core.portfolio.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="css/dangnhap.css">
 </head>
 
 <body class="home page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide preloader vc_responsive">
@@ -86,12 +87,43 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <?php 
+                                    if(isset($_SESSION['email'])){
+                                ?>
+                                <!-- hiển thị ra menu con khi có email đăng nhập  -->
+                                <div class="profile">
+                                    <img src="images/dangnhap.png" class="dang_nhap">
+                                    <span class="triangle-down"></span>
+                                    <ul class = "dropdown-menu">
+                                        <li><a href="index.php?act=edit_taikhoan">Cập nhật thông tin</a></li>
+                                        <li><a href="admin/index.php">Đăng nhập admin</a></li>
+                                        <li><a href="index.php?act=thoat">Đăng xuất</a></li>
+                                    </ul>
+                                </div> 
+
+                                <?php 
+                                    }else{
+                                ?>
+                                <!-- đăng nhập không thành công hiển thị menu như bình thường  -->
+                                <a href="index.php?act=dangnhap"><img src="images/dangnhap.png" class="profile" style="width: 50px; height: 50px;"></a>
+
+                                <?php } ?>
                             </div>
                         </div>
                         <div>
-                            <a href="index.php?act=dangnhap"><img src="images/dangnhap.png" class="dang_nhap"></a>
                         </div>
                     </div>
                 </div>
             </header>
             <!-- END HEADER  -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                const profile = document.querySelector(".profile");
+                const dropdownMenu = document.querySelector(".dropdown-menu");
+            
+                profile.addEventListener("click", function() {
+                    dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+                });
+                });
+            </script>
+

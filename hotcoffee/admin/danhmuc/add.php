@@ -19,10 +19,9 @@
             <a href="index.php?act=listdm"><input class="mr20" type="button" value="DANH SÁCH"></a>
           </div>
           <?php 
-          if(isset($thongbao) && $thongbao != ""){
-            echo $thongbao;
-          }
-           
+            if(isset($thongbao) && $thongbao != ""){
+              echo $thongbao;
+            }
           ?>
         </form>
       </div>
