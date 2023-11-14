@@ -8,7 +8,7 @@
                     <option value="0" selected>Tất Cả</option>
                     <?php foreach($listdanhmuc as $danhmuc){
                         extract($danhmuc);
-                        echo '<option value="'.$id.'">'.$name.'</option>';
+                        echo '<option value="'.$id_dm.'">'.$name.'</option>';
                     } 
                 ?>
                 </select>
@@ -19,20 +19,22 @@
            <div class="row2 mb10 formds_loai">
            <table>
             <tr>
+                <th></th>
                 <th>Tên sản phẩm</th>
                 <th>Giá gốc </th>
                 <th>Giá khuyến mãi</th>
                 <th>View</th>
-                <th>Số lượng</th>
-                <th> Mô tả</th>
-                <th>ẢNh</th>
+                <th>Mô tả</th>
+                <th> Ảnh</th>
+                <th>Chức năng</th>
             </tr>
             <?php 
                 foreach($listsanpham as $sanpham){
                     extract($sanpham);
-                    $suasp = 'index.php?act=suasp&id='.$id;
-                    $xoasp = 'index.php?act=xoasp&id='.$id;
-                    $hinhpath= "../upload/".$img;
+                    $suasp = 'index.php?act=suasp&id='.$id_sp;
+                    $xoasp = 'index.php?act=deleteSp&id='.$id_sp;
+                    $ctsp = 'index.php?act=ctsp&id='.$id_sp;
+                    $hinhpath= "../images/".$img;
                     if(is_file($hinhpath)){
                         $hinh = "<img src= '".$hinhpath."' height ='100px'>";
                     }else {
@@ -45,20 +47,20 @@
                             <td>'.$gia_goc.'</td>
                             <td>'.$gia_km.'</td>
                             <td>'.$view.'</td>
-                            <td>'.$size.'</td>
-                            <td>'.$so_luong.'</td>
                             <td>'.$mo_ta.'</td>
-                            <td>'.$img.'</td>
-                            <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a>   <a href="'.$xoasp.'"><input type="button" value="Xóa"></td></a>
+                            <td> '.$hinh.'</td>
+                            
+                            <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a> | <a href="'.$xoasp.'"><input type="button" value="Xóa"></a> | <a href="'.$ctsp.'"><input type="button" value="Thêm chi tiết sản phẩm"></a></td>
                             </tr>';
                 }
             ?> 
+           
            </table>
            </div>
            <div class="row mb10 ">
          <input class="mr20" type="button" value="CHỌN TẤT CẢ">
          <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-<a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
+        <a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
            </div>
           </form>
          </div>

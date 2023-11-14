@@ -1,36 +1,20 @@
 <?php
-        function test($nameSp, $giaGoc, $giaKm, $moTa, $img, $idDm)
-            {
-                // Chèn dữ liệu vào bảng sản phẩm
-                $sql = "INSERT INTO `san_pham` (`name_sp`, `gia_goc`, `gia_km`, `mo_ta`, `img`, `id_dm`) VALUES ('$nameSp', '$giaGoc', '$giaKm', '$moTa', '$img', '$idDm')";
-                pdo_execute($sql, $nameSp, $giaGoc, $giaKm, $moTa, $img, $idDm);
 
-                // Lấy ID của bản ghi sản phẩm vừa được chèn
-                $idSp = pdo_last_insert_id();
-
-                // Chèn dữ liệu vào bảng chi tiết sản phẩm
-                $size = array(
-                    array($_POST['sizeM'], 'M'),
-                    array($_POST['sizeL'], 'L'),
-                    array($_POST['sizeXL'], 'XL'),
-                );
-
-                foreach ($size as $ss) {
-                    $sql = "INSERT INTO `ct_san_pham` ( `gia`, `size`, `id_sp`) VALUES ( $ss[0], $ss[1], $idSp)";
-                    pdo_execute($sql, $ss[0], $ss[1], $idSp);
-                }
-        }
-    function insert_sanpham($tenSp,$giaGoc,$giaKm,$view,$moTa,$img,$idDm){
-        $sql = "INSERT INTO san_pham(name_sp,gia_goc,gia_km,view,mo_ta,img,id_dm) values('$tenSp','$giaGoc','$giaKm','$view','$moTa','$img','$idDm')";
+    function insert_sanpham($tenSp,$giaGoc,$giaKm,$moTa,$img,$idDm){
+        $sql = "INSERT INTO `san_pham`(`name_sp`,`gia_goc`,`gia_km`,`mo_ta`,`img`,`id_dm`) values('$tenSp','$giaGoc','$giaKm','$moTa','$img','$idDm')";
         pdo_execute($sql);
     }
-    function insert_sanphamCT($gia,$size,$idSp){
-        $sql = "INSERT INTO ct_san_pham('gia,size,id_sp') values('$gia','$size','$idSp')";
+    function insert_sanphamCT($giaM,$idSp,$giaL,$giaXL){
+        $sql = "INSERT INTO `ct_san_pham` (`id_ct_sp`, `gia`, `size`, `id_sp`) VALUES (NULL, '$giaM', 'M', '$idSp'), (NULL, '$giaL', 'L', '$idSp'), (NULL, '$giaXL', 'XL', '$idSp')";
         pdo_execute($sql);
     }
 
     function delete_sanpham($id){
         $sql = " DELETE FROM san_pham WHERE id_sp =" .$id;
+        pdo_execute($sql);
+    }
+    function delete_Ctsanpham($id){
+        $sql = " DELETE FROM ct_san_pham WHERE id_sp IN ($id) " ;
         pdo_execute($sql);
     }
 
@@ -47,20 +31,24 @@
     }
 
     function loadall_sanpham($kyw,$iddm){
-        $sql = "SELECT * FROM san_pham WHERE 1";
+        $sql = "SELECT * FROM `san_pham` WHERE 1";
         if($kyw!=""){
             $sql.=" AND name like '%".$kyw."%'";
         }
         if($iddm>0){
-            $sql.=" AND id_dm = '".$iddm."'";
+            $sql.=" AND `id_dm` = '".$iddm."'";
         }
-        $sql.=" order by id desc";
+        $sql.=" order by id_sp desc";
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }
-
+    function loadall_CTsanpham($id){
+        $sql = 'SELECT * FROM `ct_san_pham` as A INNER JOIN `san_pham` as B ON A.id_sp = B.id_sp WHERE B.id_sp ='.$id;  
+        $dm = pdo_query_one($sql);
+        return $dm;
+    }
     function loadone_sanpham($id){
-        $sql = 'SELECT * FROM san_pham WHERE id_sp ='.$id;
+        $sql = 'SELECT * FROM `san_pham` WHERE `id_sp` ='.$id;
         $dm = pdo_query_one($sql);
         return $dm;
     }
@@ -82,12 +70,16 @@
         return $listsanpham;
     }
 
-    function update_sanpham($id,$iddm,$tenSp,$giaGoc,$giaKm,$mota,$hinhsp){
-        if($hinhsp!=""){
-            $sql = "UPDATE san_pham set id_dm='".$iddm."', name_sp='".$tenSp."',gia_goc='".$giaGoc."',gia_km='".$giaKm."',mo_ta='".$mota."',img='".$hinhsp."' WHERE id_sp=".$id;
+    function update_sanpham($idSp,$idDm,$tenSp,$giaGoc,$giaKm,$mota,$img){
+        if($img!=""){
+            $sql = "UPDATE `san_pham` SET `name_sp` = '$tenSp', `gia_goc` = '$giaGoc', `gia_km` = '$giaKm', `mo_ta` = '$mota', `img` = '$img', `id_dm` = '$idDm' WHERE `san_pham`.`id_sp` = $idSp";
         }else{
-            $sql = "UPDATE san_pham set id_dm=".$iddm.", name=".$tenSp.", gia_goc= ".$giaGoc.",gia_km= ".$giaGoc.",mo_ta='$mota' WHERE id_sp=".$id;
-        }
+            $sql = "UPDATE `san_pham` SET `name_sp` = '$tenSp', `gia_goc` = '$giaGoc', `gia_km` = '$giaKm', `mo_ta` = '$mota', `id_dm` = '$idDm' WHERE `san_pham`.`id_sp` = $idSp";
         pdo_execute($sql);
+        }
     }
+    function update_Ctsanpham($id){
+
+    }
+    
 ?>
