@@ -1,5 +1,5 @@
-
 <?php 
+    ob_start();
     session_start();
     include "view/header.php";
     include "models/taikhoan.php";
@@ -23,7 +23,9 @@
             case 'menu':
                 include "view/menu.php";
                 break;
-            // ---------------------------------------- Đăng nhập tài khoản ----------------------------------------
+                //tess
+           
+            //---------------------------------------- Đăng nhập tài khoản ----------------------------------------
             case 'dangnhap':
                 if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
                     $email = $_POST['email'];
@@ -31,7 +33,7 @@
                     $checkuser = checkuser($email,$pass);
                     if(is_array($checkuser)){
                         $_SESSION['email'] = $checkuser;
-                        header('Location: index.php');
+                        header('location: index.php');
                     }else {
                         echo "<script type='text/javascript'>alert('Tài khoản không tồn tại. Vui lòng thực hiện đăng ký tài khoản');</script>";
                     }
@@ -101,5 +103,6 @@
         include "view/home.php";
     }
     include "view/footer.php";
+    ob_end_flush();
 ?>
 

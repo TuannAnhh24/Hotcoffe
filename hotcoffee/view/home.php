@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<h1>Vcl</h1>
-=======
             <!-- CONTENT  -->
             <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_main">
                 <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
@@ -496,4 +493,3 @@
                 </div>
             </div>
             <!-- END CONTENT  -->
->>>>>>> bae89eb88faee22c2456e15ab9ecb1ab74dfc4c2
