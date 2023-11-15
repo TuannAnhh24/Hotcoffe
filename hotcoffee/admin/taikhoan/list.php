@@ -7,37 +7,38 @@
             <div class="row2 mb10 formds_loai">
                 <table>
                     <tr>
-                        <th>Tên tài khoản</th>
-                        <th>Mật Khẩu</th>
+                        <td></td>
+                        <th>Họ Tên </th>
                         <th>Email</th>
+                        <th>Mật Khẩu</th>
                         <th>Số điện thoại</th>
-                        <th>ĐỊA CHỈ</th>
+                        <th>Địa chỉ</th>
                         <th>Năm sinh</th>
                         <th>Ảnh</th>
                         <th>Giới tính</th>
-                        <th>Phân Quyền</th>
+                        <th>Vai trò</th>
                         <td></td>
                     </tr>
                     <?php 
                         foreach($listtaikhoan as $taikhoan){
                             extract($taikhoan);
-                            $xoatk = 'index.php?act=xoatk&id='.$id;
-
-                            echo ' <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td>'.$user.'</td>
-                                    <td>'.$pass.'</td>
-                                    <td>'.$email.'</td>
-                                    <td>'.$sdt.'</td>
-                                    <td>'.$dia_chi.'</td>
-                                    <td>'.$nam_sinh.'</td>
-                                    <td><img src="'.$img.'" alt=""></td>
-                                    <td>'.$gioi_tinh.'</td>
-                                    <td>'.$phan_quyen.'</td>
-                                    <td><a href="'.$xoatk.'"><input type="button" value="Xóa"></td></a>
-                                    </tr>';
-                        }
+                            $xoatk = 'index.php?act=xoatk&id_tk='.$id_tk;
                     ?> 
+                             <tr>
+                                    <td><input type="checkbox" name="" id=""></td>
+                                    <td> <?=$user?> </td>
+                                    <td> <?=$email?> </td>
+                                    <td> <?=$pass?> </td>
+                                    <td> <?=$sdt?> </td>
+                                    <td> <?=$dia_chi?> </td>
+                                    <td> <?=$nam_sinh?> </td>
+                                    <td> <img src="<?=$img?>" alt=""> </td>
+                                    <td> <?=$gioi_tinh?> </td>
+                                    <td> <?=$phan_quyen?> </td>
+                                    <td><a onclick="return confirm('Bạn có chắc muốn xóa tài khoản người dùng không?')" href="<?=$xoatk?>"><input type="button" value="Xóa"></td></a>
+                                    </tr>
+                        <?php } ?>
+                    
                 </table>
             </div>
             <div class="row mb10 ">
