@@ -50,9 +50,8 @@
                     }
                     // $listsanpham =loadall_sanpham_home($kyw,$iddm);
                     $listsanpham = load_sp($start, $limit);
-                    $listdanhmuc = loadall_danhmuc($iddm);
+                    $listdanhmuc = loadone_danhmuc($iddm);
                     include "view/menu.php";
-                    
                     break;
             
            
@@ -144,8 +143,7 @@
                 session_unset();
                 header('Location: index.php');
                 break;
-                //test
-            ;
+            
             default:
                 include "view/home.php";
                 break;

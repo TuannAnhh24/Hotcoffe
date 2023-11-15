@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
 
 <head>
@@ -7,11 +8,9 @@
 
     <link rel="icon" type="image/x-icon" href="images/favicon.png" />
     <title>Hot Coffee &#8211; Uống là Nghiền</title>
-
     <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Grand+Hotel|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i|Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;subset=latin-ext"
         type='text/css' media='all'>
     <link rel="stylesheet" href="css/dk.dn.css">
-    <link rel="stylesheet" href="css/dangnhap.css">
     <link rel='stylesheet' href='js/vendor/revslider/settings.css' type='text/css' media='all' />
     <link rel='stylesheet' href='js/vendor/woo/woocommerce-layout.css' type='text/css' media='all' />
     <link rel='stylesheet' href='js/vendor/woo/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
@@ -29,17 +28,19 @@
     <link rel='stylesheet' href='css/custom.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/core.messages.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/core.portfolio.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="css/dangnhap.css">
 </head>
 
-<body class="archive woocommerce woocommerce-page body_filled article_style_stretch layout_excerpt template_excerpt scheme_original top_panel_show top_panel_above sidebar_show sidebar_right sidebar_outer_hide preloader vc_responsive">
-<div id="page_preloader"></div>
-<a id="toc_home" class="sc_anchor" title="Home" data-description="&lt;i&gt;Return to Home&lt;/i&gt; - &lt;br&gt;navigate to home page of the site" data-icon="icon-home" data-url="index.html" data-separator="yes"></a>
-<a id="toc_top" class="sc_anchor" title="To Top" data-description="&lt;i&gt;Back to top&lt;/i&gt; - &lt;br&gt;scroll to top of the page" data-icon="icon-double-up" data-url="" data-separator="yes"></a>
+<body class="home page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide preloader vc_responsive">
+    <!-- <div id="page_preloader"></div> -->
+    <a id="toc_home" class="sc_anchor" title="Home" data-description="&lt;i&gt;Return to Home&lt;/i&gt; - &lt;br&gt;navigate to home page of the site" data-icon="icon-home" data-url="index.html" data-separator="yes"></a>
+    <a id="toc_top" class="sc_anchor" title="To Top" data-description="&lt;i&gt;Back to top&lt;/i&gt; - &lt;br&gt;scroll to top of the page" data-icon="icon-double-up" data-url="" data-separator="yes"></a>
 
-<div class="body_wrap">
-    <div class="page_wrap">
-        <div class="top_panel_fixed_wrap"></div>
-        <header class="top_panel_wrap top_panel_style_3 scheme_original">
+    <div class="body_wrap">
+        <div class="page_wrap">
+            <div class="top_panel_fixed_wrap"></div>
+            <!-- HEADER  -->
+            <header class="top_panel_wrap top_panel_style_3 scheme_original">
                 <div class="top_panel_wrap_inner top_panel_inner_style_3 top_panel_position_above">
                     <div class="top_panel_middle">
                         <div class="content_wrap">
@@ -85,7 +86,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                 </div>
+                                </div>
                                 <?php 
                                     if(isset($_SESSION['email'])){
                                         extract($_SESSION['email']);
@@ -110,14 +111,12 @@
                                 <a href="index.php?act=dangnhap"><img src="images/dangnhap.png" class="profile" style="width: 50px; height: 50px;"></a>
 
                                 <?php } ?>
-                                </div>
-                              </div>
-                            <div>
-                     </div>
-              
-                     </div>  
-                    </div>  
-        
-       
-             
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
             </header>
+            <!-- END HEADER  -->
+

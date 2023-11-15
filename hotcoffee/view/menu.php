@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-            <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
-                <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_1">
-                    <div class="content_wrap">
-                        <h1 class="page_title">Thực đơn</h1>
-                        <div class="breadcrumbs">
-                            <a class="breadcrumbs_item home" href="index.html">Home</a>
-                            <span class="breadcrumbs_delimiter"></span>
-                            <span class="breadcrumbs_item current">Thực đơn</span>
-                        </div>
-                    </div>
-                </div>
-=======
 <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
     <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_1">
         <div class="content_wrap">
@@ -19,9 +6,7 @@
                 <a class="breadcrumbs_item home" href="index.html">Home</a>
                 <span class="breadcrumbs_delimiter"></span>
                 <span class="breadcrumbs_item current">Thực đơn</span>
->>>>>>> 7fee197b7d4721b3bbcbdf5fd9b93b46b15fa2f2
             </div>
-
             <div class="page_content_wrap page_paddings_yes">
                 <div class="content_wrap">
                     <div class="content">
@@ -29,48 +14,39 @@
                             <nav class="woocommerce-breadcrumb">
                                 <a href="index.html">Home</a>&nbsp;&#47;&nbsp;Shop
                             </nav>
-                         <!-- <div class="mode_buttons">
+                            <div class="mode_buttons">
                             <form action="index.php?act=menu" method="POST">
                                 <input type="text" name="kyw"  placeholder="Từ khóa tìm kiếm">
                                 <input type="submit" name="enter" value="Tìm Kiếm">
-                            </form>
-                        </div>
+                                </form>
+                            </div>
 
                             <form class="woocommerce-ordering" method="get">
-                                <select name="iddm" class="orderby">
-                                    <?php 
-                                        foreach($listdanhmuc as $danhmuc){
-                                            extract($danhmuc);
-                                        echo "<option value='".$id_dm."'> $name </option>";
-                                        }
-                                    ?>
-                                </select>
-                                <input type="hidden" name="q" value="#" />
-                            </form> -->
-                                
+                            <select name="iddm" >
+                                <?php 
+                                    foreach($listdanhmuc as $danhmuc){
+                                        extract($danhmuc);
+                                    echo "<option value='".$id_dm."'> $name </option>";
+                                    }
+                                ?>
+                            </select>
+                            <input type="hidden" name="q" value="#" />
+                            </form>
                             <ul class="products">
                                 <?php 
                                     foreach ($listsanpham as $list){
                                         extract($list);
                                         $linksp="index.php?act=sanphamct&idsp=".$id_sp;
                                         $hinh = $img_path.$img;
-                                        $cl1 ="product has-post-thumbnail column-1_2 first sale";
-                                        $cl2 = "product has-post-thumbnail column-1_2 last";
-                                        if($id_sp ==0 || $id_sp % 2 == 0){
-                                            $cl= $cl1;
-                                        }else{
-                                            $cl = $cl2;
-                                        }
-                                echo ' 
-                                        
-                                        <li class="'.$cl.'">
+                                        echo ' 
+                                        <li class="product has-post-thumbnail column-1_2 first sale">
                                         <a href="index.php?act=sanphamCT&id" class="woocommerce-LoopProduct-link"></a>
                                         <div class="post_item_wrap">
                                             <div class="post_featured">
                                                 <div class="post_thumb">
                                                     <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
                                                         <span class="onsale">Sale!</span>
-                                                        <img  src="'.$hinh.'" class="attachment-shop_catalog size-shop_catalog"   width: "700px"; height: "700px";  />
+                                                        <img src="'.$hinh.'" class="attachment-shop_catalog size-shop_catalog"  />
                                                     </a>
                                                 </div>
                                             </div>
@@ -90,13 +66,13 @@
                                                 </ins>
                                                 </span>
                                                 <a href="#"></a>
-                                                <a rel="nofollow" href="#" data-quantity="1" data-product_id="'.$id_sp.'" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                <a rel="nofollow" href="#" data-quantity="1" data-product_id="140" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                             </div>
                                         </div>
-                                    </li> ';
-                          
-                            }
+                                    </li>';
+                                    }
                                 ?>
+                               
                             </ul>
                             <!-- phân trang -->
                             <nav id="pagination" class="pagination_wrap pagination_pages">
@@ -124,41 +100,6 @@
                                 
                             </nav>
                         </div>
-<<<<<<< HEAD
-                    </div>               
-                    <div class="sidebar widget_area scheme_original" role="complementary">
-                        <div class="sidebar_inner widget_area_inner">
-                            <aside class="widget widget_text">
-                               
-                            </aside>
-                            <aside class="widget woocommerce widget_product_categories">
-                                <h5 class="widget_title">Loại</h5>
-                                <ul class="product-categories">
-                                    <li class="cat-item">
-                                        <a href="#">Cà phê</a>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Đồ ăn</a>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">rượu</a>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Thịt chó</a>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">All</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <aside class="widget woocommerce widget_top_rated_products">
-                                <h5 class="widget_title"> Sản phẩm bán chạy</h5>
-                                <ul class="product_list_widget">
-                                    <li>
-                                        <a href="sanphamChitiet.html" title="Smooth Iced Coffee">
-                                            <img src="images/2000x2000.png" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" />
-                                            <span class="product-title">Smooth Iced Coffee</span>
-=======
                     </div>
 
                     <!-- <form class="woocommerce-ordering" method="get">
@@ -293,11 +234,6 @@
                     </nav>
                 </div>
             </div>
-<<<<<<< HEAD
-          
-            
-            <!-- END CONTENT  -->
-=======
             <div class="sidebar widget_area scheme_original" role="complementary">
                 <div class="sidebar_inner widget_area_inner">
                     <!-- <aside class="widget widget_text">
