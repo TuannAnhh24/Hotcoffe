@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Đăng Nhập</title>
+    <link rel="stylesheet" href="css/dk.dn.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <title>Hot Coffee &#8211; Uống là Nghiền</title>
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Grand+Hotel|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i|Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;subset=latin-ext"
+        type='text/css' media='all'>
+    <link rel='stylesheet' href='js/vendor/revslider/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='js/vendor/woo/woocommerce-layout.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='js/vendor/woo/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' href='js/vendor/woo/woocommerce.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/fontello/css/fontello.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/core.animation.css' type='text/css' media='all' />
+    <!-- <link rel='stylesheet' href='css/shortcodes.css' type='text/css' media='all' /> -->
+    <link rel='stylesheet' href='js/vendor/woo/plugin.woocommerce.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/skin.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/doc-style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/skin.responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='js/vendor/comp/comp.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/custom.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/core.messages.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/core.portfolio.css' type='text/css' media='all' />
+</head>
+
+<body>
+    <!-- HEADER  -->
+    <header class="top_panel_wrap top_panel_style_3 scheme_original">
+        <div class="top_panel_wrap_inner top_panel_inner_style_3 top_panel_position_above">
+            <div class="top_panel_middle">
+                <div class="content_wrap">
+                    <div class="contact_logo">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="images/logo.png" class="logo_main" alt="" width="128" height="124">
+                                <img src="images/alternative-logo.png" class="logo_fixed" alt="" width="161" height="47">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="menu_main_wrap">
+                        <a href="#" class="menu_main_responsive_button icon-menu"></a>
+                        <nav class="menu_main_nav_area">
+                            <ul id="menu_main" class="menu_main_nav">
+                                <li class="menu-item current-menu-item "><a href="index.html">Trang Chủ</a></li>
+
+                                <li class="menu-item menu-item-has-children"><a href="tables.html">Bàn</a></li>
+                                <li class="menu-item"><a href="shop.html">Thực đơn</a></li>
+                                <li class="menu-item"><a href="lienhe.html">Liên hệ</a></li>
+                                <li class="menu-item"><a href="gioithieu.html">Giới thiệu</a></li>
+                            </ul>
+                        </nav>
+                        <div class="contact_cart">
+                            <a href="#" class="top_panel_cart_button" data-items="0" data-summa="&#036;0.00">
+                                <span class="contact_icon icon-shopping"></span>
+                                <span class="contact_label contact_cart_label">Giỏ hàng:</span>
+                                <span class="contact_cart_totals">
+                                <span class="cart_items">0 món</span> -
+                                <span class="cart_summa"> 0 VNĐ</span>
+                                </span>
+                            </a>
+                            <ul class="widget_area sidebar_cart sidebar">
+                                <li>
+                                    <div class="widget woocommerce widget_shopping_cart">
+                                        <div class="hide_cart_widget_if_empty">
+                                            <div class="widget_shopping_cart_content">
+                                                <ul class="cart_list product_list_widget ">
+                                                    <li class="empty">Không có vật phẩm trong giỏ hàng</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="dangnhap.html"><img src="images/dangnhap.png" class="dang_nhap"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER  -->
+
+    <!-- CONTENT  -->
+    <form action="/login" method="post" class="form">
+        <img src="images/logo.png" alt="Avatar" class="avatar">
+        <h2 class="title">Đăng Nhập</h2>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Nhập Email" name="email" class="common-class email" required>
+        <label for="password"><b>Mật Khẩu</b></label>
+        <input type="password" placeholder="Nhập mật khẩu" name="password" class="common-class password" required>
+        <button type="submit" class="btn">Đăng Nhập</button>
+        <div class="container">
+            <label>
+            <input type="checkbox" checked="checked" name="remember" class="checkbox"> Nhớ đăng nhập
+        </label>
+            <span class="psw"><a href="quenmk.html" class="link">Quên mật khẩu?</a></span>
+        </div>
+        <hr>
+        <p>Bạn chưa có tài khoản? <a href="dangky.html" class="link">Đăng ký ngay</a>.</p>
+    </form>
+    <!-- END CONTENT  -->
+
+  <!-- FOOTER  -->
+  <footer class="contacts_wrap scheme_original">
+    <div class="contacts_wrap_inner">
+        <div class="content_wrap">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo_footer.png" class="logo_footer" alt="" width="95" height="90">
+                </a>
+            </div>
+            <div class="contacts_address">
+                <div class="about_company">
+                    "Ở đây, cà phê không chỉ là một đồ uống, mà còn là một phong cách sống. Hãy tham gia vào cộng đồng của chúng tôi và tận hưởng!"
+                </div>
+                <address class="address_right">
+                Phone: 090-456-7890<br>
+                Fax: 889-988-6789
+            </address>
+                <address class="address_left">
+                Hà Nội,Hoàn Kiếm 110000<br>
+                99, Đâu đó
+            </address>
+            </div>
+            <div class="sc_socials sc_socials_type_icons sc_socials_shape_square sc_socials_size_medium">
+                <div class="sc_socials_item">
+                    <a href="#" target="_blank" class="social_icons social_twitter">
+                        <span class="icon-twitter"></span>
+                    </a>
+                </div>
+                <div class="sc_socials_item">
+                    <a href="#" target="_blank" class="social_icons social_facebook">
+                        <span class="icon-facebook"></span>
+                    </a>
+                </div>
+                <div class="sc_socials_item">
+                    <a href="#" target="_blank" class="social_icons social_gplus">
+                        <span class="icon-gplus"></span>
+                    </a>
+                </div>
+                <div class="sc_socials_item">
+                    <a href="#" target="_blank" class="social_icons social_linkedin">
+                        <span class="icon-linkedin"></span>
+                    </a>
+                </div>
+                <div class="sc_socials_item">
+                    <a href="#" target="_blank" class="social_icons social_skype">
+                        <span class="icon-skype"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER  -->
+</body>
+
+</html>

@@ -50,7 +50,7 @@
                     }
                     // $listsanpham =loadall_sanpham_home($kyw,$iddm);
                     $listsanpham = load_sp($start, $limit);
-                    $listdanhmuc = loadone_danhmuc($iddm);
+                    $listdanhmuc = loadall_danhmuc($iddm);
                     include "view/menu.php";
                     break;
             
