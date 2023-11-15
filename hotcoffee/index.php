@@ -4,9 +4,16 @@
     include "view/header.php";
     include "models/taikhoan.php";
     include "models/pdo.php";
+<<<<<<< HEAD
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
+=======
+
+    ini_set("SMTP", "smtp.example.com" ); // Địa chỉ máy chủ SMTP
+    ini_set("smtp_port", "25" ); // Cổng SMTP
+    ini_set("sendmail_from", "minhnhat24422@gmail.com"); // Email của bạn
+>>>>>>> 08111445c526f8207b79b589069c5c562e0094da
     
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];
@@ -108,15 +115,34 @@
                 break;
             // ---------------------------------------- Quên mật khẩu ----------------------------------------    
             case 'quenmk':
+                // if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
+                //     $email = $_POST['email'];
+                //     $checkemail = checkemail($email);
+                //     if(is_array(checkemail($email))){
+                //         $thongbao = "Mật khẩu của bạn là:".$checkemail['pass'];
+                //     }else{
+                //         $thongbao = "Email này không tồn tại";
+                //     }
+                // }
+                // include "view/taikhoan/quenmk.php";
+                // break;
                 if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
-                    $email = $_POST['guiemail'];
+                    $email = $_POST['email'];
                     $checkemail = checkemail($email);
                     if(is_array(checkemail($email))){
-                        $thongbao = "Mật khẩu của bạn là:".$checkemail['pass'];
-                    }else{
-                        $thongbao = "Email này không tồn tại";
-                    }
-                }
+                        $password = $checkemail['pass']; // Lấy mật khẩu từ cơ sở dữ liệu
+                        $subject = "Mật khẩu của bạn";
+                        $message = "Đây là mật khẩu của bạn: $password. Vui lòng đăng nhập và thay đổi mật khẩu.";
+                        $headers = "From: minhnhat24422@gmail.com";
+                        if (mail($email, $subject, $message, $headers)) {
+                            $thongbao = "Email đã được gửi thành công đến $email";
+                        } else {
+                            $thongbao = "Có lỗi xảy ra khi gửi email.";
+                        }
+                        } else {
+                            $thongbao = "Email này không tồn tại";
+                        }
+                    } 
                 include "view/taikhoan/quenmk.php";
                 break;
             // ---------------------------------------- Đăng xuất tài khoản ----------------------------------------

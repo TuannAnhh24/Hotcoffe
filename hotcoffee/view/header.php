@@ -89,6 +89,7 @@
                                 </div>
                                 <?php 
                                     if(isset($_SESSION['email'])){
+                                        extract($_SESSION['email']);
                                 ?>
                                 <!-- hiển thị ra menu con khi có email đăng nhập  -->
                                 <div class="profile">
@@ -96,7 +97,9 @@
                                     <span class="triangle-down"></span>
                                     <ul class = "dropdown-menu">
                                         <li><a href="index.php?act=edit_taikhoan">Cập nhật thông tin</a></li>
-                                        <li><a href="admin/index.php">Đăng nhập admin</a></li>
+                                        <?php if($phan_quyen == 1){ ?>
+                                            <li><a href="admin/index.php">Đăng nhập admin</a></li>
+                                        <?php } ?>
                                         <li><a href="index.php?act=thoat">Đăng xuất</a></li>
                                     </ul>
                                 </div> 

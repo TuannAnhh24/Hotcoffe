@@ -3,6 +3,7 @@
     include "../models/sanpham.php";
     include "../models/pdo.php";
     include "../models/danhmuc.php";
+    include "../models/taikhoan.php";
     //controller
     if (isset($_GET['act']) ){
         $act = $_GET['act'];
@@ -31,13 +32,13 @@
                 include "danhmuc/list.php";
                 break;
             // ------------------------------------ khôi phục danh mục ------------------------------------
-            case 'kpdm':
-                if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
-                    khoiphuc_danhmuc($_GET['id_dm']);
-                }
-                $listdanhmuc = loadall_danhmuc();
-                include "danhmuc/list.php";
-                break;
+            // case 'kpdm':
+            //     if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
+            //         khoiphuc_danhmuc($_GET['id_dm']);
+            //     }
+            //     $listdanhmuc = loadall_danhmuc();
+            //     include "danhmuc/list.php";
+            //     break;
             // ------------------------------------ Sửa danh mục ------------------------------------
             case 'suadm':
                 if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
@@ -90,7 +91,7 @@
                 $listdanhmuc = loadall_danhmuc();
                 include "sanpham/add.php";
                 break;
-                 // ------------------------------------  ------------------------------------
+                 // ------------------------------------ Chi tiết sản phẩm   ------------------------------------
             case 'ctsp':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     $chitietSanpham = loadone_sanpham($_GET['id']);
@@ -114,7 +115,7 @@
                    
                   include "sanpham/addCt.php";
                 break;
-
+                // ------------------------------------ Sửa sản phẩm ------------------------------------
                 case 'suasp':
                     if(isset($_GET['id'])&&($_GET['id']>0)){
                         $chitietSanpham = loadone_sanpham($_GET['id']);
@@ -145,14 +146,27 @@
                 $listsanpham= loadall_sanpham("",0);
                 include "sanpham/list.php";
                 break;
+            // ------------------------------------ Xóa sản phẩm ------------------------------------
             case 'deleteSp':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     delete_Ctsanpham($_GET['id']);
                     delete_sanpham($_GET['id']);
-                    
                 }
                 $listsanpham= loadall_sanpham("",0);
                 include "sanpham/list.php";
+                break;
+            // ------------------------------------ Danh sách tài khoản  ------------------------------------
+            case 'dskh':
+                $listtaikhoan= loadall_taikhoan();
+                include "taikhoan/list.php";
+                break;
+            // ------------------------------------ Xóa tài khoản  ------------------------------------
+            case 'xoatk':
+                if(isset($_GET['id_tk']) && ($_GET['id_tk'] > 0)){
+                    delete_taikhoan($_GET['id_tk']);
+                }
+                $listtaikhoan= loadall_taikhoan();
+                include "taikhoan/list.php";
                 break;
         }
     }else {
