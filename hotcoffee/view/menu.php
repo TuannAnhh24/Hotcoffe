@@ -1,4 +1,4 @@
-<div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
+            <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
                 <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_1">
                     <div class="content_wrap">
                         <h1 class="page_title">Thực đơn</h1>
@@ -10,6 +10,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="page_content_wrap page_paddings_yes">
                 <div class="content_wrap">
                     <div class="content">
@@ -17,39 +18,48 @@
                             <nav class="woocommerce-breadcrumb">
                                 <a href="index.html">Home</a>&nbsp;&#47;&nbsp;Shop
                             </nav>
-                            <div class="mode_buttons">
+                         <!-- <div class="mode_buttons">
                             <form action="index.php?act=menu" method="POST">
                                 <input type="text" name="kyw"  placeholder="Từ khóa tìm kiếm">
                                 <input type="submit" name="enter" value="Tìm Kiếm">
-                                </form>
-                            </div>
+                            </form>
+                        </div>
 
                             <form class="woocommerce-ordering" method="get">
-                            <select name="iddm" >
-                                <?php 
-                                    foreach($listdanhmuc as $danhmuc){
-                                        extract($danhmuc);
-                                    echo "<option value='".$id_dm."'> $name </option>";
-                                    }
-                                ?>
-                            </select>
-                            <input type="hidden" name="q" value="#" />
-                            </form>
+                                <select name="iddm" class="orderby">
+                                    <?php 
+                                        foreach($listdanhmuc as $danhmuc){
+                                            extract($danhmuc);
+                                        echo "<option value='".$id_dm."'> $name </option>";
+                                        }
+                                    ?>
+                                </select>
+                                <input type="hidden" name="q" value="#" />
+                            </form> -->
+                                
                             <ul class="products">
                                 <?php 
                                     foreach ($listsanpham as $list){
                                         extract($list);
                                         $linksp="index.php?act=sanphamct&idsp=".$id_sp;
                                         $hinh = $img_path.$img;
-                                        echo ' 
-                                        <li class="product has-post-thumbnail column-1_2 first sale">
+                                        $cl1 ="product has-post-thumbnail column-1_2 first sale";
+                                        $cl2 = "product has-post-thumbnail column-1_2 last";
+                                        if($id_sp ==0 || $id_sp % 2 == 0){
+                                            $cl= $cl1;
+                                        }else{
+                                            $cl = $cl2;
+                                        }
+                                echo ' 
+                                        
+                                        <li class="'.$cl.'">
                                         <a href="index.php?act=sanphamCT&id" class="woocommerce-LoopProduct-link"></a>
                                         <div class="post_item_wrap">
                                             <div class="post_featured">
                                                 <div class="post_thumb">
                                                     <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
                                                         <span class="onsale">Sale!</span>
-                                                        <img src="'.$hinh.'" class="attachment-shop_catalog size-shop_catalog"  />
+                                                        <img  src="'.$hinh.'" class="attachment-shop_catalog size-shop_catalog"   width: "700px"; height: "700px";  />
                                                     </a>
                                                 </div>
                                             </div>
@@ -69,13 +79,13 @@
                                                 </ins>
                                                 </span>
                                                 <a href="#"></a>
-                                                <a rel="nofollow" href="#" data-quantity="1" data-product_id="140" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                <a rel="nofollow" href="#" data-quantity="1" data-product_id="'.$id_sp.'" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                             </div>
                                         </div>
-                                    </li>';
-                                    }
+                                    </li> ';
+                          
+                            }
                                 ?>
-                               
                             </ul>
                             <!-- phân trang -->
                             <nav id="pagination" class="pagination_wrap pagination_pages">
@@ -103,33 +113,11 @@
                                 
                             </nav>
                         </div>
-                    </div>
+                    </div>               
                     <div class="sidebar widget_area scheme_original" role="complementary">
                         <div class="sidebar_inner widget_area_inner">
                             <aside class="widget widget_text">
-                                <h5 class="widget_title">Đăng Nhập</h5>
-                                <div class="textwidget">
-                                    <form class="mc4wp-form mc4wp-form-422" method="post" data-id="422" data-name="">
-                                        <div class="mc4wp-form-fields">
-                                            <p>
-                                                <label>Nhập email của bạn để đăng nhập</label>
-                                                <input type="email" name="EMAIL" placeholder="Địa chỉ E-mail" required /> <br> <br>
-                                                <input type="password" name="password" placeholder="Nhập mật khẩu" required />
-                                            </p>
-                                            <p>
-                                                <input type="submit" value="Đăng Nhập" /><br>
-                                                <a href="#"><label for="">Đăng ký tài khoản</label></a>
-                                            </p>
-                                            <div class="hideblock">
-                                                <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" />
-                                            </div>
-                                            <input type="hidden" name="_mc4wp_timestamp" value="1497855810" />
-                                            <input type="hidden" name="_mc4wp_form_id" value="422" />
-                                            <input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" />
-                                        </div>
-                                        <div class="mc4wp-response"></div>
-                                    </form>
-                                </div>
+                               
                             </aside>
                             <aside class="widget woocommerce widget_product_categories">
                                 <h5 class="widget_title">Loại</h5>
@@ -222,4 +210,6 @@
                     </div>
                 </div>
             </div>
+          
+            
             <!-- END CONTENT  -->
