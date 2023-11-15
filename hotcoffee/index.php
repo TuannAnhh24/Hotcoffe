@@ -4,6 +4,9 @@
     include "view/header.php";
     include "models/taikhoan.php";
     include "models/pdo.php";
+    include "models/sanpham.php";
+    include "models/danhmuc.php";
+    include "global.php";
     
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];
@@ -19,11 +22,38 @@
             case 'lienhe':
                 include "view/lienhe.php";
                 break;
-
-            case 'menu':
-                include "view/menu.php";
-                break;
-                //tess
+         case 'menu':
+                    //phân page
+                    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $limit = 4;
+                    $total_records = get_total_products();
+                    $total_records = intval($total_records);
+                    $total_page = ceil($total_records / $limit);
+                    if ($current_page > $total_page){
+                        $current_page = $total_page;
+                    }
+                    else if ($current_page < 1){
+                        $current_page = 1;
+                    }
+                    $start = ($current_page - 1) * $limit;
+                    $dssp = load_sp($start,$limit);
+                    //
+                    if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
+                        $kyw = $_POST['kyw'];
+                    }else{
+                        $kyw= "";
+                    }
+                    if(isset($_GET['iddm'])&&$_GET['iddm']>0){
+                        $iddm =$_GET['iddm']; 
+                    }else{
+                        $iddm = 0;
+                    }
+                    // $listsanpham =loadall_sanpham_home($kyw,$iddm);
+                    $listsanpham = load_sp($start, $limit);
+                    $listdanhmuc = loadone_danhmuc($iddm);
+                    include "view/menu.php";
+                    break;
+            
            
             //---------------------------------------- Đăng nhập tài khoản ----------------------------------------
             case 'dangnhap':

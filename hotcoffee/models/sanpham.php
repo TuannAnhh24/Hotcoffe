@@ -81,5 +81,14 @@
     function update_Ctsanpham($id){
 
     }
-    
+    function load_sp($start, $limit){
+        $sql = "SELECT * FROM san_pham LIMIT $start, $limit";
+        $listsp = pdo_query($sql);
+        return $listsp;
+    }
+  
+    function get_total_products(){
+        $sql = "SELECT COUNT(*) as total FROM san_pham";
+        return pdo_query_value($sql);
+    }
 ?>

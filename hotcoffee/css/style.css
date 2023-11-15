@@ -2590,7 +2590,8 @@ body:not(.top_panel_fixed) .top_panel_position_over .top_panel_bottom {
     float: right;
     /* margin: 4px 0 4px 1.2em; */
 }
-.contact_cart{
+
+.contact_cart {
     margin-right: 100px;
     position: relative;
     float: right;
@@ -4930,7 +4931,6 @@ blockquote cite {
 
 .pagination_lessons .pager_prev {
     float: left;
-    margin-right: 2em;
     margin-top: 1em;
 }
 
@@ -8699,4 +8699,3 @@ button.mfp-arrow:after {
 .mfp-wrap {
     z-index: 10043 !important;
 }
-
