@@ -1,4 +1,5 @@
-<?php  
+<?php 
+    ob_start();
     session_start();
     include "view/header.php";
     include "models/taikhoan.php";
@@ -6,7 +7,11 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7fee197b7d4721b3bbcbdf5fd9b93b46b15fa2f2
+    
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];
         switch ($act) {
@@ -153,6 +158,6 @@
         include "view/home.php";
     }
     include "view/footer.php";
-   
+    ob_end_flush();
 ?>
 
