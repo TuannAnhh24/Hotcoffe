@@ -3,7 +3,7 @@
                 <div class="contacts_wrap_inner">
                     <div class="content_wrap">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img src="images/logo_footer.png" class="logo_footer" alt="" width="95" height="90">
                             </a>
                         </div>

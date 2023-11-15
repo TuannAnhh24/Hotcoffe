@@ -4,7 +4,7 @@
                     <div class="content_wrap">
                         <h1 class="page_title">Giới thiệu</h1>
                         <div class="breadcrumbs">
-                            <a class="breadcrumbs_item home" href="index.html">Home</a>
+                            <a class="breadcrumbs_item home" href="index.php">Home</a>
                             <span class="breadcrumbs_delimiter"></span>
                             <span class="breadcrumbs_item current">Giới thiệu</span>
                         </div>
@@ -33,7 +33,7 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <a href="shop.html" class="sc_button sc_button_square sc_button_style_border_1 sc_button_size_large margin_top_medium">Xem menu</a>
+                                                            <a href="index.php?act=menu" class="sc_button sc_button_square sc_button_style_border_1 sc_button_size_large margin_top_medium">Xem menu</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -137,7 +137,7 @@
                                                 </div>
                                                 <div class="sc_section aligncenter">
                                                     <div class="sc_section_inner">
-                                                        <a href="shop.html" class="sc_button sc_button_square sc_button_style_border_1 sc_button_size_large margin_top_large margin_bottom_large">Xem menu</a>
+                                                        <a href="index.php?act=menu" class="sc_button sc_button_square sc_button_style_border_1 sc_button_size_large margin_top_large margin_bottom_large">Xem menu</a>
                                                     </div>
                                                 </div>
                                             </div>

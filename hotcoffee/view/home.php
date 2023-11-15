@@ -357,14 +357,14 @@
                                                                 <li data-index="rs-4" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
                                                                     <img src="images/transparent.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                                                     <div class="tp-caption Hotcoffee-style-7 tp-resizeme" id="slide-4-layer-1" data-x="643" data-y="238" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
-                                                                        data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">Trà Đá</div>
+                                                                        data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">Cappuccino</div>
                                                                     <div class="tp-caption Hotcoffee-style-8 tp-resizeme" id="slide-4-layer-2" data-x="645" data-y="359" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
                                                                         data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                                                                        Chè khô <br/> Thái Nguyên
+                                                                        Cà phê <br/> Cappuccino
                                                                     </div>
                                                                     <div class="tp-caption Hotcoffee-style-9 tp-resizeme" id="slide-4-layer-3" data-x="645" data-y="454" data-width="['auto']" data-height="['auto']" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;"
                                                                         data-transform_out="opacity:0;s:500;s:500;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                                                                        Thưởng thức hương vị tinh tế trong tuyển chọn trà đá của chúng tôi<br/> và bắt đầu ngày mới với hương vị thơm ngon của một tách trà đá<br/> đậm đà đầy thú vị
+                                                                        Cốc cà phê Cappuccino của chúng tôi là sự kết hợp tinh tế giữa <br> espresso địa phương và sữa tươi.Hãy thưởng thức và cảm nhận sự <br> hòa quyện tuyệt vời của chúng tôi.
                                                                     </div>
                                                                     <div class="tp-caption no-style" id="slide-4-layer-4" data-x="654" data-y="565" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
                                                                         data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off">
@@ -372,7 +372,7 @@
                                                                     </div>
                                                                     <div class="tp-caption tp-resizeme" id="slide-4-layer-5" data-x="70" data-y="205" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-transform_idle="o:1;" data-transform_in="x:-50px;opacity:0;s:500;e:Power2.easeInOut;"
                                                                         data-transform_out="x:-50px;opacity:0;s:500;s:500;" data-start="500" data-responsive_offset="on">
-                                                                        <img src="images/tra-da-2.jpg" alt="" width="524" height="523" data-ww="524px" data-hh="523px" data-no-retina>
+                                                                        <img src="images/Cappuccino.jpg" alt="" width="524" height="523" data-ww="524px" data-hh="523px" data-no-retina>
                                                                     </div>
                                                                     <div class="tp-caption tp-resizeme" id="slide-4-layer-6" data-x="649" data-y="118" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;"
                                                                         data-transform_out="opacity:0;s:500;s:500;" data-start="500" data-responsive_offset="on">
@@ -382,14 +382,14 @@
                                                                 <li data-index="rs-5" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
                                                                     <img src="images/transparent.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                                                     <div class="tp-caption Hotcoffee-style-7 tp-resizeme" id="slide-5-layer-1" data-x="643" data-y="238" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
-                                                                        data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">Nhân Trần</div>
+                                                                        data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">Coffee Sữa</div>
                                                                     <div class="tp-caption Hotcoffee-style-8 tp-resizeme" id="slide-5-layer-2" data-x="645" data-y="359" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
                                                                         data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                                                                        Ngon <br/> Bổ rẻ
+                                                                        Cà phê <br/> Sữa Đá
                                                                     </div>
                                                                     <div class="tp-caption Hotcoffee-style-9 tp-resizeme" id="slide-5-layer-3" data-x="645" data-y="454" data-width="['auto']" data-height="['auto']" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;"
                                                                         data-transform_out="opacity:0;s:500;s:500;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                                                                        Vị ngọt tinh tế của nhân trần được <br/> kết hợp với đá <br/> để thưởng thức
+                                                                        Sự kết hợp hoàn hảo giữa vị đắng của cà phê đen và vị ngọt nhẹ của sữa tươi. <br> Vị cà phê đậm đà hòa quyện cùng vị sữa ngọt ngào, tạo nên một hương vị độc đáo. <br> Cùng với đó là lớp đá lạnh giúp giữ cho cốc cà phê luôn tươi mát.
                                                                     </div>
                                                                     <div class="tp-caption no-style" id="slide-5-layer-4" data-x="654" data-y="565" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
                                                                         data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off">
@@ -401,20 +401,20 @@
                                                                     </div>
                                                                     <div class="tp-caption tp-resizeme" id="slide-5-layer-7" data-x="49" data-y="62" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-transform_idle="o:1;" data-transform_in="x:-50px;opacity:0;s:500;e:Power2.easeInOut;"
                                                                         data-transform_out="x:-50px;opacity:0;s:500;s:500;" data-start="500" data-responsive_offset="on">
-                                                                        <img src="images/nhantran.jpg" alt="" width="571" height="699" data-ww="571px" data-hh="699px" data-no-retina>
+                                                                        <img src="images/sua_da.jpg" alt="" width="571" height="699" data-ww="571px" data-hh="699px" data-no-retina>
                                                                     </div>
                                                                 </li>
                                                                 <li data-index="rs-6" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
                                                                     <img src="images/transparent.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                                                     <div class="tp-caption Hotcoffee-style-7 tp-resizeme" id="slide-6-layer-1" data-x="643" data-y="238" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
-                                                                        data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">Espresso</div>
+                                                                        data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">Macchiato</div>
                                                                     <div class="tp-caption Hotcoffee-style-8 tp-resizeme" id="slide-6-layer-2" data-x="645" data-y="359" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
                                                                         data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                                                                        ESPRESSO BLEND <br/> Locally Roasted
+                                                                        Cà Phê <br/> Macchiato
                                                                     </div>
                                                                     <div class="tp-caption Hotcoffee-style-9 tp-resizeme" id="slide-6-layer-3" data-x="645" data-y="454" data-width="['auto']" data-height="['auto']" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;"
                                                                         data-transform_out="opacity:0;s:500;s:500;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                                                                        Every cup is a performance of throroughly pressured hot <br/> water through the finest delicious and finely <br/> ground compacted coffee
+                                                                        Cà phê espresso đậm đà được pha chế tỉ mỉ, tạo nên lớp nền hoàn hảo. <br> Lớp sữa tươi ngon miệng được đánh bọt mềm mịn, tạo thành một “mũ” trắng mịn <br> trên đỉnh cốc cà phê. Và cuối cùng, một giọt cà phê espresso được rải lên trên, tạo nên <br> dấu ấn đặc trưng - “đốm” (macchia) - cho Macchiato.
                                                                     </div>
                                                                     <div class="tp-caption no-style" id="slide-6-layer-4" data-x="654" data-y="565" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:500;s:500;"
                                                                         data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off">
@@ -426,7 +426,7 @@
                                                                     </div>
                                                                     <div class="tp-caption tp-resizeme" id="slide-6-layer-8" data-x="68" data-y="156" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-transform_idle="o:1;" data-transform_in="x:-50px;opacity:0;s:500;e:Power2.easeInOut;"
                                                                         data-transform_out="x:-50px;opacity:0;s:500;s:500;" data-start="500" data-responsive_offset="on">
-                                                                        <img src="images/2000x2000.png" alt="" width="487" height="471" data-ww="487px" data-hh="471px" data-no-retina>
+                                                                        <img src="images/machiato.jpg" alt="" width="487" height="471" data-ww="487px" data-hh="471px" data-no-retina>
                                                                     </div>
                                                                 </li>
                                                             </ul>
