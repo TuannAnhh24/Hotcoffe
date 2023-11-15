@@ -4,10 +4,16 @@
     include "view/header.php";
     include "models/taikhoan.php";
     include "models/pdo.php";
+<<<<<<< HEAD
+    include "models/sanpham.php";
+    include "models/danhmuc.php";
+    include "global.php";
+=======
 
     ini_set("SMTP", "smtp.example.com" ); // Địa chỉ máy chủ SMTP
     ini_set("smtp_port", "25" ); // Cổng SMTP
     ini_set("sendmail_from", "minhnhat24422@gmail.com"); // Email của bạn
+>>>>>>> 08111445c526f8207b79b589069c5c562e0094da
     
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];
@@ -23,11 +29,38 @@
             case 'lienhe':
                 include "view/lienhe.php";
                 break;
-
-            case 'menu':
-                include "view/menu.php";
-                break;
-                //tess
+         case 'menu':
+                    //phân page
+                    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $limit = 4;
+                    $total_records = get_total_products();
+                    $total_records = intval($total_records);
+                    $total_page = ceil($total_records / $limit);
+                    if ($current_page > $total_page){
+                        $current_page = $total_page;
+                    }
+                    else if ($current_page < 1){
+                        $current_page = 1;
+                    }
+                    $start = ($current_page - 1) * $limit;
+                    $dssp = load_sp($start,$limit);
+                    //
+                    if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
+                        $kyw = $_POST['kyw'];
+                    }else{
+                        $kyw= "";
+                    }
+                    if(isset($_GET['iddm'])&&$_GET['iddm']>0){
+                        $iddm =$_GET['iddm']; 
+                    }else{
+                        $iddm = 0;
+                    }
+                    // $listsanpham =loadall_sanpham_home($kyw,$iddm);
+                    $listsanpham = load_sp($start, $limit);
+                    $listdanhmuc = loadone_danhmuc($iddm);
+                    include "view/menu.php";
+                    break;
+            
            
             //---------------------------------------- Đăng nhập tài khoản ----------------------------------------
             case 'dangnhap':
