@@ -7,10 +7,6 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
-<<<<<<< HEAD
-
-=======
->>>>>>> 7fee197b7d4721b3bbcbdf5fd9b93b46b15fa2f2
     
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];

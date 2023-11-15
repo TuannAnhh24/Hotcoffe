@@ -181,7 +181,6 @@
                                         <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
                                             <span class="onsale">Sale!</span>
                                             <img src="images/2000x2000.png" class="attachment-shop_catalog size-shop_catalog" alt="americano" title="americano" />
->>>>>>> 7fee197b7d4721b3bbcbdf5fd9b93b46b15fa2f2
                                         </a>
                                     </div>
                                 </div>
@@ -419,4 +418,3 @@
     </div>
     <!-- END CONTENT  -->
 
->>>>>>> 7fee197b7d4721b3bbcbdf5fd9b93b46b15fa2f2
