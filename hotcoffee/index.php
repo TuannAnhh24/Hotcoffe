@@ -4,16 +4,9 @@
     include "view/header.php";
     include "models/taikhoan.php";
     include "models/pdo.php";
-<<<<<<< HEAD
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
-=======
-
-    ini_set("SMTP", "smtp.example.com" ); // Địa chỉ máy chủ SMTP
-    ini_set("smtp_port", "25" ); // Cổng SMTP
-    ini_set("sendmail_from", "minhnhat24422@gmail.com"); // Email của bạn
->>>>>>> 08111445c526f8207b79b589069c5c562e0094da
     
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];

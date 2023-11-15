@@ -49,8 +49,7 @@
                             <td>'.$view.'</td>
                             <td>'.$mo_ta.'</td>
                             <td> '.$hinh.'</td>
-                            
-                            <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a> | <a href="'.$xoasp.'"><input type="button" value="Xóa"></a> | <a href="'.$ctsp.'"><input type="button" value="Thêm chi tiết sản phẩm"></a></td>
+                            <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a> | <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa không?\')"><input type="button" value="Xóa"></a> | <a href="'.$ctsp.'"><input type="button" value="Thêm chi tiết sản phẩm"></a></td>
                             </tr>';
                 }
             ?> 

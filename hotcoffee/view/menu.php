@@ -7,23 +7,6 @@
                 <span class="breadcrumbs_delimiter"></span>
                 <span class="breadcrumbs_item current">Thực đơn</span>
             </div>
-<<<<<<< HEAD
-        </div>
-    </div>
-</div>
-    <div class="page_content_wrap page_paddings_yes">
-        <div class="content_wrap">
-            <div class="content">
-                <div class="list_products shop_mode_thumbs">
-                    <nav class="woocommerce-breadcrumb">
-                        <a href="index.html">Home</a>&nbsp;&#47;&nbsp;Shop
-                    </nav>
-                    <div class="mode_buttons">
-                        <form action="#" method="post">
-                            <input type="text" placeholder="Tìm kiếm">
-                            <input type="submit" value="Tìm kiếm">
-                        </form>
-=======
             <div class="page_content_wrap page_paddings_yes">
                 <div class="content_wrap">
                     <div class="content">
@@ -117,7 +100,6 @@
                                 
                             </nav>
                         </div>
->>>>>>> d1fdad490a7c9061114acb77c6a2daab0963af0e
                     </div>
 
                     <!-- <form class="woocommerce-ordering" method="get">
