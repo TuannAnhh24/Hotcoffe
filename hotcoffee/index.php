@@ -119,82 +119,46 @@
                 break;
             // ---------------------------------------- Quên mật khẩu ----------------------------------------    
             case 'quenmk':
-                // ---------------------------------cách 1----------------------------------
-                // if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
-                //     $email = $_POST['email'];
-                //     $checkemail = checkemail($email);
-                //     if(is_array(checkemail($email))){
-                //         $thongbao = "Mật khẩu của bạn là:".$checkemail['pass'];
-                //     }else{
-                //         $thongbao = "Email này không tồn tại";
-                //     }
-                // }
-                // include "view/taikhoan/quenmk.php";
-                // break;
-                // ----------------------------------cách 2--------------------------------
-                // if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
-                //     $email = $_POST['email'];
-                //     $checkemail = checkemail($email);
-                //     if(is_array(checkemail($email))){
-                //         $password = $checkemail['pass']; // Lấy mật khẩu từ cơ sở dữ liệu
-                //         $subject = "Mật khẩu của bạn";
-                //         $message = "Đây là mật khẩu của bạn: $password. Vui lòng đăng nhập và thay đổi mật khẩu.";
-                //         $headers = "From: minhnhat24422@gmail.com";
-                //         if (mail($email, $subject, $message, $headers)) {
-                //             $thongbao = "Email đã được gửi thành công đến $email";
-                //         } else {
-                //             $thongbao = "Có lỗi xảy ra khi gửi email.";
-                //         }
-                //         } else {
-                //             $thongbao = "Email này không tồn tại";
-                //         }
-                //     } 
-                
-                    
+                if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
+                    $email = $_POST['email'];
+                    $checkemail = checkemail($email);
+                    extract($checkemail);
+                    if(is_array(checkemail($email))){
+                        //Create an instance; passing `true` enables exceptions
+                        $mail = new PHPMailer(true);
+                        try {
+                            //Server settings
+                            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;       //xuất thông tin chi tiết về quá trình gửi email
+                            $mail->isSMTP();                                      //Send using SMTP
+                            $mail->Host       = 'smtp.gmail.com';                 //Set the SMTP server to send through
+                            $mail->SMTPAuth   = true;                             //Enable SMTP authentication
+                            $mail->Username   = 'anhntph42639@fpt.edu.vn';        //Địa chỉ người gửi
+                            $mail->Password   = 'vfelxjjakhsacbyu';               //SMTP password
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;      //Enable implicit TLS encryption
+                            $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-                    if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
-                        $email = $_POST['email'];
-                        $checkemail = checkemail($email);
-                        // var_dump($checkemail);
-                        
-                        if(is_array(checkemail($email))){
-                            //Create an instance; passing `true` enables exceptions
-                            $mail = new PHPMailer(true);
+                            //người nhận
+                            $mail->setFrom('anhntph42639@fpt.edu.vn', 'TuanAnhh');        //  địa chỉ người gửi
+                            $mail->addAddress($_POST['email']);                          //địa chỉ người nhận
+                            // $mail->addReplyTo('info@example.com', 'Information');
 
-                            try {
-                                //Server settings
-                                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-                                $mail->isSMTP();                                            //Send using SMTP
-                                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                                $mail->Username   = 'anhntph42639@fpt.edu.vn';                     //SMTP username
-                                $mail->Password   = 'vfelxjjakhsacbyu';                               //SMTP password
-                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                            //file đính kèm
+                            // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
-                                //Recipients
-                                $mail->setFrom('anhntph42639@fpt.edu.vn', 'TuanAnhh');
-                                $mail->addAddress('minhnhat24422@gmail.com');               //Name is optional
-                                // $mail->addReplyTo('info@example.com', 'Information');
+                            //Content
+                            $mail->isHTML(true);                                  //Set email format to HTML
+                            $mail->Subject = 'Hello '.$_POST['email'].' ';
+                            $mail->Body    = 'Nhận thấy bạn đang không nhớ được <b>Mật Khẩu!</b> đăng nhập của mình Chúng tôi quyết định cấp lại cho bạn mật khẩu đăng nhập qua email!!! Mật khẩu của bạn là: '.$pass.' ';
+                            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-                                //Attachments
-                                // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-                                // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
-                                //Content
-                                $mail->isHTML(true);                                  //Set email format to HTML
-                                $mail->Subject = 'Hello minhnhat24422@gmail.com';
-                                $mail->Body    = 'Nhận thấy bạn đang không nhớ được <b>Mật Khẩu!</b> đăng nhập của mình Chúng tôi quyết định cấp lại cho bạn mật khẩu đăng nhập qua email!!! Mật khẩu của bạn là: 123 ';
-                                $mail->AltBody = '';
-
-                                $mail->send();
-                                echo 'Message has been sent';
-                            } catch (Exception $e) {
-                                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-                            }
+                            $mail->send();
+                            echo "<script type='text/javascript'>alert('Vui lòng kiểm tra hộp thư');</script>";
+                        } catch (Exception $e) {
+                            echo "<script type='text/javascript'>alert('Vui lòng đăng ký tài khoản');</script>";
                         }
                     }
-                    
+                }
                 include "view/taikhoan/quenmk.php";
                 break;
             // ---------------------------------------- Đăng xuất tài khoản ----------------------------------------
