@@ -2,11 +2,11 @@
 <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
                 <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_1">
                     <div class="content_wrap">
-                        <h1 class="page_title">Thực đơn</h1>
+                        <h1 class="page_title">MENU</h1>
                         <div class="breadcrumbs">
                             <a class="breadcrumbs_item home" href="index.php">Home</a>
                             <span class="breadcrumbs_delimiter"></span>
-                            <span class="breadcrumbs_item current">Thực đơn</span>
+                            <span class="breadcrumbs_item current">Menu</span>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                                             echo ' 
                                             
                                             <li class="cat-item">
-                                                    <a href="index.php?act=danhmuc&id_dm='.$id_dm.'" value ="'.$id_dm.'">'.$name.'</a>
+                                                    <a href="index.php?act=menu&id_dm='.$id_dm.'" ">'.$name.'</a>
                                             </li>';
                                         }
                                     ?>

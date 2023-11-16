@@ -17,7 +17,7 @@
     // }
 
     function loadall_danhmuc(){
-        $sql = "SELECT * FROM danh_muc order by name ";
+        $sql = "SELECT * FROM danh_muc order by  name ";
         $listdanhmuc = pdo_query($sql);
         return $listdanhmuc;
     }
@@ -26,6 +26,16 @@
         $sql = "SELECT * FROM danh_muc WHERE id_dm=".$id_dm;
         $dm = pdo_query_one($sql);
         return $dm;
+    }
+    function load_tendm($id_dm){
+        if($id_dm > 0){
+            $sql="SELECT * FROM `danh_muc` where `id_dm` = $id_dm" ;
+            $dm =pdo_query_one($sql);
+            extract($dm);
+            return $name;
+        }else{
+            return "";
+        } 
     }
 
     function update_danhmuc($id_dm,$tenDanhmuc){

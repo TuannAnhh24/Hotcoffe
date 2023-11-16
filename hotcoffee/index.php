@@ -7,7 +7,7 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
-    
+    $listdanhmuc= loadall_danhmuc();
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];
         switch ($act) {
@@ -25,7 +25,7 @@
          case 'menu':
                     //phân page
                     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-                    $limit = 4;
+                    $limit = 6;
                     $total_records = get_total_products();
                     $total_records = intval($total_records);
                     $total_page = ceil($total_records / $limit);
@@ -36,21 +36,15 @@
                         $current_page = 1;
                     }
                     $start = ($current_page - 1) * $limit;
-                    $dssp = load_sp($start,$limit);
                     //
-                    if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
-                        $kyw = $_POST['kyw'];
+                    if(isset($_GET['id_dm'])&&$_GET['id_dm']>0){
+                        $id_dm =$_GET['id_dm']; 
                     }else{
-                        $kyw= "";
+                        $id_dm = 0;
                     }
-                    if(isset($_GET['iddm'])&&$_GET['iddm']>0){
-                        $iddm =$_GET['iddm']; 
-                    }else{
-                        $iddm = 0;
-                    }
-                    // $listsanpham =loadall_sanpham_home($kyw,$iddm);
-                    $listsanpham = load_sp($start, $limit);
-                    $listdanhmuc = loadall_danhmuc($iddm);
+                 
+                    $listsanpham = load_sp($start, $limit,$id_dm);
+                    $tendanhmuc = load_tendm($id_dm);
                     include "view/menu.php";
                     break;
             

@@ -81,8 +81,13 @@
     function update_Ctsanpham($id){
 
     }
-    function load_sp($start, $limit){
-        $sql = "SELECT * FROM san_pham LIMIT $start, $limit";
+    //phân trang
+    function load_sp($start, $limit,$id_dm=0){
+        $sql = "SELECT * FROM `san_pham` WHERE 1";
+        if($id_dm >0){
+         $sql.=" AND `id_dm` = $id_dm";   
+        } 
+        $sql.=" LIMIT $start, $limit";
         $listsp = pdo_query($sql);
         return $listsp;
     }
