@@ -45,7 +45,7 @@
                                         <div class="post_item_wrap">
                                             <div class="post_featured">
                                                 <div class="post_thumb">
-                                                    <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                    <a class="hover_icon hover_icon_link" href="index.php?atc=spct&idsp='.$id_sp.'">
                                                         <span class="onsale">Sale!</span>
                                                         <img  src="'.$hinh.'" class="attachment-shop_catalog size-shop_catalog"   width: "700px"; height: "700px";  />
                                                     </a>
@@ -94,9 +94,12 @@
                                 </nav>
                         </div>
                     </div>
+
+
+
+                    <!-- loại sản phẩm -->
                     <div class="sidebar widget_area scheme_original" role="complementary">
                         <div class="sidebar_inner widget_area_inner">
-                           
                             <aside class="widget woocommerce widget_product_categories">
                                 <h5 class="widget_title">Loại</h5>
                                 <ul class="product-categories">
@@ -114,41 +117,37 @@
                                     
                                 </ul>
                             </aside>
+
+
+
+                            <!-- san phảm bán chạy -->
                             <aside class="widget woocommerce widget_top_rated_products">
                                 <h5 class="widget_title"> Sản phẩm bán chạy</h5>
                                 <ul class="product_list_widget">
-                                    <li>
-                                        <a href="sanphamChitiet.html" title="Smooth Iced Coffee">
-                                            <img src="images/2000x2000.png" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" />
-                                            <span class="product-title">Smooth Iced Coffee</span>
-                                        </a>
-                                        <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">&#36;</span>15.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="sanphamChitiet.html" title="Mac&amp;Cheese Panini">
-                                            <img src="images/2000x2000.png" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" />
-                                            <span class="product-title">Mac&Cheese Panini</span>
-                                        </a>
-                                        <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">&#36;</span>14.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="sanphamChitiet.html" title="Americano">
-                                            <img src="images/2000x2000.png" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" />
-                                            <span class="product-title">Americano</span>
-                                        </a>
-                                        <del>
-                                        <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">&#36;</span>10.00</span>
-                                    </del>
-                                        <ins>
-                                        <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>7.00</span>
-                                    </ins>
-                                    </li>
+                                    <?php 
+                                        foreach ($spBanchay as $sp){
+                                            extract($sp);
+                                            $linksp= "index.php?act=sanphamct&id_sp=".$id_sp;
+                                            $img1 = $img_path.$img;
+                                              
+                                            echo '
+                                            <li>
+                                            <a href="'.$linksp.'" title="'.$name.'">
+                                                <img src="'.$img1.'" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" />
+                                                <span class="product-title">'.$name_sp.'</span>
+                                            </a>
+                                            <span class="woocommerce-Price-amount amount">
+                                            <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'</span>
+                                        </li>';
+                                        }
+                                        ?>
                                 </ul>
-                            </aside>
+                                
+                             </aside>
+
+
+
+
                             <aside class="widget widget_socials">
                                 <h5 class="widget_title">Theo dõi chúng tôi</h5>
                                 <div class="widget_inner">

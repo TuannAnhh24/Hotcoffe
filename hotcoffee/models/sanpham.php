@@ -24,8 +24,8 @@
         return $listsanpham;
     }
 
-    function loadall_sanpham_top10(){
-        $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY view desc limit 0,10";
+    function loadall_sanpham_banchay(){
+        $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY view desc limit 0,5";
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }

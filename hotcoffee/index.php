@@ -7,7 +7,8 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
-    $listdanhmuc = loadall_danhmuc();
+    $listdanhmuc= loadall_danhmuc();
+    $spBanchay = loadall_sanpham_banchay();
     //Import PHPMailer classes into the global namespace
     //These must be at the top of your script, not inside a function
     use PHPMailer\PHPMailer\PHPMailer;
