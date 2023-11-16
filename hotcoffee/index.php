@@ -7,9 +7,7 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
-<<<<<<< HEAD
-    $listdanhmuc= loadall_danhmuc();
-=======
+    $listdanhmuc = loadall_danhmuc();
     //Import PHPMailer classes into the global namespace
     //These must be at the top of your script, not inside a function
     use PHPMailer\PHPMailer\PHPMailer;
@@ -22,7 +20,6 @@
     require 'PHPMailer-master/src/PHPMailer.php';
     require 'PHPMailer-master/src/SMTP.php';
     
->>>>>>> c1ff4ce4da6c77279399e03f7ef82c8fbdf21dea
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];
         switch ($act) {
