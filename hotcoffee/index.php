@@ -7,7 +7,22 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "global.php";
+<<<<<<< HEAD
     $listdanhmuc= loadall_danhmuc();
+=======
+    //Import PHPMailer classes into the global namespace
+    //These must be at the top of your script, not inside a function
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    //Load Composer's autoloader
+    // require 'vendor/autoload.php';
+    require 'PHPMailer-master/src/Exception.php';
+    require 'PHPMailer-master/src/PHPMailer.php';
+    require 'PHPMailer-master/src/SMTP.php';
+    
+>>>>>>> c1ff4ce4da6c77279399e03f7ef82c8fbdf21dea
     if(isset($_GET['act']) && ($_GET['act']!="")){
         $act = $_GET['act'];
         switch ($act) {
@@ -102,34 +117,46 @@
                 break;
             // ---------------------------------------- Quên mật khẩu ----------------------------------------    
             case 'quenmk':
-                // if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
-                //     $email = $_POST['email'];
-                //     $checkemail = checkemail($email);
-                //     if(is_array(checkemail($email))){
-                //         $thongbao = "Mật khẩu của bạn là:".$checkemail['pass'];
-                //     }else{
-                //         $thongbao = "Email này không tồn tại";
-                //     }
-                // }
-                // include "view/taikhoan/quenmk.php";
-                // break;
                 if(isset($_POST['guiemail']) && ($_POST['guiemail'])){
                     $email = $_POST['email'];
                     $checkemail = checkemail($email);
+                    extract($checkemail);
                     if(is_array(checkemail($email))){
-                        $password = $checkemail['pass']; // Lấy mật khẩu từ cơ sở dữ liệu
-                        $subject = "Mật khẩu của bạn";
-                        $message = "Đây là mật khẩu của bạn: $password. Vui lòng đăng nhập và thay đổi mật khẩu.";
-                        $headers = "From: minhnhat24422@gmail.com";
-                        if (mail($email, $subject, $message, $headers)) {
-                            $thongbao = "Email đã được gửi thành công đến $email";
-                        } else {
-                            $thongbao = "Có lỗi xảy ra khi gửi email.";
+                        //Create an instance; passing `true` enables exceptions
+                        $mail = new PHPMailer(true);
+                        try {
+                            //Server settings
+                            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;       //xuất thông tin chi tiết về quá trình gửi email
+                            $mail->isSMTP();                                      //Send using SMTP
+                            $mail->Host       = 'smtp.gmail.com';                 //Set the SMTP server to send through
+                            $mail->SMTPAuth   = true;                             //Enable SMTP authentication
+                            $mail->Username   = 'anhntph42639@fpt.edu.vn';        //Địa chỉ người gửi
+                            $mail->Password   = 'vfelxjjakhsacbyu';               //SMTP password
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;      //Enable implicit TLS encryption
+                            $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                            //người nhận
+                            $mail->setFrom('anhntph42639@fpt.edu.vn', 'TuanAnhh');        //  địa chỉ người gửi
+                            $mail->addAddress($_POST['email']);                          //địa chỉ người nhận
+                            // $mail->addReplyTo('info@example.com', 'Information');
+
+                            //file đính kèm
+                            // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+                            //Content
+                            $mail->isHTML(true);                                  //Set email format to HTML
+                            $mail->Subject = 'Hello '.$_POST['email'].' ';
+                            $mail->Body    = 'Nhận thấy bạn đang không nhớ được <b>Mật Khẩu!</b> đăng nhập của mình Chúng tôi quyết định cấp lại cho bạn mật khẩu đăng nhập qua email!!! Mật khẩu của bạn là: '.$pass.' ';
+                            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                            $mail->send();
+                            echo "<script type='text/javascript'>alert('Vui lòng kiểm tra hộp thư');</script>";
+                        } catch (Exception $e) {
+                            echo "<script type='text/javascript'>alert('Vui lòng đăng ký tài khoản');</script>";
                         }
-                        } else {
-                            $thongbao = "Email này không tồn tại";
-                        }
-                    } 
+                    }
+                }
                 include "view/taikhoan/quenmk.php";
                 break;
             // ---------------------------------------- Đăng xuất tài khoản ----------------------------------------
