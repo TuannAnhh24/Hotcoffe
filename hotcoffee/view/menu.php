@@ -28,7 +28,7 @@
                                 <?php 
                                     foreach ($listsanpham as $list){
                                         extract($list);
-                                        $linksp="index.php?act=sanphamct&idsp=".$id_sp;
+                                        $linksp="index.php?act=sanphamct&id_sp=".$id_sp;
                                         $hinh = $img_path.$img;
                                         $cl1 ="product has-post-thumbnail column-1_2 first sale";
                                         $cl2 = "product has-post-thumbnail column-1_2 last";
@@ -45,7 +45,7 @@
                                         <div class="post_item_wrap">
                                             <div class="post_featured">
                                                 <div class="post_thumb">
-                                                    <a class="hover_icon hover_icon_link" href="index.php?atc=spct&idsp='.$id_sp.'">
+                                                    <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp='.$id_sp.'">
                                                         <span class="onsale">Sale!</span>
                                                         <img  src="'.$hinh.'" class="attachment-shop_catalog size-shop_catalog"   width: "700px"; height: "700px";  />
                                                     </a>

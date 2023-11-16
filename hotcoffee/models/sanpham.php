@@ -53,9 +53,9 @@
         return $dm;
     }
 
-    function load_ten_dm($iddm){
-        if($iddm>0){
-            $sql = 'SELECT * FROM danh_muc WHERE id_sp ='.$iddm;
+    function load_ten_dm($idsp){
+        if($idsp>0){
+            $sql = 'SELECT * FROM danh_muc WHERE id_sp ='.$idsp;
             $dm = pdo_query_one($sql);
             extract($dm);
             return $name;
@@ -64,8 +64,8 @@
         }
     }
 
-    function load_sanpham_cungloai($id,$iddm){
-        $sql = "SELECT * FROM san_pham WHERE id_dm=".$iddm." AND id <>".$id;
+    function loadone_sanpham_cungloai($id_sp,$id_dm){
+        $sql = "SELECT * FROM san_pham WHERE id_dm=".$id_dm." AND id_sp <>".$id_sp;
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }
@@ -78,8 +78,10 @@
         pdo_execute($sql);
         }
     }
-    function update_Ctsanpham($id){
-
+    function loaddm_Ctsanpham($id_sp){
+        $sql = "SELECT * FROM san_pham  INNER JOIN danh_muc  ON san_pham.id_dm = danh_muc.id_dm WHERE san_pham.id_sp = '.$id_sp.' ";  
+       $loaddm = pdo_execute($sql);
+       return $loaddm;
     }
     //phân trang
     function load_sp($start, $limit,$id_dm=0){
@@ -93,7 +95,18 @@
     }
   
     function get_total_products(){
-        $sql = "SELECT COUNT(*) as total FROM san_pham";
+        $sql = "SELECT COUNT(*) as total FROM san_pham ";
+        return pdo_query_value($sql);
+    }
+
+    function load_spCL($start, $limit,$id_dm=0){
+        $sql = "SELECT * FROM `san_pham` WHERE `id_dm` = $id_dm";
+        $sql.=" LIMIT $start, $limit";
+        $listsp = pdo_query($sql);
+        return $listsp;
+    }
+    function get_total_productsCL($id_dm){
+        $sql = "SELECT COUNT(*) as total FROM san_pham WHERE id_dm = $id_dm";
         return pdo_query_value($sql);
     }
 ?>

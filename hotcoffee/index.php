@@ -35,6 +35,7 @@
             case 'lienhe':
                 include "view/lienhe.php";
                 break;
+                // ---------------------------------------- MENU ----------------------------------------
          case 'menu':
                     //phân page
                     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -60,7 +61,36 @@
                     $tendanhmuc = load_tendm($id_dm);
                     include "view/menu.php";
                     break;
-            
+            // ---------------------------------------- Sản phẩm chi tiết ----------------------------------------
+            case 'spct': 
+                
+                if(isset($_GET['id_sp'])&&$_GET['id_sp']>0){
+                    $id_sp =$_GET['id_sp']; 
+                    $onesp = loadone_sanpham($id_sp);
+                    $onedm =  loaddm_Ctsanpham(number_format($id_sp));
+                    extract($onesp);
+                    $sp_cung_loai = loadone_sanpham_cungloai($id_sp,$id_dm);
+
+                    //phân page
+                    $current_page = isset($_GET['pageNho']) ? $_GET['pageNho'] : 1;
+                    $limit =4;
+                    $total_records = get_total_productsCL($id_dm);
+                    $total_records = intval($total_records);
+                    $total_page = ceil($total_records / $limit);
+                    if ($current_page > $total_page){
+                        $current_page = $total_page;
+                    }
+                    else if ($current_page < 1){
+                        $current_page = 1;
+                    }
+                    $start = ($current_page - 1) * $limit;
+                    $listsanphamCL = load_spCL($start, $limit,$id_dm);
+                        include "view/sanphamCt.php";   
+                }else{
+                    include "view/home.php";
+                }
+                break;
+                
            
             //---------------------------------------- Đăng nhập tài khoản ----------------------------------------
             case 'dangnhap':
