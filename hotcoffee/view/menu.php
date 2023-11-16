@@ -1,12 +1,10 @@
 <div class="archive woocommerce woocommerce-page body_filled article_style_stretch layout_excerpt template_excerpt scheme_original top_panel_show top_panel_above sidebar_show sidebar_right sidebar_outer_hide preloader vc_responsive">
-
-
 <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
                 <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_1">
                     <div class="content_wrap">
                         <h1 class="page_title">Thực đơn</h1>
                         <div class="breadcrumbs">
-                            <a class="breadcrumbs_item home" href="index.html">Home</a>
+                            <a class="breadcrumbs_item home" href="index.php">Home</a>
                             <span class="breadcrumbs_delimiter"></span>
                             <span class="breadcrumbs_item current">Thực đơn</span>
                         </div>
@@ -18,7 +16,7 @@
                     <div class="content">
                         <div class="list_products shop_mode_thumbs">
                             <nav class="woocommerce-breadcrumb">
-                                <a href="index.html">Home</a>&nbsp;&#47;&nbsp;Shop
+                                <a href="index.php">Home</a>&nbsp;&#47;&nbsp;Shop
                             </nav>
                             <div class="mode_buttons">
                            
