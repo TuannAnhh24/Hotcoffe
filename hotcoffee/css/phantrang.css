@@ -1,0 +1,95 @@
+.pagination_wrap {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 3em;
+}
+.pagination_wrap {
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #d5dedf;
+    margin-top: 3.3em;
+    padding-top: 3.3em;
+}
+
+nav {
+    display: block;
+}
+.pagination_single>.pager_numbers, .pagination_single a:hover, .pagination_slider .pager_cur:hover, .pagination_slider .pager_cur:focus, .pagination_pages>.active, .pagination_pages>a:hover {
+    color: #009f3b;
+}
+.pagination_single > .pager_numbers, .pagination_single a:hover, .pagination_slider .pager_cur:hover, .pagination_slider .pager_cur:focus, .pagination_pages > .active, .pagination_pages > a:hover {
+    background-color: #ffffff;
+    margin-top: 3px;
+}
+.pagination_single > .pager_numbers, .pagination_single a, .pagination_slider .pager_cur, .pagination_pages > a, .pagination_pages > span {
+    color: #d4dedf;
+}
+.pagination_single > .pager_numbers, .pagination_single a, .pagination_slider .pager_cur, .pagination_pages > a, .pagination_pages > span {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    text-align: center;
+    padding: 0 1px 1px 0;
+    font-size: 0.875em;
+    line-height: 3em;
+    width: 3em;
+    height: 3em;
+    vertical-align: top;
+}
+.pagination_single > .pager_numbers, .pagination_single a, .pagination_slider .pager_cur, .pagination_pages > a, .pagination_pages > span {
+    border: 2px solid #d5dedf;
+    position: relative;
+}
+.pagination_slider .pager_cur:hover:after, .pagination_slider .pager_cur:focus:after, .pagination_pages>.active:after, .pagination_pages>a:hover:after {
+    border-color: #009f3b;
+}
+.pagination_single > .pager_numbers:after, .pagination_single a:after, .pagination_slider .pager_cur:after, .pagination_pages > a:after, .pagination_pages > span:after {
+    border: 2px solid transparent;
+    border-radius: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: -4px;
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.pagination_single>.pager_numbers, .pagination_single a:hover, .pagination_slider .pager_cur:hover, .pagination_slider .pager_cur:focus, .pagination_pages>.active, .pagination_pages>a:hover {
+    color: #009f3b;
+}
+.pagination_single > .pager_numbers, .pagination_single a, .pagination_slider .pager_cur, .pagination_pages > a, .pagination_pages > span {
+    color: #d4dedf;
+}
+.pagination_single > .pager_numbers, .pagination_single a, .pagination_slider .pager_cur, .pagination_pages > a, .pagination_pages > span {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    text-align: center;
+    padding: 0 1px 1px 0;
+    font-size: 0.875em;
+    line-height: 3em;
+    width: 3em;
+    height: 3em;
+    vertical-align: top;
+}
+a, .scheme_dark a, .scheme_light a {
+    color: #009f3b;
+}
+a, button {
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+a, a:hover, a:focus, a:active {
+    outline: 0;
+}
+a {
+    text-decoration: none;
+    background: transparent;
+}
