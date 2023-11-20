@@ -55,9 +55,13 @@
                         $id_dm =$_GET['id_dm']; 
                     }else{
                         $id_dm = 0;
+                    }if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
+                        $kyw = $_POST['kyw'];
+                    }else{
+                        $kyw= "";
                     }
                  
-                    $listsanpham = load_sp($start, $limit,$id_dm);
+                    $listsanpham = load_sp($start, $limit,$id_dm,$kyw);
                     $tendanhmuc = load_tendm($id_dm);
                     include "view/menu.php";
                     break;

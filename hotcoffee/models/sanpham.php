@@ -84,12 +84,17 @@
        return $loaddm;
     }
     //phân trang
-    function load_sp($start, $limit,$id_dm=0){
+    function load_sp($start, $limit,$id_dm=0,$kyw=""){
         $sql = "SELECT * FROM `san_pham` WHERE 1";
+        if($kyw!=""){
+            $sql.=" AND `name_sp` like '%$kyw%' ";
+        }
         if($id_dm >0){
          $sql.=" AND `id_dm` = $id_dm";   
         } 
+        $sql.=" order by id_sp desc";
         $sql.=" LIMIT $start, $limit";
+       
         $listsp = pdo_query($sql);
         return $listsp;
     }

@@ -18,17 +18,21 @@
                             <nav class="woocommerce-breadcrumb">
                                 <a href="index.php">Home</a>&nbsp;&#47;&nbsp;Shop
                             </nav>
+                            <!-- --------Tìm kIếm---------- -->
                             <div class="mode_buttons">
-                           
-                        </div>
-
+                            <form action="index.php?act=menu" method="POST">
+                                <input type="text" name="kyw"  placeholder="Từ khóa tìm kiếm">
+                                <input type="submit" name="enter" value="Tìm Kiếm">
+                            </form>
+                            </div> 
+                          <!--List sản phẩm -->
                             <input type="hidden" name="q" value="#" />
                             </form>
                             <ul class="products">
                                 <?php 
                                     foreach ($listsanpham as $list){
                                         extract($list);
-                                        $linksp="index.php?act=sanphamct&id_sp=".$id_sp;
+                                        $linksp="index.php?act=spct&id_sp=".$id_sp;
                                         $hinh = $img_path.$img;
                                         $cl1 ="product has-post-thumbnail column-1_2 first sale";
                                         $cl2 = "product has-post-thumbnail column-1_2 last";
@@ -41,7 +45,7 @@
                                         echo ' 
                                         
                                         <li class="'.$cl.'">
-                                        <a href="index.php?act=sanphamCT&id" class="woocommerce-LoopProduct-link"></a>
+                                        <a href="index.php?act=spct&id_sp" class="woocommerce-LoopProduct-link"></a>
                                         <div class="post_item_wrap">
                                             <div class="post_featured">
                                                 <div class="post_thumb">
@@ -70,12 +74,10 @@
                                                 <a rel="nofollow" href="#" data-quantity="1" data-product_id="'.$id_sp.'" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                             </div>
                                         </div>
-                                    </li> ';
-                          
-                            }
+                                    </li> ';}
                                 ?>
                             </ul>
-                             
+                             <!----------------------- Phân trang ----------------------->
                             <nav id="pagination" class="pagination_wrap pagination_pages">
                             <?php
 							 if ($current_page > 1 && $total_page > 1){
@@ -95,9 +97,7 @@
                         </div>
                     </div>
 
-
-
-                    <!-- loại sản phẩm -->
+                    <!----------------- Danh mục sản phẩm ------------------------>
                     <div class="sidebar widget_area scheme_original" role="complementary">
                         <div class="sidebar_inner widget_area_inner">
                             <aside class="widget woocommerce widget_product_categories">
@@ -117,10 +117,7 @@
                                     
                                 </ul>
                             </aside>
-
-
-
-                            <!-- san phảm bán chạy -->
+                            <!------------------------- Sản phảm bán chạy --------------------------->
                             <aside class="widget woocommerce widget_top_rated_products">
                                 <h5 class="widget_title"> Sản phẩm bán chạy</h5>
                                 <ul class="product_list_widget">

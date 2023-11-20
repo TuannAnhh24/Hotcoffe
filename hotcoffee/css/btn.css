@@ -1,0 +1,62 @@
+/* Thêm CSS để thay đổi giao diện khi nút được chọn */
+
+.cup-size-selecto {
+    display: flex;
+    justify-content: space-around;
+}
+
+.khungSize {
+    display: inline-block;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid green;
+}
+
+.khungSize {
+    color: #FFFFFF;
+}
+
+.khungSize .sizeCoc {
+    align-items: center;
+    appearance: button;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.0802685px 0.160537px 0px;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 20px;
+    height: 50px;
+    width: 50px;
+    place-content: normal center;
+    place-items: center normal;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 20px;
+}
+
+.khungSize.clicked {
+    background-color: #F39C12;
+}
+
+
+/* Thêm CSS để định dạng nút khi được chọn */
+
+.cup-size-btn.active {
+    background-color: #ffcc00;
+    /* Màu sắc khi nút được chọn */
+    color: #fff;
+    /* Màu văn bản khi nút được chọn */
+    /* Thêm các thuộc tính CSS khác tùy thuộc vào thiết kế của bạn */
+}
