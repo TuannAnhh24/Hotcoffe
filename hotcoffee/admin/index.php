@@ -58,16 +58,33 @@
                 include "danhmuc/list.php";
                 break;
                  // ------------------------------------ Danh sách sản phẩm --------------------------------
-            case 'listSp':     
-                if(isset($_POST['listok'])&&($_POST['listok'])){
-                    $kyw = $_POST['kyw'];
-                    $iddm= $_POST['iddanhmuc'];
-                }else{
-                    $kyw = "";
-                    $iddm= 0;
-                }
-                $listdanhmuc= loadall_danhmuc();
-                $listsanpham= loadall_sanpham($kyw,$iddm);
+            case 'listSp':    
+              //phân page
+              $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+              $limit = 6;
+              $total_records = get_total_products();
+              $total_records = intval($total_records);
+              $total_page = ceil($total_records / $limit);
+              if ($current_page > $total_page){
+                  $current_page = $total_page;
+              }
+              else if ($current_page < 1){
+                  $current_page = 1;
+              }
+              $start = ($current_page - 1) * $limit;
+              //
+              if(isset($_GET['id_dm'])&&$_GET['id_dm']>0){
+                  $id_dm =$_GET['id_dm']; 
+              }else{
+                  $id_dm = 0;
+              }if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
+                  $kyw = $_POST['kyw'];
+              }else{
+                  $kyw= "";
+              }
+           
+              $listsanpham = load_sp($start, $limit,$id_dm,$kyw);
+              $tendanhmuc = load_tendm($id_dm);
                 include "sanpham/list.php";
                 break;
                   // ------------------------------------ Thêm sản phẩm ------------------------------------   
