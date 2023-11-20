@@ -26,6 +26,9 @@
     <link rel='stylesheet' href='../hotcoffee/css/core.messages.css' type='text/css' media='all' />
     <link rel='stylesheet' href='../hotcoffee/css/core.portfolio.css' type='text/css' media='all' />
     <link rel='stylesheet' href='../hotcoffee/css/giohang.css' type='text/css' media='all' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
     
     
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
@@ -92,60 +95,67 @@
             <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
                 <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_5">
                     <div class="content_wrap">
-                        <h1 class="page_title">Thanh Toán</h1>
+                        <h1 class="page_title">Chi tiết đơn hàng</h1>
                         <div class="breadcrumbs">
                             <a class="breadcrumbs_item home" href="index.html">Home</a>
                             <span class="breadcrumbs_delimiter"></span>
-                            <span class="breadcrumbs_item current">Thanh Toán</span>
+                            <span class="breadcrumbs_item current">Chi tiết đơn hàng</span>
                         </div>
                     </div>
                 </div>
             </div>
-        <div class="don_hang">
-            <div class="diachi">
-                <h3>Thông tin cá nhân</h3>
-                <div class="row">
-                    Họ và tên<br>
-                    <input type="text" placeholder="Họ Tên" required>
-                </div>
-                <div class="row">
-                    Số điện thoại<br>
-                    <input type="text" placeholder="Số điện thoại" required>
-                </div>
-                <div class="row">
-                    Địa chỉ của bạn<br>
-                    <input type="text" placeholder="Địa chỉ" required>
-                </div>
-                
+            <div class="chi_tiet_hang_hoa">
+                <table class="bang">
+                    <tr class="dong">
+                        <th class="cot">Mã đơn</th>
+                        <th class="cot">Ngày tạo</th>
+                        <th class="cot">Khách hàng</th>
+                        <th class="cot">Tổng tiền</th>
+                        <th class="cot">Trạng thái</th>
+                    </tr>
+                    <tr class="dong">
+                        <td class="cot">001</td>
+                        <td class="cot">20/11/2023</td>
+                        <td class="cot">
+                        👤 0378400050 - Nguyễn Trọng Luật <br>
+                        🏚  Địa chỉ: Hà Nội
+                        </td>
+                        <td class="cot">3000 đ</td>
+                        <td class="cot">Chờ xác nhận</td>
+                    </tr>
+                    <tr class="dong">
+                        <td class="cot">001</td>
+                        <td class="cot">20/11/2023</td>
+                        <td class="cot">
+                        👤 0378400050 - Nguyễn Trọng Luật <br>
+                        🏚  Địa chỉ: Hà Nội
+                        </td>
+                        <td class="cot">3000 đ</td>
+                        <td class="cot">Đã xác nhận</td>
+                    </tr>
+                    <tr class="dong">
+                        <td class="cot">001</td>
+                        <td class="cot">20/11/2023</td>
+                        <td class="cot">
+                        👤 0378400050 - Nguyễn Trọng Luật <br>
+                        🏚  Địa chỉ: Hà Nội
+                        </td>
+                        <td class="cot">3000 đ</td>
+                        <td class="cot">Đang vận chuyển  <a href="#"><div class="no-line-break">Đã nhận</div></a></td>
+                    </tr>
+                    <tr class="dong">
+                        <td class="cot">001</td>
+                        <td class="cot">20/11/2023</td>
+                        <td class="cot">
+                        👤 0378400050 - Nguyễn Trọng Luật <br>
+                        🏚  Địa chỉ: Hà Nội
+                        </td>
+                        <td class="cot">3000 đ</td>
+                        <td class="cot">Hoàn thành</td>
+                    </tr>
+                </table>
             </div>
-            <div class="hanghoa">
-                <h3>Đơn hàng</h3>
-                <div class="thong_tin_san_pham">
-                    <div class="anh_sp">
-                        <img src="images/tra-da-2.jpg" alt="">
-                    </div>
-                    <div class="san_pham">
-                        <p>Trà đá</p>
-                        <p>3000 đ</p>
-                        <p>Số lượng : 1</p>
-                    </div>
-                </div>
-                <div class="gia_tri_san_pham">
-                    <div class="a">Giá trị sản phẩm :</div>
-                    <div class="b">@giá sản phẩm<br>
-                    <i>Miễn phí vận chuyển</i></div>
-                </div>
-                <div class="tong_tien_thanh_toan">
-                    <div class="a">Tổng tiền thanh toán :</div>
-                    <div class="b">3000</div>
-                </div>
-            </div>
-        </div>
-        <div class="thanh_toan">
-            <input type="button" value="Thanh Toán">
-        </div>
-            
-
+                                                                
             <!-- FOOTER  -->
             <footer class="contacts_wrap scheme_original">
                 <div class="contacts_wrap_inner">
