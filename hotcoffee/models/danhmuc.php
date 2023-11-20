@@ -17,7 +17,7 @@
     // }
 
     function loadall_danhmuc(){
-        $sql = "SELECT * FROM danh_muc order by  name ";
+        $sql = "SELECT * FROM danh_muc order by name ";
         $listdanhmuc = pdo_query($sql);
         return $listdanhmuc;
     }

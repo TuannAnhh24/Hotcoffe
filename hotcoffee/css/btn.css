@@ -1,24 +1,21 @@
 /* Thêm CSS để thay đổi giao diện khi nút được chọn */
-
 .cup-size-selecto {
     display: flex;
     justify-content: space-around;
 }
 
 .khungSize {
-    display: inline-block;
-    width: 50px;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
     margin-left: 10px;
     background-color: #FFFFFF;
     border: 1px solid green;
-}
-
-.khungSize {
+    transition: background-color 0.3s ease;
     color: #FFFFFF;
+    margin-top: 5px;
 }
 
 .khungSize .sizeCoc {
@@ -50,9 +47,7 @@
     background-color: #F39C12;
 }
 
-
 /* Thêm CSS để định dạng nút khi được chọn */
-
 .cup-size-btn.active {
     background-color: #ffcc00;
     /* Màu sắc khi nút được chọn */

@@ -1,4 +1,7 @@
-
+<?php 
+    $sql = "SELECT * FROM danh_muc order by name";
+    $lay_dm = pdo_query($sql);
+?>
 <div class="single single-product woocommerce woocommerce-page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_show sidebar_right sidebar_outer_hide preloader vc_responsive">
     <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
         <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_1">
@@ -9,7 +12,7 @@
                         <span class="breadcrumbs_delimiter"></span>
                         <a class="breadcrumbs_item all" href="index.php?act=menu">Menu</a>
                         <span class="breadcrumbs_delimiter"></span>
-                        <a class="breadcrumbs_item cat_post" href="<?php echo 'index.php?act=danhmuc&id_dm='.$onesp['id_dm'] ?>"></a>
+                        <a class="breadcrumbs_item cat_post" href="<?php echo 'index.php?act=danhmuc&id_dm='.$onesp['id_dm'] ?>"><?php foreach ($lay_dm as $dm) {echo $dm['name'];}?></a>
                         <span class="breadcrumbs_delimiter"></span>
                         <span class="breadcrumbs_item current"><?=$name_sp?></span>
                     </div>
@@ -71,8 +74,8 @@
                                                 </div>
                                                 <div class="khungSize">
                                                 <span class="sizeCoc"> XL </span>
-                                            </div>
-                                        </div>
+                                            </div> 
+                                        </div> <br>
                                     
                                         <input type="hidden" name="add-to-cart" value="'.$gia_km.'" />
                                         <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
@@ -344,7 +347,7 @@
                                 </div>
                             </div>
                         </aside>
-                        <aside class="widget widget_text">
+                        <!-- <aside class="widget widget_text">
                             <h5 class="widget_title">newsletter</h5>
                             <div class="textwidget">
                                 <form class="mc4wp-form mc4wp-form-422" method="post" data-id="422" data-name="">
@@ -366,9 +369,27 @@
                                     <div class="mc4wp-response"></div>
                                 </form>
                             </div>
-                        </aside>
+                        </aside> -->
                     </div>
                 </div>
             </div>
         </div>
-</div>    
+</div> 
+
+<script>
+    // Lấy tất cả các phần tử có lớp 'khungSize'
+    var sizes = document.querySelectorAll('.khungSize');
+    // Lặp qua từng phần tử
+    for (var i = 0; i < sizes.length; i++) {
+        // Thêm sự kiện click cho mỗi phần tử
+        sizes[i].addEventListener('click', function() {
+            // Xóa lớp 'clicked' khỏi tất cả các phần tử
+            for (var j = 0; j < sizes.length; j++) {
+                sizes[j].classList.remove('clicked');
+            }
+
+            // Thêm lớp 'clicked' cho phần tử được nhấp
+            this.classList.add('clicked');
+        });
+    }
+</script>
