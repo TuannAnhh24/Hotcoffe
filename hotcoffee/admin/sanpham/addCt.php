@@ -60,12 +60,13 @@
             var giaXLInput = document.getElementById('giaXL');
 
             var giaGoc = parseFloat(giaGocInput.value);
+            var giaKm = parseFloat(giaKmInput.value);
 
             // Chỉnh giá các sai
             
-            var giaM = giaGoc + 5;
-            var giaL = giaGoc + 10;
-            var giaXL = giaGoc + 15;
+            var giaM = giaKm + giaKm*10/100;
+            var giaL = giaKm + giaKm*15/100;
+            var giaXL = giaKm + giaKm*20/100;
 
             
             giaMInput.value = giaM.toFixed(2);
