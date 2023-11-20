@@ -57,11 +57,23 @@
            </table>
            </div>
            <div class="row mb10 ">
-         <input class="mr20" type="button" value="CHỌN TẤT CẢ">
-         <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-        <a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
+                <input class="mr20" type="button" value="CHỌN TẤT CẢ">
+                <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
+                <a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
            </div>
           </form>
+          <!-- phân trang  -->
+            <?php 
+                $sql = "SELECT * FROM san_pham";
+                $row_count = pdo_query($sql);
+                
+            ?>
+            <nav id="pagination" class="pagination_wrap pagination_pages">
+                <span class="pager_current active ">1</span>
+                <a href="#" class="">2</a>
+                <a href="#" class="pager_next"></a>
+                <a href="#" class="pager_last"></a>
+            </nav>
          </div>
         </div>
     </div> 
