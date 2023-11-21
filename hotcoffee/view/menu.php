@@ -70,8 +70,16 @@
                                                     </span>
                                                 </ins>
                                                 </span>
-                                                <a href="#"></a>
-                                                <a rel="nofollow" href="#" data-quantity="1" data-product_id="'.$id_sp.'" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                <form action="index.php?act=add-to-cart" class="cart" method="post" enctype="multipart/form-data">
+                                                <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
+                                                <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
+                                                <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
+                                                <input type="hidden" name="img"      value="'.$hinh.'"  />
+                                                <input type="hidden" name="quantity"      value="1"  />
+                                                
+                                                <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
+
+                                                </form>
                                             </div>
                                         </div>
                                     </li> ';}
@@ -96,7 +104,7 @@
                             </nav>
                         </div>
                     </div>
-
+                                
                     <!----------------- Danh mục sản phẩm ------------------------>
                     <div class="sidebar widget_area scheme_original" role="complementary">
                         <div class="sidebar_inner widget_area_inner">
@@ -124,7 +132,7 @@
                                     <?php 
                                         foreach ($spBanchay as $sp){
                                             extract($sp);
-                                            $linksp= "index.php?act=sanphamct&id_sp=".$id_sp;
+                                            $linksp= "index.php?act=spct&id_sp=".$id_sp;
                                             $img1 = $img_path.$img;
                                               
                                             echo '

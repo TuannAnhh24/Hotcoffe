@@ -9,6 +9,9 @@
     include "global.php";
     $listdanhmuc= loadall_danhmuc();
     $spBanchay = loadall_sanpham_banchay();
+
+    if(!isset($_SESSION['mycart']))  $_SESSION['mycart'] = [];
+
     //Import PHPMailer classes into the global namespace
     //These must be at the top of your script, not inside a function
     use PHPMailer\PHPMailer\PHPMailer;
@@ -199,6 +202,34 @@
             // ------------------------------------ Trang Giỏ Hàng  ------------------------------------
             case 'cart':
                 include "view/cart.php";
+                break;
+              // ------------------------------------ Thêm vào Giỏ Hàng  ------------------------------------
+             case 'add-to-cart':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST'&& isset($_POST['add-to-cart'])) {
+                    extract($_POST);  
+                    $name_sp = $_POST['name_sp'];
+                    $quantity = $_POST['quantity']; 
+                  //  $size = $_POST['size']; // Kích cỡ hoặc size cốc
+                    $gia_goc = $_POST['gia_goc']; 
+                    $gia_km  = $_POST['gia_km']; 
+                    $img    = $_POST['img']; 
+                    $cart = [$name_sp,$quantity,$gia_goc, $gia_km, $img];
+                    array_push($_SESSION['mycart'],$cart);
+                    
+                }
+                include "view/cart.php";
+                break;
+                 // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------
+            case 'xoasp-gh':
+                if (isset($_GET['id_gh'])) {
+                    $id_to_remove = $_GET['id_gh'];
+                    if (isset($_SESSION['mycart'][$id_to_remove])) {
+                        array_splice($_SESSION['mycart'], $id_to_remove, 1);
+                    }
+                }else{
+                    $_SESSION['mycart'] = [];
+                }
+                header('location: index.php?act=add-to-cart');
                 break;
             // ------------------------------------ Trang cảm ơn  ------------------------------------
             case 'camon':

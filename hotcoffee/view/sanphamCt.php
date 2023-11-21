@@ -26,7 +26,6 @@
                 <article class="post_item post_item_single post_item_product">   
                         
                         <?php 
-                                var_dump($onedm);
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
                                 $bnt = 'index.php?btn_test.php';
                                 $image = $img_path.$img;
@@ -36,7 +35,7 @@
                                 <div id="product-140" class="post-140 product has-post-thumbnail first sale">
                                 <span class="onsale">Sale!</span>
                                 <div class="images">
-                                    <a href="'. $linksp.'" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
+                                    <a href="'.$image.'" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
                                         <img src="'.$image.'" class="attachment-shop_single size-shop_single" alt="americano" title="'.$name_sp.'" />
                                     </a>
                                 </div>
@@ -46,20 +45,18 @@
                                         <p class="price">
                                             <del>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'
+                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_goc.'</span>
                                                 </span>
                                             </del>
                                             <ins>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'
+                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_km.'</span>
                                                 </span>
                                             </ins>
                                         </p>
                                     </div>
-                                    <div>
-                                        <p>'.$mo_ta.'</p>
-                                    </div>
-                                    <form class="cart" method="post" enctype="multipart/form-data">
+                                   
+                                    <form action="index.php?act=add-to-cart"  class="cart" method="post" enctype="multipart/form-data">
                                         <div class="quantity">
                                         <input type="number" step="1" min="1" max="20" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
                                         </div>
@@ -67,23 +64,44 @@
                                         <!-- Sử dụng nút để chọn size cốc -->
                                         <div class="cup-size-selector">
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc" > M </span>
+                                                    <span class="sizeCoc"  class="size" data-value="M"> M </span>
                                                 </div>
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc"> L </span>
+                                                    <span class="sizeCoc" class="size" data-value="L"> L </span>
                                                 </div>
                                                 <div class="khungSize">
-                                                <span class="sizeCoc"> XL </span>
+                                                <span class="sizeCoc" class="size" data-value="XL"> XL </span>
                                             </div> 
                                         </div> <br>
-                                    
-                                        <input type="hidden" name="add-to-cart" value="'.$gia_km.'" />
-                                        <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
+                                        
+                                        <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
+                                        <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
+                                        <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
+                                        <input type="hidden" name="img"      value="'.$image.'"  />
+                                        <input type="hidden" name="quantity"      value="1"  />
+                                        
+                                        <button name="add-to-cart" type="submit"  button alt">Thêm vào giỏ hàng</button>
                                     </form>
                                     ';
                         ?>
                              
                              <script>
+                                // Lấy tất cả các phần tử span có class="size"
+                                const sizeElements = document.querySelectorAll('.size');
+
+                                // Lặp qua từng phần tử span để thêm sự kiện click
+                                sizeElements.forEach(sizeElement => {
+                                sizeElement.addEventListener('click', function() {
+                                    // Lấy giá trị từ thuộc tính data-value của span được click
+                                    const selectedValue = sizeElement.getAttribute('data-value');
+                                    
+                                    // Hiển thị giá trị đã chọn lên trang
+                                    document.getElementById('selectedSize').innerText = `Bạn đã chọn kích thước: ${selectedValue}`;
+                                    
+                                    // Ở đây, bạn có thể thực hiện các thao tác khác với giá trị đã chọn nếu cần thiết
+                                    // Ví dụ: thêm vào giỏ hàng, gửi dữ liệu lên máy chủ, v.v.
+                                });
+                                });
                                         function checkMaxValue(input) {
                                         if (input.value > 20) {
                                             input.value = 20;
@@ -116,16 +134,10 @@
                                     </li>
                                 </ul>
                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description">
-                                    <h2>Product Description</h2>
-                                    <p>
-                                        Suspendisse in nulla lacinia, auctor ligula quis, ultrices eros. Maecenas iaculis sit amet tortor ut cursus. Etiam tempor libero a tristique hendrerit.
-                                        Proin rutrum dolor at nibh volutpat dictum. Fusce sem justo, congue fermentum gravida in, rhoncus in ex.
-                                    </p>
-                                    <p>
-                                        Maecenas in tempus lorem. Integer pretium tortor quis arcu convallis, non efficitur odio porta. Donec auctor molestie rutrum.
-                                        In dolor est, aliquet ut turpis varius, luctus sollicitudin arcu. Nam nec lacinia magna. Fusce placerat est blandit dui mollis convallis eget eu quam.
-                                        Sed quis ligula vitae dui condimentum ultrices nec in sapien.
-                                    </p>
+                                    <h2>Mô tả</h2>
+                                    <div>
+                                        <p>'.$mo_ta.'</p>
+                                    </div>
                                 </div>
                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews">
                                     <div id="reviews" class="woocommerce-Reviews">
