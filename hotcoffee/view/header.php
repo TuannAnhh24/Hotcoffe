@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/dangnhap.css">
     <link rel="stylesheet" href="css/dk.dn.css">
     <link rel="stylesheet" href="css/btn.css">
-    
+    <link rel="stylesheet" href="css/giohang.css">
 </head>
 
  <body class="home page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide preloader vc_responsive"> 
@@ -65,7 +65,7 @@
                                     </ul>
                                 </nav>
                                 <div class="contact_cart">
-                                    <a href="#" class="top_panel_cart_button" data-items="0" data-summa="&#036;0.00">
+                                    <a href="index.php?act=cart" class="top_panel_cart_button" data-items="0" data-summa="&#036;0.00">
                                         <span class="contact_icon icon-shopping"></span>
                                         <span class="contact_label contact_cart_label">Giỏ hàng:</span>
                                         <span class="contact_cart_totals">

@@ -383,13 +383,18 @@
     for (var i = 0; i < sizes.length; i++) {
         // Thêm sự kiện click cho mỗi phần tử
         sizes[i].addEventListener('click', function() {
+            // Kiểm tra xem phần tử hiện tại có chứa lớp 'clicked' hay không
+            var isClicked = this.classList.contains('clicked');
+
             // Xóa lớp 'clicked' khỏi tất cả các phần tử
             for (var j = 0; j < sizes.length; j++) {
                 sizes[j].classList.remove('clicked');
             }
 
-            // Thêm lớp 'clicked' cho phần tử được nhấp
-            this.classList.add('clicked');
+            // Nếu phần tử hiện tại đã được chọn, thêm lại lớp 'clicked'
+            if (isClicked) {
+                this.classList.add('clicked');
+            }
         });
     }
 </script>

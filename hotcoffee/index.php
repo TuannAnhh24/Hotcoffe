@@ -196,6 +196,22 @@
                 session_unset();
                 header('Location: index.php');
                 break;
+            // ------------------------------------ Trang Giỏ Hàng  ------------------------------------
+            case 'cart':
+                include "view/cart.php";
+                break;
+            // ------------------------------------ Trang cảm ơn  ------------------------------------
+            case 'camon':
+                include "view/camon.php";
+                break;
+            // ------------------------------------ Trang chi tiết đơn hàng  ------------------------------------
+            case 'ctdh':
+                include "view/ct.donhang.php";
+                break;
+            // ------------------------------------ Trang thanh toán  ------------------------------------
+            case 'thanhtoan':
+                include "view/thanhtoan.php";
+                break;
             
             default:
                 include "view/home.php";
