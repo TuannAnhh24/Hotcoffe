@@ -33,7 +33,7 @@
                             <div id="product-140" class="post-140 product has-post-thumbnail first sale">
                                 <span class="onsale">Sale!</span>
                                 <div class="images">
-                                    <a href="'. $linksp.'" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
+                                    <a href="'.$image.'" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
                                         <img src="'.$image.'" class="attachment-shop_single size-shop_single" alt="americano" title="'.$name_sp.'" />
                                     </a>
                                 </div>
@@ -43,20 +43,18 @@
                                         <p class="price">
                                             <del>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'
+                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_goc.'</span>
                                                 </span>
                                             </del>
                                             <ins>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'
+                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_km.'</span>
                                                 </span>
                                             </ins>
                                         </p>
                                     </div>
-                                    <div>
-                                        <p>'.$mo_ta.'</p>
-                                    </div>
-                                    <form class="cart" method="post" enctype="multipart/form-data">
+                                   
+                                    <form action="index.php?act=add-to-cart"  class="cart" method="post" enctype="multipart/form-data">
                                         <div class="quantity">
                                             <input type="number" step="1" min="1" max="20" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
                                         </div>
@@ -64,18 +62,23 @@
                                         <!-- Sử dụng nút để chọn size cốc -->
                                         <div class="cup-size-selector">
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc" > M </span>
+                                                    <span class="sizeCoc"  class="size" data-value="M"> M </span>
                                                 </div>
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc"> L </span>
+                                                    <span class="sizeCoc" class="size" data-value="L"> L </span>
                                                 </div>
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc"> XL </span>
-                                                </div> 
+                                                <span class="sizeCoc" class="size" data-value="XL"> XL </span>
+                                            </div> 
                                         </div> <br>
-                                    
-                                        <input type="hidden" name="add-to-cart" value="'.$gia_km.'" />
-                                        <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
+                                        
+                                        <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
+                                        <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
+                                        <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
+                                        <input type="hidden" name="img"      value="'.$image.'"  />
+                                        <input type="hidden" name="quantity"      value="1"  />
+                                        
+                                        <button name="add-to-cart" type="submit"  button alt">Thêm vào giỏ hàng</button>
                                     </form>
                                     <div class="product_meta">
                                         <span class="posted_in">Loại:
