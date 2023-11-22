@@ -22,9 +22,7 @@
             <div class="content_wrap">
                 <div class="content">
                 <article class="post_item post_item_single post_item_product">   
-                        
                         <?php 
-                                
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
                                 $bnt = 'index.php?btn_test.php';
                                 $image = $img_path.$img;
@@ -91,9 +89,10 @@
                                             <span>'.$id_sp.'</span>
                                         </span>
                                     </div>
+                                </div>
                                     ';
                         ?>  
-                   
+                        
                         <div class="woocommerce-tabs wc-tabs-wrapper" > 
                             <!-- <ul class="tabs wc-tabs">
                                 <li class="description_tab">
