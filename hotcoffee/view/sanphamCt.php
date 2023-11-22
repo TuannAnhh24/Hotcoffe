@@ -93,25 +93,7 @@
                                     </div>
                                     ';
                         ?>  
-                                
-                            </div>
-                            <div class="woocommerce-tabs wc-tabs-wrapper" > 
-                                 <!-- <ul class="tabs wc-tabs">
-                                    <li class="description_tab">
-                                        <a href="<?php echo "index.php?act=spct&id_sp=".$id_sp."#tab-description" ?>">Description</a>
-                                    </li>
-                                    <li class="reviews_tab">
-                                        <a href="#tab-reviews">Reviews (0)</a>
-                                    </li>
-                                </ul> -->
-                                <!-- <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description">
-                                    <h2>Mô tả</h2>
-                                    <div>
-                                        <p>'.$mo_ta.'</p>
-                                    </div>
-                                </div> -->
                    
-                            
                         <div class="woocommerce-tabs wc-tabs-wrapper" > 
                             <!-- <ul class="tabs wc-tabs">
                                 <li class="description_tab">
