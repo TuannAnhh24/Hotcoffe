@@ -96,7 +96,7 @@
                                     <img src="images/dangnhap.png" class="dang_nhap">
                                     <span class="triangle-down"></span>
                                     <ul class = "dropdown-menu">
-                                        <li><a href="index.php?act=edit_taikhoan">Cập nhật thông tin</a></li>
+                                        <li><a href="index.php?act=edit_taikhoan">Thông tin cá nhân</a></li>
                                         <?php if($phan_quyen == 1){ ?>
                                             <li><a href="admin/index.php">Đăng nhập admin</a></li>
                                         <?php } ?>

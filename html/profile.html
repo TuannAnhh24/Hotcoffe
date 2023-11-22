@@ -104,55 +104,31 @@
 
 <div class="hoso">
     <div class="ho_so_cua_toi">
-        <p>Hồ sơ của tôi</p>
+        <p>Thông tin người dùng</p>
         Quản lý thông tin hồ sơ để bảo mật tài khoản
     </div>
     <div class="thongtinhoso">
         <div class="thong_tin_ho_so">
-            <div class="tendangnhap">
-                <div class="text">
-                    Tên đăng nhập
-                </div>
-                <div class="inputt">
-                    <input type="email" name="" id="">
-                </div>
-            </div>
-            <div class="matkhau">
-                <div class="text">
-                    Mật khẩu
-                </div>
-                <div class="inputt">
-                    <input type="password" name="" id=""><br>
-                    <a href="quenmk.html" class="quenmk">Quên mật khẩu</a>
-                </div>                
-            </div>
-            <div class="tenn">
-                <div class="text">
-                    Tên
-                </div>
-                <div class="inputt">
-                    <input type="text" name="" id="">
-                </div>
-            </div>
-            <div class="sodienthoai">
-                <div class="text">
-                    Số điện thoại
-                </div>
-                <div class="inputt">
-                    <input type="text" name="" id="">
-                </div>
-            </div>
-            <div class="dia_chi">
-                <div class="text">
-                    Địa chỉ
-                </div>
-                <div class="inputt">
-                    <input type="text" name="" id="">
-                </div>
-            </div>
-            <div class="luu">
-                <input type="button" value="Lưu lại">
-            </div>
+            <label for="username"><b>Họ tên người dùng</b></label> 
+            <input type="text" placeholder="Nhập tên đăng nhập" name="username" class="common-class input-text" value="" required>  
+            <label for="email"><b>Email</b></label> <br>
+            <input type="email" placeholder="Nhập Email" name="email" id="email" class="common-class email" value="" required > 
+            <label for="password"><b>Mật Khẩu</b></label> <br>
+            <input type="password" placeholder="Nhập mật khẩu" name="pass" id="pass" class="common-class password" value="" required > 
+            <label for="password"><b>Nhập lại Mật Khẩu</b></label> <br>
+            <input type="password" placeholder="Nhập lại mật khẩu" name="pass_nl" id="pass_nl" class="common-class password" value="" required> 
+            <label for="number"><b>Nhập số điện thoại</b></label> <br>
+            <input type="text" placeholder="Nhập số điện thoại" name="sdt" class="common-class input-text" value="" required> 
+            <label for="address"><b>Địa chỉ</b></label> <br>
+            <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text" value="" required> 
+            <label for="date"><b>Ngày tháng năm sinh</b></label> <br>
+            <input type="date" placeholder="Nhập ngày tháng năm sinh" name="namsinh" value="<?= $nam_sinh?>" required class="date"><br> <br>
+            <label for="gioitinh"><b>Giới tính</b></label> <br>
+            <select name="gioitinh"  >
+                <option value="">Chọn giới tính</option>
+                <option value="Nam" >Nam</option>
+                <option value="Nữ" >Nữ</option>
+            </select>
         </div>
         <div class="thong_tin_anh">
             <div class="anhdaidien">

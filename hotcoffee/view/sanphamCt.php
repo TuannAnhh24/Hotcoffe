@@ -83,33 +83,17 @@
                                         
                                         <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
                                     </form>
+                                    <div class="product_meta">
+                                        <span class="posted_in">Loại:
+                                            <a href="#" rel="tag">'.$name.'</a>
+                                        </span>
+                                        <span class="product_id">Mã sản phẩm:
+                                            <span>'.$id_sp.'</span>
+                                        </span>
+                                    </div>
                                     ';
-                        ?>
-                             
-                             <script>
-                              
-                               
-                                        function checkMaxValue(input) {
-                                        if (input.value > 20) {
-                                            input.value = 20;
-                                        }
-                                        }       
-                                       
-                                        var tralois = document.getElementsByClassName("khungSize");
-                                        for (var i = 0; i < tralois.length; i++) {
-                                            tralois[i].addEventListener("click", function() {
-                                                this.classList.toggle("clicked");
-                                            });
-                                        }
-                         </script>
-                                <div class="product_meta">
-                                    <span class="posted_in">Category:
-                                        <a href="#" rel="tag">Drinks</a>
-                                    </span>
-                                    <span class="product_id">Product ID:
-                                        <span>140</span>
-                                    </span>
-                                </div>
+                        ?>  
+                                
                             </div>
                             <div class="woocommerce-tabs wc-tabs-wrapper" > 
                                  <!-- <ul class="tabs wc-tabs">
