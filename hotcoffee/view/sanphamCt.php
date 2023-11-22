@@ -24,7 +24,7 @@
             <article class="post_item post_item_single post_item_product">   
                     
                     <?php 
-                            var_dump($onedm);
+                           
                             $linksp="index.php?act=spct&id_sp=".$id_sp;
                             $bnt = 'index.php?btn_test.php';
                             $image = $img_path.$img;
@@ -52,6 +52,9 @@
                                                 </span>
                                             </ins>
                                         </p>
+                                    </div>
+                                    <div>
+                                        <p>'.$mo_ta.'</p>
                                     </div>
                                    
                                     <form action="index.php?act=add-to-cart"  class="cart" method="post" enctype="multipart/form-data">
