@@ -71,8 +71,13 @@
                 if(isset($_GET['id_sp'])&&$_GET['id_sp']>0){
                     $id_sp =$_GET['id_sp']; 
                     $onesp = loadone_sanpham($id_sp);
-                    $onedm =  loaddm_Ctsanpham(number_format($id_sp));
                     extract($onesp);
+                    $onedm =  loaddm_Ctsanpham(number_format($id_sp));
+                    // lấy danh mục
+                    $lay_dm = lay_dm($id_dm);
+                    $dm = $lay_dm[0]; // Lấy danh mục đầu tiên từ kết quả
+                    extract($dm);
+                    
                     $sp_cung_loai = loadone_sanpham_cungloai($id_sp,$id_dm);
 
                     //phân page

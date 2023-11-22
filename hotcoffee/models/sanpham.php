@@ -78,10 +78,17 @@
         pdo_execute($sql);
         }
     }
+
     function loaddm_Ctsanpham($id_sp){
         $sql = "SELECT * FROM san_pham  INNER JOIN danh_muc  ON san_pham.id_dm = danh_muc.id_dm WHERE san_pham.id_sp = '.$id_sp.' ";  
-       $loaddm = pdo_execute($sql);
-       return $loaddm;
+        $loaddm = pdo_execute($sql);
+        return $loaddm;
+    }
+
+    function lay_dm($id_dm){
+        $sql = "SELECT * FROM danh_muc WHERE id_dm = $id_dm";
+        $lay_dm = pdo_query($sql);
+        return $lay_dm;
     }
     //phân trang
     function load_sp($start, $limit,$id_dm=0,$kyw=""){
