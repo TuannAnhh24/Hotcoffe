@@ -26,6 +26,7 @@
                 <article class="post_item post_item_single post_item_product">   
                         
                         <?php 
+                                
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
                                 $bnt = 'index.php?btn_test.php';
                                 $image = $img_path.$img;
@@ -73,35 +74,20 @@
                                                 <span class="sizeCoc" class="size" data-value="XL"> XL </span>
                                             </div> 
                                         </div> <br>
-                                        
+                                    
                                         <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
                                         <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
                                         <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
                                         <input type="hidden" name="img"      value="'.$image.'"  />
-                                        <input type="hidden" name="quantity"      value="1"  />
                                         
-                                        <button name="add-to-cart" type="submit"  button alt">Thêm vào giỏ hàng</button>
+                                        <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
                                     </form>
                                     ';
                         ?>
                              
                              <script>
-                                // Lấy tất cả các phần tử span có class="size"
-                                const sizeElements = document.querySelectorAll('.size');
-
-                                // Lặp qua từng phần tử span để thêm sự kiện click
-                                sizeElements.forEach(sizeElement => {
-                                sizeElement.addEventListener('click', function() {
-                                    // Lấy giá trị từ thuộc tính data-value của span được click
-                                    const selectedValue = sizeElement.getAttribute('data-value');
-                                    
-                                    // Hiển thị giá trị đã chọn lên trang
-                                    document.getElementById('selectedSize').innerText = `Bạn đã chọn kích thước: ${selectedValue}`;
-                                    
-                                    // Ở đây, bạn có thể thực hiện các thao tác khác với giá trị đã chọn nếu cần thiết
-                                    // Ví dụ: thêm vào giỏ hàng, gửi dữ liệu lên máy chủ, v.v.
-                                });
-                                });
+                              
+                               
                                         function checkMaxValue(input) {
                                         if (input.value > 20) {
                                             input.value = 20;
