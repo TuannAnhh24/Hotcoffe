@@ -54,6 +54,9 @@
                                             </ins>
                                         </p>
                                     </div>
+                                    <div>
+                                        <p>'.$mo_ta.'</p>
+                                    </div>
                                    
                                     <form action="index.php?act=add-to-cart"  class="cart" method="post" enctype="multipart/form-data">
                                         <div class="quantity">
