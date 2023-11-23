@@ -1,3 +1,4 @@
+// check trùng mật khẩu
 function validatePassword() {
     var password = document.getElementById("pass").value;
     var confirmPassword = document.getElementById("pass_nl").value;
@@ -10,6 +11,7 @@ function validatePassword() {
     return true;
 }
 
+// menu con
 document.addEventListener("DOMContentLoaded", function() {
 const profile = document.querySelector(".profile");
 const dropdownMenu = document.querySelector(".dropdown-menu");
@@ -18,3 +20,5 @@ profile.addEventListener("click", function() {
     dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
 });
 });
+
+

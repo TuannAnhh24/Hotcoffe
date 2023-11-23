@@ -148,10 +148,17 @@
                     $namsinh = $_POST['namsinh'];
                     $gioitinh = $_POST['gioitinh'];
                     $id_tk = $_POST['id_tk'];
-                    update_taikhoan($id_tk,$username,$pass,$email,$sdt,$address,$namsinh,$gioitinh);
+                    // update hình ảnh
+                    $img = $_FILES['img']['name'];
+                    $target_dir = "upload/";
+                    $target_file = $target_dir.basename($_FILES["img"]["name"]);
+                    if (move_uploaded_file($_FILES["img"]["tmp_name"],$target_file)) {
+                        
+                      } 
+                    // end update hình ảnh
+                    update_taikhoan($id_tk,$username,$pass,$email,$sdt,$address,$namsinh,$gioitinh,$img);
                     $_SESSION['email'] = checkuser($email,$pass);
-                    echo "<script type='text/javascript'>alert('Cập nhật thông tin thành công');</script>";
-                    header('Location: index.php');
+                    // header('Location: index.php');
                 }
                 include "view/taikhoan/edit_taikhoan.php";
                 break;
