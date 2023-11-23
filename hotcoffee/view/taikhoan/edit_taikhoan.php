@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-<form action="index.php?act=edit_taikhoan" method="post"  onsubmit="return validatePassword();">
+<form action="index.php?act=edit_taikhoan" method="post" enctype="multipart/form-data" onsubmit="return validatePassword();">
     <div class="hoso">
         <div class="ho_so_cua_toi">
             <p>Thông tin người dùng</p>
@@ -116,7 +116,7 @@
                     <img src="images/tra-da-2.jpg" alt="Avatar">
                 </div>
                 <div class="thaydoi" >
-                    <input type="file" name="img">
+                    <input type="file" name="hinhanh">
                 </div>
                 <div class="noidung">
                     Dụng lượng file tối đa 1 MB<br>
