@@ -217,17 +217,50 @@
                 break;
               // ------------------------------------ Thêm vào Giỏ Hàng  ------------------------------------
              case 'add-to-cart':
-                if ($_SERVER['REQUEST_METHOD'] === 'POST'&& isset($_POST['add-to-cart'])) {
-                    extract($_POST);  
+                // Xử lý thêm sản phẩm vào giỏ hàng
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                     $name_sp = $_POST['name_sp'];
-                    $quantity = $_POST['quantity']; 
-                  //  $size = $_POST['size']; // Kích cỡ hoặc size cốc
-                    $gia_goc = $_POST['gia_goc']; 
-                    $gia_km  = $_POST['gia_km']; 
-                    $img    = $_POST['img']; 
-                    $cart = [$name_sp,$quantity,$gia_goc, $gia_km, $img];
-                    array_push($_SESSION['mycart'],$cart);
+                    $quantity = $_POST['quantity'];
+                    $gia_goc = $_POST['gia_goc'];
+                    $gia_km = $_POST['gia_km'];
+                    $img = $_POST['img'];
+                    $size = $_POST['selectedSize'];
+                    $isUserLoggedIn = false; // Mặc định là guest
+                    if(isset($_SESSION['email'])){
+                        $isUserLoggedIn = true; // Người dùng đã đăng nhập
+                    }
                     
+                    if ($isUserLoggedIn) {
+                        $userId = $_SESSION['id_tk']; // Đây là id của người dùng đã đăng nhập
+                        $name_sp = $_POST['name_sp'];
+                        $soluong = $_POST['quantity'];
+                        $gia_goc = $_POST['gia_goc'];
+                        $gia_km = $_POST['gia_km'];
+                        $img = $_POST['img'];
+                        $size = $_POST['selectedSize'];
+                        $thanhtien = $_POST['thanhtien'];
+                        
+                    }else{
+                        $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                        // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
+                        foreach ($_SESSION['mycart'] as $key => $cartItem) {
+                            // Nếu tên sản phẩm đã tồn tại trong giỏ hàng
+                            if ($cartItem[0] === $name_sp) {
+                                // Cập nhật số lượng và giá sản phẩm
+                                $_SESSION['mycart'][$key][1] += $quantity; 
+                                $_SESSION['mycart'][$key][2] = $gia_goc; 
+                                $_SESSION['mycart'][$key][3] = $gia_km;
+                                $found = true; // Đã tìm thấy sản phẩm trong giỏ hàng
+                                break;
+                            }
+                        }
+                        // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm mới vào
+                        if (!$found) {
+                            $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size];
+                            $_SESSION['mycart'][] = $cart;
+                        }
+                    }
+                   
                 }
                 include "view/cart.php";
                 break;
