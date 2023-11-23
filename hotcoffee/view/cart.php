@@ -29,8 +29,6 @@
                        
                           foreach ($_SESSION['mycart'] as $cart){
                             
-                            extract($cart);
-                            
                             $ttien =$cart[3]*$cart[1];
                             $tong+=$ttien;
                             
@@ -43,13 +41,13 @@
                                         <img src="'.$cart[4].'" alt="">
                                     </div>
                                     <div class="ten"> '.$cart[0].'</div>
-                                    <div class="ten"> '.$cart[0].'</div>
+                                    <div class="ten"> '.$cart[5].'</div>
                                     <div class="gia">
                                         <span class="giagoc">'.$cart[2].' VNĐ</span>
                                         <span class="giaban">'.$cart[3].' VNĐ</span>
                                     </div>
-                                    <input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
-                                    <div class="tongtien">'.$ttien.'</div>
+                                    <input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
+                                    <div class="tongtien" name="thanhtien">'.$ttien.' VNĐ</div>
                                     <div class="delete">
                                         '.$xoasp.'
                                     </div>
@@ -61,7 +59,7 @@
                              <div class="muahang">
                                     <div class="khoang_trong"></div>
                                     <div class="tong_tien_cac_san_pham"> 
-                                        Tổng tiền các sản phẩm : <strong>'.$tong.'</strong>    
+                                        Tổng tiền các sản phẩm : <strong>'.$tong.' VNĐ</strong>    
                                     </div>
                                     <div class="thanhtoan">
                                         <a href="index.php?act=menu"><input type="button" value="Tiếp tục mua sắm"></a> 
@@ -71,20 +69,89 @@
                              '   
                     
                     ?>
-                    <script>
+                   <script>
                         function checkMaxValue(input) {
-                                if (input.value > 20) {
-                                    input.value = 20;
-                                } else if (input.value < 1) {
-                                    input.value = 1;
-                                }
+                            if (input.value > 20) {
+                                input.value = 20;
+                            } else if (input.value < 1) {
+                                input.value = 1;
                             }
+                        }
 
-                            // Lắng nghe sự kiện blur cho input
-                            var inputQuantity = document.querySelector('input[name="quantity"]');
-                            inputQuantity.addEventListener("blur", function() {
-                                checkMaxValue(this);
-                            });   
-                                      
-                    </script>     
+                        function updateTotalPrice(input) {
+                            const newQuantity = parseInt(input.value);
+                            const price = parseFloat(input.closest('.item_gio_hang').querySelector('.giaban').textContent);
+                            const newTotal = price * newQuantity;
+
+                            const totalElement = input.closest('.item_gio_hang').querySelector('.tongtien');
+                            totalElement.textContent = newTotal + ' VNĐ';
+
+                            updateOverallTotal(); // Cập nhật tổng tiền tổng cộng
+                        }
+
+                        function updateOverallTotal() {
+                            let overallTotal = 0;
+                            const totalElements = document.querySelectorAll('.item_gio_hang .tongtien');
+
+                            totalElements.forEach(totalElement => {
+                                const price = parseFloat(totalElement.textContent);
+                                overallTotal += price;
+                            });
+
+                            const overallTotalElement = document.querySelector('.tong_tien_cac_san_pham strong');
+                            overallTotalElement.textContent = overallTotal + ' VNĐ';
+
+                            const isUserLoggedIn = $_SESSION['email'];
+
+                            if (isUserLoggedIn) {
+                                updateCartForUser(); // Gọi hàm updateCartForUser khi người dùng đã đăng nhập
+                            } else {
+                                updateCartForGuest(); // Gọi hàm updateCartForGuest khi người dùng là guest
+                            }
+                        }
+
+                        function updateCartForUser() {
+                            const cartItems = [];
+                            const cartElements = document.querySelectorAll('.item_gio_hang');
+                            cartElements.forEach(cartElement => {
+                                const productName = cartElement.querySelector('.ten').textContent.trim();
+                                const productPrice = parseFloat(cartElement.querySelector('.giaban').textContent);
+                                const productQuantity = parseInt(cartElement.querySelector('input[name="quantity"]').value);
+                                const productTotal = productPrice * productQuantity;
+
+                                cartItems.push({ name: productName, quantity: productQuantity, price: productPrice, total: productTotal });
+                            });
+
+                            fetch('update_cart_for_user.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ cartItems: cartItems }),
+                            })
+                            .then(response => {
+                                // Xử lý response từ server (nếu cần)
+                            })
+                            .catch(error => {
+                                console.error('Lỗi:', error);
+                            });
+                        }
+
+                        function updateCartForGuest() {
+                            const cartItems = [];
+                            const cartElements = document.querySelectorAll('.item_gio_hang');
+                            cartElements.forEach(cartElement => {
+                                const productName = cartElement.querySelector('.ten').textContent.trim();
+                                const productPrice = parseFloat(cartElement.querySelector('.giaban').textContent);
+                                const productQuantity = parseInt(cartElement.querySelector('input[name="quantity"]').value);
+                                const productTotal = productPrice * productQuantity;
+
+                                cartItems.push([productName, productQuantity, productPrice, productTotal]);
+                            });
+
+                            // Gửi dữ liệu giỏ hàng lên server cho guest, tương tự như phần xử lý JavaScript của bạn trước đây
+                            // Đây chỉ là ví dụ, bạn cần viết code xử lý gửi dữ liệu giỏ hàng của guest lên server
+                        }
+                    </script>
+
              </div>

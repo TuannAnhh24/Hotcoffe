@@ -37,7 +37,7 @@
                                     </a>
                                 </div>
                                 <div class="summary entry-summary">
-                                    <h1 class="product_title entry-title">'.$name_sp.'</h1>
+                                    <h1 class="product_title  entry-title">'.$name_sp.'</h1>
                                     <div>
                                         <p class="price">
                                             <del>
@@ -73,7 +73,7 @@
                                                 <span class="sizeCoc" class="size" data-value="XL"> XL </span>
                                             </div> 
                                         </div> <br>
-                                    
+                                        <input type="hidden" id="selectedSize" name="selectedSize" value="">
                                         <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
                                         <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
                                         <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
@@ -385,4 +385,16 @@
                 this.classList.toggle("clicked");
         });
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        const sizeElements = document.querySelectorAll('.sizeCoc');
+        const hiddenInput = document.getElementById('selectedSize');
+        
+        sizeElements.forEach(function(element) {
+            element.addEventListener('click', function() {
+                const selectedValue = this.getAttribute('data-value');
+                hiddenInput.value = selectedValue; // Gán giá trị vào input hidden
+                console.log('Selected size:', selectedValue);
+            });
+        });
+    });
 </script>

@@ -75,6 +75,7 @@
                                                 <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
                                                 <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
                                                 <input type="hidden" name="img"      value="'.$hinh.'"  />
+                                                <input type="hidden" name="size"      value="M"  />
                                                 <input type="hidden" name="quantity"      value="1"  />
                                                 
                                                 <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
