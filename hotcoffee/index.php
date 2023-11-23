@@ -152,7 +152,7 @@
                     $img = $_FILES['hinhanh']['name'];
                     $target_dir = "upload/";
                     $target_file = $target_dir.basename($_FILES["hinhanh"]["name"]);
-                    if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"],$target_file)) 
+                    if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"],$target_file))
                     // end update hình ảnh
                     update_taikhoan($id_tk,$username,$pass,$email,$sdt,$address,$namsinh,$gioitinh,$img);
                     $_SESSION['email'] = checkuser($email,$pass);

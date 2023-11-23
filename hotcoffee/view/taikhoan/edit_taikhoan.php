@@ -2,6 +2,10 @@
 <?php
     if(isset($_SESSION['email']) && (is_array($_SESSION['email']))){
         extract($_SESSION['email']);
+        $hinhpath="upload/".$img;
+        if(is_file($hinhpath)){
+            $hinh=$hinhpath;
+        }
     }
 ?>
 <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
@@ -113,7 +117,7 @@
                     Ảnh đại diện
                 </div>
                 <div class="hinhanh">
-                    <img src="images/tra-da-2.jpg" alt="Avatar">
+                    <img src="<?php echo $hinh ?>" alt="Avatar">
                 </div>
                 <div class="thaydoi" >
                     <input type="file" name="hinhanh">
