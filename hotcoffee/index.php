@@ -225,27 +225,13 @@
                     $gia_km = $_POST['gia_km'];
                     $img = $_POST['img'];
                     $size = $_POST['selectedSize'];
-                    $isUserLoggedIn = false; // Mặc định là guest
-                    if(isset($_SESSION['email'])){
-                        $isUserLoggedIn = true; // Người dùng đã đăng nhập
-                    }
-                    
-                    if ($isUserLoggedIn) {
-                        $userId = $_SESSION['id_tk']; // Đây là id của người dùng đã đăng nhập
-                        $name_sp = $_POST['name_sp'];
-                        $soluong = $_POST['quantity'];
-                        $gia_goc = $_POST['gia_goc'];
-                        $gia_km = $_POST['gia_km'];
-                        $img = $_POST['img'];
-                        $size = $_POST['selectedSize'];
-                        $thanhtien = $_POST['thanhtien'];
-                        
-                    }else{
+                   
+                   
                         $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
                         // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
                         foreach ($_SESSION['mycart'] as $key => $cartItem) {
                             // Nếu tên sản phẩm đã tồn tại trong giỏ hàng
-                            if ($cartItem[0] === $name_sp) {
+                            if ($cartItem[0] === $name_sp && $cartItem[5] === $size) {
                                 // Cập nhật số lượng và giá sản phẩm
                                 $_SESSION['mycart'][$key][1] += $quantity; 
                                 $_SESSION['mycart'][$key][2] = $gia_goc; 
@@ -258,8 +244,7 @@
                         if (!$found) {
                             $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size];
                             $_SESSION['mycart'][] = $cart;
-                        }
-                    }
+                        }                   
                    
                 }
                 include "view/cart.php";

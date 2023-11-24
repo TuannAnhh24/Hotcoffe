@@ -32,7 +32,7 @@
 </head>
 
  <body class="home page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide preloader vc_responsive"> 
-     <!-- <div id="page_preloader"></div>  -->
+     <div id="page_preloader"></div> 
     <a id="toc_home" class="sc_anchor" title="Home" data-description="&lt;i&gt;Return to Home&lt;/i&gt; - &lt;br&gt;navigate to home page of the site" data-icon="icon-home" data-url="index.html" data-separator="yes"></a>
     <a id="toc_top" class="sc_anchor" title="To Top" data-description="&lt;i&gt;Back to top&lt;/i&gt; - &lt;br&gt;scroll to top of the page" data-icon="icon-double-up" data-url="" data-separator="yes"></a>
 
@@ -56,37 +56,23 @@
                                 <a href="#" class="menu_main_responsive_button icon-menu"></a>
                                 <nav class="menu_main_nav_area">
                                     <ul id="menu_main" class="menu_main_nav">
-                                        <li class="menu-item current-menu-item "><a href="index.php">Trang Chủ</a></li>
-
-                                        <li class="menu-item menu-item-has-children"><a href="index.php?act=ban">Bàn</a></li>
+                                        
+                                        <li class="menu-item "><a href="index.php">Trang Chủ</a></li>
+                                        <li class="menu-item "><a href="index.php?act=ban">Bàn</a></li>
                                         <li class="menu-item"><a href="index.php?act=menu">Menu</a></li>
                                         <li class="menu-item"><a href="index.php?act=lienhe">Liên hệ</a></li>
                                         <li class="menu-item"><a href="index.php?act=gioithieu">Giới thiệu</a></li>
+                                             
                                     </ul>
                                 </nav>
                                 <div class="contact_cart">
-                                    <a href="index.php?act=cart" class="top_panel_cart_button" data-items="0" data-summa="&#036;0.00">
+                                    <a href="index.php?act=add-to-cart" class="" data-items="0" data-summa="&#036;0.00">
                                         <span class="contact_icon icon-shopping"></span>
-                                        <span class="contact_label contact_cart_label">Giỏ hàng:</span>
-                                        <span class="contact_cart_totals">
-		                                <span class="cart_items">0 món</span> -
-                                        <span class="cart_summa"> 0 VNĐ</span>
-                                        </span>
+                                        <span class="contact_label contact_cart_label"></span>
                                     </a>
-                                    <ul class="widget_area sidebar_cart sidebar">
-                                        <li>
-                                            <div class="widget woocommerce widget_shopping_cart">
-                                                <div class="hide_cart_widget_if_empty">
-                                                    <div class="widget_shopping_cart_content">
-                                                        <ul class="cart_list product_list_widget ">
-                                                            <li class="empty">Không có vật phẩm trong giỏ hàng</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                    
                                 </div>
+                                
                                 <?php 
                                     if(isset($_SESSION['email'])){
                                         extract($_SESSION['email']);
@@ -118,5 +104,22 @@
                     </div>
                 </div>
             </header>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                const menuItems = document.querySelectorAll('.menu-item a');
+
+                menuItems.forEach(function(item) {
+                    item.addEventListener('click', function(event) {
+                    // Loại bỏ class 'current-menu-item' từ tất cả các phần tử trong menu trước khi thêm vào lại cho li được nhấp
+                    menuItems.forEach(function(menuItem) {
+                        menuItem.parentNode.classList.remove('current-menu-item');
+                    });
+
+                    // Thêm class 'current-menu-item' cho li chứa liên kết được nhấp
+                    this.parentNode.classList.add('current-menu-item');
+                    });
+                });
+                });
+            </script>
             <!-- END HEADER  -->
 

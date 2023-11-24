@@ -426,9 +426,10 @@ body,
     background-color: #f7f7f7 !important;
 }
 
-.top_panel_style_8 .top_panel_buttons .top_panel_cart_button:after {
+
+/* .top_panel_style_8 .top_panel_buttons .top_panel_cart_button:after {
     color: #ffffff;
-}
+} */
 
 .top_panel_middle .contact_cart,
 .top_panel_middle .contact_cart>a {

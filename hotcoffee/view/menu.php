@@ -37,9 +37,9 @@
                                         $cl1 ="product has-post-thumbnail column-1_2 first sale";
                                         $cl2 = "product has-post-thumbnail column-1_2 last";
                                         if($id_sp ==0 || $id_sp % 2 == 0){
-                                            $cl= $cl1;
+                                            $cl= $cl2;
                                         }else{
-                                            $cl = $cl2;
+                                            $cl =  $cl1;
                                         }
                                 
                                         echo ' 
@@ -75,7 +75,7 @@
                                                 <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
                                                 <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
                                                 <input type="hidden" name="img"      value="'.$hinh.'"  />
-                                                <input type="hidden" name="size"      value="M"  />
+                                                <input type="hidden" name="selectedSize"    value="M"  />
                                                 <input type="hidden" name="quantity"      value="1"  />
                                                 
                                                 <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>

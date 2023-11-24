@@ -31,16 +31,7 @@
             <input type="text" id="gia_Goc" name="gia_Goc" value="<?php echo $chitietSanpham['gia_goc']?>" oninput="updatePrices()" ><br>
           </div>
          
-          <div class="row2 mb10 form_content_container">
-            <label for="siteM">Giá size: M </label>
-            <input type="text" id="giaM" name="giaM" required ><br>
-            
-            <label for="siteL"> Giá size: L </label>
-            <input type="text" id="giaL" name="giaL" required><br>
-
-            <label for="sizeXL"> Giá size: XL </label>
-            <input type="text" id="giaXL" name="giaXL" required><br>
-          </div>
+          
           <div class="row mb10 ">
           <input type="hidden" name="idSp" id="" value="<?php echo $chitietSanpham['id_sp']?>">
             <input class="mr20" type="submit" name='addCtsp' value="Thêm Chi Tiết SP">
