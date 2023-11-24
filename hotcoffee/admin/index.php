@@ -4,6 +4,7 @@
     include "../models/pdo.php";
     include "../models/danhmuc.php";
     include "../models/taikhoan.php";
+    include "../models/binhluan.php";
     //controller
     if (isset($_GET['act']) ){
         $act = $_GET['act'];
@@ -185,6 +186,19 @@
                 }
                 $listtaikhoan= loadall_taikhoan();
                 include "taikhoan/list.php";
+                break;
+            // ------------------------------------ Danh sách bình luận  ------------------------------------
+            case 'dsbl':
+                $listbl= loadall_binhluan(0);
+                include "binhluan/list.php";
+                break;
+            // ------------------------------------ Xóa Bình luận ------------------------------------
+            case 'xoabl':
+                if(isset($_GET['id_bl']) && ($_GET['id_bl'] > 0)){
+                    delete_binhluan($_GET['id_bl']);
+                }
+                $listbl= loadall_binhluan(0);
+                include "binhluan/list.php";
                 break;
         }
     }else {

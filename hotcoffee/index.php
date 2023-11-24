@@ -149,16 +149,14 @@
                     $gioitinh = $_POST['gioitinh'];
                     $id_tk = $_POST['id_tk'];
                     // update hình ảnh
-                    $img = $_FILES['img']['name'];
+                    $img = $_FILES['hinhanh']['name'];
                     $target_dir = "upload/";
-                    $target_file = $target_dir.basename($_FILES["img"]["name"]);
-                    if (move_uploaded_file($_FILES["img"]["tmp_name"],$target_file)) {
-                        
-                      } 
+                    $target_file = $target_dir.basename($_FILES["hinhanh"]["name"]);
+                    if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"],$target_file))
                     // end update hình ảnh
                     update_taikhoan($id_tk,$username,$pass,$email,$sdt,$address,$namsinh,$gioitinh,$img);
                     $_SESSION['email'] = checkuser($email,$pass);
-                    // header('Location: index.php');
+                    header('Location: index.php');
                 }
                 include "view/taikhoan/edit_taikhoan.php";
                 break;
@@ -225,6 +223,7 @@
                     $gia_km = $_POST['gia_km'];
                     $img = $_POST['img'];
                     $size = $_POST['selectedSize'];
+<<<<<<< HEAD
                    
                    
                         $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
@@ -245,6 +244,27 @@
                             $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size];
                             $_SESSION['mycart'][] = $cart;
                         }                   
+=======
+                    $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                    // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
+                    foreach ($_SESSION['mycart'] as $key => $cartItem) {
+                        // Nếu tên sản phẩm đã tồn tại trong giỏ hàng
+                        if ($cartItem[0] === $name_sp) {
+                            // Cập nhật số lượng và giá sản phẩm
+                            $_SESSION['mycart'][$key][1] += $quantity; 
+                            $_SESSION['mycart'][$key][2] = $gia_goc; 
+                            $_SESSION['mycart'][$key][3] = $gia_km;
+                            $found = true; // Đã tìm thấy sản phẩm trong giỏ hàng
+                            break;
+                        }
+                    }
+                    // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm mới vào
+                    if (!$found) {
+                        $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size];
+                        $_SESSION['mycart'][] = $cart;
+                        
+                    }
+>>>>>>> 6514a19c3f95e5c15fb44c2033e0a36b4e6f8a75
                    
                 }
                 include "view/cart.php";
