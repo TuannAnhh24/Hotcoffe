@@ -108,8 +108,14 @@
                                     sản phẩm tuyệt vời
                                 </p>
                             </div> -->
-                            <div class="woocommerce-Tabs-panel" id="tab-reviews" >
-                                <div id="reviews" class="woocommerce-Reviews">
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                            <script>
+                                $(document).ready(function(){
+                                    $("#binhluan").load("view/binhluan/binhluanfrom.php", {id_sp: <?= $id_sp ?>});
+                                });
+                            </script>
+                            <div class="" id="binhluan" >
+                                <!-- <div id="reviews" class="woocommerce-Reviews">
                                     <div id="comments">
                                         <h2 class="woocommerce-Reviews-title">Bình luận</h2>
                                         <p class="woocommerce-noreviews">Hiện tại không có đánh giá nào.</p>
@@ -140,7 +146,7 @@
                                                         </label>
                                                         <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
                                                     </p>
-                                                    <!-- <p class="comment-form-author">
+                                                    <p class="comment-form-author">
                                                         <label for="author">Name
                                                             <span class="required">*</span>
                                                         </label>
@@ -151,7 +157,7 @@
                                                             <span class="required">*</span>
                                                         </label>
                                                         <input id="email" name="email" type="email" value="" size="30" aria-required="true" required />
-                                                    </p> -->
+                                                    </p>
                                                     <p class="form-submit">
                                                         <input name="submit" type="submit" id="submit" class="submit" value="Gửi bình luận" />
                                                         <input type='hidden' name='comment_post_ID' value='140' id='comment_post_ID' />
@@ -162,7 +168,7 @@
                                         </div>
                                     </div>
                                     <div class="clear"></div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="related products">

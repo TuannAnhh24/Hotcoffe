@@ -15,20 +15,20 @@
                     <th></th>
                 </tr>
                 <?php 
-                    foreach($listbinhluan as $binhluan){
-                        extract($binhluan);
-                        $xoabl = 'index.php?act=xoabl&id='.$id;
-                        echo ' <tr>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>'.$id.'</td>
-                                <td>'.$noidung.'</td>
-                                <td>'.$iduser.'</td>
-                                <td>'.$idpro.'</td>
-                                <td>'.$ngaybinhluan.'</td>
-                                <td><a href="'.$xoabl.'"><input type="button" value="Xóa"></td></a>
-                                </tr>';
-                    }
+                    foreach($listbl as $bl){
+                        extract($bl);
+                        $xoabl = 'index.php?act=xoabl&id_bl='.$id_bl;
                 ?> 
+                            <tr>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td><?=$id_sp?></td>
+                                <td><?=$id_tk?></td>
+                                <td><?=$noi_dung?></td>
+                                <td><?=$ngay_bl?></td>
+                                <td><a onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')" href="<?=$xoabl?>"><input type="button" value="Xóa"></td></a>
+                            </tr>
+                <?php } ?>
+                
             </table>
             </div>
             <div class="row mb10 ">
