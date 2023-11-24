@@ -159,7 +159,7 @@
                         echo "up ảnh bị lỗi";
                     }
                     update_sanpham($idSp,$idDm,$tenSp,$giaGoc,$giaKm,$moTa,$img);   
-                    
+                    header("Location:index.php?act=listSp");
                 }
                 $listdanhmuc= loadall_danhmuc();
                 $listsanpham= loadall_sanpham("",0);
