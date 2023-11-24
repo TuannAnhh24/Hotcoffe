@@ -75,8 +75,9 @@
             $sql = "UPDATE `san_pham` SET `name_sp` = '$tenSp', `gia_goc` = '$giaGoc', `gia_km` = '$giaKm', `mo_ta` = '$mota', `img` = '$img', `id_dm` = '$idDm' WHERE `san_pham`.`id_sp` = $idSp";
         }else{
             $sql = "UPDATE `san_pham` SET `name_sp` = '$tenSp', `gia_goc` = '$giaGoc', `gia_km` = '$giaKm', `mo_ta` = '$mota', `id_dm` = '$idDm' WHERE `san_pham`.`id_sp` = $idSp";
-        pdo_execute($sql);
+       
         }
+        pdo_execute($sql);
     }
 
     function loaddm_Ctsanpham($id_sp){

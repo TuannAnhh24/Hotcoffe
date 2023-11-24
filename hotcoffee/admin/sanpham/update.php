@@ -125,7 +125,7 @@
           </div>
           <div class="row2 mb10 form_content_container">
             <label for="ten_sanpham">Ảnh:</label>
-            <input type="file" name="suaAnh" > <?=$hinh?><br>
+            <input type="file" name="anhSp" > <?=$hinh?><br>
           </div>
           <div class="row mb10 ">
             <input type="hidden" name="id_sp" value="<?=$id_sp?>">
