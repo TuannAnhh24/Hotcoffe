@@ -2,7 +2,7 @@
 <?php
     if(isset($_SESSION['email']) && (is_array($_SESSION['email']))){
         extract($_SESSION['email']);
-        $hinhpath="upload/".$img;
+        $hinhpath="images/".$img;
         if(is_file($hinhpath)){
             $hinh=$hinhpath;
         }
