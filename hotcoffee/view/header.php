@@ -90,10 +90,16 @@
                                 <?php 
                                     if(isset($_SESSION['email'])){
                                         extract($_SESSION['email']);
+                                        $avatar = isset($img) ? $img : 'images/dangnhap.png';
+                                        if($img){
+                                            $avatar = "images/".$img;
+                                        }else{
+                                            $avatar = 'images/dangnhap.png';
+                                        }
                                 ?>
                                 <!-- hiển thị ra menu con khi có email đăng nhập  -->
                                 <div class="profile">
-                                    <img src="images/dangnhap.png" class="dang_nhap">
+                                    <img src="<?= $avatar ?>" class="dang_nhap">
                                     <span class="triangle-down"></span>
                                     <ul class = "dropdown-menu">
                                         <li><a href="index.php?act=edit_taikhoan">Thông tin cá nhân</a></li>

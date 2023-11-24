@@ -150,7 +150,7 @@
                     $id_tk = $_POST['id_tk'];
                     // update hình ảnh
                     $img = $_FILES['hinhanh']['name'];
-                    $target_dir = "upload/";
+                    $target_dir = "images/";
                     $target_file = $target_dir.basename($_FILES["hinhanh"]["name"]);
                     if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"],$target_file))
                     // end update hình ảnh
