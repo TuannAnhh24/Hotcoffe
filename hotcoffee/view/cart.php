@@ -28,22 +28,29 @@
                         $i=0;
                        
                           foreach ($_SESSION['mycart'] as $cart){
-                            
-                            $ttien =$cart[3]*$cart[1];
+
+                            if($cart[5]=="M"){
+                                $ttien=$cart[3]*$cart[1];
+                            }elseif($cart[5]=="L"){
+                                $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
+                            }elseif($cart[5]=="XL"){
+                                $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
+                            } 
+
                             $tong+=$ttien;
                             
                             $xoasp = '<a href="index.php?act=xoasp-gh&id_gh='.$i.'"><input type="button" value="Xóa"></a>';
                           
                             echo '  
-                            
+                            <form action="index.php?act=menu" enctype="multipart/form-data">
                                 <div class="item_gio_hang">
-                                    <div class="hinh_anh">
+                                    <div class="hinh_anh" name="img">
                                         <img src="'.$cart[4].'" alt="">
                                     </div>
-                                    <div class="ten"> '.$cart[0].'</div>
+                                    <div class="ten" name =""> '.$cart[0].'</div>
                                     <div class="ten"> '.$cart[5].'</div>
                                     <div class="gia">
-                                        <span class="giagoc">'.$cart[2].' VNĐ</span>
+                                        
                                         <span class="giaban">'.$cart[3].' VNĐ</span>
                                     </div>
                                     <input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
@@ -63,12 +70,14 @@
                                     </div>
                                     <div class="thanhtoan">
                                         <a href="index.php?act=menu"><input type="button" value="Tiếp tục mua sắm"></a> 
-                                        <a href=""><input type="button" value="Đặt Hàng"></a>
+                                        <a href=""><input type="submit" value="Đặt Hàng" name="dathang"></a>
                                     </div>
                              </div>
+                             </form>
                              '   
                     
                     ?>
+                  
                    <script>
                         function checkMaxValue(input) {
                             if (input.value > 20) {

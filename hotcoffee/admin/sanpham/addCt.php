@@ -31,6 +31,10 @@
             <input type="text" id="gia_Goc" name="gia_Goc" value="<?php echo $chitietSanpham['gia_goc']?>" oninput="updatePrices()" ><br>
           </div>
          
+<<<<<<< HEAD
+          
+=======
+>>>>>>> 6514a19c3f95e5c15fb44c2033e0a36b4e6f8a75
           <div class="row mb10 ">
           <input type="hidden" name="idSp" id="" value="<?php echo $chitietSanpham['id_sp']?>">
             <input class="mr20" type="submit" name='addCtsp' value="Thêm Chi Tiết SP">

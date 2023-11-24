@@ -121,15 +121,15 @@
           </div> -->
           <div class="row2 mb10 form_content_container">
             <label for="ten_sanpham">Mô tả:</label>
-            <textarea name="moTa" id="" cols="250" rows="10"></textarea>
+            <textarea name="moTa"  id="" cols="250" rows="10"><?php echo $chitietSanpham['mo_ta']?></textarea>
           </div>
           <div class="row2 mb10 form_content_container">
             <label for="ten_sanpham">Ảnh:</label>
-            <input type="file" name="anhSp" > <?=$hinh?><br>
+            <input type="file" name="suaAnh" > <?=$hinh?><br>
           </div>
           <div class="row mb10 ">
-          <input type="hidden" name="id_sp" value="<?=$id_sp?>">
-            <input class="mr20" type="submit" name='addSanpham' value="Nhập">
+            <input type="hidden" name="id_sp" value="<?=$id_sp?>">
+            <input class="mr20" type="submit" name='Sua' value="Update">
             <input class="mr20" type="reset" value="NHẬP LẠI">
             <a href="index.php?act=listSp"><input class="mr20" type="button" value="DANH SÁCH"></a>
           </div>

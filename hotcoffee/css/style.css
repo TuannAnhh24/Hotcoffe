@@ -2578,6 +2578,12 @@ body:not(.top_panel_fixed) .top_panel_position_over .top_panel_bottom {
 
 /* Cart button */
 
+.topgiohang {
+    display: block;
+    padding-left: 2.8em;
+    text-align: left;
+}
+
 .top_panel_style_3 .top_panel_cart_button,
 .top_panel_style_4 .top_panel_cart_button {
     display: block;
@@ -8699,5 +8705,3 @@ button.mfp-arrow:after {
 .mfp-wrap {
     z-index: 10043 !important;
 }
-
-
