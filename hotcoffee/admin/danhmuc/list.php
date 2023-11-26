@@ -11,6 +11,7 @@
                 <th>Mã danh mục</th>
                 <th>Tên danh mục</th>
                 <th>Trạng thái</th>
+                <th>Thực hiện</th>
                 <th></th>
             </tr>
             <?php 
@@ -30,10 +31,11 @@
                         <td><input type="checkbox" name="" id=""></td>
                         <td> <?=$id_dm?> </td>
                         <td> <?=$name?> </td>
+                        <td> <?=$trang_thai?> </td>
                         <td>
-                            <a href="'.$suadm.'"><input type="button" value="Sửa"></a>   
+                            <a href="<?=$suadm?>"><input type="button" value="Sửa"></a>   
                             <a onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')" href="<?=$xoadm?>"><input type="button" value="Xóa"></a>
-                            <!-- <a href="'.$kpdm.'"><input type="button" value="Khôi phục"></a>  -->
+                            <a href="<?=$kpdm?>"><input type="button" value="Khôi phục"></a> 
                         </td>
                     </tr>
                 <?php } ?>

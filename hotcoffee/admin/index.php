@@ -33,13 +33,13 @@
                 include "danhmuc/list.php";
                 break;
             // ------------------------------------ khôi phục danh mục ------------------------------------
-            // case 'kpdm':
-            //     if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
-            //         khoiphuc_danhmuc($_GET['id_dm']);
-            //     }
-            //     $listdanhmuc = loadall_danhmuc();
-            //     include "danhmuc/list.php";
-            //     break;
+            case 'kpdm':
+                if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
+                    khoiphuc_danhmuc($_GET['id_dm']);
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "danhmuc/list.php";
+                break;
             // ------------------------------------ Sửa danh mục ------------------------------------
             case 'suadm':
                 if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
