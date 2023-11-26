@@ -27,6 +27,7 @@
         $dm = pdo_query_one($sql);
         return $dm;
     }
+    
     function load_tendm($id_dm){
         if($id_dm > 0){
             $sql="SELECT * FROM `danh_muc` where `id_dm` = $id_dm" ;

@@ -7,11 +7,10 @@
            <div class="row2 mb10 formds_loai">
            <table>
             <tr>
-                <th></th>
+                <!-- <th></th> -->
                 <th>Mã danh mục</th>
                 <th>Tên danh mục</th>
                 <th>Trạng thái</th>
-                <th>Thực hiện</th>
                 <th></th>
             </tr>
             <?php 
@@ -28,7 +27,7 @@
                     $kpdm = 'index.php?act=kpdm&id_dm='.$id_dm;
                 ?> 
                      <tr>
-                        <td><input type="checkbox" name="" id=""></td>
+                        <!-- <td><input type="checkbox" name="" id=""></td> -->
                         <td> <?=$id_dm?> </td>
                         <td> <?=$name?> </td>
                         <td> <?=$trang_thai?> </td>
