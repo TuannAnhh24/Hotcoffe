@@ -207,6 +207,11 @@
                 $listbl= loadall_binhluan(0);
                 include "binhluan/list.php";
                 break;
+            // ------------------------------------ Trang hóa đơn ------------------------------------
+            case 'dsdh':
+                
+                include "hoadon/list.php";
+                break;
         }
     }else {
         include "home.php";

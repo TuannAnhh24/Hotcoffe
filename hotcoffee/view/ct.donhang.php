@@ -16,6 +16,9 @@
                         <th class="cot">Mã đơn</th>
                         <th class="cot">Ngày đặt</th>
                         <th class="cot">Khách hàng</th>
+                        <th class="cot">Sản phẩm</th>
+                        <th class="cot">Số lượng</th>
+                        <th class="cot">Size(Cái)</th>
                         <th class="cot">Tổng tiền</th>
                         <th class="cot">Trạng thái</th>
                     </tr>
@@ -26,6 +29,9 @@
                         👤 0378400050 - Nguyễn Trọng Luật <br>
                         🏚  Địa chỉ: Hà Nội
                         </td>
+                        <td class="cot">Cappuchino</td>
+                        <td class="cot">1</td>
+                        <td class="cot">M</td>
                         <td class="cot">3000 đ</td>
                         <td class="cot">Chờ xác nhận</td>
                     </tr>
@@ -36,8 +42,11 @@
                         👤 0378400050 - Nguyễn Trọng Luật <br>
                         🏚  Địa chỉ: Hà Nội
                         </td>
+                        <td class="cot">Cappuchino</td>
+                        <td class="cot">1</td>
+                        <td class="cot">M</td>
                         <td class="cot">3000 đ</td>
-                        <td class="cot">Đã xác nhận</td>
+                        <td class="cot">Chờ xác nhận</td>
                     </tr>
                     <tr class="dong">
                         <td class="cot">001</td>
@@ -46,18 +55,11 @@
                         👤 0378400050 - Nguyễn Trọng Luật <br>
                         🏚  Địa chỉ: Hà Nội
                         </td>
+                        <td class="cot">Cappuchino</td>
+                        <td class="cot">1</td>
+                        <td class="cot">M</td>
                         <td class="cot">3000 đ</td>
-                        <td class="cot">Đang vận chuyển  <a href="#"><div class="no-line-break">Đã nhận</div></a></td>
-                    </tr>
-                    <tr class="dong">
-                        <td class="cot">001</td>
-                        <td class="cot">20/11/2023</td>
-                        <td class="cot">
-                        👤 0378400050 - Nguyễn Trọng Luật <br>
-                        🏚  Địa chỉ: Hà Nội
-                        </td>
-                        <td class="cot">3000 đ</td>
-                        <td class="cot">Hoàn thành</td>
+                        <td class="cot">Chờ xác nhận</td>
                     </tr>
                 </table>
             </div>

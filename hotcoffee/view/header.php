@@ -108,6 +108,7 @@
                                         <?php if($phan_quyen == 1){ ?>
                                             <li><a href="admin/index.php">Đăng nhập admin</a></li>
                                         <?php } ?>
+                                        <li><a href="index.php?act=ctdh">Theo dõi đơn hàng</a></li>
                                         <li><a href="index.php?act=thoat">Đăng xuất</a></li>
                                     </ul>
                                 </div> 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin123.css">
     <link rel="stylesheet" href="../css/admin.header.css">
-   <link rel="stylesheet" href="../css/phantrang.css">
+    <link rel="stylesheet" href="../css/phantrang.css">
     <title>Hot Coffee Shop Admin</title>
 </head>
 
