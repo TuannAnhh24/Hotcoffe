@@ -101,7 +101,7 @@
                                 ?>
                                 <!-- hiển thị ra menu con khi có email đăng nhập  -->
                                 <div class="profile">
-                                    <img src="<?= $avatar ?>" class="dang_nhap">
+                                    <img src="<?= $avatar ?>" class="dang_nhap" >
                                     <span class="triangle-down"></span>
                                     <ul class = "dropdown-menu">
                                         <li><a href="index.php?act=edit_taikhoan">Thông tin cá nhân</a></li>

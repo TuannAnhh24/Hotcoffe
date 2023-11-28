@@ -1,4 +1,7 @@
 
+    
+
+
 <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
                 <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_5">
                     <div class="content_wrap">
@@ -15,7 +18,9 @@
                     <div class="item_gio_hang_td">
                         <div class="hinh_anh"> Hình Ảnh </div>
                         <div class="ten"> Tên Sản Phẩm </div>
-                        <div class="ten"> Size/Cái </div>
+                        <div class="ten"> Size </div>
+                        <div class="ten"> Mức đá </div>
+                        <div class="ten"> Mức đường </div>
                         <div class="gia_a"> 
                             <span class="giaban">Giá Bán </span> 
                         </div>
@@ -49,11 +54,12 @@
                                     </div>
                                     <div class="ten" name =""> '.$cart[0].'</div>
                                     <div class="ten"> '.$cart[5].'</div>
-                                    <div class="gia">
-                                        
+                                    <div class="ten"> '.$cart[5].'</div>
+                                    <div class="ten"> '.$cart[5].'</div>
+                                    <div class="gia">                                        
                                         <span class="giaban">'.$cart[3].' VNĐ</span>
-                                    </div>
-                                    <input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
+                                    </div>        
+                                    <div class="soluong"><input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
                                     <div class="tongtien" name="thanhtien">'.$ttien.' VNĐ</div>
                                     <div class="delete">
                                         '.$xoasp.'
@@ -164,3 +170,5 @@
                     </script>
 
              </div>
+             </body>
+</html>

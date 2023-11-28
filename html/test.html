@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../hotcoffee/css/giohang.css">
+  </head>
+  <body>
+    <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
+        <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_5">
+            <div class="content_wrap">
+                <h1 class="page_title">Giỏ Hàng</h1>
+                <div class="breadcrumbs">
+                    <a class="breadcrumbs_item home" href="index.php">Home</a>
+                    <span class="breadcrumbs_delimiter"></span>
+                    <span class="breadcrumbs_item current">Giỏ Hàng</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gio_hang"> 
+            <div class="item_gio_hang_td">
+                <div class="hinh_anh"> Hình Ảnh </div>
+                <div class="ten"> Tên Sản Phẩm </div>
+                <div class="ten"> Size </div>
+                <div class="ten"> Mức đá </div>
+                <div class="ten"> Mức đường </div>
+                <div class="gia_a"> 
+                    <span class="giaban">Giá Bán </span> 
+                </div>
+                <div class="soluong">Số Lượng</div>
+                <div class="tongtien">Tổng Tiền</div>
+                <div class="delete"></div>
+            </div>
+        
+                    <form action="index.php?act=menu" enctype="multipart/form-data">
+                        <div class="item_gio_hang">
+                            <div class="hinh_anh" name="img">
+                                <img src="'.$cart[4].'" alt="">
+                            </div>
+                            <div class="ten" name =""> '.$cart[0].'</div>
+                            <div class="ten"> '.$cart[5].'</div>
+                            <div class="ten"> '.$cart[5].'</div>
+                            <div class="ten"> '.$cart[5].'</div>
+                            <div class="gia">                                        
+                                <span class="giaban">'.$cart[3].' VNĐ</span>
+                            </div>        
+                            <div class="soluong"><input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
+                            <div class="tongtien" name="thanhtien">'.$ttien.' VNĐ</div>
+                            <div class="delete">
+                                '.$xoasp.'
+                            </div>
+                        </div>
+                     <div class="muahang">
+                            <div class="khoang_trong"></div>
+                            <div class="tong_tien_cac_san_pham"> 
+                                Tổng tiền các sản phẩm : <strong>'.$tong.' VNĐ</strong>    
+                            </div>
+                            <div class="thanhtoan">
+                                <a href="index.php?act=menu"><input type="button" value="Tiếp tục mua sắm"></a> 
+                                <a href=""><input type="submit" value="Đặt Hàng" name="dathang"></a>
+                            </div>
+                     </div>
+                     </form>
+                     '   
+            
+            ?>
+    </div>
+  </body>
+</html>
