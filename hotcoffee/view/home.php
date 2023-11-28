@@ -201,13 +201,13 @@
                                                                 <div id="sc_services_258_1" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_1.png" data-title="Corretto">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=19">
                                                                                 <img alt="" src="images/services_1-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Corretto</a>
+                                                                        <a href="index.php?act=spct&id_sp=19">Corretto</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -215,13 +215,13 @@
                                                                 <div id="sc_services_258_2" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_2.png" data-title="Cioccolato-macchiato">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=20">
                                                                                 <img alt="" src="images/services_2-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Cioccolato-macchiato</a>
+                                                                        <a href="index.php?act=spct&id_sp=20">Cioccolato-macchiato</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -229,13 +229,13 @@
                                                                 <div id="sc_services_258_3" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_3.png" data-title="Espresso">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=21">
                                                                                 <img alt="" src="images/services_3-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Espresso</a>
+                                                                        <a href="index.php?act=spct&id_sp=21">Espresso</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -243,13 +243,13 @@
                                                                 <div id="sc_services_258_4" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_4.png" data-title="Caramel Macchiatto">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=22">
                                                                                 <img alt="" src="images/services_4-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Caramel Macchiatto</a>
+                                                                        <a href="index.php?act=spct&id_sp=22">Caramel Macchiatto</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -257,13 +257,13 @@
                                                                 <div id="sc_services_258_5" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_5.png" data-title="Irish Coffee">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=23">
                                                                                 <img alt="" src="images/services_5-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Irish Coffee</a>
+                                                                        <a href="index.php?act=spct&id_sp=23">Irish Coffee</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -271,13 +271,13 @@
                                                                 <div id="sc_services_258_6" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_6.png" data-title="Americano">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=24">
                                                                                 <img alt="" src="images/services_6-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Americano</a>
+                                                                        <a href="index.php?act=spct&id_sp=24">Americano</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -285,13 +285,13 @@
                                                                 <div id="sc_services_258_7" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_7.png" data-title="Doppio">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=25">
                                                                                 <img alt="" src="images/services_7-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Doppio</a>
+                                                                        <a href="index.php?act=spct&id_sp=25">Doppio</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -299,13 +299,13 @@
                                                                 <div id="sc_services_258_8" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_8.png" data-title="Caffe Latte">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=26">
                                                                                 <img alt="" src="images/services_8-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Caffe Latte</a>
+                                                                        <a href="index.php?act=spct&id_sp=26">Caffe Latte</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>
@@ -313,13 +313,13 @@
                                                                 <div id="sc_services_258_9" class="sc_services_item">
                                                                     <div class="sc_services_item_featured post_featured">
                                                                         <div class="post_thumb" data-image="images/services_9.png" data-title="Cappuccino">
-                                                                            <a class="hover_icon hover_icon_link" href="sanphamChitiet.html">
+                                                                            <a class="hover_icon hover_icon_link" href="index.php?act=spct&id_sp=28">
                                                                                 <img alt="" src="images/services_9-300x281.png">
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="sc_services_item_title">
-                                                                        <a href="sanphamChitiet.html">Cappuccino</a>
+                                                                        <a href="index.php?act=spct&id_sp=28">Cappuccino</a>
                                                                     </h4>
                                                                 </div>
                                                             </div>

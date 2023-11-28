@@ -66,29 +66,15 @@
                                     </ul>
                                 </nav>
                                 <div class="contact_cart">
-                                    <a href="#" class="top_panel_cart_button" data-items="0" data-summa="&#036;0.00">
+                                    <a href="index.php?act=cart" class="test0" data-items="0" data-summa="&#036;0.00">
                                         <span class="contact_icon icon-shopping"></span>
-                                        <span class="contact_label contact_cart_label">Giỏ hàng:</span>
-                                        <span class="contact_cart_totals">
-		                                <span class="cart_items">0 món</span> -
-                                        <span class="cart_summa"> 0 VNĐ</span>
+                                        <span class="test1">Giỏ hàng:</span>
+                                        <span class="test2">
+                                            <span class="cart_items">0 món</span> -
+                                            <span class="cart_summa"> 0 VNĐ</span>
                                         </span>
                                     </a>
-                                    <ul class="widget_area sidebar_cart sidebar">
-                                        <li>
-                                            <div class="widget woocommerce widget_shopping_cart">
-                                                <div class="hide_cart_widget_if_empty">
-                                                    <div class="widget_shopping_cart_content">
-                                                        <ul class="cart_list product_list_widget ">
-                                                            <li class="empty">Không có vật phẩm trong giỏ hàng</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
                                 </div>
-                                
                                 <?php 
                                     if(isset($_SESSION['email'])){
                                         extract($_SESSION['email']);

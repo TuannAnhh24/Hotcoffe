@@ -8705,3 +8705,25 @@ button.mfp-arrow:after {
 .mfp-wrap {
     z-index: 10043 !important;
 }
+
+.test0{
+    color: #181818;
+    display: block;
+    padding-left: 2.8em;
+    text-align: left;
+}
+.test1{
+    font-weight: 700;
+    font-size: 11px;
+    /* line-height: 16px; */
+    /* margin-top: 5px; */
+    /* margin: 0.6em 0 0.3em; */
+    text-transform: uppercase;
+    display: block;
+}
+
+.test2{
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: -10px;
+}
