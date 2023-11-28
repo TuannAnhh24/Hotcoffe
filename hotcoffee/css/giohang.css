@@ -47,18 +47,6 @@ img {
     align-items: center;
 }
 
-.muahang .tong_tien_cac_san_pham {
-    flex: 4;
-}
-
-.muahang .thanhtoan input {
-    border-radius: 10px;
-    height: 40px;
-    width: 250px;
-    background: rgb(61, 32, 98);
-    color: #fff;
-}
-
 .muahang .thanhtoan input:hover {
     border-radius: 10px;
     height: 40px;
@@ -72,22 +60,16 @@ img {
     flex-direction: row;
     align-items: center;
     color: #2F4F4F;
-    
     margin: auto;
-}
-.item_gio_hang_td{
-    margin-bottom: 50px;
+    margin-bottom:50px;
 }
 
 .item_gio_hang {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
     margin: auto;
-}
-.item_gio_hang{
-    margin-bottom: 40px;
+    margin-bottom:40px;
 }
 
 .item_gio_hang .hinh_anh img,
