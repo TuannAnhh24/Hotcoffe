@@ -6,6 +6,7 @@
     include "models/pdo.php";
     include "models/sanpham.php";
     include "models/danhmuc.php";
+    include "models/donhang.php";
     include "global.php";
     $listdanhmuc= loadall_danhmuc();
     $spBanchay = loadall_sanpham_banchay();
@@ -264,6 +265,9 @@
                 break;
             // ------------------------------------ Trang chi tiết đơn hàng  ------------------------------------
             case 'ctdh':
+                $listdonhang = loadall_donhang();
+                $lay_sp = loadone_CTsanpham();
+                extract($lay_sp);
                 include "view/ct.donhang.php";
                 break;
             // ------------------------------------ Trang thanh toán  ------------------------------------

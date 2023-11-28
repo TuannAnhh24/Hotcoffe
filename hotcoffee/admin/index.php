@@ -33,13 +33,13 @@
                 include "danhmuc/list.php";
                 break;
             // ------------------------------------ khôi phục danh mục ------------------------------------
-            // case 'kpdm':
-            //     if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
-            //         khoiphuc_danhmuc($_GET['id_dm']);
-            //     }
-            //     $listdanhmuc = loadall_danhmuc();
-            //     include "danhmuc/list.php";
-            //     break;
+            case 'kpdm':
+                if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
+                    khoiphuc_danhmuc($_GET['id_dm']);
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "danhmuc/list.php";
+                break;
             // ------------------------------------ Sửa danh mục ------------------------------------
             case 'suadm':
                 if(isset($_GET['id_dm']) && ($_GET['id_dm'] > 0)){
@@ -182,7 +182,14 @@
             // ------------------------------------ Xóa tài khoản  ------------------------------------
             case 'xoatk':
                 if(isset($_GET['id_tk']) && ($_GET['id_tk'] > 0)){
-                    delete_taikhoan($_GET['id_tk']);
+                    $id_tk = $_GET['id_tk'];
+                    $kt_tk = loadone_taikhoan($id_tk);
+                    extract($kt_tk);
+                    if($phan_quyen == 1){
+                        echo "<script> alert('Tài khoản này không thể bị xóa !!!'); </script>";
+                    }else {
+                        delete_taikhoan($_GET['id_tk']);
+                    }
                 }
                 $listtaikhoan= loadall_taikhoan();
                 include "taikhoan/list.php";
@@ -199,6 +206,11 @@
                 }
                 $listbl= loadall_binhluan(0);
                 include "binhluan/list.php";
+                break;
+            // ------------------------------------ Trang hóa đơn ------------------------------------
+            case 'dsdh':
+                
+                include "hoadon/list.php";
                 break;
         }
     }else {

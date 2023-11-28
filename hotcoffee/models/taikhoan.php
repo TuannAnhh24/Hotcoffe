@@ -38,4 +38,10 @@
         pdo_execute($sql);
     }
 
+    function loadone_taikhoan($id_tk){
+        $sql = "SELECT * FROM tai_khoan WHERE id_tk=".$id_tk;
+        $tk = pdo_query_one($sql);
+        return $tk;
+    }
+
 ?>
