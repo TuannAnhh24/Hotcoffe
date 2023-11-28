@@ -72,16 +72,22 @@ img {
     flex-direction: row;
     align-items: center;
     color: #2F4F4F;
-    margin-bottom: 50px;
+    
     margin: auto;
+}
+.item_gio_hang_td{
+    margin-bottom: 50px;
 }
 
 .item_gio_hang {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 40px;
+    
     margin: auto;
+}
+.item_gio_hang{
+    margin-bottom: 40px;
 }
 
 .item_gio_hang .hinh_anh img,
@@ -121,7 +127,7 @@ img {
 
 .item_gio_hang .ten,
 .item_gio_hang_td .ten {
-    flex: 3;
+    flex: 1;
 }
 
 .item_gio_hang .gia .giagoc {
