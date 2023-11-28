@@ -274,6 +274,10 @@
             case 'thanhtoan':
                 include "view/thanhtoan.php";
                 break;
+            // ------------------------------------ Trang Hóa đơn  ------------------------------------
+            case 'hd':
+                include "view/hoadon.php";
+                break;
             
             default:
                 include "view/home.php";
