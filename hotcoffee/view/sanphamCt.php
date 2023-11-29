@@ -18,9 +18,9 @@
             display:inline-flex;
             justify-content: center;
             align-items: center;
+            margin-left:10px;
             width: 30px;
             height: 30px;
-            margin-left: 10px;
             margin-top: 20px;
             font-size: 10px;
             background-color: #FFFFFF;

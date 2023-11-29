@@ -37,6 +37,13 @@ img {
     max-width: 1400px;
     margin-bottom: 50px;
 }
+.muahang .tong_tien_thanh_toan{
+    flex: 30%;
+}
+.muahang .thanhtoan{
+    flex: 0%;
+    display: flex;
+}
 
 .muahang .ten,
 .khoang_trong,
@@ -45,6 +52,13 @@ img {
     flex: 1;
     margin-left: 20px;
     align-items: center;
+}
+.muahang .thanhtoan input {
+    border-radius: 10px;
+    height: 40px;
+    width: 250px;
+    background: rgb(61, 32, 98);
+    color: #fff;
 }
 
 .muahang .thanhtoan input:hover {
