@@ -154,7 +154,7 @@
                                         <div class="cup-size-selector">
                                             <div class="size-selector">
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc"  data-value="M">M</span>
+                                                    <span class="sizeCoc"  data-value="M" selected>M</span>
                                                 </div>
                                                 <div class="khungSize">
                                                     <span class="sizeCoc"  data-value="L">L</span>
@@ -170,20 +170,20 @@
                                         <div class="da_and_duong">
                                             <div class="da">
                                                 <select name="luongda" id="luongda">
-                                                <option value="" selected disabled>Lượng đá</option>
-                                                <option value="25%">25%</option>
-                                                <option value="50%">50%</option>
-                                                <option value="75%">75%</option>
-                                                <option value="100%">100%</option>
+                                                    <option value="" selected disabled>Lượng đá</option>
+                                                    <option value="25%">25%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
                                                 </select>
                                             </div>
                                             <div class="duong">
                                                 <select name="luongduong" id="luongduong">
-                                                <option value="" selected disabled>Lượng đường</option>
-                                                <option value="25%">25%</option>
-                                                <option value="50%">50%</option>
-                                                <option value="75%">75%</option>
-                                                <option value="100%">100%</option>
+                                                    <option value="" selected disabled>Lượng đường</option>
+                                                    <option value="25%">25%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -344,24 +344,24 @@
                                 }
                             ?>      
                             </ul>
-                            <nav id="pagination" class="pagination_wrap pagination_pages">
+                            <!-- <nav id="pagination" class="pagination_wrap pagination_pages"> -->
                                         <?php
-                                                    $idTT = $_GET['id_sp'];
-                                            if ($current_page > 1 && $total_page > 1){
+                                            //         $idTT = $_GET['id_sp'];
+                                            // if ($current_page > 1 && $total_page > 1){
                                                 
-                                                echo '<a class="pager_prev"  href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.($current_page-1).'"></a> ';
-                                            }
-                                            for ($i = 1; $i <= $total_page; $i++){
+                                            //     echo '<a class="pager_prev"  href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.($current_page-1).'"></a> ';
+                                            // }
+                                            // for ($i = 1; $i <= $total_page; $i++){
                                                 
-                                                if ($i == $current_page){
-                                                    echo ' <span class="pager_current active ">'.$i.'</span>';
-                                                }
-                                                else{
-                                                    echo '<a href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.$i.'">'.$i.'</a>';
-                                                }
-                                            }
+                                            //     if ($i == $current_page){
+                                            //         echo ' <span class="pager_current active ">'.$i.'</span>';
+                                            //     }
+                                            //     else{
+                                            //         echo '<a href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.$i.'">'.$i.'</a>';
+                                            //     }
+                                            // }
                                             ?>
-                                </nav>
+                            <!-- </nav> -->
                         </div>
                     </div>
                 </article>
@@ -477,6 +477,12 @@
 
 
 <script>
+    window.onload = function() {
+        // Lấy phần tử tương ứng với size 'M'
+        var sizeM = document.querySelector('.sizeCoc[data-value="M"]');
+        // Kích hoạt sự kiện click cho phần tử này
+        sizeM.click();
+    }
     // Lấy tất cả các phần tử có lớp 'khungSize'
     var sizes = document.querySelectorAll('.khungSize');
     // Lặp qua từng phần tử
@@ -492,9 +498,9 @@
             }
 
             // Nếu phần tử hiện tại đã được chọn, thêm lại lớp 'clicked'
-            if (isClicked) {
-                this.classList.add('clicked');
-            }
+            // if (isClicked) {
+            //     this.classList.add('clicked');
+            // }
         });
     }
 

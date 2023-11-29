@@ -27,6 +27,7 @@
                     </div>
                     <?php 
                         $tong=0;
+                        $ttien=0;
                         $i=0;
                        
                           foreach ($_SESSION['mycart'] as $cart){
@@ -51,8 +52,22 @@
                                     </div>
                                     <div class="ten" name =""> '.$cart[0].'</div>
                                     <div class="ten"> '.$cart[5].'</div>
-                                    <div class="ten"> '.$cart[5].'</div>
-                                    <div class="ten"> '.$cart[5].'</div>
+                                    <div class="ten"> 
+                                        <select name="luongda" id="luongda">
+                                            <option value="25%" '.($cart[6] == '25%' ? 'selected' : '').'>25%</option>
+                                            <option value="50%" '.($cart[6] == '50%' ? 'selected' : '').'>50%</option>
+                                            <option value="75%" '.($cart[6] == '75%' ? 'selected' : '').'>75%</option>
+                                            <option value="100%" '.($cart[6] == '100%' ? 'selected' : '').'>100%</option>
+                                        </select>
+                                    </div>
+                                    <div class="ten">  
+                                        <select name="luongduong" id="luongduong">
+                                            <option value="25%" '.($cart[7] == '25%' ? 'selected' : '').'>25%</option>
+                                            <option value="50%" '.($cart[7] == '50%' ? 'selected' : '').'>50%</option>
+                                            <option value="75%" '.($cart[7] == '75%' ? 'selected' : '').'>75%</option>
+                                            <option value="100%" '.($cart[7] == '100%' ? 'selected' : '').'>100%</option>
+                                        </select>
+                                    </div>
                                     <div class="gia">                                        
                                         <span class="giaban">'.$cart[3].' VNĐ</span>
                                     </div>        
@@ -73,7 +88,7 @@
                                     </div>
                                     <div class="thanhtoan">
                                         <a href="index.php?act=menu"><input type="button" value="Tiếp tục mua sắm"></a> 
-                                        <a href=""><input type="submit" value="Đặt Hàng" name="dathang"></a>
+                                        <a href="index.php?act=hd"><input type="button" value="Đặt Hàng" name="dathang"></a>
                                     </div>
                              </div>
                              </form>
