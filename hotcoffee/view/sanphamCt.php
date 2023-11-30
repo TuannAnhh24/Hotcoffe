@@ -130,12 +130,12 @@
                                         <p class="price">
                                             <del>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_goc.'</span>
+                                                <span class="woocommerce-Price-currencySymbol">&#36;</span><span id="originalPrice">'.$gia_goc.'</span>
                                                 </span>
                                             </del>
                                             <ins>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_km.'</span>
+                                                <span class="woocommerce-Price-currencySymbol">&#36;</span><span id="discountedPrice">'.$gia_km.'</span>
                                                 </span>
                                             </ins>
                                         </p>
@@ -166,6 +166,7 @@
                                             
                                         </div> 
                                     </div>
+                                    
                                         <br>
                                         <div class="da_and_duong">
                                             <div class="da">
@@ -528,4 +529,37 @@
             });
         });
     });
+
+    // Giá gốc và giá khuyến mãi
+    let originalPrice = parseFloat(document.querySelector('#originalPrice').textContent);
+    let discountedPrice = parseFloat(document.querySelector('#discountedPrice').textContent);
+
+    // Hàm tính giá khuyến mãi dựa trên size
+    function calculateDiscountedPrice(originalPrice, discountedPrice, size) {
+        let discount;
+        switch(size) {
+            case 'M':
+                return discountedPrice; // Trả về giá khuyến mãi hiện tại
+            case 'L':
+                discount = 0.15;
+                break;
+            case 'XL':
+                discount = 0.25;
+                break;
+            default:
+                console.log("Invalid size");
+                return;
+        }
+        return discountedPrice * (1 + discount);
+    }
+    // Lắng nghe sự kiện click trên các phần tử .sizeCoc
+    document.querySelectorAll('.sizeCoc').forEach(function(sizeElement) {
+    sizeElement.addEventListener('click', function() {
+        let size = this.getAttribute('data-value');
+        let newPrice = calculateDiscountedPrice(originalPrice, discountedPrice, size);
+        
+        // Cập nhật giá khuyến mãi trên trang
+        document.querySelector('#discountedPrice').textContent = newPrice.toFixed(2);
+    });
+});
 </script>

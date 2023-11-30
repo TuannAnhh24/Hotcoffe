@@ -31,27 +31,29 @@
                         $i=0;
                        
                           foreach ($_SESSION['mycart'] as $cart){
-
+                            // $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong];
                             if($cart[5]=="M"){
                                 $ttien=$cart[3]*$cart[1];
-                            }elseif($cart[5]=="L"){
-                                $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
-                            }elseif($cart[5]=="XL"){
-                                $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
+                            }else if($cart[5]=="L"){
+                                $ttien=$cart[3]*$cart[1]*(1+0.15);
+                                // $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
+                            }else if($cart[5]=="XL"){
+                                $ttien=$cart[3]*$cart[1]*(1+0.25);
+                                // $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
                             } 
-
+                            
                             $tong+=$ttien;
                             
                             $xoasp = '<a href="index.php?act=xoasp-gh&id_gh='.$i.'"><input type="button" value="Xóa"></a>';
                           
                             echo '  
-                            <form action="index.php?act=menu" enctype="multipart/form-data">
+                            <form action="index.php?act=hd" method="post" enctype="multipart/form-data">
                                 <div class="item_gio_hang">
                                     <div class="hinh_anh" name="img">
                                         <img src="'.$cart[4].'" alt="">
                                     </div>
-                                    <div class="ten" name =""> '.$cart[0].'</div>
-                                    <div class="ten"> '.$cart[5].'</div>
+                                    <div class="ten" ><input style="width: 120px;" type="text" name="name_sp" value="'.$cart[0].'"> </div>
+                                    <div class="ten"> <input style="width: 120px; " type="text" name="laysize" value="'.$cart[5].'"> </div>
                                     <div class="ten"> 
                                         <select name="luongda" id="luongda">
                                             <option value="25%" '.($cart[6] == '25%' ? 'selected' : '').'>25%</option>
@@ -88,7 +90,7 @@
                                     </div>
                                     <div class="thanhtoan">
                                         <a href="index.php?act=menu"><input type="button" value="Tiếp tục mua sắm"></a> 
-                                        <a href="index.php?act=hd"><input type="button" value="Đặt Hàng" name="dathang"></a>
+                                        <a href="index.php?act=hd"><input type="submit" value="Đặt Hàng" name="dathang"></a>
                                     </div>
                              </div>
                              </form>

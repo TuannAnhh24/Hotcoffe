@@ -215,7 +215,7 @@
                 include "view/cart.php";
                 break;
               // ------------------------------------ Thêm vào Giỏ Hàng  ------------------------------------
-             case 'add-to-cart':
+            case 'add-to-cart':
                 // Xử lý thêm sản phẩm vào giỏ hàng
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                     $name_sp = $_POST['name_sp'];
@@ -249,7 +249,32 @@
                 }
                 include "view/cart.php";
                 break;
-                 // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------
+            // ------------------------------------ Trang Hóa đơn  ------------------------------------
+            case 'hd':
+                if ( isset($_POST['dathang'])) {
+                    // Lấy giá trị mới từ biểu mẫu
+                    $name_sp = $_POST['name_sp'];
+                    $size = $_POST['laysize'];
+                    $soluong_moi = $_POST['quantity'];
+                    $da_moi = $_POST['luongda'] ?? '100%'; 
+                    $duong_moi = $_POST['luongduong'] ?? '100%';
+                
+                    // Duyệt qua từng sản phẩm trong giỏ hàng
+                    foreach ($_SESSION['mycart'] as $key => &$cartItem) {
+                        // Nếu tên sản phẩm và kích cỡ khớp với sản phẩm bạn muốn chỉnh sửa
+                        if ($cartItem[0] === $name_sp && $cartItem[5] === $size ) {
+                            // Cập nhật số lượng, lượng đá, và lượng đường
+                            $cartItem[1] = $soluong_moi;
+                            $cartItem[6] = $da_moi;
+                            $cartItem[7] = $duong_moi;
+                            break;
+                        }
+                    }
+                }
+                
+                include "view/hoadon.php";
+                break;
+            // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------
             case 'xoasp-gh':
                 if (isset($_GET['id_gh'])) {
                     $id_to_remove = $_GET['id_gh'];
@@ -261,6 +286,7 @@
                 }
                 header('location: index.php?act=add-to-cart');
                 break;
+            
             // ------------------------------------ Trang cảm ơn  ------------------------------------
             case 'camon':
                 include "view/camon.php";
@@ -276,11 +302,7 @@
             case 'thanhtoan':
                 include "view/thanhtoan.php";
                 break;
-            // ------------------------------------ Trang Hóa đơn  ------------------------------------
-            case 'hd':
-                
-                include "view/hoadon.php";
-                break;
+            
             
             default:
                 include "view/home.php";

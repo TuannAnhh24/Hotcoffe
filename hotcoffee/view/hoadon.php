@@ -13,7 +13,7 @@
                                 <label for="username"><b>Họ tên người dùng</b></label>
                             </td>
                             <td>
-                                <input type="text" placeholder="Nhập tên đăng nhập" name="username" class="common-class input-text" value="<?= $user?>" required>
+                                <input type="text" placeholder="Nhập tên đăng nhập" name="username" class="common-class input-text" value="'.$user.'" required>
                             </td>
                         </tr> 
 
@@ -22,7 +22,7 @@
                                 <label for="email"><b>Email</b></label>
                             </td>
                             <td>
-                                <input type="email" placeholder="Nhập Email" name="email" id="email" class="common-class email" value="<?= $email?>" required >
+                                <input type="email" placeholder="Nhập Email" name="email" id="email" class="common-class email" value="'.$email.'" required >
                             </td>
                         </tr>
 
@@ -31,7 +31,7 @@
                                 <label for="number"><b>Số điện thoại</b></label>
                             </td>
                             <td>
-                                <input type="text" placeholder="Nhập số điện thoại" name="sdt" class="common-class input-text" value="<?= $sdt?>" required>
+                                <input type="text" placeholder="Nhập số điện thoại" name="sdt" class="common-class input-text" value="'.$sdt.'" required>
                             </td>
                         </tr>
 
@@ -40,8 +40,8 @@
                                 <label for="address"><b>Địa chỉ</b></label>
                             </td>
                             <td>
-                                <textarea name="address" id="address" cols="30" rows="5"><?= $dia_chi?></textarea>
-                                <!-- <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text" value="<?= $dia_chi?>" required> -->
+                                <textarea name="address" id="address" cols="30" rows="5">'.$dia_chi.'</textarea>
+                                <!-- <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text"  required> -->
                             </td>
                         </tr>';
                 }else{
@@ -78,7 +78,7 @@
                             </td>
                             <td>
                                 <textarea name="address" id="address" cols="30" rows="5" placeholder="Nhập địa chỉ" required></textarea>
-                                <!-- <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text" value="<?= $dia_chi?>" required> -->
+                                <!-- <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text" value="  $dia_chi " required> -->
                             </td>
                     </tr>';
                 }
@@ -89,7 +89,13 @@
             
             <div class="luu">
                 <input type="hidden" name="id_tk" value="<?=$id_tk?>">
-                <input  type="submit" name="thanhtoan" class="btn" value="Thanh toán"></input>
+                <?php 
+                    if(isset($_SESSION['email'])){
+                    }else{
+                        echo '<a href="index.php?act=dangnhap"><input style="margin-right: 110px;" type="submit" name="dangnhap" class="btn" value="Đăng Nhập"></input></a>';
+                    }
+                ?> 
+                <input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán"></input>
             </div>
         </div>
 
@@ -104,6 +110,7 @@
                     <th>Lượng đá</th>
                     <th>Lượng đường</th>
                     <th>Tổng tiền</th>
+                    
                 </tr>
 
                 <?php 
@@ -112,14 +119,15 @@
                     $i=0;
                     
                     foreach ($_SESSION['mycart'] as $cart){
+                        if($cart[5]=="M"){
+                            $ttien=$cart[3]*$cart[1];
+                        }elseif($cart[5]=="L"){
+                            $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
+                        }elseif($cart[5]=="XL"){
+                            $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
+                        } 
 
-                    if($cart[5]=="M"){
-                        $ttien=$cart[3]*$cart[1];
-                    }elseif($cart[5]=="L"){
-                        $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
-                    }elseif($cart[5]=="XL"){
-                        $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
-                    } 
+
 
                     $tong+=$ttien;
                 ?>
@@ -133,7 +141,7 @@
                     <td><?=$ttien?></td>
                 </tr>
                 
-                <?php }?>
+                <?php }  ?>
 
             </table> <br>
             <div class="muahang">
@@ -144,7 +152,7 @@
             </div>
                 Phương thức thanh toán*: <br>
                 <input type="radio" name="pttt" id="" checked> Thanh toán bằng tiền mặt <br>
-                <input type="radio" name="pttt" id=""> Thanh toán bằng ngân hàng
+                <!-- <input type="radio" name="pttt" id=""> Thanh toán bằng ngân hàng -->
                 
         </div>
         
