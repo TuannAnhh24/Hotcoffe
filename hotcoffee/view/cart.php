@@ -35,9 +35,9 @@
                             if($cart[5]=="M"){
                                 $ttien=$cart[3]*$cart[1];
                             }else if($cart[5]=="L"){
-                                $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
+                                $ttien=($cart[3]*1.15)*$cart[1];
                             }else if($cart[5]=="XL"){
-                                $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
+                                $ttien=($cart[3]*1.25)*$cart[1];
                             } 
 
                         
@@ -51,8 +51,8 @@
                                     <div class="hinh_anh" name="img">
                                         <img src="'.$cart[4].'" alt="">
                                     </div>
-                                    <div class="ten" ><input style="width: 120px;" type="text" name="name_sp" value="'.$cart[0].'"> </div>
-                                    <div class="ten"> <input style="width: 120px; " type="text" name="laysize" value="'.$cart[5].'"> </div>
+                                    <div class="ten" ><input style="width: 120px;" type="text" name="name_sp" value="'.$cart[0].'" readonly> </div>
+                                    <div class="ten"> <input style="width: 120px; " type="text" id="size_'.$i.'" name="laysize" value="'.$cart[5].'" readonly onchange="updateTotalPrice(this);"> </div>
                                     <div class="ten"> 
                                         <select name="luongda" id="luongda">
                                             <option value="25%" '.($cart[6] == '25%' ? 'selected' : '').'>25%</option>
@@ -70,10 +70,10 @@
                                         </select>
                                     </div>
                                     <div class="gia">                                        
-                                        <span class="giaban">'.$cart[3].' VNĐ</span>
+                                        <span class="giaban" id="price_'.$i.'" data-price="'.$cart[3].'">'.$cart[3].' VNĐ</span>
                                     </div>        
-                                    <div class="soluong"><input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
-                                    <div class="tongtien" name="thanhtien">'.$ttien.' VNĐ</div>
+                                    <div class="soluong"><input type="number" id="quantity_'.$i.'" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
+                                    <div class="tongtien" id="tongtien_'.$i.'" name="thanhtien">'.$ttien.' VNĐ</div>
                                     <div class="delete">
                                         '.$xoasp.'
                                     </div>
@@ -107,16 +107,31 @@
                             }
                         }
 
-                        function updateTotalPrice(input) {
-                            const newQuantity = parseInt(input.value);
-                            const price = parseFloat(input.closest('.item_gio_hang').querySelector('.giaban').textContent);
-                            const newTotal = price * newQuantity;
+                        function updateTotalPrice(element) {
+                            // Lấy id của sản phẩm từ phần tử đã thay đổi
+                            
+                            var id = element.id.split('_')[1];
 
-                            const totalElement = input.closest('.item_gio_hang').querySelector('.tongtien');
-                            totalElement.textContent = newTotal + ' VNĐ';
+                            // Lấy giá trị của các phần tử liên quan
+                            var quantity = document.querySelector('#quantity_' + id).value;
+                            var size = document.querySelector('#size_' + id).value;
+                            var price = document.querySelector('#price_' + id).getAttribute('data-price');
 
-                            updateOverallTotal(); // Cập nhật tổng tiền tổng cộng
+                            // Tính toán tổng tiền dựa trên kích cỡ của sản phẩm
+                            
+                            var ttien = 0;
+                            if(size == "M"){
+                                ttien = Math.round(price * quantity);
+                            } else if(size == "L"){
+                                ttien = Math.round(price * 1.15 * quantity);
+                            } else if(size == "XL"){
+                                ttien = Math.round(price * 1.25 * quantity);
+                            }
+
+                            // Cập nhật tổng tiền cho sản phẩm này
+                            document.querySelector('#tongtien_' + id).innerText = ttien + ' VNĐ';
                         }
+
 
                         function updateOverallTotal() {
                             let overallTotal = 0;

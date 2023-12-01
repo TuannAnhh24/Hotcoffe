@@ -1,3 +1,15 @@
+<div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
+    <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_5">
+        <div class="content_wrap">
+            <h1 class="page_title">Thanh Toán</h1>
+            <div class="breadcrumbs">
+                <a class="breadcrumbs_item home" href="index.html">Home</a>
+                <span class="breadcrumbs_delimiter"></span>
+                <span class="breadcrumbs_item current">Thanh Toán</span>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="hoso">
     <div class="ho_so_cua_toi">
         <p>Xác nhận đặt hàng</p>
@@ -93,11 +105,12 @@
                     <input type="hidden" name="id_tk" value="<?=$id_tk?>">
                     <?php 
                         if(isset($_SESSION['email'])){
+                            echo '<input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán"></input>';
                         }else{
                             echo '<a href="index.php?act=dangnhap"><input style="margin-right: 110px;" type="submit" name="dangnhap" class="btn" value="Đăng Nhập"></input></a>';
                         }
                     ?> 
-                    <input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán"></input>
+                    
                     
                 </div>
             </div>

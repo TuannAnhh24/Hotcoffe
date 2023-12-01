@@ -292,16 +292,15 @@
                     $address = $_POST['address'];
                     $pttt = $_POST['pttt'];
                     $tong = $_POST['tongtien'];
-                    if(!isset($_SESSION['email'])){
-                        $user= [$username,$sdt,$address,$email];
-                        $_SESSION['user'][] = $user;
-                    }
-
-
-                    insert_hoadon($tong,$pttt,$username,$email,$sdt,$address);
+                    $id_tk = $_POST['id_tk'];
+                    // Nếu không có tài khoản
+                    // if(!isset($_SESSION['email'])){
+                    //     $user= [$username,$sdt,$address,$email];
+                    //     $_SESSION['user'][] = $user;
+                    // }
+                    insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
                     $id_hoadon = lay_id_hoadon();
-                    // echo $id_hoadon; 
-                    // die();
+                    
                     foreach ($_SESSION['mycart'] as $cart) {
                         $name = $cart[0]; 
                         $size_sp = $cart[5]; 
@@ -318,7 +317,7 @@
                 
                 include "view/hoadon.php";
                 break;
-            // ------------------------------------ Trang chi tiết đơn hàng  ------------------------------------
+            // ------------------------------------ Trang theo dõi đơn hàng  ------------------------------------
             case 'ctdh':
                 $listhoadon = loadall_hoadon();
                 include "view/ct.donhang.php";
@@ -339,13 +338,7 @@
             case 'camon':
                 include "view/camon.php";
                 break;
-            
-            // ------------------------------------ Trang thanh toán  ------------------------------------
-            case 'thanhtoan':
-                include "view/thanhtoan.php";
-                break;
-            
-            
+
             default:
                 include "view/home.php";
                 break;

@@ -113,7 +113,6 @@
                     <input type="hidden">
                         <?php 
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
-                                // $_SESSION['id_sp'] = $id_sp;
                                 $bnt = 'index.php?btn_test.php';
                                 $image = $img_path.$img;
                                 echo '
@@ -481,6 +480,7 @@
 
 
 <script>
+    
     window.onload = function() {
         // Lấy phần tử tương ứng với size 'M'
         var sizeM = document.querySelector('.sizeCoc[data-value="M"]');
@@ -501,10 +501,6 @@
                 sizes[j].classList.remove('clicked');
             }
 
-            // Nếu phần tử hiện tại đã được chọn, thêm lại lớp 'clicked'
-            // if (isClicked) {
-            //     this.classList.add('clicked');
-            // }
         });
     }
 
@@ -533,36 +529,71 @@
         });
     });
 
-    // Giá gốc và giá khuyến mãi
-    let originalPrice = parseFloat(document.querySelector('#originalPrice').textContent);
-    let discountedPrice = parseFloat(document.querySelector('#discountedPrice').textContent);
+  // Giá gốc và giá khuyến mãi
+let originalPrice = parseFloat(document.querySelector('#originalPrice').textContent);
+let discountedPrice = parseFloat(document.querySelector('#discountedPrice').textContent);
 
-    // Hàm tính giá khuyến mãi dựa trên size
-    function calculateDiscountedPrice(originalPrice, discountedPrice, size) {
-        let discount;
-        switch(size) {
-            case 'M':
-                return discountedPrice; // Trả về giá khuyến mãi hiện tại
-            case 'L':
-                discount = 0.15;
-                break;
-            case 'XL':
-                discount = 0.25;
-                break;
-            default:
-                console.log("Invalid size");
-                return;
-        }
-        return discountedPrice * (1 + discount);
+// Hàm tính giá khuyến mãi dựa trên size
+function calculateDiscountedPrice(originalPrice, discountedPrice, size) {
+    let discount;
+    switch(size) {
+        case 'M':
+            return discountedPrice; // Trả về giá khuyến mãi hiện tại
+        case 'L':
+            discount = 0.15;
+            break;
+        case 'XL':
+            discount = 0.25;
+            break;
+        default:
+            console.log("Invalid size");
+            return discountedPrice; // Trả về giá khuyến mãi hiện tại nếu size không hợp lệ
     }
-    // Lắng nghe sự kiện click trên các phần tử .sizeCoc
-    document.querySelectorAll('.sizeCoc').forEach(function(sizeElement) {
+    return discountedPrice * (1 + discount);
+}
+
+// Hàm cập nhật giá khi thay đổi số lượng hoặc kích thước
+function updatePrice() {
+    let quantity = parseInt(document.querySelector('input[name="quantity"]').value);
+    let size = document.querySelector('.sizeCoc.clicked').getAttribute('data-value');
+
+    let newOriginalPrice = originalPrice * quantity;
+    let newDiscountedPrice = calculateDiscountedPrice(originalPrice, discountedPrice, size) * quantity;
+
+    document.querySelector('#originalPrice').textContent = newOriginalPrice.toFixed(2);
+    document.querySelector('#discountedPrice').textContent = newDiscountedPrice.toFixed(2);
+}
+
+// Lắng nghe sự kiện thay đổi trên trường nhập số lượng
+document.querySelector('input[name="quantity"]').addEventListener('input', updatePrice);
+document.querySelector('input[name="quantity"]').addEventListener('change', updatePrice);
+
+// Lắng nghe sự kiện click trên các phần tử .sizeCoc
+document.querySelectorAll('.sizeCoc').forEach(function(sizeElement) {
     sizeElement.addEventListener('click', function() {
-        let size = this.getAttribute('data-value');
-        let newPrice = calculateDiscountedPrice(originalPrice, discountedPrice, size);
-        
-        // Cập nhật giá khuyến mãi trên trang
-        document.querySelector('#discountedPrice').textContent = newPrice.toFixed(2);
+        // Thêm hoặc xóa class 'clicked' cho phần tử size được chọn
+        document.querySelectorAll('.sizeCoc').forEach(function(el) {
+            el.classList.remove('clicked');
+        });
+        this.classList.add('clicked');
+
+        // Gọi hàm cập nhật giá khi chọn kích thước
+        updatePrice();
     });
 });
+
+// Mở rộng sự kiện onload cho việc tự động chọn size M
+window.onload = function() {
+    // Lấy phần tử tương ứng với size 'M'
+    var sizeM = document.querySelector('.sizeCoc[data-value="M"]');
+    // Kích hoạt sự kiện click cho phần tử này
+    sizeM.click();
+    updatePrice();
+};
+
+
+
+
+
+
 </script>
