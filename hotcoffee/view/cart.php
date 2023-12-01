@@ -35,11 +35,9 @@
                             if($cart[5]=="M"){
                                 $ttien=$cart[3]*$cart[1];
                             }else if($cart[5]=="L"){
-                                $ttien=$cart[3]*$cart[1]*(1+0.15);
-                                // $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
+                                $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
                             }else if($cart[5]=="XL"){
-                                $ttien=$cart[3]*$cart[1]*(1+0.25);
-                                // $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
+                                $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
                             } 
                             
                             $tong+=$ttien;
@@ -81,6 +79,7 @@
                                 </div>';
                                 $i+=1;
                             }
+                            
                                 
                              echo '
                              <div class="muahang">

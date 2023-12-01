@@ -7,6 +7,7 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "models/donhang.php";
+    include "models/hoadon.php";
     include "global.php";
     $listdanhmuc= loadall_danhmuc();
     $spBanchay = loadall_sanpham_banchay();
@@ -258,7 +259,6 @@
                     $soluong_moi = $_POST['quantity'];
                     $da_moi = $_POST['luongda'] ?? '100%'; 
                     $duong_moi = $_POST['luongduong'] ?? '100%';
-                
                     // Duyệt qua từng sản phẩm trong giỏ hàng
                     foreach ($_SESSION['mycart'] as $key => &$cartItem) {
                         // Nếu tên sản phẩm và kích cỡ khớp với sản phẩm bạn muốn chỉnh sửa
@@ -270,8 +270,34 @@
                             break;
                         }
                     }
+
+                }
+
+                if(isset($_POST['thanhtoan'])){
+                    $username=$_POST['username'];
+                    $email = $_POST['email'];
+                    $sdt = $_POST['sdt'];
+                    $address = $_POST['address'];
+                    $pttt = $_POST['pttt'];
+                    $tong = $_POST['tongtien'];
+
+
+                    insert_hoadon($tong,$pttt,$username,$email,$sdt,$address);
+                    $id_hoadon = lay_id_hoadon();
+                    // echo $id_hoadon; 
+                    // die();
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        $name = $cart[0]; 
+                        $size_sp = $cart[5]; 
+                        $soluong_sp= $cart[1]; 
+                        $da_sp = $cart[6]; 
+                        $duong_sp = $cart[7];
+                        $ct_hd=insert_ct_hd($id_hoadon,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp);
+                        header("Location: index.php?act=camon");
+                    }
                 }
                 
+
                 include "view/hoadon.php";
                 break;
             // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------

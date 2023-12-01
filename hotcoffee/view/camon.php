@@ -14,7 +14,7 @@
 
             <div class="tong">
                 <div class="image">
-                    <img src="../hotcoffee/images/tich_xanh.png" alt="">
+                    <img src="images/logo.png">
                 </div>
                 <div class="dang_ki_thanh_cong">
                     Đăng kí mua hàng thành công !
@@ -33,10 +33,10 @@
                 </div>
                 <div class="tro_ve">
                     <div class="ve_trang_chu">
-                        <a href="#"><input type="button" value="Về trang chủ"></a>
+                        <a href="index.php"><input type="button" value="Về trang chủ"></a>
                     </div>
                     <div class="xem_chi_tiet_don_hang">
-                        <a href="#"><input type="button" value="Xem chi tiết đơn hàng"></a>
+                        <a href="index.php?act=ctdh"><input type="button" value="Xem chi tiết đơn hàng"></a>
                     </div>
                 </div>
             </div>
