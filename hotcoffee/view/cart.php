@@ -39,7 +39,8 @@
                             }else if($cart[5]=="XL"){
                                 $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
                             } 
-                            
+
+                        
                             $tong+=$ttien;
                             
                             $xoasp = '<a href="index.php?act=xoasp-gh&id_gh='.$i.'"><input type="button" value="Xóa"></a>';

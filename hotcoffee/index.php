@@ -215,7 +215,19 @@
             case 'cart':
                 include "view/cart.php";
                 break;
-              // ------------------------------------ Thêm vào Giỏ Hàng  ------------------------------------
+            // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------
+             case 'xoasp-gh':
+                if (isset($_GET['id_gh'])) {
+                    $id_to_remove = $_GET['id_gh'];
+                    if (isset($_SESSION['mycart'][$id_to_remove])) {
+                        array_splice($_SESSION['mycart'], $id_to_remove, 1);
+                    }
+                }else{
+                    $_SESSION['mycart'] = [];
+                }
+                header('location: index.php?act=add-to-cart');
+                break;
+            // ------------------------------------ Thêm vào Giỏ Hàng  ------------------------------------
             case 'add-to-cart':
                 // Xử lý thêm sản phẩm vào giỏ hàng
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
@@ -227,6 +239,7 @@
                     $size = $_POST['selectedSize']; // Thêm dòng này
                     $luongda = $_POST['luongda'] ?? '100%'; // Thêm dòng này
                     $luongduong = $_POST['luongduong'] ?? '100%'; // Thêm dòng này
+                    $id_sp = $_POST['id_sp'];
                     $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
                     // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
                     foreach ($_SESSION['mycart'] as $key => $cartItem) {
@@ -242,11 +255,11 @@
                     }
                     // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm mới vào
                     if (!$found) {
-                        $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong]; // Thêm vào dòng này
+                        $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong, $id_sp]; // Thêm vào dòng này
                         $_SESSION['mycart'][] = $cart;
                         
                     }
-                   
+                    
                 }
                 include "view/cart.php";
                 break;
@@ -280,6 +293,10 @@
                     $address = $_POST['address'];
                     $pttt = $_POST['pttt'];
                     $tong = $_POST['tongtien'];
+                    if(!isset($_SESSION['email'])){
+                        $user= [$username,$sdt,$address,$email];
+                        $_SESSION['user'][] = $user;
+                    }
 
 
                     insert_hoadon($tong,$pttt,$username,$email,$sdt,$address);
@@ -292,38 +309,37 @@
                         $soluong_sp= $cart[1]; 
                         $da_sp = $cart[6]; 
                         $duong_sp = $cart[7];
-                        $ct_hd=insert_ct_hd($id_hoadon,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp);
+                        $thanhtien = $_POST['thanhtien'];
+                        $id_sp = $cart[8];
+                        
+                        $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
                         header("Location: index.php?act=camon");
                     }
                 }
                 
-
                 include "view/hoadon.php";
                 break;
-            // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------
-            case 'xoasp-gh':
-                if (isset($_GET['id_gh'])) {
-                    $id_to_remove = $_GET['id_gh'];
-                    if (isset($_SESSION['mycart'][$id_to_remove])) {
-                        array_splice($_SESSION['mycart'], $id_to_remove, 1);
-                    }
-                }else{
-                    $_SESSION['mycart'] = [];
-                }
-                header('location: index.php?act=add-to-cart');
+            // ------------------------------------ Trang chi tiết đơn hàng  ------------------------------------
+            case 'ctdh':
+                $listhoadon = loadall_hoadon();
+                
+                // $lay_sp = loadone_CTsanpham();
+                // extract($lay_sp);
+                include "view/ct.donhang.php";
                 break;
-            
+            // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
+            case 'chitiethoadon':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    $id_hd = $_GET['id_hd'];
+                    $xem_hd = CT_hoadon($id_hd);
+                }
+                include "view/ct.hoadon.php";
+                break;     
             // ------------------------------------ Trang cảm ơn  ------------------------------------
             case 'camon':
                 include "view/camon.php";
                 break;
-            // ------------------------------------ Trang chi tiết đơn hàng  ------------------------------------
-            case 'ctdh':
-                $listdonhang = loadall_donhang();
-                $lay_sp = loadone_CTsanpham();
-                extract($lay_sp);
-                include "view/ct.donhang.php";
-                break;
+            
             // ------------------------------------ Trang thanh toán  ------------------------------------
             case 'thanhtoan':
                 include "view/thanhtoan.php";

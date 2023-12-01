@@ -129,9 +129,6 @@
                             }elseif($cart[5]=="XL"){
                                 $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
                             } 
-
-
-
                         $tong+=$ttien;
                         
                     ?>
@@ -142,7 +139,8 @@
                         <td><?= $cart[1] ?></td>
                         <td><?= $cart[6] ?></td>
                         <td><?= $cart[7] ?></td>
-                        <td><?=$ttien?></td> 
+                        <td><?=$ttien?> VNĐ</td> 
+                        <!-- <input style="width: 100px;" name="thanhtien" type="text" value=""  readonly> -->
                     </tr>
                     
                     <?php }   ?>

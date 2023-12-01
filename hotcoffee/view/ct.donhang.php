@@ -10,14 +10,13 @@
         </div>
     </div>
 </div>
+
 <div class="chi_tiet_hang_hoa">
     <table class="bang">
         <tr class="dong">
             <th class="cot">Mã đơn</th>
             <th class="cot">Khách hàng</th>
             <th class="cot">Sản phẩm</th>
-            <th class="cot">Số lượng</th>
-            <th class="cot">Size(Cái)</th>
             <th class="cot">Tổng tiền</th>
             <th class="cot">Phương thức thanh toán</th>
             <th class="cot">Trạng thái</th>
@@ -27,8 +26,13 @@
             if(isset($_SESSION['email'])){
                 extract($_SESSION['email']);
             }
-            foreach ($listdonhang as $dh){
-                extract($dh);
+            foreach ($listhoadon as $hd){
+                extract($hd);
+                if($trang_thai==0){
+                    $trang_thai = "Chờ Xác Nhận";
+                }else if($trang_thai==1){
+                    $trang_thai = "Đang vận chuyển";
+                }
             
         ?>
             <tr class="dong">
@@ -37,10 +41,8 @@
                 👤 <?php echo $sdt." - ";  echo $user; ?><br>
                 🏚  <?php  echo "Địa chỉ: ".$dia_chi?>
                 </td>
-                <td class="cot"><?= $name_sp ?></td>
-                <td class="cot">1</td>
-                <td class="cot">M</td>
-                <td class="cot">3000 đ</td>
+                <td class="cot"><a href="index.php?act=chitiethoadon&id_hd=<?=$id_hd?>"><input style="border: 1px solid #ccc; color: #5031eb; width: 180px; font-size: 12px;" type="button" value="Xem chi tiết hóa đơn"></input></a></td>
+                <td class="cot"><?= $tong_tien ?> VNĐ</td>
                 <td class="cot"><?= $phuong_thuc_tt ?></td>
                 <td class="cot"><?= $trang_thai ?></td>
             </tr>

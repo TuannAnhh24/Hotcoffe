@@ -110,8 +110,10 @@
             <div class="content_wrap">
                 <div class="content">
                 <article class="post_item post_item_single post_item_product">   
+                    <input type="hidden">
                         <?php 
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
+                                // $_SESSION['id_sp'] = $id_sp;
                                 $bnt = 'index.php?btn_test.php';
                                 $image = $img_path.$img;
                                 echo '
@@ -194,6 +196,7 @@
                                         <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
                                         <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
                                         <input type="hidden" name="img"      value="'.$image.'"  />
+                                        <input type="hidden" name="id_sp"  value="'.$id_sp.'">
                                         
                                         <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
                                     </form>
