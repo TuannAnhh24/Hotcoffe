@@ -6,7 +6,6 @@
     include "models/pdo.php";
     include "models/sanpham.php";
     include "models/danhmuc.php";
-    include "models/donhang.php";
     include "models/hoadon.php";
     include "global.php";
     $listdanhmuc= loadall_danhmuc();
@@ -322,9 +321,6 @@
             // ------------------------------------ Trang chi tiết đơn hàng  ------------------------------------
             case 'ctdh':
                 $listhoadon = loadall_hoadon();
-                
-                // $lay_sp = loadone_CTsanpham();
-                // extract($lay_sp);
                 include "view/ct.donhang.php";
                 break;
             // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
@@ -332,7 +328,11 @@
                 if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
                     $id_hd = $_GET['id_hd'];
                     $xem_hd = CT_hoadon($id_hd);
+                    // $lay_sp = loadone_CTsanpham();
                 }
+                
+                
+                
                 include "view/ct.hoadon.php";
                 break;     
             // ------------------------------------ Trang cảm ơn  ------------------------------------

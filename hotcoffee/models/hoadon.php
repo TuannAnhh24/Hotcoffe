@@ -33,4 +33,10 @@
         return $xem_hd;
     }
 
+    function loadone_CTsanpham(){
+        $sql = 'SELECT * FROM `ct_hd` as hd INNER JOIN `san_pham` as sp ON hd.id_sp = sp.id_sp ';  
+        $dm = pdo_query_one($sql);
+        return $dm;
+    }
+
 ?>

@@ -5,6 +5,7 @@
     include "../models/danhmuc.php";
     include "../models/taikhoan.php";
     include "../models/binhluan.php";
+    include "../models/hoadon.php";
     //controller
     if (isset($_GET['act']) ){
         $act = $_GET['act'];
@@ -209,9 +210,21 @@
                 break;
             // ------------------------------------ Trang hóa đơn ------------------------------------
             case 'dsdh':
-                
+                $listhoadon = loadall_hoadon();
                 include "hoadon/list.php";
                 break;
+            // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
+            case 'chitiethoadon':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    $id_hd = $_GET['id_hd'];
+                    $xem_hd = CT_hoadon($id_hd);
+                    // $lay_sp = loadone_CTsanpham();
+                }
+                
+                
+                
+                include "hoadon/ct.hoadon.php";
+                break; 
         }
     }else {
         include "home.php";

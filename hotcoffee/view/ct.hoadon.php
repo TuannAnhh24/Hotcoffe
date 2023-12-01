@@ -3,7 +3,7 @@
         <div class="content_wrap">
             <h1 class="page_title">Chi tiết đơn hàng</h1>
             <div class="breadcrumbs">
-                <a class="breadcrumbs_item home" href="index.html">Home</a>
+                <a class="breadcrumbs_item home" href="index.php">Home</a>
                 <span class="breadcrumbs_delimiter"></span>
                 <span class="breadcrumbs_item current">Chi tiết đơn hàng</span>
             </div>
@@ -25,8 +25,18 @@
         <?php 
             foreach ($xem_hd as $ct){
                 extract($ct);
+                $ttien=0;
                 
+                foreach ($_SESSION['mycart'] as $cart){
+                    if($cart[5]=="M"){
+                        $ttien=$cart[3]*$cart[1];
+                    }elseif($cart[5]=="L"){
+                        $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
+                    }elseif($cart[5]=="XL"){
+                        $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
+                    } 
                 
+
         ?>
             <tr class="dong">
                 <td class="cot"><?= $id_hd ?></td>
@@ -35,10 +45,10 @@
                 <td class="cot"><?= $so_luong ?></td>
                 <td class="cot"><?= $luong_da ?></td> 
                 <td class="cot"><?= $luong_duong ?></td>
-                <td class="cot"><?= $tien ?> VNĐ</td> 
+                <td class="cot"><?= $ttien ?> VNĐ</td> 
             </tr>
 
-        <?php }   ?>
+        <?php }  } ?>
         
     </table>
 </div>

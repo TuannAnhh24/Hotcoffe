@@ -9,36 +9,35 @@
             <tr>
                 <!-- <th></th> -->
                 <th>Mã đơn</th>
-                <th>Ngày đặt</th>
                 <th>Khách hàng</th>
                 <th>Sản phẩm</th>
-                <th>Số lượng</th>
-                <th>Size(Cái)</th>
                 <th>Tổng tiền</th>
-                <th>Trạng Thái</th>
+                <th>Phương thức thanh toán</th>
+                <th>Trạng thái</th>
             </tr>
             <?php 
-                // foreach($listdanhmuc as $danhmuc){
-                //     extract($danhmuc);
-                //     // kiểm tra trạng thái theo kiểu tinyint "1 = Đã xóa || 0 = Tồn tại"
-                //     if($trang_thai == 0){
-                //         $trang_thai = "Tồn Tại";
-                //     } else {
-                //         $trang_thai = "Đã xóa";
-                //     }
-                //     $suadm = 'index.php?act=suadm&id_dm='.$id_dm;
-                //     $xoadm = 'index.php?act=xoadm&id_dm='.$id_dm;
-                //     $kpdm = 'index.php?act=kpdm&id_dm='.$id_dm;
-                ?> 
+                if(isset($_SESSION['email'])){
+                    extract($_SESSION['email']);
+                }
+                foreach ($listhoadon as $hd){
+                    extract($hd);
+                    if($trang_thai==0){
+                        $trang_thai = "Chờ Xác Nhận";
+                    }else if($trang_thai==1){
+                        $trang_thai = "Đang vận chuyển";
+                    }
+            ?>
                      <tr>
                         <!-- <td><input type="checkbox" name="" id=""></td> -->
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
+                        <td><?= $id_hd ?></td>
+                        <td>
+                        👤 <?php echo $sdt." - ";  echo $user; ?><br>
+                        🏚  <?php  echo "Địa chỉ: ".$dia_chi?>
+                        </td>
+                        <td><a href="index.php?act=chitiethoadon&id_hd=<?=$id_hd?>"><input style="border: 1px solid #ccc; color: #5031eb; width: 180px; font-size: 12px;" type="button" value="Xem chi tiết hóa đơn"></input></a></td>
+                        <td><?= $tong_tien ?> VNĐ</td>
+                        <td><?= $phuong_thuc_tt ?></td>
+                        <td><?= $trang_thai ?></td>
                         <td>
                             <a href="<?=$suadm?>"><input type="button" value="Xác Nhận"></a>   
                             <a onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')" href="<?=$xoadm?>"><input type="button" value="Đang vận chuyển"></a>
@@ -46,7 +45,7 @@
                             Đã hoàn thành
                         </td>
                     </tr>
-                <?php  ?>
+                <?php } ?>
             
            </table>
            </div>
