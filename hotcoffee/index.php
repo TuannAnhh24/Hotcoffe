@@ -83,20 +83,9 @@
                     
                     $sp_cung_loai = loadone_sanpham_cungloai($id_sp,$id_dm);
 
-                    //phân page
-                    $current_page = isset($_GET['pageNho']) ? $_GET['pageNho'] : 1;
-                    $limit =4;
+                    
                     $total_records = get_total_productsCL($id_dm);
-                    $total_records = intval($total_records);
-                    $total_page = ceil($total_records / $limit);
-                    if ($current_page > $total_page){
-                        $current_page = $total_page;
-                    }
-                    else if ($current_page < 1){
-                        $current_page = 1;
-                    }
-                    $start = ($current_page - 1) * $limit;
-                    $listsanphamCL = load_spCL($start, $limit,$id_dm);
+                    $listsanphamCL = load_spCL($id_dm);
                         include "view/sanphamCt.php";   
                 }else{
                     include "view/home.php";
@@ -217,17 +206,18 @@
              case 'add-to-cart':
                 // Xử lý thêm sản phẩm vào giỏ hàng
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
+                    $id_sp = $_POST['id_sp'];
                     $name_sp = $_POST['name_sp'];
                     $quantity = $_POST['quantity'];
                     $gia_goc = $_POST['gia_goc'];
-                    $gia_km = $_POST['gia_km'];
+                    $gia_km = $_POST['gia_sp'];
                     $img = $_POST['img'];
                     $size = $_POST['selectedSize'];
                     $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
                     // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
                     foreach ($_SESSION['mycart'] as $key => $cartItem) {
                         // Nếu tên sản phẩm đã tồn tại trong giỏ hàng
-                        if ($cartItem[0] === $name_sp) {
+                        if ($cartItem[0] === $name_sp && $cartItem[0] === $size) {
                             // Cập nhật số lượng và giá sản phẩm
                             $_SESSION['mycart'][$key][1] += $quantity; 
                             $_SESSION['mycart'][$key][2] = $gia_goc; 

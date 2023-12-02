@@ -41,13 +41,13 @@
                                     <div>
                                         <p class="price">
                                             <del>
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_goc.'</span>
-                                                </span>
+                                                <span class="woocommerce-Price-amount amount"> </span>
+                                                    <span class="woocommerce-Price-currencySymbol"  >'.$gia_goc.'</span>
+                                               
                                             </del>
                                             <ins>
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;'.$gia_km.'</span>
+                                                <span id="product-price" class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol" id="giaGoc" name="gia_sp" >'.$gia_km.'</span>
                                                 </span>
                                             </ins>
                                         </p>
@@ -74,9 +74,10 @@
                                             </div> 
                                         </div> <br>
                                         <input type="hidden" id="selectedSize" name="selectedSize" value="">
+                                        <input type="hidden" name="id_sp"  value="'.$id_sp.'"  />
                                         <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
                                         <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
-                                        <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
+                                        <input type="hidden" name="gia_sp"    " />
                                         <input type="hidden" name="img"      value="'.$image.'"  />
                                         
                                         <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
@@ -209,9 +210,8 @@
                                                     <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'</span>
                                             </del>
                                             <ins>
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'
-                                                </span>
+                                                <span  class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'</span>
                                             </ins>
                                             </span>
                                             
@@ -227,24 +227,7 @@
                                 }
                             ?>      
                             </ul>
-                            <nav id="pagination" class="pagination_wrap pagination_pages">
-                                        <?php
-                                                    $idTT = $_GET['id_sp'];
-                                            if ($current_page > 1 && $total_page > 1){
-                                                
-                                                echo '<a class="pager_prev"  href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.($current_page-1).'"></a> ';
-                                            }
-                                            for ($i = 1; $i <= $total_page; $i++){
-                                                
-                                                if ($i == $current_page){
-                                                    echo ' <span class="pager_current active ">'.$i.'</span>';
-                                                }
-                                                else{
-                                                    echo '<a href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.$i.'">'.$i.'</a>';
-                                                }
-                                            }
-                                            ?>
-                                </nav>
+                          
                         </div>
                     </div>
                 </article>
@@ -357,50 +340,93 @@
     </div>
 </div> 
 
-<script>
-    // Lấy tất cả các phần tử có lớp 'khungSize'
-    var sizes = document.querySelectorAll('.khungSize');
-    // Lặp qua từng phần tử
-    for (var i = 0; i < sizes.length; i++) {
-        // Thêm sự kiện click cho mỗi phần tử
-        sizes[i].addEventListener('click', function() {
-            // Kiểm tra xem phần tử hiện tại có chứa lớp 'clicked' hay không
-            var isClicked = this.classList.contains('clicked');
+        <script>
+                    // Lấy tất cả các phần tử có lớp 'khungSize'
+                    var sizes = document.querySelectorAll('.khungSize');
+                    // Lặp qua từng phần tử
+                    for (var i = 0; i < sizes.length; i++) {
+                        // Thêm sự kiện click cho mỗi phần tử
+                        sizes[i].addEventListener('click', function() {
+                            // Kiểm tra xem phần tử hiện tại có chứa lớp 'clicked' hay không
+                            var isClicked = this.classList.contains('clicked');
 
-            // Xóa lớp 'clicked' khỏi tất cả các phần tử
-            for (var j = 0; j < sizes.length; j++) {
-                sizes[j].classList.remove('clicked');
-            }
+                            // Xóa lớp 'clicked' khỏi tất cả các phần tử
+                            for (var j = 0; j < sizes.length; j++) {
+                                sizes[j].classList.remove('clicked');
+                            }
 
-            // Nếu phần tử hiện tại đã được chọn, thêm lại lớp 'clicked'
-            if (isClicked) {
-                this.classList.add('clicked');
-            }
-        });
-    }
+                            // Nếu phần tử hiện tại đã được chọn, thêm lại lớp 'clicked'
+                            if (isClicked) {
+                                this.classList.add('clicked');
+                            }
+                        });
+                    }
 
-    function checkMaxValue(input) {
-        if (input.value > 20) {
-            input.value = 20;
-        }
-        }       
-        
-        var tralois = document.getElementsByClassName("khungSize");
-        for (var i = 0; i < tralois.length; i++) {
-            tralois[i].addEventListener("click", function() {
-                this.classList.toggle("clicked");
-        });
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        const sizeElements = document.querySelectorAll('.sizeCoc');
-        const hiddenInput = document.getElementById('selectedSize');
-        
-        sizeElements.forEach(function(element) {
-            element.addEventListener('click', function() {
-                const selectedValue = this.getAttribute('data-value');
-                hiddenInput.value = selectedValue; // Gán giá trị vào input hidden
-                console.log('Selected size:', selectedValue);
-            });
-        });
-    });
-</script>
+                    function checkMaxValue(input) {
+                        if (input.value > 20) {
+                            input.value = 20;
+                        }
+                        }       
+                        
+                        var tralois = document.getElementsByClassName("khungSize");
+                        for (var i = 0; i < tralois.length; i++) {
+                            tralois[i].addEventListener("click", function() {
+                                this.classList.toggle("clicked");
+                        });
+                    }
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const sizeElements = document.querySelectorAll('.sizeCoc');
+                        const hiddenInput = document.getElementById('selectedSize');
+                        
+                        sizeElements.forEach(function(element) {
+                            element.addEventListener('click', function() {
+                                const selectedValue = this.getAttribute('data-value');
+                                hiddenInput.value = selectedValue; // Gán giá trị vào input hidden
+                                console.log('Selected size:', selectedValue);
+                            });
+                        });
+                    });
+                        
+                   
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const sizeElements = document.querySelectorAll('.sizeCoc');
+                        const hiddenInput = document.getElementById('selectedSize');
+                        
+
+                        const giaGocElement = document.getElementById('giaGoc');
+                        const giaGocValue = giaGocElement.textContent; // Lấy giá trị văn bản từ phần tử
+                        const giaGocNumber = parseFloat(giaGocValue); // Chuyển đổi giá trị thành kiểu số
+                        console.log(giaGocNumber); 
+                        
+                        
+                        const giaGoc = parseFloat(giaGocValue);
+                        // Tạo một đối tượng để lưu giữ giá tương ứng với kích thước
+                        const priceBySize = {
+                            'M':  giaGoc , // Giá cho size M
+                            'L':  giaGoc+(giaGoc*20/100) , // Giá cho size L
+                            'XL':  giaGoc+(giaGoc*25/100)  // Giá cho size XL
+                            // Thêm các kích thước và giá tương ứng ở đây nếu có
+                        };
+                        
+                        sizeElements.forEach(function(element) {
+                            element.addEventListener('click', function() {
+                                const selectedValue = this.getAttribute('data-value');
+                                hiddenInput.value = selectedValue; // Gán giá trị vào input hidden
+                                
+                                // Lấy giá tương ứng với kích thước từ đối tượng priceBySize
+                                const newPrice = priceBySize[selectedValue];
+                                
+                                // Cập nhật giá trên giao diện
+                                document.getElementById('product-price').innerHTML = `
+                                    <span class="woocommerce-Price-amount amount">
+                                        <span class="woocommerce-Price-currencySymbol"></span>${newPrice}
+                                    </span>`;
+                                   // Cập nhật giá trị của input hidden 'gia_sp' với giá mới
+                                    const giaSpInput = document.querySelector('input[name="gia_sp"]');
+                                    giaSpInput.value = newPrice.toString(); // Gán giá trị mới vào input hidden gia_sp
+                                    
+                            });
+                        });
+});
+
+        </script>
