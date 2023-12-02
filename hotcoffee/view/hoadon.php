@@ -107,6 +107,7 @@
                         if(isset($_SESSION['email'])){
                             echo '<input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán"></input>';
                         }else{
+                            
                             echo '<a href="index.php?act=dangnhap"><input style="margin-right: 110px;" type="submit" name="dangnhap" class="btn" value="Đăng Nhập"></input></a>';
                         }
                     ?> 
