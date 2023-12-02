@@ -130,13 +130,13 @@
                                     <div>
                                         <p class="price">
                                             <del>
-                                                <span class="woocommerce-Price-amount amount"> </span>
-                                                    <span class="woocommerce-Price-currencySymbol"  >'.$gia_goc.'</span>
-                                               
+                                                <span class="woocommerce-Price-amount amount">
+                                                <span class="woocommerce-Price-currencySymbol">&#36;</span><span id="originalPrice">'.$gia_goc.'</span>
+                                                </span>
                                             </del>
                                             <ins>
-                                                <span id="product-price" class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol" id="giaGoc" name="gia_sp" >'.$gia_km.'</span>
+                                                <span class="woocommerce-Price-amount amount">
+                                                <span class="woocommerce-Price-currencySymbol">&#36;</span><span id="discountedPrice">'.$gia_km.'</span>
                                                 </span>
                                             </ins>
                                         </p>
@@ -191,10 +191,9 @@
                                         </div>
                                 
                                         <input type="hidden" id="selectedSize" name="selectedSize" value="">
-                                        <input type="hidden" name="id_sp"  value="'.$id_sp.'"  />
                                         <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
                                         <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
-                                        <input type="hidden" name="gia_sp"    " />
+                                        <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
                                         <input type="hidden" name="img"      value="'.$image.'"  />
                                         <input type="hidden" name="id_sp"  value="'.$id_sp.'">
                                         
@@ -330,8 +329,9 @@
                                                     <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'</span>
                                             </del>
                                             <ins>
-                                                <span  class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'</span>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'
+                                                </span>
                                             </ins>
                                             </span>
                                             
@@ -347,7 +347,6 @@
                                 }
                             ?>      
                             </ul>
-                          
                             <!-- <nav id="pagination" class="pagination_wrap pagination_pages"> -->
                                         <?php
                                             //         $idTT = $_GET['id_sp'];
@@ -478,93 +477,123 @@
     </div>
 </div> 
 
-        <script>
-                    // Lấy tất cả các phần tử có lớp 'khungSize'
-                    var sizes = document.querySelectorAll('.khungSize');
-                    // Lặp qua từng phần tử
-                    for (var i = 0; i < sizes.length; i++) {
-                        // Thêm sự kiện click cho mỗi phần tử
-                        sizes[i].addEventListener('click', function() {
-                            // Kiểm tra xem phần tử hiện tại có chứa lớp 'clicked' hay không
-                            var isClicked = this.classList.contains('clicked');
 
-                            // Xóa lớp 'clicked' khỏi tất cả các phần tử
-                            for (var j = 0; j < sizes.length; j++) {
-                                sizes[j].classList.remove('clicked');
-                            }
 
-                            // Nếu phần tử hiện tại đã được chọn, thêm lại lớp 'clicked'
-                            if (isClicked) {
-                                this.classList.add('clicked');
-                            }
-                        });
-                    }
+<script>
+    
+    window.onload = function() {
+        // Lấy phần tử tương ứng với size 'M'
+        var sizeM = document.querySelector('.sizeCoc[data-value="M"]');
+        // Kích hoạt sự kiện click cho phần tử này
+        sizeM.click();
+    }
+    // Lấy tất cả các phần tử có lớp 'khungSize'
+    var sizes = document.querySelectorAll('.khungSize');
+    // Lặp qua từng phần tử
+    for (var i = 0; i < sizes.length; i++) {
+        // Thêm sự kiện click cho mỗi phần tử
+        sizes[i].addEventListener('click', function() {
+            // Kiểm tra xem phần tử hiện tại có chứa lớp 'clicked' hay không
+            var isClicked = this.classList.contains('clicked');
 
-                    function checkMaxValue(input) {
-                        if (input.value > 20) {
-                            input.value = 20;
-                        }
-                        }       
-                        
-                        var tralois = document.getElementsByClassName("khungSize");
-                        for (var i = 0; i < tralois.length; i++) {
-                            tralois[i].addEventListener("click", function() {
-                                this.classList.toggle("clicked");
-                        });
-                    }
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const sizeElements = document.querySelectorAll('.sizeCoc');
-                        const hiddenInput = document.getElementById('selectedSize');
-                        
-                        sizeElements.forEach(function(element) {
-                            element.addEventListener('click', function() {
-                                const selectedValue = this.getAttribute('data-value');
-                                hiddenInput.value = selectedValue; // Gán giá trị vào input hidden
-                                console.log('Selected size:', selectedValue);
-                            });
-                        });
-                    });
-                        
-                   
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const sizeElements = document.querySelectorAll('.sizeCoc');
-                        const hiddenInput = document.getElementById('selectedSize');
-                        
+            // Xóa lớp 'clicked' khỏi tất cả các phần tử
+            for (var j = 0; j < sizes.length; j++) {
+                sizes[j].classList.remove('clicked');
+            }
 
-                        const giaGocElement = document.getElementById('giaGoc');
-                        const giaGocValue = giaGocElement.textContent; // Lấy giá trị văn bản từ phần tử
-                        const giaGocNumber = parseFloat(giaGocValue); // Chuyển đổi giá trị thành kiểu số
-                        console.log(giaGocNumber); 
-                        
-                        
-                        const giaGoc = parseFloat(giaGocValue);
-                        // Tạo một đối tượng để lưu giữ giá tương ứng với kích thước
-                        const priceBySize = {
-                            'M':  giaGoc , // Giá cho size M
-                            'L':  giaGoc+(giaGoc*20/100) , // Giá cho size L
-                            'XL':  giaGoc+(giaGoc*25/100)  // Giá cho size XL
-                            // Thêm các kích thước và giá tương ứng ở đây nếu có
-                        };
-                        
-                        sizeElements.forEach(function(element) {
-                            element.addEventListener('click', function() {
-                                const selectedValue = this.getAttribute('data-value');
-                                hiddenInput.value = selectedValue; // Gán giá trị vào input hidden
-                                
-                                // Lấy giá tương ứng với kích thước từ đối tượng priceBySize
-                                const newPrice = priceBySize[selectedValue];
-                                
-                                // Cập nhật giá trên giao diện
-                                document.getElementById('product-price').innerHTML = `
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol"></span>${newPrice}
-                                    </span>`;
-                                   // Cập nhật giá trị của input hidden 'gia_sp' với giá mới
-                                    const giaSpInput = document.querySelector('input[name="gia_sp"]');
-                                    giaSpInput.value = newPrice.toString(); // Gán giá trị mới vào input hidden gia_sp
-                                    
-                            });
-                        });
+        });
+    }
+
+    function checkMaxValue(input) {
+        if (input.value > 20) {
+            input.value = 20;
+        }
+        }       
+        
+        var tralois = document.getElementsByClassName("khungSize");
+        for (var i = 0; i < tralois.length; i++) {
+            tralois[i].addEventListener("click", function() {
+                this.classList.toggle("clicked");
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const sizeElements = document.querySelectorAll('.sizeCoc');
+        const hiddenInput = document.getElementById('selectedSize');
+        
+        sizeElements.forEach(function(element) {
+            element.addEventListener('click', function() {
+                const selectedValue = this.getAttribute('data-value');
+                hiddenInput.value = selectedValue; // Gán giá trị vào input hidden
+                console.log('Selected size:', selectedValue);
+            });
+        });
+    });
+
+  // Giá gốc và giá khuyến mãi
+let originalPrice = parseFloat(document.querySelector('#originalPrice').textContent);
+let discountedPrice = parseFloat(document.querySelector('#discountedPrice').textContent);
+
+// Hàm tính giá khuyến mãi dựa trên size
+function calculateDiscountedPrice(originalPrice, discountedPrice, size) {
+    let discount;
+    switch(size) {
+        case 'M':
+            return discountedPrice; // Trả về giá khuyến mãi hiện tại
+        case 'L':
+            discount = 0.15;
+            break;
+        case 'XL':
+            discount = 0.25;
+            break;
+        default:
+            console.log("Invalid size");
+            return discountedPrice; // Trả về giá khuyến mãi hiện tại nếu size không hợp lệ
+    }
+    return discountedPrice * (1 + discount);
+}
+
+// Hàm cập nhật giá khi thay đổi số lượng hoặc kích thước
+function updatePrice() {
+    let quantity = parseInt(document.querySelector('input[name="quantity"]').value);
+    let size = document.querySelector('.sizeCoc.clicked').getAttribute('data-value');
+
+    let newOriginalPrice = originalPrice * quantity;
+    let newDiscountedPrice = calculateDiscountedPrice(originalPrice, discountedPrice, size) * quantity;
+
+    document.querySelector('#originalPrice').textContent = newOriginalPrice.toFixed(2);
+    document.querySelector('#discountedPrice').textContent = newDiscountedPrice.toFixed(2);
+}
+
+// Lắng nghe sự kiện thay đổi trên trường nhập số lượng
+document.querySelector('input[name="quantity"]').addEventListener('input', updatePrice);
+document.querySelector('input[name="quantity"]').addEventListener('change', updatePrice);
+
+// Lắng nghe sự kiện click trên các phần tử .sizeCoc
+document.querySelectorAll('.sizeCoc').forEach(function(sizeElement) {
+    sizeElement.addEventListener('click', function() {
+        // Thêm hoặc xóa class 'clicked' cho phần tử size được chọn
+        document.querySelectorAll('.sizeCoc').forEach(function(el) {
+            el.classList.remove('clicked');
+        });
+        this.classList.add('clicked');
+
+        // Gọi hàm cập nhật giá khi chọn kích thước
+        updatePrice();
+    });
 });
 
-        </script>
+// Mở rộng sự kiện onload cho việc tự động chọn size M
+window.onload = function() {
+    // Lấy phần tử tương ứng với size 'M'
+    var sizeM = document.querySelector('.sizeCoc[data-value="M"]');
+    // Kích hoạt sự kiện click cho phần tử này
+    sizeM.click();
+    updatePrice();
+};
+
+
+
+
+
+
+</script>

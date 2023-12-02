@@ -53,7 +53,7 @@
                                     <label for="address"><b>Địa chỉ</b></label>
                                 </td>
                                 <td>
-                                    <textarea name="address" id="address" cols="30" rows="5">'.$dia_chi.'</textarea>
+                                    <textarea name="address" id="address" cols="30" rows="5" required>'.$dia_chi.'</textarea>
                                     <!-- <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text"  required> -->
                                 </td>
                             </tr>';
@@ -64,7 +64,7 @@
                                         <label for="username"><b>Họ tên người dùng</b></label>
                                     </td>
                                     <td>
-                                        <input type="text" placeholder="Nhập tên đăng nhập" name="username" class="common-class input-text"  required>
+                                        <input type="text" placeholder="Nhập tên đăng nhập" name="username" class="common-class input-text"  >
                                     </td>
                                 </tr> 
         
@@ -73,7 +73,7 @@
                                         <label for="email"><b>Email</b></label>
                                     </td>
                                     <td>
-                                        <input type="email" placeholder="Nhập Email" name="email" id="email" class="common-class email"  required >
+                                        <input type="email" placeholder="Nhập Email" name="email" id="email" class="common-class email"   >
                                     </td>
                                 </tr>
         
@@ -82,7 +82,7 @@
                                         <label for="number"><b>Số điện thoại</b></label>
                                     </td>
                                     <td>
-                                        <input type="text" placeholder="Nhập số điện thoại" name="sdt" class="common-class input-text"  required>
+                                        <input type="text" placeholder="Nhập số điện thoại" name="sdt" class="common-class input-text"  >
                                     </td>
                                 </tr>
         
@@ -91,7 +91,7 @@
                                         <label for="address"><b>Địa chỉ</b></label>
                                     </td>
                                     <td>
-                                        <textarea name="address" id="address" cols="30" rows="5" placeholder="Nhập địa chỉ" required></textarea>
+                                        <textarea name="address" id="address" cols="30" rows="5" placeholder="Nhập địa chỉ" ></textarea>
                                         <!-- <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text" value="  $dia_chi " required> -->
                                     </td>
                                 </tr>
@@ -107,8 +107,7 @@
                         if(isset($_SESSION['email'])){
                             echo '<input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán"></input>';
                         }else{
-                            
-                            echo '<a href="index.php?act=dangnhap"><input style="margin-right: 110px;" type="submit" name="dangnhap" class="btn" value="Đăng Nhập"></input></a>';
+                            echo '<a href="index.php?act=dangnhap"><input style="margin-right: 110px;" type="button" name="dangnhap" class="btn" value="Đăng Nhập"></input></a>';
                         }
                     ?> 
                     
@@ -153,8 +152,7 @@
                         <td><?= $cart[1] ?></td>
                         <td><?= $cart[6] ?></td>
                         <td><?= $cart[7] ?></td>
-                        <td><?=$ttien?> VNĐ</td> 
-                        <!-- <input style="width: 100px;" name="thanhtien" type="text" value=""  readonly> -->
+                        <td><input style="width: 150px;" name="thanhtien" type="text" value="<?=$ttien?> VNĐ"  readonly></td> 
                     </tr>
                     
                     <?php }   ?>

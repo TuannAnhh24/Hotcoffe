@@ -31,7 +31,17 @@
                         $i=0;
                        
                           foreach ($_SESSION['mycart'] as $cart){
+                            
+                            // $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong];
+                            if($cart[5]=="M"){
                                 $ttien=$cart[3]*$cart[1];
+                            }else if($cart[5]=="L"){
+                                $ttien=($cart[3]*1.15)*$cart[1];
+                            }else if($cart[5]=="XL"){
+                                $ttien=($cart[3]*1.25)*$cart[1];
+                            } 
+
+                        
                             $tong+=$ttien;
                             
                             $xoasp = '<a href="index.php?act=xoasp-gh&id_gh='.$i.'"><input type="button" value="Xóa"></a>';
@@ -42,10 +52,10 @@
                                     <div class="hinh_anh" name="img">
                                         <img src="'.$cart[4].'" alt="">
                                     </div>
-                                    <div class="ten" ><input style="width: 120px;" type="text" name="name_sp" value="'.$cart[0].'" readonly> </div>
-                                    <div class="ten"> <input style="width: 120px; " type="text" id="size_'.$i.'" name="laysize" value="'.$cart[5].'" readonly onchange="updateTotalPrice(this);"> </div>
+                                    <div class="ten" ><input style="width: 120px;" type="text" name="name_sp[]" value="'.$cart[0].'" readonly> </div>
+                                    <div class="ten"> <input style="width: 120px; " type="text" id="size_'.$i.'" name="laysize[]" value="'.$cart[5].'" readonly onchange="updateTotalPrice(this);"> </div>
                                     <div class="ten"> 
-                                        <select name="luongda" id="luongda">
+                                        <select name="luongda[]" id="luongda">
                                             <option value="25%" '.($cart[6] == '25%' ? 'selected' : '').'>25%</option>
                                             <option value="50%" '.($cart[6] == '50%' ? 'selected' : '').'>50%</option>
                                             <option value="75%" '.($cart[6] == '75%' ? 'selected' : '').'>75%</option>
@@ -53,7 +63,7 @@
                                         </select>
                                     </div>
                                     <div class="ten">  
-                                        <select name="luongduong" id="luongduong">
+                                        <select name="luongduong[]" id="luongduong">
                                             <option value="25%" '.($cart[7] == '25%' ? 'selected' : '').'>25%</option>
                                             <option value="50%" '.($cart[7] == '50%' ? 'selected' : '').'>50%</option>
                                             <option value="75%" '.($cart[7] == '75%' ? 'selected' : '').'>75%</option>
@@ -63,7 +73,7 @@
                                     <div class="gia">                                        
                                         <span class="giaban" id="price_'.$i.'" data-price="'.$cart[3].'">'.$cart[3].' VNĐ</span>
                                     </div>        
-                                    <div class="soluong"><input type="number" id="quantity_'.$i.'" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
+                                    <div class="soluong"><input type="number" id="quantity_'.$i.'" step="1" min="1" max="20" name="quantity[]" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
                                     <div class="tongtien" id="tongtien_'.$i.'" name="thanhtien">'.$ttien.' VNĐ</div>
                                     <div class="delete">
                                         '.$xoasp.'
