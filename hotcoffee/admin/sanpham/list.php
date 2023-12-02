@@ -21,7 +21,7 @@
            <div class="row2 mb10 formds_loai">
            <table>
             <tr>
-                <th></th>
+                <!-- <th></th> -->
                 <th>Tên sản phẩm</th>
                 <th>Giá gốc </th>
                 <th>Giá khuyến mãi</th>
@@ -44,7 +44,6 @@
                     }
 
                     echo ' <tr>
-                            <td><input type="checkbox" name="" id=""></td>
                             <td>'.$name_sp.'</td>
                             <td>'.$gia_goc.'</td>
                             <td>'.$gia_km.'</td>

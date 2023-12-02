@@ -9,19 +9,19 @@ img {
 }
 
 .soluong input {
-    width: 60px;
+    width: 50px;
     padding: 5px;
     border: 1px solid cadetblue;
     border-radius: 5px;
 }
 
 .gio_hang {
-    width: 900px;
     border: 1px solid cadetblue;
     box-shadow: 2px 2px 4px solid cadetblue;
+    width: 1400px;
     padding: 20px;
     margin: auto;
-    max-width: 1100px;
+    max-width: 1400px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -34,11 +34,18 @@ img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-width: 1100px;
+    max-width: 1400px;
     margin-bottom: 50px;
 }
+.muahang .tong_tien_thanh_toan{
+    flex: 30%;
+}
+.muahang .thanhtoan{
+    flex: 0%;
+    display: flex;
+}
 
-.muahang .check,
+.muahang .ten,
 .khoang_trong,
 .thanhtoan {
     flex: 1;
@@ -46,11 +53,6 @@ img {
     margin-left: 20px;
     align-items: center;
 }
-
-.muahang .tong_tien_cac_san_pham {
-    flex: 4;
-}
-
 .muahang .thanhtoan input {
     border-radius: 10px;
     height: 40px;
@@ -72,14 +74,16 @@ img {
     flex-direction: row;
     align-items: center;
     color: #2F4F4F;
-    border: 1px solid black;
+    margin: auto;
+    margin-bottom:50px;
 }
 
 .item_gio_hang {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 40px;
+    margin: auto;
+    margin-bottom:40px;
 }
 
 .item_gio_hang .hinh_anh img,
@@ -92,7 +96,7 @@ img {
 .soluong,
 .tongtien,
 .delete,
-.check {
+.ten {
     flex: 1;
     margin-left: 20px;
     align-items: center;
@@ -102,7 +106,7 @@ img {
 .soluong,
 .tongtien,
 .delete,
-.check {
+.ten {
     flex: 1;
     margin-left: 20px;
     align-items: center;
@@ -119,7 +123,7 @@ img {
 
 .item_gio_hang .ten,
 .item_gio_hang_td .ten {
-    flex: 3;
+    flex: 1;
 }
 
 .item_gio_hang .gia .giagoc {
@@ -294,14 +298,14 @@ h3 {
     box-shadow: 2px 2px 4px solid cadetblue;
     padding: 20px;
     margin: auto;
-    max-width: 700px;
+    max-width: 1100px;
     margin-top: 50px;
     margin-bottom: 50px;
     border-radius: 15px;
 }
 
 .ho_so_cua_toi {
-    width: 650px;
+    width: 1050px;
     border-bottom: 1px solid cadetblue;
 }
 
@@ -322,7 +326,7 @@ h3 {
 }
 
 .thong_tin_ho_so {
-    height: 500px;
+    height: auto;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -498,7 +502,7 @@ h3 {
 }
 
 .chi_tiet_hang_hoa {
-    width: 1100px;
+    width: 1300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -548,3 +552,28 @@ h3 {
     white-space: nowrap;
     display: inline-block;
 }
+.da_and_duong{
+    display: flex;
+}
+.da select{
+    border: 1px solid green;
+    border-radius: 5px;
+    margin-right: 40px;
+    padding: 3px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+.duong select{
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.sloid{
+    margin-left: -150px;
+    margin-top: 30px;
+    border: 1px solid cadetblue;
+    height: auto;
+    margin-right: 50px;
+}
+

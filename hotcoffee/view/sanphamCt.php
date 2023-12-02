@@ -2,6 +2,94 @@
     $sql = "SELECT * FROM danh_muc order by name";
     $lay_dm = pdo_query($sql);
 ?>
+<?php
+    echo "
+        <style>      
+
+        .cup-size-selecto {
+            display: block;
+            justify-content: space-around;
+            font-size: 10px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            
+        }        
+        .khungSize {
+            display:inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-left:10px;
+            width: 30px;
+            height: 30px;
+            margin-top: 20px;
+            font-size: 10px;
+            background-color: #FFFFFF;
+            border: 1px solid green;
+            transition: background-color 0.3s ease;
+            color: #FFFFFF;
+        }        
+        .khungSize .sizeCoc {
+            align-items: center;
+            appearance: button;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.004) 0px 0.0802685px 0.160537px 0px;
+            box-sizing: border-box;
+            color: #000000;
+            cursor: pointer;
+            display:inline-flex;
+            font-family: Roboto;
+            font-size: 10px;
+            font-weight: 500;
+            justify-content: center;
+            line-height: 30px;
+            height: 30px;
+            width: 30px;
+            place-content: normal center;
+            place-items: center normal;
+            text-align: center;
+            transition-duration: 0.2s;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);          
+        }              
+        .khungSize.clicked {
+            background-color: #F39C12;
+        }        
+        /* Thêm CSS để định dạng nút khi được chọn */
+        .cup-size-btn.active {
+            background-color: #ffcc00;
+            /* Màu sắc khi nút được chọn */
+            color: #fff;
+            /* Màu văn bản khi nút được chọn */
+            /* Thêm các thuộc tính CSS khác tùy thuộc vào thiết kế của bạn */
+        } 
+        .quantity{
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+        .da_and_duong{
+            display: flex;
+        }
+        .da select{
+            border: 1px solid green;
+            border-radius: 5px;
+            margin-right: 48px;
+            padding: 3px;
+            margin-left: 12px;
+            margin-bottom: 15px;
+        }
+        .duong select{
+            border: 1px solid green;
+            border-radius: 5px;
+            padding: 3px;
+            margin-bottom: 15px;
+        }      
+        </style>     
+    ";
+?>
+    
+
 <div class="single single-product woocommerce woocommerce-page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_show sidebar_right sidebar_outer_hide preloader vc_responsive">
     <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
         <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_1">
@@ -22,6 +110,7 @@
             <div class="content_wrap">
                 <div class="content">
                 <article class="post_item post_item_single post_item_product">   
+                    <input type="hidden">
                         <?php 
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
                                 $bnt = 'index.php?btn_test.php';
@@ -57,31 +146,62 @@
                                     </div>
                                    
                                     <form action="index.php?act=add-to-cart"  class="cart" method="post" enctype="multipart/form-data">
+                                    <div class="quantity_cup-size-selector">
                                         <div class="quantity">
                                             <input type="number" step="1" min="1" max="20" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
                                         </div>
-
+                                        
                                         <!-- Sử dụng nút để chọn size cốc -->
                                         <div class="cup-size-selector">
+                                            <div class="size-selector">
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc"  class="size" data-value="M"> M </span>
+                                                    <span class="sizeCoc"  data-value="M" selected>M</span>
                                                 </div>
                                                 <div class="khungSize">
-                                                    <span class="sizeCoc" class="size" data-value="L"> L </span>
+                                                    <span class="sizeCoc"  data-value="L">L</span>
                                                 </div>
                                                 <div class="khungSize">
-                                                <span class="sizeCoc" class="size" data-value="XL"> XL </span>
-                                            </div> 
-                                        </div> <br>
+                                                    <span class="sizeCoc" data-value="XL">XL</span>
+                                                </div>
+                                            </div>                                             
+                                            
+                                        </div> 
+                                    </div>
+                                    
+                                        <br>
+                                        <div class="da_and_duong">
+                                            <div class="da">
+                                                <select name="luongda" id="luongda">
+                                                    <option value="" selected disabled>Lượng đá</option>
+                                                    <option value="25%">25%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+                                                </select>
+                                            </div>
+                                            <div class="duong">
+                                                <select name="luongduong" id="luongduong">
+                                                    <option value="" selected disabled>Lượng đường</option>
+                                                    <option value="25%">25%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                
                                         <input type="hidden" id="selectedSize" name="selectedSize" value="">
                                         <input type="hidden" name="id_sp"  value="'.$id_sp.'"  />
                                         <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
                                         <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
                                         <input type="hidden" name="gia_sp"    " />
                                         <input type="hidden" name="img"      value="'.$image.'"  />
+                                        <input type="hidden" name="id_sp"  value="'.$id_sp.'">
                                         
                                         <button name="add-to-cart" type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
                                     </form>
+
+
                                     <div class="product_meta">
                                         <span class="posted_in">Loại:
                                             <a href="#" rel="tag">'.$name.'</a>
@@ -228,6 +348,24 @@
                             ?>      
                             </ul>
                           
+                            <!-- <nav id="pagination" class="pagination_wrap pagination_pages"> -->
+                                        <?php
+                                            //         $idTT = $_GET['id_sp'];
+                                            // if ($current_page > 1 && $total_page > 1){
+                                                
+                                            //     echo '<a class="pager_prev"  href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.($current_page-1).'"></a> ';
+                                            // }
+                                            // for ($i = 1; $i <= $total_page; $i++){
+                                                
+                                            //     if ($i == $current_page){
+                                            //         echo ' <span class="pager_current active ">'.$i.'</span>';
+                                            //     }
+                                            //     else{
+                                            //         echo '<a href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.$i.'">'.$i.'</a>';
+                                            //     }
+                                            // }
+                                            ?>
+                            <!-- </nav> -->
                         </div>
                     </div>
                 </article>

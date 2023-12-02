@@ -6,6 +6,7 @@
     include "models/pdo.php";
     include "models/sanpham.php";
     include "models/danhmuc.php";
+    include "models/hoadon.php";
     include "global.php";
     $listdanhmuc= loadall_danhmuc();
     $spBanchay = loadall_sanpham_banchay();
@@ -238,6 +239,8 @@
                 break;
                  // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------
             case 'xoasp-gh':
+            // ------------------------------------ Xóa Sp Giỏ Hàng  ------------------------------------
+             case 'xoasp-gh':
                 if (isset($_GET['id_gh'])) {
                     $id_to_remove = $_GET['id_gh'];
                     if (isset($_SESSION['mycart'][$id_to_remove])) {
@@ -248,19 +251,119 @@
                 }
                 header('location: index.php?act=add-to-cart');
                 break;
+            // ------------------------------------ Thêm vào Giỏ Hàng  ------------------------------------
+            case 'add-to-cart':
+                // Xử lý thêm sản phẩm vào giỏ hàng
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
+                    $name_sp = $_POST['name_sp'];
+                    $quantity = $_POST['quantity'];
+                    $gia_goc = $_POST['gia_goc'];
+                    $gia_km = $_POST['gia_km'];
+                    $img = $_POST['img'];
+                    $size = $_POST['selectedSize']; // Thêm dòng này
+                    $luongda = $_POST['luongda'] ?? '100%'; // Thêm dòng này
+                    $luongduong = $_POST['luongduong'] ?? '100%'; // Thêm dòng này
+                    $id_sp = $_POST['id_sp'];
+                    $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                    // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
+                    foreach ($_SESSION['mycart'] as $key => $cartItem) {
+                        // Nếu tên sản phẩm đã tồn tại trong giỏ hàng
+                        if ($cartItem[0] === $name_sp && $cartItem[5] === $size ) {
+                            // Cập nhật số lượng và giá sản phẩm
+                            $_SESSION['mycart'][$key][1] += $quantity; 
+                            $_SESSION['mycart'][$key][2] = $gia_goc; 
+                            $_SESSION['mycart'][$key][3] = $gia_km;
+                            $found = true; // Đã tìm thấy sản phẩm trong giỏ hàng
+                            break;
+                        }
+                    }
+                    // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm mới vào
+                    if (!$found) {
+                        $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong, $id_sp]; // Thêm vào dòng này
+                        $_SESSION['mycart'][] = $cart;
+                        
+                    }
+                    
+                }
+                include "view/cart.php";
+                break;
+            // ------------------------------------ Trang Hóa đơn  ------------------------------------
+            case 'hd':
+                if ( isset($_POST['dathang'])) {
+                    // Lấy giá trị mới từ biểu mẫu
+                    $name_sp = $_POST['name_sp'];
+                    $size = $_POST['laysize'];
+                    $soluong_moi = $_POST['quantity'];
+                    $da_moi = $_POST['luongda'] ?? '100%'; 
+                    $duong_moi = $_POST['luongduong'] ?? '100%';
+                    // Duyệt qua từng sản phẩm trong giỏ hàng
+                    foreach ($_SESSION['mycart'] as $key => &$cartItem) {
+                        // Nếu tên sản phẩm và kích cỡ khớp với sản phẩm bạn muốn chỉnh sửa
+                        if ($cartItem[0] === $name_sp && $cartItem[5] === $size ) {
+                            // Cập nhật số lượng, lượng đá, và lượng đường
+                            $cartItem[1] = $soluong_moi;
+                            $cartItem[6] = $da_moi;
+                            $cartItem[7] = $duong_moi;
+                            break;
+                        }
+                    }
+
+                }
+
+                if(isset($_POST['thanhtoan'])){
+                    $username=$_POST['username'];
+                    $email = $_POST['email'];
+                    $sdt = $_POST['sdt'];
+                    $address = $_POST['address'];
+                    $pttt = $_POST['pttt'];
+                    $tong = $_POST['tongtien'];
+                    $id_tk = $_POST['id_tk'];
+                    // Nếu không có tài khoản
+                    // if(!isset($_SESSION['email'])){
+                    //     $user= [$username,$sdt,$address,$email];
+                    //     $_SESSION['user'][] = $user;
+                    // }
+                    insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
+                    $id_hoadon = lay_id_hoadon();
+                    
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        $name = $cart[0]; 
+                        $size_sp = $cart[5]; 
+                        $soluong_sp= $cart[1]; 
+                        $da_sp = $cart[6]; 
+                        $duong_sp = $cart[7];
+                        $thanhtien = $_POST['thanhtien'];
+                        $id_sp = $cart[8];
+                        
+                        $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
+                        header("Location: index.php?act=camon");
+                    }
+                }
+                
+                include "view/hoadon.php";
+                break;
+            // ------------------------------------ Trang theo dõi đơn hàng  ------------------------------------
+            case 'ctdh':
+                $listhoadon = loadall_hoadon();
+                include "view/ct.donhang.php";
+                break;
+            // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
+            case 'chitiethoadon':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    $id_hd = $_GET['id_hd'];
+                    $xem_hd = CT_hoadon($id_hd);
+                    // $lay_sp = loadone_CTsanpham();
+                }
+                
+                
+                
+                include "view/ct.hoadon.php";
+                break;     
             // ------------------------------------ Trang cảm ơn  ------------------------------------
             case 'camon':
                 include "view/camon.php";
                 break;
-            // ------------------------------------ Trang chi tiết đơn hàng  ------------------------------------
-            case 'ctdh':
-                include "view/ct.donhang.php";
-                break;
-            // ------------------------------------ Trang thanh toán  ------------------------------------
-            case 'thanhtoan':
-                include "view/thanhtoan.php";
-                break;
-            
+
             default:
                 include "view/home.php";
                 break;

@@ -1,4 +1,4 @@
-
+ 
 <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
                 <div class="top_panel_title_inner top_panel_inner_style_3 title_present_inner breadcrumbs_present_inner breadcrumbs_5">
                     <div class="content_wrap">
@@ -15,7 +15,9 @@
                     <div class="item_gio_hang_td">
                         <div class="hinh_anh"> Hình Ảnh </div>
                         <div class="ten"> Tên Sản Phẩm </div>
-                        <div class="ten"> Size/Cái </div>
+                        <div class="ten"> Size </div>
+                        <div class="ten"> Mức đá </div>
+                        <div class="ten"> Mức đường </div>
                         <div class="gia_a"> 
                             <span class="giaban">Giá Bán </span> 
                         </div>
@@ -25,6 +27,7 @@
                     </div>
                     <?php 
                         $tong=0;
+                        $ttien=0;
                         $i=0;
                        
                           foreach ($_SESSION['mycart'] as $cart){
@@ -34,25 +37,41 @@
                             $xoasp = '<a href="index.php?act=xoasp-gh&id_gh='.$i.'"><input type="button" value="Xóa"></a>';
                           
                             echo '  
-                            <form action="index.php?act=menu" enctype="multipart/form-data">
+                            <form action="index.php?act=hd" method="post" enctype="multipart/form-data">
                                 <div class="item_gio_hang">
                                     <div class="hinh_anh" name="img">
                                         <img src="'.$cart[4].'" alt="">
                                     </div>
-                                    <div class="ten" name =""> '.$cart[0].'</div>
-                                    <div class="ten"> '.$cart[5].'</div>
-                                    <div class="gia">
-                                        
-                                        <span class="giaban">'.$cart[3].' VNĐ</span>
+                                    <div class="ten" ><input style="width: 120px;" type="text" name="name_sp" value="'.$cart[0].'" readonly> </div>
+                                    <div class="ten"> <input style="width: 120px; " type="text" id="size_'.$i.'" name="laysize" value="'.$cart[5].'" readonly onchange="updateTotalPrice(this);"> </div>
+                                    <div class="ten"> 
+                                        <select name="luongda" id="luongda">
+                                            <option value="25%" '.($cart[6] == '25%' ? 'selected' : '').'>25%</option>
+                                            <option value="50%" '.($cart[6] == '50%' ? 'selected' : '').'>50%</option>
+                                            <option value="75%" '.($cart[6] == '75%' ? 'selected' : '').'>75%</option>
+                                            <option value="100%" '.($cart[6] == '100%' ? 'selected' : '').'>100%</option>
+                                        </select>
                                     </div>
-                                    <input type="number" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/>
-                                    <div class="tongtien" name="thanhtien">'.$ttien.' VNĐ</div>
+                                    <div class="ten">  
+                                        <select name="luongduong" id="luongduong">
+                                            <option value="25%" '.($cart[7] == '25%' ? 'selected' : '').'>25%</option>
+                                            <option value="50%" '.($cart[7] == '50%' ? 'selected' : '').'>50%</option>
+                                            <option value="75%" '.($cart[7] == '75%' ? 'selected' : '').'>75%</option>
+                                            <option value="100%" '.($cart[7] == '100%' ? 'selected' : '').'>100%</option>
+                                        </select>
+                                    </div>
+                                    <div class="gia">                                        
+                                        <span class="giaban" id="price_'.$i.'" data-price="'.$cart[3].'">'.$cart[3].' VNĐ</span>
+                                    </div>        
+                                    <div class="soluong"><input type="number" id="quantity_'.$i.'" step="1" min="1" max="20" name="quantity" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
+                                    <div class="tongtien" id="tongtien_'.$i.'" name="thanhtien">'.$ttien.' VNĐ</div>
                                     <div class="delete">
                                         '.$xoasp.'
                                     </div>
                                 </div>';
                                 $i+=1;
                             }
+                            
                                 
                              echo '
                              <div class="muahang">
@@ -62,7 +81,7 @@
                                     </div>
                                     <div class="thanhtoan">
                                         <a href="index.php?act=menu"><input type="button" value="Tiếp tục mua sắm"></a> 
-                                        <a href=""><input type="submit" value="Đặt Hàng" name="dathang"></a>
+                                        <a href="index.php?act=hd"><input type="submit" value="Đặt Hàng" name="dathang"></a>
                                     </div>
                              </div>
                              </form>
@@ -79,16 +98,31 @@
                             }
                         }
 
-                        function updateTotalPrice(input) {
-                            const newQuantity = parseInt(input.value);
-                            const price = parseFloat(input.closest('.item_gio_hang').querySelector('.giaban').textContent);
-                            const newTotal = price * newQuantity;
+                        function updateTotalPrice(element) {
+                            // Lấy id của sản phẩm từ phần tử đã thay đổi
+                            
+                            var id = element.id.split('_')[1];
 
-                            const totalElement = input.closest('.item_gio_hang').querySelector('.tongtien');
-                            totalElement.textContent = newTotal + ' VNĐ';
+                            // Lấy giá trị của các phần tử liên quan
+                            var quantity = document.querySelector('#quantity_' + id).value;
+                            var size = document.querySelector('#size_' + id).value;
+                            var price = document.querySelector('#price_' + id).getAttribute('data-price');
 
-                            updateOverallTotal(); // Cập nhật tổng tiền tổng cộng
+                            // Tính toán tổng tiền dựa trên kích cỡ của sản phẩm
+                            
+                            var ttien = 0;
+                            if(size == "M"){
+                                ttien = Math.round(price * quantity);
+                            } else if(size == "L"){
+                                ttien = Math.round(price * 1.15 * quantity);
+                            } else if(size == "XL"){
+                                ttien = Math.round(price * 1.25 * quantity);
+                            }
+
+                            // Cập nhật tổng tiền cho sản phẩm này
+                            document.querySelector('#tongtien_' + id).innerText = ttien + ' VNĐ';
                         }
+
 
                         function updateOverallTotal() {
                             let overallTotal = 0;
@@ -156,3 +190,5 @@
                     </script>
 
              </div>
+             </body>
+</html>

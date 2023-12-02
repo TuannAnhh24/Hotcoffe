@@ -104,3 +104,6 @@ label {
 .thongtin_user tr td {
     border: none;
 }
+.dang_nhap{
+    border-radius: 100px;
+}

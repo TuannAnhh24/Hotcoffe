@@ -7,7 +7,7 @@
             <div class="row2 mb10 formds_loai">
                 <table>
                     <tr>
-                        <td></td>
+                        <!-- <td></td> -->
                         <th>Họ Tên </th>
                         <th>Email</th>
                         <th>Mật Khẩu</th>
@@ -23,16 +23,30 @@
                         foreach($listtaikhoan as $taikhoan){
                             extract($taikhoan);
                             $xoatk = 'index.php?act=xoatk&id_tk='.$id_tk;
+                            $hinhbath = "../images/".$img;
+                            // check admin 
+                            if ($phan_quyen == 1){
+                                $phan_quyen = "admin";
+                            }else {
+                                $phan_quyen = "khách hàng";
+                            }
+                            // check hình ảnh
+                            if(file_exists($hinhbath)){
+                                $hinh = $hinhbath;
+                            }else {
+                                $hinh = "<p>Hình ảnh chưa được upload</p>";
+                            }
+                            
                     ?> 
                              <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
+                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
                                     <td> <?=$user?> </td>
                                     <td> <?=$email?> </td>
                                     <td> <?=$pass?> </td>
                                     <td> <?=$sdt?> </td>
                                     <td> <?=$dia_chi?> </td>
                                     <td> <?=$nam_sinh?> </td>
-                                    <td> <img src="<?=$img?>" alt=""> </td>
+                                    <td> <img src="<?= $hinh?>" width="100px" height="50px"> </td>
                                     <td> <?=$gioi_tinh?> </td>
                                     <td> <?=$phan_quyen?> </td>
                                     <td><a onclick="return confirm('Bạn có chắc muốn xóa tài khoản người dùng không?')" href="<?=$xoatk?>"><input type="button" value="Xóa"></td></a>
