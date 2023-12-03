@@ -14,7 +14,6 @@
 <div class="chi_tiet_hang_hoa">
     <table class="bang">
         <tr class="dong">
-            <th class="cot">Mã đơn</th>
             <th class="cot">Khách hàng</th>
             <th class="cot">Sản phẩm</th>
             <th class="cot">Tổng tiền</th>
@@ -31,12 +30,16 @@
                 if($trang_thai==0){
                     $trang_thai = "Chờ Xác Nhận";
                 }else if($trang_thai==1){
-                    $trang_thai = "Đang vận chuyển";
+                    $trang_thai = "Sản phẩm đang được chuẩn bị";
+                }else if($trang_thai==2){
+                    $trang_thai = "Đang giao hàng";
+                }else if($trang_thai==3){
+                    $trang_thai = "Đã hoàn thành";
                 }
+                $nhandh = 'index.php?act=nhandh&id_hd='.$id_hd;
             
         ?>
             <tr class="dong">
-                <td class="cot"><?= $id_hd ?></td>
                 <td class="cot">
                 👤 <?php echo $sdt." - ";  echo $user; ?><br>
                 🏚  <?php  echo "Địa chỉ: ".$dia_chi?>
@@ -44,7 +47,14 @@
                 <td class="cot"><a href="index.php?act=chitiethoadon&id_hd=<?=$id_hd?>"><input style="border: 1px solid #ccc; color: #5031eb; width: 180px; font-size: 12px;" type="button" value="Xem chi tiết hóa đơn"></input></a></td>
                 <td class="cot"><?= $tong_tien ?> VNĐ</td>
                 <td class="cot"><?= $phuong_thuc_tt ?></td>
-                <td class="cot"><?= $trang_thai ?></td>
+                <td class="cot"><?= $trang_thai ?>
+                    <?php 
+                        if($trang_thai=="Đang giao hàng"){
+                            $trang_thai = "Đang giao hàng";
+                            echo '<a href="'.$nhandh.'"><input style="background-color:#BB9CC0; color:#fff; font-size:14px; border-radius:5px; padding:10px; border:#67729D" type="button"  value="Đã Nhận"></a> ';
+                        }
+                    ?>
+                </td>
             </tr>
 
         <?php } ?>

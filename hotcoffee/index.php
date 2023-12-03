@@ -325,7 +325,7 @@
                 break;
             // ------------------------------------ Trang theo dõi đơn hàng  ------------------------------------
             case 'ctdh':
-                $listhoadon = loadall_hoadon();
+                $listhoadon = load_more_hoadon($id_tk);
                 include "view/ct.donhang.php";
                 break;
             // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
@@ -333,16 +333,20 @@
                 if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
                     $id_hd = $_GET['id_hd'];
                     $xem_hd = CT_hoadon($id_hd);
-                    // $lay_sp = loadone_CTsanpham();
                 }
-                
-                
-                
                 include "view/ct.hoadon.php";
                 break;     
             // ------------------------------------ Trang cảm ơn  ------------------------------------
             case 'camon':
                 include "view/camon.php";
+                break;
+            // ------------------------------------ Hoàn thành đơn hàng  ------------------------------------
+            case 'nhandh':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    nhan_dh($_GET['id_hd']);
+                }
+                $listhoadon = load_more_hoadon($id_tk);
+                include "view/ct.donhang.php";
                 break;
 
             default:

@@ -220,11 +220,33 @@
                     $xem_hd = CT_hoadon($id_hd);
                     // $lay_sp = loadone_CTsanpham();
                 }
-                
-                
-                
                 include "hoadon/ct.hoadon.php";
                 break; 
+            // ------------------------------------ Xác nhận đơn hàng  ------------------------------------
+            case 'xacnhandonhang':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    xacnhan_dh($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "hoadon/list.php";
+                break; 
+            // ------------------------------------ Vận chuyển đơn hàng  ------------------------------------
+            case 'giaodonhang':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    giao_dh($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "hoadon/list.php";
+                break; 
+            // ------------------------------------ Xóa đơn hàng ------------------------------------
+            case 'xoadh':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
+                    delete_ct_hoadon($_GET['id_hd']);
+                    delete_donhang($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "hoadon/list.php";
+                break;
         }
     }else {
         include "home.php";
