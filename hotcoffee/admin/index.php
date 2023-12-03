@@ -6,6 +6,7 @@
     include "../models/taikhoan.php";
     include "../models/binhluan.php";
     include "../models/hoadon.php";
+    include "../models/thongke.php";
     //controller
     if (isset($_GET['act']) ){
         $act = $_GET['act'];
@@ -246,6 +247,15 @@
                 }
                 $listhoadon = loadall_hoadon();
                 include "hoadon/list.php";
+                break;
+            // ------------------------------------ Thống kê ------------------------------------
+            case 'thongke':
+                $total_orders = tongso_hoadon();
+                $revenue = doanh_thu();
+                $best_selling_product = sp_banchay_nhat();
+                $loyal_customer = kh_thanthiet();
+                // $cancellation_rate = tile_huydon();
+                include "thongke/list.php";
                 break;
         }
     }else {
