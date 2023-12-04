@@ -257,6 +257,11 @@
                 $cancellation_rate = tile_huydon();
                 include "thongke/list.php";
                 break;
+            // ------------------------------------ oder_list thống kê ------------------------------------
+            case 'oder_list':
+                $listhoadon = loadall_hoadon();
+                include "thongke/oder_list.php";
+                break;
         }
     }else {
         include "home.php";

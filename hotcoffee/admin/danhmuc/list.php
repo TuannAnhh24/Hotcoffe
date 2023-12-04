@@ -32,9 +32,16 @@
                         <td> <?=$name?> </td>
                         <td> <?=$trang_thai?> </td>
                         <td>
-                            <a href="<?=$suadm?>"><input type="button" value="Sửa"></a>   
-                            <a onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')" href="<?=$xoadm?>"><input type="button" value="Xóa"></a>
-                            <a href="<?=$kpdm?>"><input type="button" value="Khôi phục"></a> 
+                            <?php
+                                if ($trang_thai == "Tồn Tại"){
+                                    echo '<a href="'.$suadm.'"><input type="button" value="Sửa"></a>   
+                                    <a onclick="return confirm("Bạn có chắc muốn xóa danh mục này không?")" href="'.$xoadm.'"><input type="button" value="Xóa"></a>';
+                                }else {
+                                    echo '<a href="'.$kpdm.'"><input type="button" value="Khôi phục"></a> ';
+                                }
+                            ?>
+                            
+                            
                         </td>
                     </tr>
                 <?php } ?>
