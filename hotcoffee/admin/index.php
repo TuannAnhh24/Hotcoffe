@@ -254,7 +254,7 @@
                 $revenue = doanh_thu();
                 $best_selling_product = sp_banchay_nhat();
                 $loyal_customer = kh_thanthiet();
-                // $cancellation_rate = tile_huydon();
+                $cancellation_rate = tile_huydon();
                 include "thongke/list.php";
                 break;
         }

@@ -29,6 +29,8 @@
                                 $trang_thai = "Đang Vận Chuyển";
                             }else if($trang_thai==3){
                                 $trang_thai = "Đã Hoàn Thành";
+                            }else if($trang_thai==4){
+                                $trang_thai = "Đã Hủy";
                             }
                             $xacnhandonhang = 'index.php?act=xacnhandonhang&id_hd='.$id_hd;
                             $giaodonhang = 'index.php?act=giaodonhang&id_hd='.$id_hd;

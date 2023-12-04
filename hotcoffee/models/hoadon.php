@@ -69,4 +69,15 @@
         $sql = "DELETE FROM `ct_hd` WHERE id_hd=".$id_hd;
         pdo_execute($sql);
     }
+
+    function huy_hoadon($id_hd){
+        $sql = "UPDATE `hoa_don` SET `trang_thai` = '4' WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
+    function datlai_hd($id_hd){
+        $sql = "UPDATE `hoa_don` SET `trang_thai` = '0' WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
 ?>

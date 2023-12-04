@@ -50,7 +50,7 @@
             </div>
             <div class="statistic-item">
                 <h2>Tỉ lệ hủy đơn</h2>
-                <p id="cancellation_rate">5%</p>
+                <p id="cancellation_rate"><?= $cancellation_rate ?>%</p>
             </div>
         </div>
     </div> 

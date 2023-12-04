@@ -35,8 +35,12 @@
                     $trang_thai = "Đang giao hàng";
                 }else if($trang_thai==3){
                     $trang_thai = "Đã hoàn thành";
+                }else if($trang_thai==4){
+                    $trang_thai = "Đã Hủy";
                 }
                 $nhandh = 'index.php?act=nhandh&id_hd='.$id_hd;
+                $huydh = 'index.php?act=huydh&id_hd='.$id_hd;
+                $datlai = 'index.php?act=datlai&id_hd='.$id_hd;
             
         ?>
             <tr class="dong">
@@ -49,9 +53,12 @@
                 <td class="cot"><?= $phuong_thuc_tt ?></td>
                 <td class="cot"><?= $trang_thai ?>
                     <?php 
-                        if($trang_thai=="Đang giao hàng"){
-                            $trang_thai = "Đang giao hàng";
+                        if($trang_thai == "Chờ Xác Nhận"){
+                            echo '<a href="'.$huydh.'"><input style="background-color:#BB9CC0; color:#fff; font-size:14px; border-radius:5px; padding:10px; border:#67729D" type="button"  value="Hủy"></a> ';
+                        }else if($trang_thai=="Đang giao hàng"){
                             echo '<a href="'.$nhandh.'"><input style="background-color:#BB9CC0; color:#fff; font-size:14px; border-radius:5px; padding:10px; border:#67729D" type="button"  value="Đã Nhận"></a> ';
+                        }else if($trang_thai == "Đã Hủy"){
+                            echo '<a href="'.$datlai.'"><input style="background-color:#BB9CC0; color:#fff; font-size:14px; border-radius:5px; padding:10px; border:#67729D" type="button"  value="Đặt Lại"></a> ';
                         }
                     ?>
                 </td>

@@ -18,9 +18,9 @@
     }
 
     function kh_thanthiet() {
-        $sql = "SELECT tai_khoan, COUNT(*) as count FROM hoa_don GROUP BY tai_khoan ORDER BY count DESC LIMIT 1";
+        $sql = "SELECT user, COUNT(*) as count FROM hoa_don GROUP BY user ORDER BY count DESC LIMIT 1";
         $result = pdo_query_one($sql);
-        return $result['khach_hang'];
+        return $result['user'];
     }
 
     function tile_huydon() {

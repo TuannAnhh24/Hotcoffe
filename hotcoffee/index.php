@@ -348,6 +348,22 @@
                 $listhoadon = load_more_hoadon($id_tk);
                 include "view/ct.donhang.php";
                 break;
+            // ------------------------------------ Hùy đơn hàng ------------------------------------
+            case 'huydh':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
+                    huy_hoadon($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "view/ct.donhang.php";
+                break;
+            // ------------------------------------ Đặt lại đơn hàng ------------------------------------
+            case 'datlai':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
+                    datlai_hd($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "view/ct.donhang.php";
+                break;
 
             default:
                 include "view/home.php";
