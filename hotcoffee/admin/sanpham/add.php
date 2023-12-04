@@ -69,11 +69,7 @@
           </div>
           <div class="row2 mb10 form_content_container">
             <label for="">Ảnh:</label>
-<<<<<<< HEAD
             <input type="file" name="anhSp" required ><br>
-=======
-            <input type="file" name="anhSp" required><br>
->>>>>>> e4b1d7ce236efc009a0734b76dc007c368d5749c
           </div>
           <div class="row mb10 ">
             <input class="mr20" type="submit" name='addSanpham' value="Thêm sản phẩm mới">
