@@ -18,5 +18,17 @@
         $sql = "DELETE FROM binh_luan WHERE id_bl=".$id_bl;
         pdo_execute($sql);
     }
+
+    function da_mua_hang($id_tk, $id_sp){
+        $sql = "SELECT COUNT(*) as count FROM ct_hd chd JOIN hoa_don hd ON chd.id_hd = hd.id_hd WHERE hd.id_tk='$id_tk' AND chd.id_sp='$id_sp' AND hd.trang_thai='3'";
+        $result = pdo_query_one($sql);
+        if ($result['count'] > 0) {
+            // Người dùng đã mua sản phẩm
+            return true;
+        } else {
+            // Người dùng chưa mua sản phẩm
+            return false;
+        }
+    }
     
 ?>

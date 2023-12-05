@@ -7,13 +7,12 @@
         $id_tk = $_SESSION['email']['id_tk'];
     }
     $id_sp = $_REQUEST['id_sp'];
-    $lay_name =loadone_sanpham($id_sp);
+    $lay_name = loadone_sanpham($id_sp);
     extract($lay_name);
     $dsbl = loadall_binhluan($id_sp); 
-    // join bảng tài khoản 
+    // join tài khoản 
     $sql = 'SELECT * FROM `tai_khoan` as tk INNER JOIN `binh_luan` as bl ON tk.id_tk = bl.id_tk ';
     $lay_tk = pdo_query_one($sql); 
-    extract($lay_tk);
     
 ?>
 
@@ -37,7 +36,7 @@
                     foreach($dsbl as $bl){
                         extract($bl);
                         echo '<div style="background-color: #f8f8f8; margin-bottom: 15px; padding: 10px; border-radius: 5px;">';
-                        echo '<h4 style="margin: 0;">'.$email.'</h4>';
+                        echo '<h4 style="margin: 0;">'.$lay_tk['email'].'</h4>';
                         echo '<span style="font-size: 0.8em; color: #888;">'.$ngay_bl.'</span>';
                         echo '<p style="margin-top: 10px;">'.$noi_dung.'</p>';
                         echo '</div>';
@@ -50,18 +49,26 @@
                         <h3 id="reply-title" class="comment-reply-title">Bạn hãy nhận xét về &ldquo;<?=$name_sp?>&rdquo;</h3>
                         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" id="commentform" class="comment-form">
                             <?php
+                            
                                 if (isset($_SESSION['email'])) {
-                                    // Người dùng đã đăng nhập, hiển thị form bình luận
-                                    echo '<p class="comment-form-comment">
+                                    // Người dùng đã đăng nhập
+                                    if (da_mua_hang($id_tk, $id_sp)) {
+                                        // Người dùng đã mua sản phẩm, hiển thị form bình luận
+                                        echo '<p class="comment-form-comment">
                                         <label for="comment">Đánh giá của bạn
                                             <span class="required">*</span>
                                         </label>
                                         <textarea id="comment" name="noidung" cols="45" rows="8" aria-required="true" required></textarea>
-                                    </p>
-                                    <p class="form-submit">
-                                        <input type="hidden" name="id_sp" value="'.$id_sp.'">
-                                        <input name="guibinhluan" type="submit" id="submit" class="submit" value="Gửi bình luận" />
-                                    </p>';
+                                        </p>
+                                        <p class="form-submit">
+                                            <input type="hidden" name="id_sp" value="'.$id_sp.'">
+                                            <input name="guibinhluan" type="submit" id="submit" class="submit" value="Gửi bình luận" />
+                                        </p>';
+                                    } else {
+                                        // Người dùng chưa mua sản phẩm, hiển thị thông báo
+                                        echo '<p>Bạn cần mua sản phẩm này trước khi bình luận.</p>';
+                                    }
+                                    
                                 } else {
                                     // Người dùng chưa đăng nhập, hiển thị thông báo
                                     echo '<p>Bạn cần <a href="index.php?act=dangnhap">đăng nhập</a> để bình luận.</p>';
