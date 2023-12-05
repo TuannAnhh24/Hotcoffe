@@ -6,7 +6,7 @@
         <form action="index.php?act=adddm" method="POST">
           <div class="row2 mb10 form_content_container">
             <label> Tên danh mục </label> <br>
-            <input type="text" name="tenDanhmuc" placeholder="nhập vào tên" >
+            <input type="text" name="tenDanhmuc" placeholder="nhập vào tên" required>
           </div>
           <div class="row2 mb10">
             <label>Trạng thái </label> <br>
