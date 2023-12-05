@@ -23,7 +23,6 @@
             <li><a href="index.php?act=dskh">Khách hàng</a></li>
             <li><a href="index.php?act=dsdh">Đơn hàng</a></li>
             <li><a href="index.php?act=dsbl">Bình luận</a></li>
-            <!-- <li><a href="index.php?act=dsdg">Đánh giá</a></li> -->
             <li><a href="index.php?act=thongke">Thống kê</a></li>
         </ul>
     </nav>

@@ -14,6 +14,7 @@
 <div class="chi_tiet_hang_hoa">
     <table class="bang">
         <tr class="dong">
+            <th class="cot">Ngày đặt</th>
             <th class="cot">Khách hàng</th>
             <th class="cot">Sản phẩm</th>
             <th class="cot">Tổng tiền</th>
@@ -27,6 +28,8 @@
             }
             foreach ($listhoadon as $hd){
                 extract($hd);
+                // Định dạng lại ngày
+                $ngay_dat = DateTime::createFromFormat('Y-m-d', $ngay_dat)->format('d-m-Y');
                 if($trang_thai==0){
                     $trang_thai = "Chờ Xác Nhận";
                 }else if($trang_thai==1){
@@ -44,6 +47,7 @@
             
         ?>
             <tr class="dong">
+                <td class="cot"><?= $ngay_dat ?> </td>
                 <td class="cot">
                 👤 <?php echo $sdt." - ";  echo $user; ?><br>
                 🏚  <?php  echo "Địa chỉ: ".$dia_chi?>
@@ -57,7 +61,7 @@
                             echo '<a href="'.$huydh.'"><input style="background-color:#BB9CC0; color:#fff; font-size:14px; border-radius:5px; padding:10px; border:#67729D" type="button"  value="Hủy"></a> ';
                         }else if($trang_thai=="Đang giao hàng"){
                             echo '<a href="'.$nhandh.'"><input style="background-color:#BB9CC0; color:#fff; font-size:14px; border-radius:5px; padding:10px; border:#67729D" type="button"  value="Đã Nhận"></a> ';
-                        }else if($trang_thai == "Đã Hủy"){
+                        }else if($trang_thai == "Đã Hủy" || $trang_thai == "Đã hoàn thành"){
                             echo '<a href="'.$datlai.'"><input style="background-color:#BB9CC0; color:#fff; font-size:14px; border-radius:5px; padding:10px; border:#67729D" type="button"  value="Đặt Lại"></a> ';
                         }
                     ?>

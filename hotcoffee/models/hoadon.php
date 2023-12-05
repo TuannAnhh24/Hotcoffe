@@ -80,4 +80,11 @@
         pdo_execute($sql);
     }
 
+    function cap_nhat_trang_thai_don_hang(){
+        $sql = "UPDATE hoa_don SET trang_thai='3' WHERE trang_thai='2' AND DATEDIFF(NOW(), ngay_dat) > 1";
+        pdo_execute($sql);
+    }
+
+
+
 ?>
