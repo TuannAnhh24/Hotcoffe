@@ -25,16 +25,6 @@
         <?php 
             foreach ($xem_hd as $ct){
                 extract($ct);
-                $ttien=0;
-                
-                foreach ($_SESSION['mycart'] as $cart){
-                    if($cart[5]=="M"){
-                        $ttien=$cart[3]*$cart[1];
-                    }elseif($cart[5]=="L"){
-                        $ttien=($cart[3]+$cart[3]*15/100)*$cart[1];
-                    }elseif($cart[5]=="XL"){
-                        $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
-                    } 
                 
 
         ?>
@@ -45,10 +35,10 @@
                 <td class="cot"><?= $so_luong ?></td>
                 <td class="cot"><?= $luong_da ?></td> 
                 <td class="cot"><?= $luong_duong ?></td>
-                <td class="cot"><?= $ttien ?> VNĐ</td> 
+                <td class="cot"><?= $tien ?> VNĐ</td> 
             </tr>
 
-        <?php }  } ?>
+        <?php }   ?>
         
     </table>
 </div>

@@ -58,7 +58,6 @@
                                     <ul id="menu_main" class="menu_main_nav">
                                         
                                         <li class="menu-item "><a href="index.php">Trang Chủ</a></li>
-                                        <li class="menu-item "><a href="index.php?act=ban">Bàn</a></li>
                                         <li class="menu-item"><a href="index.php?act=menu">Menu</a></li>
                                         <li class="menu-item"><a href="index.php?act=lienhe">Liên hệ</a></li>
                                         <li class="menu-item"><a href="index.php?act=gioithieu">Giới thiệu</a></li>

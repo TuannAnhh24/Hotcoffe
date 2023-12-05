@@ -112,9 +112,9 @@
         return pdo_query_value($sql);
     }
 
-    function load_spCL($id_dm=0){
+    function load_spCL($start, $limit,$id_dm=0){
         $sql = "SELECT * FROM `san_pham` WHERE `id_dm` = $id_dm";
-        $sql.=" ORDER BY RAND() LIMIT 3";
+        $sql.=" LIMIT $start, $limit";
         $listsp = pdo_query($sql);
         return $listsp;
     }

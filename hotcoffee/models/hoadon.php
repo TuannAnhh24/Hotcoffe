@@ -27,6 +27,12 @@
         return $listhoadon;
     }
 
+    function load_more_hoadon($id_tk){
+        $sql = "SELECT * FROM hoa_don WHERE id_tk = ? order by id_hd desc ";
+        $listhoadon = pdo_query($sql, $id_tk);
+        return $listhoadon;
+    }
+
     function CT_hoadon($id_hd){
         $sql = "SELECT * FROM ct_hd WHERE id_hd=".$id_hd;
         $xem_hd = pdo_query($sql);
@@ -37,6 +43,41 @@
         $sql = 'SELECT * FROM `ct_hd` as hd INNER JOIN `san_pham` as sp ON hd.id_sp = sp.id_sp ';  
         $dm = pdo_query_one($sql);
         return $dm;
+    }
+
+    function xacnhan_dh($id_hd){
+        $sql = "UPDATE `hoa_don` SET `trang_thai` = '1' WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
+    function giao_dh($id_hd){
+        $sql = "UPDATE `hoa_don` SET `trang_thai` = '2' WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
+    function nhan_dh($id_hd){
+        $sql = "UPDATE `hoa_don` SET `trang_thai` = '3' WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
+    function delete_donhang($id_hd){
+        $sql = "DELETE FROM `hoa_don` WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
+    function delete_ct_hoadon($id_hd){
+        $sql = "DELETE FROM `ct_hd` WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
+    function huy_hoadon($id_hd){
+        $sql = "UPDATE `hoa_don` SET `trang_thai` = '4' WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
+    }
+
+    function datlai_hd($id_hd){
+        $sql = "UPDATE `hoa_don` SET `trang_thai` = '0' WHERE id_hd=".$id_hd;
+        pdo_execute($sql);
     }
 
 ?>

@@ -6,6 +6,7 @@
     include "../models/taikhoan.php";
     include "../models/binhluan.php";
     include "../models/hoadon.php";
+    include "../models/thongke.php";
     //controller
     if (isset($_GET['act']) ){
         $act = $_GET['act'];
@@ -220,11 +221,47 @@
                     $xem_hd = CT_hoadon($id_hd);
                     // $lay_sp = loadone_CTsanpham();
                 }
-                
-                
-                
                 include "hoadon/ct.hoadon.php";
                 break; 
+            // ------------------------------------ Xác nhận đơn hàng  ------------------------------------
+            case 'xacnhandonhang':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    xacnhan_dh($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "hoadon/list.php";
+                break; 
+            // ------------------------------------ Vận chuyển đơn hàng  ------------------------------------
+            case 'giaodonhang':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
+                    giao_dh($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "hoadon/list.php";
+                break; 
+            // ------------------------------------ Xóa đơn hàng ------------------------------------
+            case 'xoadh':
+                if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
+                    delete_ct_hoadon($_GET['id_hd']);
+                    delete_donhang($_GET['id_hd']);
+                }
+                $listhoadon = loadall_hoadon();
+                include "hoadon/list.php";
+                break;
+            // ------------------------------------ Thống kê ------------------------------------
+            case 'thongke':
+                $total_orders = tongso_hoadon();
+                $revenue = doanh_thu();
+                $best_selling_product = sp_banchay_nhat();
+                $loyal_customer = kh_thanthiet();
+                $cancellation_rate = tile_huydon();
+                include "thongke/list.php";
+                break;
+            // ------------------------------------ oder_list thống kê ------------------------------------
+            case 'oder_list':
+                $listhoadon = loadall_hoadon();
+                include "thongke/oder_list.php";
+                break;
         }
     }else {
         include "home.php";
