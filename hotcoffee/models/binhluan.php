@@ -18,5 +18,15 @@
         $sql = "DELETE FROM binh_luan WHERE id_bl=".$id_bl;
         pdo_execute($sql);
     }
-    
+    function get_total_bl(){
+        $sql = "SELECT COUNT(*) as total FROM binh_luan ";
+        return pdo_query_value($sql);
+    }
+    function load_bl($start, $limit){
+        $sql = "SELECT * FROM `binh_luan`";
+        $sql.=" LIMIT $start, $limit";
+        $listsp = pdo_query($sql);
+        return $listsp;
+    }
+
 ?>

@@ -84,7 +84,15 @@
         $sql = "UPDATE hoa_don SET trang_thai='3' WHERE trang_thai='2' AND DATEDIFF(NOW(), ngay_dat) > 1";
         pdo_execute($sql);
     }
+    function get_total_hd(){
+        $sql = "SELECT COUNT(*) as total FROM hoa_don ";
+        return pdo_query_value($sql);
+    }
 
-
-
+    function load_hd($start, $limit){
+        $sql = "SELECT * FROM `hoa_don`";
+        $sql.=" LIMIT $start, $limit";
+        $listsp = pdo_query($sql);
+        return $listsp;
+    }
 ?>

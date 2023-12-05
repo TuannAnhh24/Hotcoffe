@@ -62,8 +62,29 @@
                     <?php } ?>
                 
                 </table>
+                 <!----------------------- Phân trang ----------------------->
+            <nav id="pagination" class="pagination_wrap pagination_pages">
+                    <?php
+                    if ($current_page > 1 && $total_page > 1){
+                        echo '<a class="pager_prev" href="index.php?act=dsdh&page='.($current_page-1).'"></a> ';
+                    }
+                    for ($i = 1; $i <= $total_page; $i++){
+                        
+                        if ($i == $current_page){
+                            echo ' <span class="pager_current active ">'.$i.'</span>';
+                        }
+                        else{
+                            echo '<a href="index.php?act=dsdh&page='.$i.'">'.$i.'</a>';
+                        }
+                    }
+                        ?>
+                </nav>                            
+
             </div>
+               
         </form>
+                      
     </div>
+    
 </div>
 </div> 

@@ -1,3 +1,23 @@
+<?php 
+        $tong=0;
+        $ttien=0;
+        $i=0;
+       
+          foreach ($_SESSION['mycart'] as $cart){
+            
+            // $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong];
+            if($cart[5]=="M"){
+                $ttien=$cart[3]*$cart[1];
+            }else if($cart[5]=="L"){
+                $ttien=($cart[3]*1.15)*$cart[1];
+            }else if($cart[5]=="XL"){
+                $ttien=($cart[3]*1.25)*$cart[1];
+            } 
+
+        
+            $tong+=$ttien;
+        }
+?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
 <head>
@@ -68,9 +88,9 @@
                                     <a href="index.php?act=cart" class="test0" data-items="0" data-summa="&#036;0.00">
                                         <span class="contact_icon icon-shopping"></span>
                                         <span class="test1">Giỏ hàng:</span>
-                                        <span class="test2">
-                                            <span class="cart_items">0 món</span> -
-                                            <span class="cart_summa"> 0 VNĐ</span>
+                                        <span class="test2">  
+                                          <span class="cart_items">Tổng: </span>
+                                          <span class="cart_summa"><?php echo $tong ?> VNĐ</span>
                                         </span>
                                     </a>
                                 </div>

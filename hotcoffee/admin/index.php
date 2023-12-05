@@ -206,7 +206,22 @@
                 break;
             // ------------------------------------ Danh sách bình luận  ------------------------------------
             case 'dsbl':
-                $listbl= loadall_binhluan(0);
+                //phân page
+              $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+              $limit = 10;
+              $total_records = get_total_bl();
+              $total_records = intval($total_records);
+              $total_page = ceil($total_records / $limit);
+              if ($current_page > $total_page){
+                  $current_page = $total_page;
+              }
+              elseif ($current_page < 1){
+                  $current_page = 1;
+              }
+              $start = ($current_page - 1) * $limit;
+              //
+
+                $listbl= load_bl($start, $limit);
                 include "binhluan/list.php";
                 break;
             // ------------------------------------ Xóa Bình luận ------------------------------------
@@ -219,7 +234,22 @@
                 break;
             // ------------------------------------ Trang hóa đơn ------------------------------------
             case 'dsdh':
-                $listhoadon = loadall_hoadon();
+                    //phân page
+              $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+              $limit = 5;
+              $total_records = get_total_hd();
+              $total_records = intval($total_records);
+              $total_page = ceil($total_records / $limit);
+              if ($current_page > $total_page){
+                  $current_page = $total_page;
+              }
+              elseif ($current_page < 1){
+                  $current_page = 1;
+              }
+              $start = ($current_page - 1) * $limit;
+              //
+                   
+                $listhoadon = load_hd($start, $limit);
                 include "hoadon/list.php";
                 break;
             // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
