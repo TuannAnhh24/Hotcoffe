@@ -30,6 +30,23 @@
                 <?php } ?>
                 
             </table>
+            <!----------------------- Phân trang ----------------------->
+            <nav id="pagination" class="pagination_wrap pagination_pages">
+                    <?php
+                    if ($current_page > 1 && $total_page > 1){
+                        echo '<a class="pager_prev" href="index.php?act=dsbl&page='.($current_page-1).'"></a> ';
+                    }
+                    for ($i = 1; $i <= $total_page; $i++){
+                        
+                        if ($i == $current_page){
+                            echo ' <span class="pager_current active ">'.$i.'</span>';
+                        }
+                        else{
+                            echo '<a href="index.php?act=dsbl&page='.$i.'">'.$i.'</a>';
+                        }
+                    }
+                        ?>
+                </nav>
             </div>
             <div class="row mb10 ">
                 <input class="mr20" type="button" value="CHỌN TẤT CẢ">

@@ -302,7 +302,7 @@
                                     $cl1 ="product has-post-thumbnail column-1_3 first";
                                     $cl2 = "product has-post-thumbnail column-1_3  last";
                                     if($id_sp ==0 || $id_sp % 2 == 0){
-                                        $cl= $cl1;
+                                        $cl= $cl2;
                                     }else{
                                         $cl = $cl2;
                                     }

@@ -37,9 +37,9 @@
                                         $cl1 ="product has-post-thumbnail column-1_2 first sale";
                                         $cl2 = "product has-post-thumbnail column-1_2 last";
                                         if($id_sp ==0 || $id_sp % 2 == 0){
-                                            $cl= $cl2;
+                                            $cl= $cl1;
                                         }else{
-                                            $cl =  $cl1;
+                                            $cl =  $cl2;
                                         }
                                 
                                         echo ' 
@@ -71,6 +71,7 @@
                                                 </ins>
                                                 </span>
                                                 <form action="index.php?act=add-to-cart" class="cart" method="post" enctype="multipart/form-data">
+                                                <input type="hidden" name="id_sp"  value="'.$id_sp.'"  />
                                                 <input type="hidden" name="name_sp"  value="'.$name_sp.'"  />
                                                 <input type="hidden" name="gia_goc"  value="'.$gia_goc.'"  />
                                                 <input type="hidden" name="gia_km"   value="'.$gia_km.'"  />
