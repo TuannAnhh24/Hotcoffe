@@ -58,44 +58,7 @@
                                 </td>
                             </tr>';
                     }else{
-                        echo '
-                                <tr >
-                                    <td>
-                                        <label for="username"><b>Họ tên người dùng</b></label>
-                                    </td>
-                                    <td>
-                                        <input type="text" placeholder="Nhập tên đăng nhập" name="username" class="common-class input-text"  >
-                                    </td>
-                                </tr> 
-        
-                                <tr>
-                                    <td>
-                                        <label for="email"><b>Email</b></label>
-                                    </td>
-                                    <td>
-                                        <input type="email" placeholder="Nhập Email" name="email" id="email" class="common-class email"   >
-                                    </td>
-                                </tr>
-        
-                                <tr>
-                                    <td>
-                                        <label for="number"><b>Số điện thoại</b></label>
-                                    </td>
-                                    <td>
-                                        <input type="text" placeholder="Nhập số điện thoại" name="sdt" class="common-class input-text"  >
-                                    </td>
-                                </tr>
-        
-                                <tr>
-                                    <td>
-                                        <label for="address"><b>Địa chỉ</b></label>
-                                    </td>
-                                    <td>
-                                        <textarea name="address" id="address" cols="30" rows="5" placeholder="Nhập địa chỉ" ></textarea>
-                                        <!-- <input type="text" placeholder="Nhhập địa chỉ" name="address" class="common-class input-text" value="  $dia_chi " required> -->
-                                    </td>
-                                </tr>
-                            ';
+                        echo 'BẠN CẦN PHẢI ĐĂNG NHẬP ĐỂ THANH TOÁN';
                     }
                 ?>
                 

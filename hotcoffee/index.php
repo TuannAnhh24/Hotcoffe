@@ -325,6 +325,7 @@
                 break;
             // ------------------------------------ Trang theo dõi đơn hàng  ------------------------------------
             case 'ctdh':
+                cap_nhat_trang_thai_don_hang();
                 $listhoadon = load_more_hoadon($id_tk);
                 include "view/ct.donhang.php";
                 break;
@@ -353,7 +354,7 @@
                 if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
                     huy_hoadon($_GET['id_hd']);
                 }
-                $listhoadon = loadall_hoadon();
+                $listhoadon = load_more_hoadon($id_tk);
                 include "view/ct.donhang.php";
                 break;
             // ------------------------------------ Đặt lại đơn hàng ------------------------------------
@@ -361,7 +362,7 @@
                 if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
                     datlai_hd($_GET['id_hd']);
                 }
-                $listhoadon = loadall_hoadon();
+                $listhoadon = load_more_hoadon($id_tk);
                 include "view/ct.donhang.php";
                 break;
 

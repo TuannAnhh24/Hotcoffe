@@ -90,7 +90,7 @@
               $tendanhmuc = load_tendm($id_dm);
                 include "sanpham/list.php";
                 break;
-                  // ------------------------------------ Thêm sản phẩm ------------------------------------   
+            // ------------------------------------ Thêm sản phẩm ------------------------------------   
             case "addsp":
                 if(isset($_POST['addSanpham'])&& $_POST['addSanpham']){
                     $idDm = $_POST['id_dm'];
@@ -101,17 +101,25 @@
                     $img = $_FILES['anhSp']['name'];
                     $saveImg = "../images/";
                     $targetFiles= $saveImg.basename($_FILES['anhSp']['name']);
-                    if(move_uploaded_file($_FILES['anhSp']['tmp_name'],$targetFiles)){
-                        echo "Upload thành công";
-                    }else{
-                        echo "up ảnh bị lỗi";
-                    }
-                    insert_sanpham($tenSp,$giaGoc,$giaKm,$moTa,$img,$idDm);       
+                    // Kiểm tra xem file có phải là hình ảnh hay không
+                    $check = getimagesize($_FILES["anhSp"]["tmp_name"]);
+                    if($check !== false) {
+                        // File là hình ảnh
+                        if(move_uploaded_file($_FILES['anhSp']['tmp_name'],$targetFiles)){
+                            echo "Upload thành công";
+                        }else{
+                            echo "up ảnh bị lỗi";
+                        }
+                        insert_sanpham($tenSp,$giaGoc,$giaKm,$moTa,$img,$idDm);       
+                    } else {
+                        // File không phải là hình ảnh
+                        echo "<script> alert('File không phải là hình ảnh !!!'); </script>";
+                    }     
                 }
                 $listdanhmuc = loadall_danhmuc();
                 include "sanpham/add.php";
                 break;
-                 // ------------------------------------ Chi tiết sản phẩm   ------------------------------------
+            // ------------------------------------ Chi tiết sản phẩm   ------------------------------------
             case 'ctsp':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     $chitietSanpham = loadone_sanpham($_GET['id']);
@@ -119,7 +127,7 @@
                 $listdanhmuc = loadall_danhmuc();
                 include "sanpham/addCt.php";
                 break;  
-                // ------------------------------------ Thêm chi tiết sản phẩm ------------------------------------
+            // ------------------------------------ Thêm chi tiết sản phẩm ------------------------------------
             case 'addctsp':   
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     $chitietSanpham = loadone_sanpham($_GET['id']);

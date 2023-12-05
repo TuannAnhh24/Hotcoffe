@@ -49,21 +49,6 @@
                     <div id="respond" class="comment-respond">
                         <h3 id="reply-title" class="comment-reply-title">Bạn hãy nhận xét về &ldquo;<?=$name_sp?>&rdquo;</h3>
                         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" id="commentform" class="comment-form">
-                            <!-- <p class="comment-notes">
-                                <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu 
-                                <span class="required">*</span>
-                            </p> -->
-                            <!-- <p class="comment-form-rating">
-                                <label for="rating">Đánh giá của bạn</label>
-                                <select name="rating" id="rating" aria-required="true" required>
-                                    <option value="">Rate&hellip;</option>
-                                    <option value="5">Perfect</option>
-                                    <option value="4">Good</option>
-                                    <option value="3">Average</option>
-                                    <option value="2">Not that bad</option>
-                                    <option value="1">Very Poor</option>
-                                </select>
-                            </p> -->
                             <?php
                                 if (isset($_SESSION['email'])) {
                                     // Người dùng đã đăng nhập, hiển thị form bình luận

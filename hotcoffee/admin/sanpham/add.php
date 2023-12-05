@@ -1,38 +1,43 @@
+<div class="row2">
+  <div class="row2 font_title">
+    <h1>THÊM MỚI SẢN PHẨM</h1>
+  </div>
+          <script>
+            function updatePrices() {
+              var giaGocInput = document.getElementById('gia_Goc');
+              var giaKmInput = document.getElementById('gia_Km');
 
-    <div class="row2">
-         <div class="row2 font_title">
-          <h1>THÊM MỚI SẢN PHẨM</h1>
-        </div>
-        <script>
-         function updatePrices() {
-                var giaGocInput = document.getElementById('gia_Goc');
-                var giaKmInput = document.getElementById('gia_Km');
+              var giaGoc = parseFloat(giaGocInput.value);
 
-                var giaGoc = parseFloat(giaGocInput.value);
+              // Các bước tính toán giá khác
+              var giaKm = giaGoc * 0.9;
+              giaKmInput.value = giaKm.toFixed(2);
 
-                // Các bước tính toán giá khác
-                var giaKm = giaGoc * 0.9;
-                giaKmInput.value = giaKm.toFixed(2);
+            }
 
-              }
+            document.addEventListener('DOMContentLoaded', function() {
+              var giaGocInput = document.getElementById('gia_Goc');
+              var discountCheckbox = document.getElementById('discountCheckbox');
+              var giaKmInput = document.getElementById('gia_Km');
 
-             document.addEventListener('DOMContentLoaded', function() {
-                var giaGocInput = document.getElementById('gia_Goc');
-                var discountCheckbox = document.getElementById('discountCheckbox');
-                var giaKmInput = document.getElementById('gia_Km');
+              // Khi giá gốc thay đổi, gọi hàm updatePrices
+              giaGocInput.addEventListener('input', function() {
+                  updatePrices();
+              });
 
-                // Khi giá gốc thay đổi, gọi hàm updatePrices
-                giaGocInput.addEventListener('input', function() {
-                    updatePrices();
-                });
 
-                // Khi ô kiểm thay đổi
-                discountCheckbox.addEventListener('change', function() {
-                    // Nếu ô kiểm được đánh dấu, đặt giá trị của ô nhập liệu giá khuyến mãi là 0, ngược lại là rỗng
-                    giaKmInput.value = discountCheckbox.checked ? '0' : '';
-                });
-          });
-        </script>
+                        // Khi giá gốc thay đổi, gọi hàm updatePrices
+                        giaGocInput.addEventListener('input', function() {
+                            updatePrices();
+                        });
+
+                        // Khi ô kiểm thay đổi
+                        discountCheckbox.addEventListener('change', function() {
+                            // Nếu ô kiểm được đánh dấu, đặt giá trị của ô nhập liệu giá khuyến mãi là 0, ngược lại là rỗng
+                            giaKmInput.value = discountCheckbox.checked ? '0' : '';
+                        });
+                  });
+              </script>
     <div class="row2 form_content ">
     
         <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
@@ -69,11 +74,7 @@
           </div>
           <div class="row2 mb10 form_content_container">
             <label for="">Ảnh:</label>
-<<<<<<< HEAD
-            <input type="file" name="anhSp" required ><br>
-=======
             <input type="file" name="anhSp" required><br>
->>>>>>> 51179ae1c3fac0f81bb7b01ed4f151d78f505aa2
           </div>
           <div class="row mb10 ">
             <input class="mr20" type="submit" name='addSanpham' value="Thêm sản phẩm mới">
@@ -86,4 +87,6 @@
         </form>  
         </div>
     </div>
-  
+
+ 
+
