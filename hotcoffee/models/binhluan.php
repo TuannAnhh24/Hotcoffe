@@ -36,7 +36,7 @@
         return pdo_query_value($sql);
     }
     function load_bl($start, $limit){
-        $sql = "SELECT * FROM `binh_luan`";
+        $sql = "SELECT * FROM `binh_luan` order by id_bl desc";
         $sql.=" LIMIT $start, $limit";
         $listsp = pdo_query($sql);
         return $listsp;

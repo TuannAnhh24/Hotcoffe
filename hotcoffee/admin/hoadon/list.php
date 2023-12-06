@@ -1,7 +1,51 @@
+<style>
+    form.locdonhang {
+        width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form.locdonhang select, 
+    form.locdonhang input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    form.locdonhang input[type="submit"] {
+        color: white;
+        background-color: #007BFF;
+        cursor: pointer;
+    }
+
+    form.locdonhang input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
 <div class="row2">
     <div class="row2 font_title">
         <h1>DANH SÁCH ĐƠN HÀNG</h1>
     </div>
+    <form class="locdonhang" action="" method="POST">
+        <select name="trangThai" id="">
+            <option value="">Tất cả</option>
+            <option value="0">Chờ Xác Nhận</option>
+            <option value="1">Đã Xác Nhận</option>
+            <option value="2">Đang Vận Chuyển</option>
+            <option value="3">Đã Hoàn Thành</option>
+            <option value="4">Đã Hủy</option>
+        </select>
+        <input type="submit" name="filter" value="Lọc">
+    </form>
+
     <div class="row2 form_content ">
         <form action="#" method="POST">
             <div class="row2 mb10 formds_loai">

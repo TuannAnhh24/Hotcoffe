@@ -89,9 +89,12 @@
         return pdo_query_value($sql);
     }
 
-    function load_hd($start, $limit){
+    function load_hd($start, $limit, $trangThai = ""){
         $sql = "SELECT * FROM `hoa_don`";
-        $sql.=" LIMIT $start, $limit";
+        if ($trangThai != "") {
+            $sql .= " WHERE trang_thai = $trangThai";
+        }
+        $sql .= " ORDER BY id_hd DESC LIMIT $start, $limit";
         $listsp = pdo_query($sql);
         return $listsp;
     }
