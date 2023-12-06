@@ -1,7 +1,7 @@
 <?php
     function insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address){
-        $sql= "INSERT INTO `hoa_don`(`id_tk`,`tong_tien`, `phuong_thuc_tt`, `user`, `email`, `sdt`, `dia_chi`) 
-            VALUES ('$id_tk','$tong','$pttt','$username','$email','$sdt','$address')";
+        $sql= "INSERT INTO `hoa_don`(`id_tk`,`tong_tien`, `phuong_thuc_tt`, `user`, `email`, `sdt`, `dia_chi`, `ngay_dat`) 
+            VALUES ('$id_tk','$tong','$pttt','$username','$email','$sdt','$address',CURDATE())";
         pdo_execute($sql);
         // Lấy ID của hóa đơn vừa được tạo
         $conn = pdo_get_connection();

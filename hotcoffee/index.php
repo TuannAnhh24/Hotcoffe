@@ -280,11 +280,6 @@
                     $pttt = $_POST['pttt'];
                     $tong = $_POST['tongtien'];
                     $id_tk = $_POST['id_tk'];
-                    // Nếu không có tài khoản
-                    // if(!isset($_SESSION['email'])){
-                    //     $user= [$username,$sdt,$address,$email];
-                    //     $_SESSION['user'][] = $user;
-                    // }
                     insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
                     $id_hoadon = lay_id_hoadon();
                     
@@ -302,10 +297,10 @@
                             $thanhtien=($cart[3]+$cart[3]*25/100)*$soluong_sp;
                         } 
                         $id_sp = $cart[8];
-                        
                         $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
-                        header("Location: index.php?act=camon");
                     }
+                    unset($_SESSION['mycart']);
+                    header("Location: index.php?act=camon");
                 }
                 
                 include "view/hoadon.php";
