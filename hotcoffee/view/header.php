@@ -1,4 +1,5 @@
 <?php 
+<<<<<<< HEAD
     $tong=0;
     $ttien=0;
     $i=0;
@@ -13,6 +14,29 @@
             $ttien=($cart[3]*1.25)*$cart[1];
         } 
         $tong+=$ttien;
+=======
+        $tong=0;
+        $ttien=0;
+        $i=0;
+       
+        if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
+            foreach ($_SESSION['mycart'] as $cart) {
+                // $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong];
+                if ($cart[5] == "M") {
+                    $ttien = $cart[3] * $cart[1];
+                } else if ($cart[5] == "L") {
+                    $ttien = ($cart[3] * 1.15) * $cart[1];
+                } else if ($cart[5] == "XL") {
+                    $ttien = ($cart[3] * 1.25) * $cart[1];
+                }
+        
+                $tong += $ttien;
+            }
+        } else {
+            // Nếu $_SESSION['mycart'] không tồn tại hoặc không có dữ liệu, thực hiện các hành động tùy ý ở đây
+            // Ví dụ: hiển thị thông báo hoặc thực hiện hành động mặc định
+            // Ví dụ: echo "Không có sản phẩm trong giỏ hàng";
+>>>>>>> 7ee60e3d1ca464132857cc642c77cd1d812581b0
         }
     }
 ?>

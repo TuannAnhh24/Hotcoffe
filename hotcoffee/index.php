@@ -300,6 +300,7 @@
                         $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
                     }
                     unset($_SESSION['mycart']);
+                    session_destroy();
                     header("Location: index.php?act=camon");
                 }
                 
