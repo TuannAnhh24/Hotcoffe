@@ -2,6 +2,11 @@
     <div class="row2 font_title">
         <h1>DANH SÁCH BÌNH LUẬN</h1>
     </div>
+    <form class="locdonhang" action="" method="POST">
+        <input type="date" name="ngayBatDau">
+        <input type="date" name="ngayKetThuc">
+        <input type="submit" name="filter" value="Lọc">
+    </form>
     <div class="row2 form_content ">
         <form action="#" method="POST">
             <div class="row2 mb10 formds_loai">
