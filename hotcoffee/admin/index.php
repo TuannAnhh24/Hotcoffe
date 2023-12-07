@@ -249,10 +249,14 @@
                 $start = ($current_page - 1) * $limit;
                 // lọc theo trạng thái
                 $trang_Thai = "";
+                $ngay_BatDau = "";
+                $ngay_KetThuc = "";
                 if(isset($_POST['filter'])){
                     $trang_Thai = $_POST['trangThai'];
+                    $ngay_BatDau = $_POST['ngayBatDau'];
+                    $ngay_KetThuc = $_POST['ngayKetThuc'];
                 }
-                $listhoadon = load_hd($start, $limit, $trang_Thai);
+                $listhoadon = load_hd($start, $limit, $trang_Thai, $ngay_BatDau, $ngay_KetThuc);
                 include "hoadon/list.php";
                 break;
             // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
