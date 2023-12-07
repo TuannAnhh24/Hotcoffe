@@ -64,7 +64,7 @@
             case 'listSp':    
               //phân page
               $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-              $limit = 6;
+              $limit = 5;
               $total_records = get_total_products();
               $total_records = intval($total_records);
               $total_page = ceil($total_records / $limit);
@@ -76,8 +76,8 @@
               }
               $start = ($current_page - 1) * $limit;
               //
-              if(isset($_GET['id_dm'])&&$_GET['id_dm']>0){
-                  $id_dm =$_GET['id_dm']; 
+              if(isset($_POST['id_dm'])&&$_POST['id_dm']>0){
+                  $id_dm =$_POST['id_dm']; 
               }else{
                   $id_dm = 0;
               }if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
@@ -87,7 +87,7 @@
               }
            
               $listsanpham = load_sp($start, $limit,$id_dm,$kyw);
-              $tendanhmuc = load_tendm($id_dm);
+              $tendanhmuc = loadall_danhmuc();
                 include "sanpham/list.php";
                 break;
             // ------------------------------------ Thêm sản phẩm ------------------------------------   

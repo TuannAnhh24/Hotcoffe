@@ -4,12 +4,13 @@
          <div class="row2 font_title">
           <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
          </div>
-        <form action="index.php?act=listsp" method="POST">
+        <form action="index.php?act=listSp" method="POST">
                 <input type="text" name= "kyw">
-                <select name="iddm" >
-                    <option value="0" selected>Tất Cả</option>
-                    <?php foreach($listdanhmuc as $danhmuc){
-                        extract($danhmuc);
+                <select name="id_dm" >
+                    <option value="0">Tất Cả</option>
+                    <?php 
+                    foreach($tendanhmuc as $danhmuc){
+                        extract($danhmuc);  
                         echo '<option value="'.$id_dm.'">'.$name.'</option>';
                     } 
                 ?>
