@@ -303,7 +303,7 @@
                 $total_orders = tongso_hoadon();
                 $revenue = doanh_thu();
                 $best_selling_product = sp_banchay_nhat();
-                $loyal_customer = kh_thanthiet();
+                // $loyal_customer = kh_thanthiet();
                 $cancellation_rate = tile_huydon();
                 include "thongke/list.php";
                 break;
@@ -311,6 +311,26 @@
             case 'oder_list':
                 $listhoadon = loadall_hoadon();
                 include "thongke/oder_list.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê sản phẩm bán chạy ------------------------------------
+            case 'banchay':
+                $thongke_sp_banchay = thongke_sp_banchay();
+                include "thongke/banchay.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê tỉ lệ hủy đơn hàng ------------------------------------
+            case 'tk-huydon':
+                $cancellation_rate = tile_huydon();
+                include "thongke/tl.huydon.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê đơn hàng ------------------------------------
+            case 'tk-donhang':
+                $thongke_donhang = thongke_donhang();
+                include "thongke/tk.donhang.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê doanh thu ------------------------------------
+            case 'tk-doanhthu':
+                $thongke_doanhthu = thongke_doanhthu() ;
+                include "thongke/tk.doanhthu.php";
                 break;
         }
     }else {
