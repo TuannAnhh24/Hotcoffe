@@ -47,7 +47,7 @@
                             $xoasp = '<a href="index.php?act=xoasp-gh&id_gh='.$i.'"><input type="button" value="Xóa"></a>';
                           
                             echo '  
-                            <form action="index.php?act=hd" method="post" enctype="multipart/form-data">
+                            <form id="cartForm" action="index.php?act=hd" method="post" enctype="multipart/form-data">
                                 <div class="item_gio_hang">
                                     <div class="hinh_anh" name="img">
                                         <img src="'.$cart[4].'" alt="">
@@ -87,7 +87,9 @@
                              <div class="muahang">
                                     <div class="khoang_trong"></div>
                                     <div class="tong_tien_cac_san_pham"> 
-                                        Tổng tiền các sản phẩm : <strong>'.$tong.' VNĐ</strong>    
+                                        Tổng tiền các sản phẩm : <strong>'.$tong.' VNĐ</strong> 
+                                        <input  type="hidden" name ="tongT" value="'.$tong.'">
+                                           
                                     </div>
                                     <div class="thanhtoan">
                                         <a href="index.php?act=menu"><input type="button" value="Tiếp tục mua sắm"></a> 
@@ -131,6 +133,7 @@
 
                             // Cập nhật tổng tiền cho sản phẩm này
                             document.querySelector('#tongtien_' + id).innerText = ttien + ' VNĐ';
+                             updateOverallTotal();
                         }
 
 
@@ -139,64 +142,16 @@
                             const totalElements = document.querySelectorAll('.item_gio_hang .tongtien');
 
                             totalElements.forEach(totalElement => {
-                                const price = parseFloat(totalElement.textContent);
+                                const priceText = totalElement.innerText;
+                                const price = parseFloat(priceText.split(' ')[0]); // Loại bỏ " VNĐ" để lấy giá trị số
                                 overallTotal += price;
                             });
 
                             const overallTotalElement = document.querySelector('.tong_tien_cac_san_pham strong');
                             overallTotalElement.textContent = overallTotal + ' VNĐ';
-
-                            const isUserLoggedIn = $_SESSION['email'];
-
-                            if (isUserLoggedIn) {
-                                updateCartForUser(); // Gọi hàm updateCartForUser khi người dùng đã đăng nhập
-                            } else {
-                                updateCartForGuest(); // Gọi hàm updateCartForGuest khi người dùng là guest
-                            }
                         }
 
-                        function updateCartForUser() {
-                            const cartItems = [];
-                            const cartElements = document.querySelectorAll('.item_gio_hang');
-                            cartElements.forEach(cartElement => {
-                                const productName = cartElement.querySelector('.ten').textContent.trim();
-                                const productPrice = parseFloat(cartElement.querySelector('.giaban').textContent);
-                                const productQuantity = parseInt(cartElement.querySelector('input[name="quantity"]').value);
-                                const productTotal = productPrice * productQuantity;
-
-                                cartItems.push({ name: productName, quantity: productQuantity, price: productPrice, total: productTotal });
-                            });
-
-                            fetch('update_cart_for_user.php', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify({ cartItems: cartItems }),
-                            })
-                            .then(response => {
-                                // Xử lý response từ server (nếu cần)
-                            })
-                            .catch(error => {
-                                console.error('Lỗi:', error);
-                            });
-                        }
-
-                        function updateCartForGuest() {
-                            const cartItems = [];
-                            const cartElements = document.querySelectorAll('.item_gio_hang');
-                            cartElements.forEach(cartElement => {
-                                const productName = cartElement.querySelector('.ten').textContent.trim();
-                                const productPrice = parseFloat(cartElement.querySelector('.giaban').textContent);
-                                const productQuantity = parseInt(cartElement.querySelector('input[name="quantity"]').value);
-                                const productTotal = productPrice * productQuantity;
-
-                                cartItems.push([productName, productQuantity, productPrice, productTotal]);
-                            });
-
-                            // Gửi dữ liệu giỏ hàng lên server cho guest, tương tự như phần xử lý JavaScript của bạn trước đây
-                            // Đây chỉ là ví dụ, bạn cần viết code xử lý gửi dữ liệu giỏ hàng của guest lên server
-                        }
+                     
                     </script>
 
              </div>

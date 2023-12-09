@@ -227,7 +227,6 @@
                     $size = $_POST['selectedSize']; // Thêm dòng này
                     $luongda = $_POST['luongda'] ?? '100%'; // Thêm dòng này
                     $luongduong = $_POST['luongduong'] ?? '100%'; // Thêm dòng này
-                    
                     $id_sp = $_POST['id_sp'];
                     $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
                     // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
@@ -258,7 +257,7 @@
                     // Kiểm tra nếu giỏ hàng không rỗng thì thực hiện xử lý đặt hàng
                     if (!empty($_SESSION['mycart'])) {
                         // Xử lý đặt hàng ở đây
-                
+                       
                         $name_sp = $_POST['name_sp'];
                         $size = $_POST['laysize'];
                         $soluong_moi = $_POST['quantity'];
@@ -277,6 +276,21 @@
                                 }
                             }
                         }
+
+                        // Tính lại tổng giá trị của giỏ hàng sau khi cập nhật
+                            $tong = 0;
+                            foreach ($_SESSION['mycart'] as $cart) {
+                                // Tính giá trị của từng sản phẩm và cộng vào tổng
+                                // $cart = [$name_sp, $quantity, $gia_goc, $gia_km, $img, $size, $luongda, $luongduong];
+                                if ($cart[5] == "M") {
+                                    $ttien = $cart[3] * $cart[1];
+                                } else if ($cart[5] == "L") {
+                                    $ttien = ($cart[3] * 1.15) * $cart[1];
+                                } else if ($cart[5] == "XL") {
+                                    $ttien = ($cart[3] * 1.25) * $cart[1];
+                                }
+                                $tong += $ttien;
+                            }
                     } else {
                         // Nếu giỏ hàng rỗng, chuyển hướng người dùng về trang chủ hoặc hiển thị thông báo
                         header("Location: index.php"); // Chuyển hướng về trang chủ

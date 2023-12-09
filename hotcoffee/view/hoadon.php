@@ -130,7 +130,7 @@
                         <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongMoi ?> VNĐ" readonly>   
                     <?php } else { ?>
                         <!-- Nếu chưa áp mã giảm giá -->
-                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tong ?> VNĐ" readonly> 
+                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongT ?> VNĐ" readonly> 
                     <?php } ?>    
                 </div>
                  

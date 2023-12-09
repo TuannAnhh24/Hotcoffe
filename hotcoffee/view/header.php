@@ -95,7 +95,7 @@
                                         <span class="test1">Giỏ hàng:</span>
                                         <span class="test2">  
                                           <span class="cart_items">Tổng: </span>
-                                          <span class="cart_summa"><?php echo $tong ?> VNĐ</span>
+                                          <span class="cart_summa"id="tongtienDisplay"><?php echo $tong ?> VNĐ</span>
                                         </span>
                                     </a>
                                 </div>
@@ -153,6 +153,21 @@
                     });
                 });
                 });
+                // Bắt sự kiện click trên một phần tử cụ thể, ví dụ một nút hoặc một phần tử khác
+                    document.getElementById('buttonID').addEventListener('click', function() {
+                        // Thực hiện yêu cầu AJAX để cập nhật tổng tiền
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', 'your_server_script.php', true);
+                        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                // Nhận dữ liệu từ phản hồi AJAX và cập nhật tổng tiền
+                                document.getElementById("tongtienDisplay").textContent = xhr.responseText + " VNĐ";
+                            }
+                        };
+                        // Gửi yêu cầu AJAX
+                        xhr.send();
+                    });
             </script>
             <!-- END HEADER  -->
 
