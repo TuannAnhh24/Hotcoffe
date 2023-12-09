@@ -15,7 +15,7 @@
         <p>Xác nhận đặt hàng</p>
         Kiểm tra thông tin đơn hàng
     </div>
-    <form  action="" method="post">
+    <form  action="" method="post" id="checkoutForm" onsubmit="return validatePayment()">
         <div class="thongtinhoso">
             <div class="thong_tin_ho_so">
             <table class="thongtin_user">
@@ -68,7 +68,7 @@
                     <input type="hidden" name="id_tk" value="<?=$id_tk?>">
                     <?php 
                         if(isset($_SESSION['email'])){
-                            echo '<input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán"></input>';
+                            echo '<input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán" ></input>';
                         }else{
                             echo '<a href="index.php?act=dangnhap"><input style="margin-right: 110px;" type="button" name="dangnhap" class="btn" value="Đăng Nhập"></input></a>';
                         }
@@ -161,5 +161,22 @@
     
     <script>
    
+    function validatePayment() {
+        var paymentOptions = document.getElementsByName('pttt');
+        var isChecked = false;
+
+        for (var i = 0; i < paymentOptions.length; i++) {
+            if (paymentOptions[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        if (!isChecked) {
+            alert('Vui lòng chọn một phương thức thanh toán.');
+            return false; // Ngăn form từ việc submit khi không chọn phương thức thanh toán
+        }
+        return true; // Cho phép form submit nếu đã chọn phương thức thanh toán
+    }
 </script>
 </div>

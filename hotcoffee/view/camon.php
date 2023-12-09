@@ -40,3 +40,21 @@
                     </div>
                 </div>
             </div>
+<?php 
+
+if(isset($_GET['vnp_Amount'])){
+    include "../models/pdo.php";
+    include "../models/hoadon.php";
+    $_SESSION['code_cart'] = $_GET['vnp_TxnRef'];
+    $vnp_Amount = $_GET['vnp_Amount'];
+    $vnp_BankCode = $_GET['vnp_BankCode'];
+    $vnp_BankTranNo = $_GET['vnp_BankTranNo'];
+    $vnp_OrderInfo = $_GET['vnp_OrderInfo'];
+    $vnp_PayDate = $_GET['vnp_PayDate'];
+    $vnp_TmnCode = $_GET['vnp_TmnCode'];
+    $vnp_CardType = $_GET['vnp_CardType'];
+    $vnp_TransactionNo = $_GET['vnp_TransactionNo'];
+    $code_cart = $_SESSION['code_cart'];
+    $insert_vnpay = insert_vnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_OrderInfo, $vnp_PayDate, $vnp_TmnCode, $vnp_CardType, $vnp_TransactionNo, $code_cart);
+}
+?>
