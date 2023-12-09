@@ -207,21 +207,26 @@
             // ------------------------------------ Danh sách bình luận  ------------------------------------
             case 'dsbl':
                 //phân page
-              $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-              $limit = 10;
-              $total_records = get_total_bl();
-              $total_records = intval($total_records);
-              $total_page = ceil($total_records / $limit);
-              if ($current_page > $total_page){
-                  $current_page = $total_page;
-              }
-              elseif ($current_page < 1){
-                  $current_page = 1;
-              }
-              $start = ($current_page - 1) * $limit;
-              //
-
-                $listbl= load_bl($start, $limit);
+                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $limit = 10;
+                $total_records = get_total_bl();
+                $total_records = intval($total_records);
+                $total_page = ceil($total_records / $limit);
+                if ($current_page > $total_page){
+                    $current_page = $total_page;
+                }
+                elseif ($current_page < 1){
+                    $current_page = 1;
+                }
+                $start = ($current_page - 1) * $limit;
+                //Lọc theo ngày
+                $ngay_BatDau = "";
+                $ngay_KetThuc = "";
+                if(isset($_POST['filter'])){
+                    $ngay_BatDau = $_POST['ngayBatDau'];
+                    $ngay_KetThuc = $_POST['ngayKetThuc'];
+                }
+                $listbl= load_bl($start, $limit, $ngay_BatDau, $ngay_KetThuc);
                 include "binhluan/list.php";
                 break;
             // ------------------------------------ Xóa Bình luận ------------------------------------
@@ -249,10 +254,14 @@
                 $start = ($current_page - 1) * $limit;
                 // lọc theo trạng thái
                 $trang_Thai = "";
+                $ngay_BatDau = "";
+                $ngay_KetThuc = "";
                 if(isset($_POST['filter'])){
                     $trang_Thai = $_POST['trangThai'];
+                    $ngay_BatDau = $_POST['ngayBatDau'];
+                    $ngay_KetThuc = $_POST['ngayKetThuc'];
                 }
-                $listhoadon = load_hd($start, $limit, $trang_Thai);
+                $listhoadon = load_hd($start, $limit, $trang_Thai, $ngay_BatDau, $ngay_KetThuc);
                 include "hoadon/list.php";
                 break;
             // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
@@ -297,7 +306,7 @@
                 $total_orders = tongso_hoadon();
                 $revenue = doanh_thu();
                 $best_selling_product = sp_banchay_nhat();
-                $loyal_customer = kh_thanthiet();
+                // $loyal_customer = kh_thanthiet();
                 $cancellation_rate = tile_huydon();
                 include "thongke/list.php";
                 break;
@@ -305,6 +314,26 @@
             case 'oder_list':
                 $listhoadon = loadall_hoadon();
                 include "thongke/oder_list.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê sản phẩm bán chạy ------------------------------------
+            case 'banchay':
+                $thongke_sp_banchay = thongke_sp_banchay();
+                include "thongke/banchay.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê tỉ lệ hủy đơn hàng ------------------------------------
+            case 'tk-huydon':
+                $cancellation_rate = tile_huydon();
+                include "thongke/tl.huydon.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê đơn hàng ------------------------------------
+            case 'tk-donhang':
+                $thongke_donhang = thongke_donhang();
+                include "thongke/tk.donhang.php";
+                break;
+            // ------------------------------------ Biểu đồ thống kê doanh thu ------------------------------------
+            case 'tk-doanhthu':
+                $thongke_doanhthu = thongke_doanhthu() ;
+                include "thongke/tk.doanhthu.php";
                 break;
         }
     }else {

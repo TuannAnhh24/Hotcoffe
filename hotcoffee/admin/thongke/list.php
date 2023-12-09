@@ -36,26 +36,27 @@
                 <h2>Tổng số đơn hàng</h2>
                 <p id="total_orders"><?= $total_orders ?></p>
                 <a href="index.php?act=oder_list">Xem tất cả đơn hàng</a>
+                <a style="margin-left: 20px;" href="index.php?act=tk-donhang">Xem thống kê</a>
             </div>
             <div class="statistic-item">
                 <h2>Doanh thu</h2>
                 <p id="revenue"><?= $revenue ?> VNĐ</p>
-                <!-- <a href="">Xem </a> -->
+                <a href="index.php?act=tk-doanhthu">Xem thống kê</a>
             </div>
             <div class="statistic-item">
-                <h2>Sản phẩm bán chạy nhất</h2>
+                <h2>Loại đồ uống bán chạy nhất</h2>
                 <p id="best_selling_product"><?= $best_selling_product ?></p>
-                <!-- <a href=" ">Xem </a> -->
+                <a href="index.php?act=banchay">Xem thống kê </a>
             </div>
-            <div class="statistic-item">
+            <!-- <div class="statistic-item">
                 <h2>Khách hàng thân thiết</h2>
                 <p id="loyal_customer"><?= $loyal_customer ?></p>
-                <!-- <a href=" ">Xem </a> -->
-            </div>
+                <a href=" ">Xem </a>
+            </div> -->
             <div class="statistic-item">
                 <h2>Tỉ lệ hủy đơn</h2>
                 <p id="cancellation_rate"><?= $cancellation_rate ?>%</p>
-                <!-- <a href=" ">Xem </a> -->
+                <a href="index.php?act=tk-huydon">Xem thống kê </a>
             </div>
         </div>
     </div> 

@@ -35,9 +35,13 @@
         $sql = "SELECT COUNT(*) as total FROM binh_luan ";
         return pdo_query_value($sql);
     }
-    function load_bl($start, $limit){
-        $sql = "SELECT * FROM `binh_luan` order by id_bl desc";
-        $sql.=" LIMIT $start, $limit";
+    
+    function load_bl($start, $limit, $ngayBatDau = "", $ngayKetThuc = ""){
+        $sql = "SELECT * FROM `binh_luan` WHERE 1";
+        if ($ngayBatDau != "" && $ngayKetThuc != "") {
+            $sql .= " AND ngay_bl BETWEEN '$ngayBatDau' AND '$ngayKetThuc'";
+        }
+        $sql.=" order by id_bl desc LIMIT $start, $limit";
         $listsp = pdo_query($sql);
         return $listsp;
     }

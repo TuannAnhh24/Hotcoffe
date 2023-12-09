@@ -1,33 +1,28 @@
 <style>
-    form.locdonhang {
-        width: 700px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f8f8f8;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    form.locdonhang select, 
-    form.locdonhang input[type="submit"] {
+    .locdonhang {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        padding: 10px;
-        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .locdonhang select,
+    .locdonhang input[type="date"] {
+        width: 30%;
+        padding: 5px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 16px;
     }
-
-    form.locdonhang input[type="submit"] {
+    .locdonhang input[type="submit"] {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
         color: white;
-        background-color: #007BFF;
         cursor: pointer;
     }
-
-    form.locdonhang input[type="submit"]:hover {
-        background-color: #0056b3;
+    .locdonhang input[type="submit"]:hover {
+        background-color: #45a049;
     }
 </style>
 <div class="row2">
@@ -43,6 +38,8 @@
             <option value="3">Đã Hoàn Thành</option>
             <option value="4">Đã Hủy</option>
         </select>
+        <input type="date" name="ngayBatDau">
+        <input type="date" name="ngayKetThuc">
         <input type="submit" name="filter" value="Lọc">
     </form>
 
@@ -53,6 +50,7 @@
                     <tr>
                         <!-- <th></th> -->
                         <th>Mã đơn</th>
+                        <th>Ngày đặt</th>
                         <th>Khách hàng</th>
                         <th>Sản phẩm</th>
                         <th>Tổng tiền</th>
@@ -65,6 +63,7 @@
                         }
                         foreach ($listhoadon as $hd){
                             extract($hd);
+                            $ngay_dat = DateTime::createFromFormat('Y-m-d', $ngay_dat)->format('d-m-Y');
                             if($trang_thai==0){
                                 $trang_thai = "Chờ Xác Nhận";
                             }else if($trang_thai==1){
@@ -83,6 +82,7 @@
                         <tr>
                             <!-- <td><input type="checkbox" name="" id=""></td> -->
                             <td><?= $id_hd ?></td>
+                            <td><?= $ngay_dat ?></td>
                             <td>
                             👤 <?php echo $sdt." - ";  echo $user; ?><br>
                             🏚  <?php  echo "Địa chỉ: ".$dia_chi?>

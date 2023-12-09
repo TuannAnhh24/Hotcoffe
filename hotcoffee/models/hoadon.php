@@ -89,13 +89,20 @@
         return pdo_query_value($sql);
     }
 
-    function load_hd($start, $limit, $trangThai = ""){
-        $sql = "SELECT * FROM `hoa_don`";
+    function load_hd($start, $limit, $trangThai = "", $ngayBatDau = "", $ngayKetThuc = ""){
+        $sql = "SELECT * FROM `hoa_don` WHERE 1";
+    
         if ($trangThai != "") {
-            $sql .= " WHERE trang_thai = $trangThai";
+            $sql .= " AND trang_thai = $trangThai";
         }
+    
+        if ($ngayBatDau != "" && $ngayKetThuc != "") {
+            $sql .= " AND ngay_dat BETWEEN '$ngayBatDau' AND '$ngayKetThuc'";
+        }
+    
         $sql .= " ORDER BY id_hd DESC LIMIT $start, $limit";
         $listsp = pdo_query($sql);
-        return $listsp;
+        return $listsp; 
     }
+    
 ?>
