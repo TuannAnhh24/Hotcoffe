@@ -15,7 +15,7 @@
         <p>Xác nhận đặt hàng</p>
         Kiểm tra thông tin đơn hàng
     </div>
-    <form  action="" method="post" id="checkoutForm" onsubmit="return ">
+    <form  action="" method="post" id="checkoutForm" onsubmit="return validatePayment()">
         <div class="thongtinhoso">
             <div class="thong_tin_ho_so">
             <table class="thongtin_user">
@@ -68,7 +68,7 @@
                     <input type="hidden" name="id_tk" value="<?=$id_tk?>">
                     <?php 
                         if(isset($_SESSION['email'])){
-                            echo '<input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán" validatePayment() ></input>';
+                            echo '<input style="margin-right: 180px;"  type="submit" name="thanhtoan" class="btn" value="Thanh toán"  ></input>';
                         }else{
                             echo '<a href="index.php?act=dangnhap"><input style="margin-right: 110px;" type="button" name="dangnhap" class="btn" value="Đăng Nhập"></input></a>';
                         }
@@ -136,9 +136,15 @@
                  
                 </div>
                     <div>
-                    <?php if (!isset($maGiamgia) ) { ?>
+                    <?php if (!isset($maGiamgia) || !$maGiamgiaHople) { ?>
+                        
                         <!-- Nếu chưa nhập mã giảm giá -->
                         <form action="" method="post">
+                        <?php 
+                            if(isset($thongBao) && $thongBao != ""){
+                            echo '<h5 style="color: red;">Mã Không hợp lệ! Vui lòng nhập lại!!</h5>';
+                            }
+                        ?>
                             <h5><span>Nhập mã giảm giá</span></h5>
                             <input type="text" name="maVoucher" id="maVoucherInput">
                             <input type="submit" name="maGg" value="Nhập mã giảm giá">
@@ -162,42 +168,31 @@
     </form>
     
     <script>
-   
-   var paymentButtonClicked = false;
+    function validatePayment() {
+        var selectedPaymentMethod = false;
+        var selectedVoucher = false;
 
-function validatePayment() {
-    if (!paymentButtonClicked) {
-        // Nếu chưa nhấn nút thanh toán, không cần yêu cầu chọn phương thức thanh toán
-        return true; // Cho phép form submit mà không cần chọn phương thức thanh toán
-    }
-
-    var paymentOptions = document.getElementsByName('pttt');
-    var isChecked = false;
-
-    for (var i = 0; i < paymentOptions.length; i++) {
-        if (paymentOptions[i].checked) {
-            isChecked = true;
-            break;
+        // Kiểm tra xem người dùng đã chọn phương thức thanh toán chưa
+        var paymentOptions = document.getElementsByName('pttt');
+        for (var i = 0; i < paymentOptions.length; i++) {
+            if (paymentOptions[i].checked) {
+                selectedPaymentMethod = true;
+                break;
+            }
         }
-    }
 
-    if (!isChecked) {
-        alert('Vui lòng chọn một phương thức thanh toán.');
-        return false; // Ngăn form từ việc submit khi không chọn phương thức thanh toán
-    }
-    return true; // Cho phép form submit nếu đã chọn phương thức thanh toán
-}
+        // Kiểm tra xem người dùng đã nhập mã voucher hay chưa
+        var voucherInput = document.getElementById('maVoucherInput').value;
+        if (voucherInput.trim() !== '') {
+            selectedVoucher = true;
+        }
 
-// Xử lý sự kiện khi nhấn nút thanh toán
-document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-    // Đặt biến paymentButtonClicked thành true khi form được submit
-    paymentButtonClicked = true;
-    // Gọi hàm validatePayment() để kiểm tra phương thức thanh toán
-    var isValid = validatePayment();
-    // Nếu hàm trả về false (không chọn phương thức thanh toán), ngăn submit form
-    if (!isValid) {
-        event.preventDefault(); // Ngăn chặn hành động mặc định của form submit
+        // Kiểm tra điều kiện: cần chọn ít nhất một trong hai tùy chọn
+        if (!selectedPaymentMethod && !selectedVoucher) {
+            alert('Vui lòng chọn phương thức thanh toán hoặc nhập mã giảm giá.');
+            return false; // Ngăn chặn form submit khi không có lựa chọn nào được chọn
+        }
+        return true; // Cho phép form submit nếu đã chọn ít nhất một trong hai tùy chọn
     }
-});
 </script>
 </div>

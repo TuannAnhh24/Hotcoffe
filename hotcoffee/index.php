@@ -312,7 +312,8 @@
 
                         // Kiểm tra và gửi thông báo nếu mã voucher không tồn tại
                         if(!$voucherTonTai) {
-                            $thongBao = "Mã voucher không hợp lệ. Vui lòng nhập lại.";
+                            //  $thongBao = "Mã voucher không hợp lệ. Vui lòng nhập lại.";
+                            $thongBao = true;
                         }
                     }
                     // Kiểm tra tính hợp lệ của mã giảm giá để quyết định hiển thị hoặc ẩn phần nhập mã giảm giá
@@ -332,7 +333,7 @@
                     $tong = $_POST['tongtien'];
                     $id_tk = $_POST['id_tk'];
                     $code_cart = rand(1, 10000);
-                    $id_vc = $_POST['id_vc'];
+                    $id_vc = isset($_POST['id_vc']) ? $_POST['id_vc'] : null;
                    
                     if($pttt == "Thanh toán bằng tiền mặt"){
                         insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
@@ -353,7 +354,10 @@
                             } 
                             $id_sp = $cart[8];
                             $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
-                            update_vc($id_vc);
+                            if(isset($id_vc)){
+                                update_vc($id_vc);
+                            }
+                           
                         }
                         unset($_SESSION['mycart']);
                         // session_destroy();
@@ -424,7 +428,9 @@
                         $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
                     }
                     header('Location: ' . $vnp_Url);
-                    update_vc($id_vc); 
+                    if(isset($id_vc)){
+                        update_vc($id_vc);
+                    }
                 }
                 
                 }
