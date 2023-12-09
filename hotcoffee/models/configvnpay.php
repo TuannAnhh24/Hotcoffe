@@ -1,4 +1,4 @@
-<?php
+<?php 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,18 +6,14 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  * and open the template in the editor.
  */
   
-<<<<<<< HEAD
-$vnp_TmnCode = ""; //Mã định danh merchant kết nối (Terminal Id)
-$vnp_HashSecret = ""; //Secret key
-=======
 $vnp_TmnCode = "7X1SATCD"; //Mã định danh merchant kết nối (Terminal Id)
 $vnp_HashSecret = "QTNMKHWOEOTEWBNSZMFMNHOMBPLFRJVS"; //Secret key
->>>>>>> 31a5b5b7dfaa8824e0daea2efb10cda1b193a2a1
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-$vnp_Returnurl = "http://localhost/vnpay_php/vnpay_return.php";
+$vnp_Returnurl = "http://localhost/DA1/hotcoffee/index.php?act=camon";
 $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
 $apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
 //Config input format
 //Expire
 $startTime = date("YmdHis");
 $expire = date('YmdHis',strtotime('+15 minutes',strtotime($startTime)));
+?>
