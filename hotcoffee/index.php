@@ -7,6 +7,7 @@
     include "models/sanpham.php";
     include "models/danhmuc.php";
     include "models/hoadon.php";
+    include "models/voucher.php";
     include "global.php";
     $listdanhmuc= loadall_danhmuc();
     $spBanchay = loadall_sanpham_banchay();
@@ -225,6 +226,7 @@
                     $size = $_POST['selectedSize']; // Thêm dòng này
                     $luongda = $_POST['luongda'] ?? '100%'; // Thêm dòng này
                     $luongduong = $_POST['luongduong'] ?? '100%'; // Thêm dòng này
+                    
                     $id_sp = $_POST['id_sp'];
                     $found = false; // Biến để kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
                     // Duyệt qua từng sản phẩm trong giỏ hàng để kiểm tra xem sản phẩm đã tồn tại hay chưa
@@ -252,12 +254,14 @@
             // ------------------------------------ Trang Hóa đơn  ------------------------------------
             case 'hd':
                 if ( isset($_POST['dathang'])) {
+
                     // Lấy giá trị mới từ biểu mẫu
                     $name_sp = $_POST['name_sp'];
                     $size = $_POST['laysize'];
                     $soluong_moi = $_POST['quantity'];
                     $da_moi = $_POST['luongda'] ?? '100%'; 
                     $duong_moi = $_POST['luongduong'] ?? '100%';
+                   
                     // Duyệt qua từng sản phẩm trong giỏ hàng
                     for ($i = 0; $i < count($name_sp); $i++) {
                         foreach ($_SESSION['mycart'] as $key => &$cartItem) {
@@ -271,6 +275,44 @@
                         }
                     }
                 }
+                // Xử lý mã giảm giá
+                // Khởi tạo biến thông báo
+                    $thongBao = "";
+                    $tongMoi = $tong; // Khởi tạo biến $tongMoi để lưu trữ tổng tiền mới
+                    // Xử lý mã giảm giá
+                    if(isset($_POST['maGg']) && $_POST['maGg']) {
+                        $maGiamgia = $_POST['maVoucher'];
+                        $voucherTonTai = false; // Biến để kiểm tra xem mã voucher có tồn tại không
+                        $maVoucher = load_vc();
+                        foreach($maVoucher as $voucher) {
+                            if($voucher['ma_vc'] === $maGiamgia) {
+                                // Mã voucher hợp lệ
+                                $voucherTonTai = true;
+                                // Áp dụng giảm giá vào tổng tiền
+                                if($voucher['gia_tri'] <= $tong) {
+                                   $tongMoi-= $voucher['gia_tri']; // Giảm giá trực tiếp từ tổng tiền
+                                    
+                                    
+                                } else {
+                                    // Nếu giảm giá lớn hơn tổng tiền, gán tổng tiền về 0
+                                    $tong = 0;
+                                }
+
+                                break; // Thoát khỏi vòng lặp khi tìm thấy mã voucher hợp lệ
+                            }
+                        }
+
+                        // Kiểm tra và gửi thông báo nếu mã voucher không tồn tại
+                        if(!$voucherTonTai) {
+                            $thongBao = "Mã voucher không hợp lệ. Vui lòng nhập lại.";
+                        }
+                    }
+
+                    // Hiển thị thông báo nếu có
+                    if($thongBao !== "") {
+                        echo '<div class="alert alert-danger">'.$thongBao.'</div>';
+                    }
+
 
                 if(isset($_POST['thanhtoan'])){
                     $username=$_POST['username'];

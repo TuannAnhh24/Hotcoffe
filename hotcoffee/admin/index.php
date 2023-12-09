@@ -268,6 +268,7 @@
             case 'xacnhandonhang':
                 if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
                     xacnhan_dh($_GET['id_hd']);
+                    header('location: hoadon/list.php');
                 }
                 $listhoadon = loadall_hoadon();
                 include "hoadon/list.php";
@@ -276,6 +277,7 @@
             case 'giaodonhang':
                 if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
                     giao_dh($_GET['id_hd']);
+                    header('location: hoadon/list.php');
                 }
                 $listhoadon = loadall_hoadon();
                 include "hoadon/list.php";
@@ -285,6 +287,7 @@
                 if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
                     delete_ct_hoadon($_GET['id_hd']);
                     delete_donhang($_GET['id_hd']);
+                    header('location: hoadon/list.php');
                 }
                 $listhoadon = loadall_hoadon();
                 include "hoadon/list.php";
