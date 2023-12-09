@@ -39,15 +39,6 @@
         </div> 
         <script>
              function pay() {
-<<<<<<< HEAD
-              window.location.href = "/vnpay_php/vnpay_pay.php";
-            }
-            function querydr() {
-              window.location.href = "/vnpay_php/vnpay_querydr.php";
-            }
-             function refund() {
-              window.location.href = "/vnpay_php/vnpay_refund.php";
-=======
               window.location.href = "../vnpay_php/vnpay_pay.php";
             }
             function querydr() {
@@ -55,7 +46,6 @@
             }
              function refund() {
               window.location.href = "../vnpay_php/vnpay_refund.php";
->>>>>>> 31a5b5b7dfaa8824e0daea2efb10cda1b193a2a1
             }
         </script>
     </body>

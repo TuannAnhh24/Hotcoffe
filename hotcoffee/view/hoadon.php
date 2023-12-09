@@ -147,6 +147,7 @@
                         <!-- Nếu đã nhập mã giảm giá -->
                         <h5><span>Mã giảm giá đã nhập: <?=$maGiamgia?></span></h5>
                         <h5><span>Số tiền được giảm: <?=$voucher['gia_tri']?> VNĐ</span></h5>
+                        <input type="hidden" name="id_vc" value="<?=$voucher['id_vc']?>">
                     <?php } ?>
                      </div>  
                     Phương thức thanh toán*: <br>
@@ -162,22 +163,41 @@
     
     <script>
    
-    function validatePayment() {
-        var paymentOptions = document.getElementsByName('pttt');
-        var isChecked = false;
+   var paymentButtonClicked = false;
 
-        for (var i = 0; i < paymentOptions.length; i++) {
-            if (paymentOptions[i].checked) {
-                isChecked = true;
-                break;
-            }
-        }
-
-        if (!isChecked) {
-            alert('Vui lòng chọn một phương thức thanh toán.');
-            return false; // Ngăn form từ việc submit khi không chọn phương thức thanh toán
-        }
-        return true; // Cho phép form submit nếu đã chọn phương thức thanh toán
+function validatePayment() {
+    if (!paymentButtonClicked) {
+        // Nếu chưa nhấn nút thanh toán, không cần yêu cầu chọn phương thức thanh toán
+        return true; // Cho phép form submit mà không cần chọn phương thức thanh toán
     }
+
+    var paymentOptions = document.getElementsByName('pttt');
+    var isChecked = false;
+
+    for (var i = 0; i < paymentOptions.length; i++) {
+        if (paymentOptions[i].checked) {
+            isChecked = true;
+            break;
+        }
+    }
+
+    if (!isChecked) {
+        alert('Vui lòng chọn một phương thức thanh toán.');
+        return false; // Ngăn form từ việc submit khi không chọn phương thức thanh toán
+    }
+    return true; // Cho phép form submit nếu đã chọn phương thức thanh toán
+}
+
+// Xử lý sự kiện khi nhấn nút thanh toán
+document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+    // Đặt biến paymentButtonClicked thành true khi form được submit
+    paymentButtonClicked = true;
+    // Gọi hàm validatePayment() để kiểm tra phương thức thanh toán
+    var isValid = validatePayment();
+    // Nếu hàm trả về false (không chọn phương thức thanh toán), ngăn submit form
+    if (!isValid) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của form submit
+    }
+});
 </script>
 </div>

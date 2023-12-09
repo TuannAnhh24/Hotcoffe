@@ -296,14 +296,11 @@
                             $id_vc = $voucher['id_vc'];
                             if($voucher['ma_vc'] === $maGiamgia && $voucher['tinh_trang'] === 'Chưa sử dụng') {
                                 // Mã voucher hợp lệ
-                                $voucherTonTai = true;
-                                // Lưu ID của mã voucher được áp dụng thành công
-                                $appliedVoucherId = $voucher['id_vc'];
+                                $voucherTonTai = true; 
                                 // Áp dụng giảm giá vào tổng tiền
                                 if($voucher['gia_tri'] <= $tong) {
                                    $tongMoi-= $voucher['gia_tri']; // Giảm giá trực tiếp từ tổng tiền
 
-                                    
                                 } else {
                                     // Nếu giảm giá lớn hơn tổng tiền, gán tổng tiền về 0
                                     $tong = 0;
@@ -334,10 +331,8 @@
                     $tong = $_POST['tongtien'];
                     $id_tk = $_POST['id_tk'];
                     $code_cart = rand(1, 10000);
-                    if(isset($appliedVoucherId)){
-                        $id_vc =$appliedVoucherId;
-                        update_vc($id_vc);
-                    }
+                    $id_vc = $_POST['id_vc'];
+                   
                     if($pttt == "Thanh toán bằng tiền mặt"){
                         insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
                         $id_hoadon = lay_id_hoadon();
@@ -357,6 +352,7 @@
                             } 
                             $id_sp = $cart[8];
                             $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
+                            update_vc($id_vc);
                         }
                         unset($_SESSION['mycart']);
                         // session_destroy();
@@ -427,8 +423,9 @@
                         $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
                     }
                     header('Location: ' . $vnp_Url);
-                    
+                    update_vc($id_vc); 
                 }
+                
                 }
                 
                 include "view/hoadon.php";
