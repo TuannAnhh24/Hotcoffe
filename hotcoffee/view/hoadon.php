@@ -152,7 +152,8 @@
                      </div>  
                     Phương thức thanh toán*: <br>
                     <input type="radio" name="pttt" value="Thanh toán bằng tiền mặt"> Thanh toán bằng tiền mặt<br>
-                    <input type="radio" name="pttt" value="Thanh toán bằng VN Pay"> Thanh toán bằng VN Pay<br>
+                    <input type="radio" name="pttt" value="Thanh toán bằng VN Pay"> Thanh toán bằng VN Pay
+                    <img src="images/vnpay.png" style="width: 70px; height: 50px;">
                     <!-- <input type="radio" name="pttt" id=""> Thanh toán bằng ngân hàng -->
                     
             </div>
