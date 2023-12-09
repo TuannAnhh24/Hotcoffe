@@ -127,8 +127,9 @@
                     </div>
                 </div>
                     Phương thức thanh toán*: <br>
-                    <input type="radio" name="pttt" value="Thanh toán bằng tiền mặt" checked> Thanh toán bằng tiền mặt <br>
-                    <!-- <input type="radio" name="pttt" id=""> Thanh toán bằng ngân hàng -->
+                    <input type="radio" name="pttt" value="tienmat" checked> Thanh toán bằng tiền mặt <br>
+                    <input type="radio" name="pttt" value="vnpay" > Thanh toán VNPay
+                    <img src="images/vnpay.png" style="width: 70px; height: 50px;">
                     
             </div>
             

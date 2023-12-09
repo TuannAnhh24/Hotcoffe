@@ -273,35 +273,39 @@
                 }
 
                 if(isset($_POST['thanhtoan'])){
-                    $username=$_POST['username'];
-                    $email = $_POST['email'];
-                    $sdt = $_POST['sdt'];
-                    $address = $_POST['address'];
-                    $pttt = $_POST['pttt'];
-                    $tong = $_POST['tongtien'];
-                    $id_tk = $_POST['id_tk'];
-                    insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
-                    $id_hoadon = lay_id_hoadon();
-                    
-                    foreach ($_SESSION['mycart'] as $cart) {
-                        $name = $cart[0]; 
-                        $size_sp = $cart[5]; 
-                        $soluong_sp= $cart[1]; 
-                        $da_sp = $cart[6]; 
-                        $duong_sp = $cart[7];
-                        if($size_sp=="M"){
-                            $thanhtien=$cart[3]*$soluong_sp;
-                        }elseif($size_sp=="L"){
-                            $thanhtien=($cart[3]+$cart[3]*15/100)*$soluong_sp;
-                        }elseif($size_sp=="XL"){
-                            $thanhtien=($cart[3]+$cart[3]*25/100)*$soluong_sp;
-                        } 
-                        $id_sp = $cart[8];
-                        $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
+                    if($_POST['pttt'] == "tienmat"){
+                        $username=$_POST['username'];
+                        $email = $_POST['email'];
+                        $sdt = $_POST['sdt'];
+                        $address = $_POST['address'];
+                        $pttt = $_POST['pttt'];
+                        $tong = $_POST['tongtien'];
+                        $id_tk = $_POST['id_tk'];
+                        insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
+                        $id_hoadon = lay_id_hoadon();
+                        
+                        foreach ($_SESSION['mycart'] as $cart) {
+                            $name = $cart[0]; 
+                            $size_sp = $cart[5]; 
+                            $soluong_sp= $cart[1]; 
+                            $da_sp = $cart[6]; 
+                            $duong_sp = $cart[7];
+                            if($size_sp=="M"){
+                                $thanhtien=$cart[3]*$soluong_sp;
+                            }elseif($size_sp=="L"){
+                                $thanhtien=($cart[3]+$cart[3]*15/100)*$soluong_sp;
+                            }elseif($size_sp=="XL"){
+                                $thanhtien=($cart[3]+$cart[3]*25/100)*$soluong_sp;
+                            } 
+                            $id_sp = $cart[8];
+                            $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
+                        }
+                    }else {
+                        echo 'thanh toán bằng vnpay';
                     }
-                    unset($_SESSION['mycart']);
-                    session_destroy();
-                    header("Location: index.php?act=camon");
+                    
+                    // unset($_SESSION['mycart']);
+                    // header("Location: index.php?act=camon");
                 }
                 
                 include "view/hoadon.php";
