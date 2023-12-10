@@ -43,8 +43,8 @@
 <?php 
 
 if(isset($_GET['vnp_Amount'])){
-    include "../models/pdo.php";
-    include "../models/hoadon.php";
+    // include "../models/pdo.php";
+    // include "../models/hoadon.php";
     $_SESSION['code_cart'] = $_GET['vnp_TxnRef'];
     $vnp_Amount = $_GET['vnp_Amount'];
     $vnp_BankCode = $_GET['vnp_BankCode'];
