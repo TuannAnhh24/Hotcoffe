@@ -177,6 +177,8 @@
             // ------------------------------------ Xóa sản phẩm ------------------------------------
             case 'deleteSp':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
+                    delete_ct_hoadon_fromsp($_GET['id']);
+                    delete_binhluan_fromsp($_GET['id']);
                     delete_sanpham($_GET['id']);
                 }
                 $listsanpham= loadall_sanpham("",0);
@@ -237,29 +239,35 @@
                 break;
             // ------------------------------------ Trang hóa đơn ------------------------------------
             case 'dsdh':
-                //phân page
-                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
                 $limit = 10;
                 $total_records = get_total_hd();
                 $total_records = intval($total_records);
                 $total_page = ceil($total_records / $limit);
-                if ($current_page > $total_page){
+                if ($current_page > $total_page && $total_page > 0){
                     $current_page = $total_page;
                 }
                 elseif ($current_page < 1){
                     $current_page = 1;
                 }
+<<<<<<< HEAD
                 $start = max(0, ($current_page - 1) * $limit);
                 // lọc theo trạng thái
+=======
+                $start = ($current_page - 1) * $limit;
+            
+>>>>>>> a14a19366cb3ba1209c8799e4a9e0bef57381611
                 $trang_Thai = "";
                 $ngay_BatDau = "";
                 $ngay_KetThuc = "";
                 if(isset($_POST['filter'])){
-                    $trang_Thai = $_POST['trangThai'];
-                    $ngay_BatDau = $_POST['ngayBatDau'];
-                    $ngay_KetThuc = $_POST['ngayKetThuc'];
+                    $trang_Thai = isset($_POST['trangThai']) ? $_POST['trangThai'] : "";
+                    $ngay_BatDau = isset($_POST['ngayBatDau']) ? $_POST['ngayBatDau'] : "";
+                    $ngay_KetThuc = isset($_POST['ngayKetThuc']) ? $_POST['ngayKetThuc'] : "";
                 }
+            
                 $listhoadon = load_hd($start, $limit, $trang_Thai, $ngay_BatDau, $ngay_KetThuc);
+                
                 include "hoadon/list.php";
                 break;
             // ------------------------------------ Trang chi tiết hóa đơn  ------------------------------------
@@ -275,16 +283,16 @@
             case 'xacnhandonhang':
                 if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
                     xacnhan_dh($_GET['id_hd']);
-                    header('location: hoadon/list.php');
+                    header('location:index.php?act=dsdh');
                 }
                 $listhoadon = loadall_hoadon();
-                include "hoadon/list.php";
+                exit();
                 break; 
             // ------------------------------------ Vận chuyển đơn hàng  ------------------------------------
             case 'giaodonhang':
                 if(isset($_GET['id_hd']) && ($_GET['id_hd']>0)){
                     giao_dh($_GET['id_hd']);
-                    header('location: hoadon/list.php');
+                    header('location:index.php?act=dsdh');
                 }
                 $listhoadon = loadall_hoadon();
                 include "hoadon/list.php";
@@ -294,7 +302,7 @@
                 if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
                     delete_ct_hoadon($_GET['id_hd']);
                     delete_donhang($_GET['id_hd']);
-                    header('location: hoadon/list.php');
+                    header('location:index.php?act=dsdh');
                 }
                 $listhoadon = loadall_hoadon();
                 include "hoadon/list.php";

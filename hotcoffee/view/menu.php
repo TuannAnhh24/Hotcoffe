@@ -30,6 +30,7 @@
                             </form>
                             <ul class="products">
                                 <?php 
+                                     $counter = 1; // Khởi tạo biến đếm ban đầu
                                     foreach ($listsanpham as $list){
                                         extract($list);
                                         $gia_goc = number_format($gia_goc, 0, '.', ',');
@@ -38,12 +39,13 @@
                                         $hinh = $img_path.$img;
                                         $cl1 ="product has-post-thumbnail column-1_2 first sale";
                                         $cl2 = "product has-post-thumbnail column-1_2 last";
-                                        if($id_sp ==0 || $id_sp % 2 == 0){
+                                        if($counter % 2 !== 0){
                                             $cl= $cl1;
                                         }else{
                                             $cl =  $cl2;
                                         }
-                                
+                                        // Tăng biến đếm sau mỗi lần lặp
+                                         $counter++;
                                         echo ' 
                                         
                                         <li class="'.$cl.'">
