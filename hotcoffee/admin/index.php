@@ -177,7 +177,10 @@
             // ------------------------------------ Xóa sản phẩm ------------------------------------
             case 'deleteSp':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
+<<<<<<< HEAD
                    
+=======
+>>>>>>> 537591984453e031ea4e51c45736a0a5e006e419
                     delete_sanpham($_GET['id']);
                 }
                 $listsanpham= loadall_sanpham("",0);

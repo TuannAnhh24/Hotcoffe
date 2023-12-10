@@ -10,7 +10,7 @@
     include "models/voucher.php";
     include "models/configvnpay.php";
     include "global.php";
-    $listdanhmuc= loadall_danhmuc();
+    $listdanhmuc= load_danhmuc_tontai();
     $spBanchay = loadall_sanpham_banchay();
 
     if(!isset($_SESSION['mycart']))  $_SESSION['mycart'] = [];
