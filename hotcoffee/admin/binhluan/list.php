@@ -2,11 +2,13 @@
     <div class="row2 font_title">
         <h1>DANH SÁCH BÌNH LUẬN</h1>
     </div>
+    <div class="timkiem">
     <form class="locdonhang" action="" method="POST">
-        <input type="date" name="ngayBatDau">
-        <input type="date" name="ngayKetThuc">
-        <input type="submit" name="filter" value="Lọc">
+    <div class="tim_kiem"><input type="date" name="ngayBatDau"></div>
+    <div class="tim_kiem"><input type="date" name="ngayKetThuc"></div>
+    <div class="go"><input type="submit" name="filter" value="Lọc"></div>
     </form>
+    </div>
     <div class="row2 form_content ">
         <form action="#" method="POST">
             <div class="row2 mb10 formds_loai">
@@ -31,7 +33,7 @@
                                 <td><?=$id_tk?></td>
                                 <td><?=$noi_dung?></td>
                                 <td><?=$ngay_bl_formatted?></td>
-                                <td><a onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')" href="<?=$xoabl?>"><input type="button" value="Xóa"></td></a>
+                                <td><a onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')" href="<?=$xoabl?>"><div class="xoa"><input type="button" value="Xóa"></div></td></a>
                             </tr>
                 <?php } ?>
                 

@@ -4,33 +4,37 @@
          <div class="row2 font_title">
           <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
          </div>
-        <form action="index.php?act=listSp" method="POST">
-                <input type="text" name= "kyw">
-                <select name="id_dm" >
-                    <option value="0">Tất Cả</option>
-                    <?php 
-                    foreach($tendanhmuc as $danhmuc){
-                        extract($danhmuc);  
-                        echo '<option value="'.$id_dm.'">'.$name.'</option>';
-                    } 
-                ?>
-                </select>
-                <input type="submit" name="listok" value= "GO">
-        </form>
-         <div class="row2 form_content ">
+         <div class="timkiem">
+            <form action="index.php?act=listSp" method="POST">
+            <div class="tim_kiem"><input type="text" name= "kyw"></div>
+            <div class="tim_kiem"><select name="id_dm" ></div>
+            <option value="0">Tất Cả</option>
+                        <?php 
+                        foreach($tendanhmuc as $danhmuc){
+                            extract($danhmuc);  
+                            echo '<option value="'.$id_dm.'">'.$name.'</option>';
+                        } 
+                    ?>
+                    </select>
+                    <div class="go"><input type="submit" name="listok" value= "GO"></div>
+            </form>
+        </div>
+        <div class="row2 form_content ">
           <form action="#" method="POST">
            <div class="row2 mb10 formds_loai">
            <table>
-            <tr>
-                <!-- <th></th> -->
-                <th>Tên sản phẩm</th>
-                <th>Giá gốc </th>
-                <th>Giá khuyến mãi</th>
-                <th>View</th>
-                <th>Mô tả</th>
-                <th> Ảnh</th>
-                <th>Chức năng</th>
-            </tr>
+             
+                    <tr>
+                        <!-- <th></th> -->
+                        <th>Tên sản phẩm</th>
+                        <th>Giá gốc </th>
+                        <th>Giá khuyến mãi</th>
+                        <th>View</th>
+                        <th>Mô tả</th>
+                        <th> Ảnh</th>
+                        <th>Chức năng</th>
+                    </tr>
+                
             <?php 
                 foreach($listsanpham as $sanpham){
                     extract($sanpham);
@@ -51,7 +55,7 @@
                             <td>'.$view.'</td>
                             <td>'.$mo_ta.'</td>
                             <td> '.$hinh.'</td>
-                            <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a> | <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa không?\')"><input type="button" value="Xóa"></a> | <a href="'.$ctsp.'"><input type="button" value="Thêm chi tiết sản phẩm"></a></td>
+                            <td><div class="sua_xoa"><div class="sua"><a href="'.$suasp.'"><input type="button" value="Sửa"></a></div><div class="xoa"><a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa không?\')"><input type="button" value="Xóa"></a></div></div> <div class="ctsp"<a href="'.$ctsp.'"><input type="button" value="Thêm chi tiết sản phẩm"></a></div></td>
                             </tr>';
                 }
             ?> 

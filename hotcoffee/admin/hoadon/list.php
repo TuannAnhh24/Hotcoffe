@@ -5,6 +5,7 @@
         align-items: center;
         width: 100%;
         margin-bottom: 20px;
+        margin-top: 20px;
     }
     .locdonhang select,
     .locdonhang input[type="date"] {
