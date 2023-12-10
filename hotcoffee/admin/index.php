@@ -178,7 +178,7 @@
             // ------------------------------------ Xóa sản phẩm ------------------------------------
             case 'deleteSp':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
-                    delete_Ctsanpham($_GET['id']);
+                   
                     delete_sanpham($_GET['id']);
                 }
                 $listsanpham= loadall_sanpham("",0);
