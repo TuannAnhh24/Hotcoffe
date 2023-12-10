@@ -249,7 +249,7 @@
                 elseif ($current_page < 1){
                     $current_page = 1;
                 }
-                $start = ($current_page - 1) * $limit;
+                $start = max(0, ($current_page - 1) * $limit);
                 // lọc theo trạng thái
                 $trang_Thai = "";
                 $ngay_BatDau = "";

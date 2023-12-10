@@ -32,6 +32,8 @@
                                 <?php 
                                     foreach ($listsanpham as $list){
                                         extract($list);
+                                        $gia_goc = number_format($gia_goc, 0, '.', ',');
+                                        $gia_km = number_format($gia_km, 0, '.', ',');
                                         $linksp="index.php?act=spct&id_sp=".$id_sp;
                                         $hinh = $img_path.$img;
                                         $cl1 ="product has-post-thumbnail column-1_2 first sale";
@@ -62,11 +64,11 @@
                                                 <span class="price">
                                                 <del>
                                                     <span class="woocommerce-Price-amount amount">
-                                                        <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'</span>
+                                                        <span class="woocommerce-Price-currencySymbol"></span>'.$gia_goc.'VNĐ</span>
                                                 </del>
                                                 <ins>
                                                     <span class="woocommerce-Price-amount amount">
-                                                        <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'
+                                                        <span class="woocommerce-Price-currencySymbol"></span>'.$gia_km.' VNĐ
                                                     </span>
                                                 </ins>
                                                 </span>
@@ -192,4 +194,4 @@
                 </div>
             </div>
         </div>
-            
+        

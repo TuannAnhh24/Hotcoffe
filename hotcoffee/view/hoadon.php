@@ -96,7 +96,6 @@
                         $tong=0;
                         $ttien=0;
                         $i=0;
-                        
                         foreach ($_SESSION['mycart'] as $cart){
                             if($cart[5]=="M"){
                                 $ttien=$cart[3]*$cart[1];
@@ -106,7 +105,6 @@
                                 $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
                             } 
                         $tong+=$ttien;
-                        
                     ?>
         
                     <tr>
@@ -115,7 +113,7 @@
                         <td><?= $cart[1] ?></td>
                         <td><?= $cart[6] ?></td>
                         <td><?= $cart[7] ?></td>
-                        <td><input style="width: 150px;" name="thanhtien" type="text" value="<?=$ttien?> VNĐ"  readonly></td> 
+                        <td><input style="width: 150px;" name="thanhtien" type="text" value="<?=number_format($ttien, 0, '.', ',')?> VNĐ"  readonly></td> 
                     </tr>
                     
                     <?php }   ?>
@@ -127,10 +125,10 @@
                     <!-- Sử dụng PHP để hiển thị giá trị tổng tiền -->
                     <?php if (isset($tongMoi)) { ?>
                         <!-- Nếu đã áp mã giảm giá -->
-                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongMoi ?> VNĐ" readonly>   
+                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= number_format($tongMoi, 0, '.', ',') ?> VNĐ" readonly>   
                     <?php } else { ?>
                         <!-- Nếu chưa áp mã giảm giá -->
-                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongT ?> VNĐ" readonly> 
+                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= number_format($tongT, 0, '.', ',') ?> VNĐ" readonly> 
                     <?php } ?>    
                 </div>
                  
