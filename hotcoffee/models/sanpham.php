@@ -93,20 +93,46 @@
     }
     //phân trang
     function load_sp($start, $limit,$id_dm=0,$kyw=""){
-        $sql = "SELECT * FROM `san_pham` WHERE 1";
+        $sql = "SELECT sp.* FROM `san_pham` AS sp ";
+        $sql .= "JOIN `danh_muc` AS dm ON sp.id_dm = dm.id_dm ";
+        $sql .= "WHERE dm.trang_thai != 1 ";
+    
         if($kyw!=""){
-            $sql.=" AND `name_sp` like '%$kyw%' ";
+            $sql.=" AND sp.name_sp like '%$kyw%' ";
         }
         if($id_dm >0){
-         $sql.=" AND `id_dm` = $id_dm";   
+         $sql.=" AND sp.id_dm = $id_dm";   
         } 
-        $sql.=" order by id_sp desc";
+        $sql.=" ORDER BY sp.id_sp DESC ";
         $sql.=" LIMIT $start, $limit";
-       
+    
         $listsp = pdo_query($sql);
         return $listsp;
     }
+
+    function load_danhmuc_tontai(){
+        $sql = "SELECT * FROM danh_muc WHERE  `trang_thai` = 0 ";
+        $listdanhmuc = pdo_query($sql);
+        return $listdanhmuc;
+    }
   
+    function get_filtered_total_products($id_dm=0, $kyw=""){
+        $sql = "SELECT COUNT(*) as total FROM `san_pham` AS sp ";
+        $sql .= "JOIN `danh_muc` AS dm ON sp.id_dm = dm.id_dm ";
+        $sql .= "WHERE dm.trang_thai != 1 ";
+    
+        if($kyw!=""){
+            $sql.=" AND sp.name_sp like '%$kyw%' ";
+        }
+        if($id_dm >0){
+         $sql.=" AND sp.id_dm = $id_dm";   
+        } 
+    
+        $result = pdo_query($sql);
+        $total = isset($result['total']) ? $result['total'] : 0;
+        return $total;
+    }
+
     function get_total_products(){
         $sql = "SELECT COUNT(*) as total FROM san_pham ";
         return pdo_query_value($sql);
