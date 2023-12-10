@@ -60,34 +60,34 @@
                 $listdanhmuc = loadall_danhmuc();
                 include "danhmuc/list.php";
                 break;
-                 // ------------------------------------ Danh sách sản phẩm --------------------------------
+            // ------------------------------------ Danh sách sản phẩm --------------------------------
             case 'listSp':    
               //phân page
-              $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-              $limit = 5;
-              $total_records = get_total_products();
-              $total_records = intval($total_records);
-              $total_page = ceil($total_records / $limit);
-              if ($current_page > $total_page){
-                  $current_page = $total_page;
-              }
-              elseif ($current_page < 1){
-                  $current_page = 1;
-              }
-              $start = ($current_page - 1) * $limit;
-              //
-              if(isset($_POST['id_dm'])&&$_POST['id_dm']>0){
-                  $id_dm =$_POST['id_dm']; 
-              }else{
-                  $id_dm = 0;
-              }if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
-                  $kyw = $_POST['kyw'];
-              }else{
-                  $kyw= "";
-              }
+                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $limit = 5;
+                $total_records = get_total_products();
+                $total_records = intval($total_records);
+                $total_page = ceil($total_records / $limit);
+                if ($current_page > $total_page){
+                    $current_page = $total_page;
+                }
+                elseif ($current_page < 1){
+                    $current_page = 1;
+                }
+                $start = ($current_page - 1) * $limit;
+                // lọc
+                if(isset($_POST['id_dm'])&&$_POST['id_dm']>0){
+                    $id_dm =$_POST['id_dm']; 
+                }else{
+                    $id_dm = 0;
+                }if(isset($_POST['kyw'])&&$_POST['kyw']!=""){
+                    $kyw = $_POST['kyw'];
+                }else{
+                    $kyw= "";
+                }
            
-              $listsanpham = load_sp($start, $limit,$id_dm,$kyw);
-              $tendanhmuc = loadall_danhmuc();
+                $listsanpham = load_sp($start, $limit,$id_dm,$kyw);
+                $tendanhmuc = load_danhmuc_tontai();
                 include "sanpham/list.php";
                 break;
             // ------------------------------------ Thêm sản phẩm ------------------------------------   
@@ -116,7 +116,7 @@
                         echo "<script> alert('File không phải là hình ảnh !!!'); </script>";
                     }     
                 }
-                $listdanhmuc = loadall_danhmuc();
+                $listdanhmuc = load_danhmuc_tontai();
                 include "sanpham/add.php";
                 break;
             // ------------------------------------ Chi tiết sản phẩm   ------------------------------------
@@ -139,16 +139,15 @@
                     $idSp = $_POST['idSp'];
                     insert_sanphamCT($giaM,$idSp,$giaL,$giaXL);
                 }  
-                    $listdanhmuc = loadall_danhmuc();
-                   
-                  include "sanpham/addCt.php";
+                $listdanhmuc = loadall_danhmuc();
+                include "sanpham/addCt.php";
                 break;
                 // ------------------------------------ Sửa sản phẩm ------------------------------------
                 case 'suasp':
                     if(isset($_GET['id'])&&($_GET['id']>0)){
                         $chitietSanpham = loadone_sanpham($_GET['id']);
                     }
-                    $listdanhmuc= loadall_danhmuc();
+                    $listdanhmuc= load_danhmuc_tontai();
                     include "sanpham/update.php";
                     break;
                 // ------------------------------------ Update sản phẩm ------------------------------------

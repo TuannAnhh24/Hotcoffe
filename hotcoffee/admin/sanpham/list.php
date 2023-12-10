@@ -1,22 +1,20 @@
-<!-- phân trang  -->
-
 <div class="row2">
-         <div class="row2 font_title">
+    <div class="row2 font_title">
           <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
-         </div>
-        <form action="index.php?act=listSp" method="POST">
-                <input type="text" name= "kyw">
-                <select name="id_dm" >
-                    <option value="0">Tất Cả</option>
-                    <?php 
-                    foreach($tendanhmuc as $danhmuc){
-                        extract($danhmuc);  
-                        echo '<option value="'.$id_dm.'">'.$name.'</option>';
-                    } 
-                ?>
-                </select>
-                <input type="submit" name="listok" value= "GO">
-        </form>
+    </div>
+    <form action="index.php?act=listSp" method="POST">
+        <input type="text" name= "kyw">
+        <select name="id_dm" >
+            <option value="0">Tất Cả</option>
+            <?php 
+            foreach($tendanhmuc as $danhmuc){
+                extract($danhmuc);  
+                echo '<option value="'.$id_dm.'">'.$name.'</option>';
+            } 
+        ?>
+        </select>
+        <input type="submit" name="listok" value= "GO">
+    </form>
          <div class="row2 form_content ">
           <form action="#" method="POST">
            <div class="row2 mb10 formds_loai">
@@ -83,5 +81,5 @@
                                     ?>
                          </nav>
          </div>
-        </div>
-    </div> 
+</div>
+</div> 
