@@ -250,8 +250,13 @@
                 elseif ($current_page < 1){
                     $current_page = 1;
                 }
+<<<<<<< HEAD
                 $start = ($current_page - 1) * $limit;
             
+=======
+                $start = max(0, ($current_page - 1) * $limit);
+                // lọc theo trạng thái
+>>>>>>> 6391db4c56def70dd95adaeeeff7685df3c2d4d2
                 $trang_Thai = "";
                 $ngay_BatDau = "";
                 $ngay_KetThuc = "";
