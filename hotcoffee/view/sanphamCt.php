@@ -115,6 +115,8 @@
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
                                 $bnt = 'index.php?btn_test.php';
                                 $image = $img_path.$img;
+                                $gia_goc = intval($gia_goc);
+                                $gia_km = intval($gia_km);
                                 echo '
                                 
                                
@@ -131,12 +133,12 @@
                                         <p class="price">
                                             <del>
                                                 <span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">&#36;</span><span id="originalPrice">'.$gia_goc.'</span>
+                                                <span class="woocommerce-Price-currencySymbol"></span><span id="originalPrice">'.$gia_goc.'</span>VNĐ
                                                 </span>
                                             </del>
                                             <ins>
                                                 <span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">&#36;</span><span id="discountedPrice">'.$gia_km.'</span>
+                                                <span class="woocommerce-Price-currencySymbol"></span><span id="discountedPrice">'.$gia_km.'</span> VNĐ
                                                 </span>
                                             </ins>
                                         </p>
@@ -214,20 +216,6 @@
                         ?>  
                         
                         <div class="woocommerce-tabs wc-tabs-wrapper" > 
-                            <!-- <ul class="tabs wc-tabs">
-                                <li class="description_tab">
-                                    <a href="#tab-description">Mô tả</a>
-                                </li>
-                                <li class="reviews_tab">
-                                    <a href="#tab-reviews">Bình luận (0)</a>
-                                </li>
-                            </ul> -->
-                            <!-- <div class="woocommerce-Tabs-panel " id="tab-description">
-                                <h2>Mô tả</h2>
-                                <p>
-                                    sản phẩm tuyệt vời
-                                </p>
-                            </div> -->
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                             <script>
                                 $(document).ready(function(){
@@ -235,60 +223,6 @@
                                 });
                             </script>
                             <div class="" id="binhluan" >
-                                <!-- <div id="reviews" class="woocommerce-Reviews">
-                                    <div id="comments">
-                                        <h2 class="woocommerce-Reviews-title">Bình luận</h2>
-                                        <p class="woocommerce-noreviews">Hiện tại không có đánh giá nào.</p>
-                                    </div>
-                                    <div id="review_form_wrapper">
-                                        <div id="review_form">
-                                            <div id="respond" class="comment-respond">
-                                                <h3 id="reply-title" class="comment-reply-title">Bạn hãy nhận xét về &ldquo;Americano&rdquo;</h3>
-                                                <form action="#" method="post" id="commentform" class="comment-form">
-                                                    <p class="comment-notes">
-                                                        <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu 
-                                                        <span class="required">*</span>
-                                                    </p>
-                                                    <p class="comment-form-rating">
-                                                        <label for="rating">Đánh giá của bạn</label>
-                                                        <select name="rating" id="rating" aria-required="true" required>
-                                                            <option value="">Rate&hellip;</option>
-                                                            <option value="5">Perfect</option>
-                                                            <option value="4">Good</option>
-                                                            <option value="3">Average</option>
-                                                            <option value="2">Not that bad</option>
-                                                            <option value="1">Very Poor</option>
-                                                        </select>
-                                                    </p>
-                                                    <p class="comment-form-comment">
-                                                        <label for="comment">Đánh giá của bạn
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
-                                                    </p>
-                                                    <p class="comment-form-author">
-                                                        <label for="author">Name
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <input id="author" name="author" type="text" value="" size="30" aria-required="true" required />
-                                                    </p>
-                                                    <p class="comment-form-email">
-                                                        <label for="email">Email
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <input id="email" name="email" type="email" value="" size="30" aria-required="true" required />
-                                                    </p>
-                                                    <p class="form-submit">
-                                                        <input name="submit" type="submit" id="submit" class="submit" value="Gửi bình luận" />
-                                                        <input type='hidden' name='comment_post_ID' value='140' id='comment_post_ID' />
-                                                        <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-                                                    </p>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div> -->
                             </div>
                         </div>
                         <div class="related products">
@@ -347,24 +281,6 @@
                                 }
                             ?>      
                             </ul>
-                            <!-- <nav id="pagination" class="pagination_wrap pagination_pages"> -->
-                                        <?php
-                                            //         $idTT = $_GET['id_sp'];
-                                            // if ($current_page > 1 && $total_page > 1){
-                                                
-                                            //     echo '<a class="pager_prev"  href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.($current_page-1).'"></a> ';
-                                            // }
-                                            // for ($i = 1; $i <= $total_page; $i++){
-                                                
-                                            //     if ($i == $current_page){
-                                            //         echo ' <span class="pager_current active ">'.$i.'</span>';
-                                            //     }
-                                            //     else{
-                                            //         echo '<a href="index.php?act=spct&id_sp='.$idTT.'&pageNho='.$i.'">'.$i.'</a>';
-                                            //     }
-                                            // }
-                                            ?>
-                            <!-- </nav> -->
                         </div>
                     </div>
                 </article>
@@ -448,29 +364,6 @@
                             </div>
                         </div>
                     </aside>
-                    <!-- <aside class="widget widget_text">
-                        <h5 class="widget_title">newsletter</h5>
-                        <div class="textwidget">
-                            <form class="mc4wp-form mc4wp-form-422" method="post" data-id="422" data-name="">
-                                <div class="mc4wp-form-fields">
-                                    <p>
-                                        <label>Enter your email below and be the first to know news from us!</label>
-                                        <input type="email" name="EMAIL" placeholder="E-mail address" required />
-                                    </p>
-                                    <p>
-                                        <input type="submit" value="Subscribe" />
-                                    </p>
-                                    <div class="hideblock">
-                                        <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" />
-                                    </div>
-                                    <input type="hidden" name="_mc4wp_timestamp" value="1497855810" />
-                                    <input type="hidden" name="_mc4wp_form_id" value="422" />
-                                    <input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" />
-                                </div>
-                                <div class="mc4wp-response"></div>
-                            </form>
-                        </div>
-                    </aside> -->
                 </div>
             </div>
         </div>
@@ -557,11 +450,11 @@ function updatePrice() {
     let quantity = parseInt(document.querySelector('input[name="quantity"]').value);
     let size = document.querySelector('.sizeCoc.clicked').getAttribute('data-value');
 
-    let newOriginalPrice = originalPrice * quantity;
-    let newDiscountedPrice = calculateDiscountedPrice(originalPrice, discountedPrice, size) * quantity;
+    let newOriginalPrice = (originalPrice * quantity).toLocaleString('en-US');
+    let newDiscountedPrice = (calculateDiscountedPrice(originalPrice, discountedPrice, size) * quantity).toLocaleString('en-US');
 
-    document.querySelector('#originalPrice').textContent = newOriginalPrice.toFixed(2);
-    document.querySelector('#discountedPrice').textContent = newDiscountedPrice.toFixed(2);
+    document.querySelector('#originalPrice').textContent = newOriginalPrice;
+    document.querySelector('#discountedPrice').textContent = newDiscountedPrice;
 }
 
 // Lắng nghe sự kiện thay đổi trên trường nhập số lượng
