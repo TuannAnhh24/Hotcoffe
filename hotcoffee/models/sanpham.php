@@ -99,7 +99,7 @@
         if($id_dm >0){
          $sql.=" AND sp.id_dm = $id_dm";   
         } 
-        $sql.=" ORDER BY sp.id_sp DESC ";
+        $sql.=" ORDER BY RAND() ";
         $sql.=" LIMIT $start, $limit";
     
         $listsp = pdo_query($sql);
