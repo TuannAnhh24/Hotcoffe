@@ -539,6 +539,25 @@ font-size:2vv;
     background-color: #666;
     padding-bottom: 10px;
   }
+  .chon{
+    width:100%;
+    height:30px;
+  }
+.chon select{
+    width:200px;
+    height:25px;
+    float:left;
+    margin-left:20px;
+    border-radius:5px solid #666;
+  }
+  .textt{
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  .textt textarea{
+    width:1480px;
+    height:100px;
+  }
  
 
   

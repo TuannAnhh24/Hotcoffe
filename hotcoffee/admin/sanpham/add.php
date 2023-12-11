@@ -42,36 +42,37 @@
     <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
       <div class="row2 mb10 form_content_container">
         <label> Danh mục </label> <br>
-        <select name="id_dm" >
+        <div class="chon"><select name="id_dm" >
           <?php 
             foreach($listdanhmuc as $danhmuc){
               extract($danhmuc);
               echo "<option value='".$id_dm."'> $name </option>";
             }
           ?>
-        </select>
+        </select></div>
       </div>
 
         <div class="row2 mb10 form_content_container">
           <label for="ten_sanpham">Tên Sản Phẩm:</label>
-          <input type="text" name="nameSp" placeholder="Nhập tên sản phẩm" required ><br>
+          <div class="textt"><input type="text" name="nameSp" placeholder="Nhập tên sản phẩm" required ></div><br>
         </div>
         <div class="row2 mb10 form_content_container">
           <label for="gia_goc">Giá Gốc:</label>
-          <input type="text" id="gia_Goc" name="gia_Goc" placeholder="Nhập giá gốc sản phẩm" required ><br>
+          <div class="textt"><input type="text" id="gia_Goc" name="gia_Goc" placeholder="Nhập giá gốc sản phẩm" required ></div><br>
         </div>
         
         <div class="row2 mb10 form_content_container">
           <label for="">Giá khuyến mãi:</label>
-          <input type="text" id="gia_Km" name="gia_Km" required><br>
+          
+          <div class="textt"><input type="text" id="gia_Km" name="gia_Km" required></div><br>
         </div>
         <div class="row2 mb10 form_content_container">
           <label for="">Mô tả:</label>
-          <textarea name="moTa" id="" cols="250" rows="10" required></textarea>
+          <div class="textt"><textarea name="moTa" id="" cols="250" rows="10" required></textarea></div>
         </div>
         <div class="row2 mb10 form_content_container">
           <label for="">Ảnh:</label>
-          <input type="file" name="anhSp" required><br>
+          <div class="textt"><input type="file" name="anhSp" required><br></div>
         </div>
         <div class="row mb10 ">
           <input class="mr20" type="submit" name='addSanpham' value="Thêm sản phẩm mới">
