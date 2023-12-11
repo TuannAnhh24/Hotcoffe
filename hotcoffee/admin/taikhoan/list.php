@@ -49,7 +49,7 @@
                                     <td> <img src="<?= $hinh?>" width="100px" height="50px"> </td>
                                     <td> <?=$gioi_tinh?> </td>
                                     <td> <?=$phan_quyen?> </td>
-                                    <td><a onclick="return confirm('Bạn có chắc muốn xóa tài khoản người dùng không?')" href="<?=$xoatk?>"><input type="button" value="Xóa"></td></a>
+                                    <td><a onclick="return confirm('Bạn có chắc muốn xóa tài khoản người dùng không?')" href="<?=$xoatk?>"><div class="xoa"><input type="button" value="Xóa"></div></td></a>
                                     </tr>
                         <?php } ?>
                     

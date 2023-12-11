@@ -140,8 +140,13 @@
         $listsp = pdo_query($sql);
         return $listsp;
     }
-    function get_total_productsCL($id_dm){
-        $sql = "SELECT COUNT(*) as total FROM san_pham WHERE id_dm = $id_dm";
+    function get_total_productsCL($id_dm = ""){
+        if ($id_dm !== "") {
+            $sql = "SELECT COUNT(*) as total FROM san_pham WHERE id_dm = $id_dm";
+        } else {
+            $sql = "SELECT COUNT(*) as total FROM san_pham";
+        }
         return pdo_query_value($sql);
     }
+    
 ?>

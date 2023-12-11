@@ -115,8 +115,6 @@
                                 $linksp="index.php?act=spct&id_sp=".$id_sp;
                                 $bnt = 'index.php?btn_test.php';
                                 $image = $img_path.$img;
-                                $gia_goc = intval($gia_goc);
-                                $gia_km = intval($gia_km);
                                 echo '
                                 
                                

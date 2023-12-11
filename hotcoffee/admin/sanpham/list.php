@@ -2,7 +2,8 @@
     <div class="row2 font_title">
           <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
     </div>
-    <form action="index.php?act=listSp" method="POST">
+    <form action="index.php?act=listSp&id_dm=<?=$id_dm ?>" method="POST">
+        <input type="hidden" name="id_dm" value="<?=$id_dm?>">
         <input type="text" name= "kyw">
         <select name="id_dm" >
             <option value="0">Tất Cả</option>
@@ -19,16 +20,18 @@
           <form action="#" method="POST">
            <div class="row2 mb10 formds_loai">
            <table>
-            <tr>
-                <!-- <th></th> -->
-                <th>Tên sản phẩm</th>
-                <th>Giá gốc </th>
-                <th>Giá khuyến mãi</th>
-                <th>View</th>
-                <th>Mô tả</th>
-                <th> Ảnh</th>
-                <th>Chức năng</th>
-            </tr>
+             
+                    <tr>
+                        <!-- <th></th> -->
+                        <th>Tên sản phẩm</th>
+                        <th>Giá gốc </th>
+                        <th>Giá khuyến mãi</th>
+                        <th>View</th>
+                        <th>Mô tả</th>
+                        <th> Ảnh</th>
+                        <th>Chức năng</th>
+                    </tr>
+                
             <?php 
                 foreach($listsanpham as $sanpham){
                     extract($sanpham);
@@ -49,7 +52,7 @@
                             <td>'.$view.'</td>
                             <td>'.$mo_ta.'</td>
                             <td> '.$hinh.'</td>
-                            <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a> | <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa không?\')"><input type="button" value="Xóa"></a> | <a href="'.$ctsp.'"><input type="button" value="Thêm chi tiết sản phẩm"></a></td>
+                            <td><div class="sua_xoa"><div class="sua"><a href="'.$suasp.'"><input type="button" value="Sửa"></a></div><div class="xoa"><a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa không?\')"><input type="button" value="Xóa"></a></div></div> <div class="ctsp"<a href="'.$ctsp.'"><input type="button" value="Thêm chi tiết sản phẩm"></a></div></td>
                             </tr>';
                 }
             ?> 
@@ -75,7 +78,7 @@
                                         echo ' <span class="pager_current active ">'.$i.'</span>';
                                     }
                                     else{
-                                        echo '<a href="index.php?act=listSp&page='.$i.'">'.$i.'</a>';
+                                        echo '<a href="index.php?act=listSp&id_dm='.$id_dm.'&page='.$i.'">'.$i.'</a>';
                                     }
                                 }
                                     ?>

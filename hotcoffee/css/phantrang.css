@@ -93,3 +93,7 @@ a {
     text-decoration: none;
     background: transparent;
 }
+.xoa input{
+    width: 80px;
+    height: 30px;
+}

@@ -1,1 +1,1 @@
-<h1>404 not found</h1>
+<h1>Welcome to the Admin Hot Coffee Page</h1>

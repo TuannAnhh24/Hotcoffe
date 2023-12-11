@@ -35,7 +35,7 @@
                 <td class="cot"><?= $so_luong ?></td>
                 <td class="cot"><?= $luong_da ?></td> 
                 <td class="cot"><?= $luong_duong ?></td>
-                <td class="cot"><?= $tien ?> VNĐ</td> 
+                <td class="cot"><?= number_format($tien, 0, '.', ',') ?> VNĐ</td> 
             </tr>
 
         <?php }   ?>

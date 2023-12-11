@@ -38,8 +38,6 @@
                 $ttien=($cart[3]*1.25)*$cart[1];
             } 
             $tong+=$ttien;
-            $ttien_formatted = number_format($ttien, 0, '.', ',');
-            $gia_ban = number_format($cart[3], 0, '.', ',');
             $xoasp = '<a href="index.php?act=xoasp-gh&id_gh='.$i.'"><input type="button" value="Xóa"></a>';
             
             echo '  
@@ -67,18 +65,17 @@
                         </select>
                     </div>
                     <div class="gia">                                        
-                        <span class="giaban" id="price_'.$i.'" data-price="'.$gia_ban.'">'.$gia_ban.' VNĐ</span>
+                        <span class="giaban" id="price_'.$i.'" data-price="'.$cart[3].'">'.$cart[3].' VNĐ</span>
                     </div>        
                     <div class="soluong"><input type="number" id="quantity_'.$i.'" step="1" min="1" max="20" name="quantity[]" value="'.$cart[1].'"  class="input-text qty text" size="4" pattern="[0-9]*" onchange="updateTotalPrice(this);" inputmode="numeric"  oninput="if(this.value > 20) this.value = 20" onblur="checkMaxValue(this);"/></div>
-                    <div class="tongtien" id="tongtien_'.$i.'" name="thanhtien">'.$ttien_formatted.' VNĐ</div>
+                    <div class="tongtien" id="tongtien_'.$i.'" name="thanhtien">'.$ttien.' VNĐ</div>
                     <div class="delete">
                         '.$xoasp.'
                     </div>
                 </div>';
                 $i+=1;
             }
-            
-            $tong = number_format($tong, 0, '.', ',');
+        
             echo '
             <div class="muahang">
                 <div class="khoang_trong"></div>

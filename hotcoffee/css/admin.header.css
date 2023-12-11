@@ -21,8 +21,8 @@ body{
   width:100%;
 }
 .row2{
-float:left;
-    width:100%;
+  
+  width:100%;
 }
 .mb{
     margin-bottom:30px;
@@ -491,6 +491,49 @@ font-size:2vv;
   .thongbao{
     color: red;
   }
+  img{
+    width: 70px;
+    height: 70px;
+  }
+  .timkiem{
+    margin: 20px;
+  }
+  .tim_kiem input{
+    width: 300px;
+    height: 30px;
+    margin-left: 20px;
+    float: left;
+    margin-bottom: 20px;
+  }
+  .tim_kiem select{
+    width: 80px;
+    height: 30px;
+    margin-left: 20px;
+    float: left;
+  }
+   .go input{
+    width: 50px;
+    height: 30px;
+    margin-left: 20px;
+    float: left;
+    margin-bottom: 20px;
+  }
+  .sua_xoa{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:10px;
+  }
+  .sua input{
+    width: 70px;
+    height: 30px;
+    border: 2px solid #000;
+  }
+  .xoa input{
+    width: 70px;
+    height: 30px;
+    border: 2px solid #000;
+  }
+ 
 
   
 

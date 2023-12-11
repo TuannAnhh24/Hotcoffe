@@ -65,7 +65,15 @@
               //phân page
                 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $limit = 5;
-                $total_records = get_total_products();
+                //$total_records = get_total_products();
+                // Lấy tổng số sản phẩm với hoặc không có điều kiện lọc theo id_dm
+                if (isset($_POST['id_dm']) && $_POST['id_dm'] > 0) {
+                    $id_dm = $_POST['id_dm'];
+                    $total_records = get_total_products($id_dm); // Số sản phẩm với id_dm
+                } else {
+                    $id_dm = 0;
+                    $total_records = get_total_products(); // Số sản phẩm không có id_dm
+                }
                 $total_records = intval($total_records);
                 $total_page = ceil($total_records / $limit);
                 if ($current_page > $total_page){
@@ -75,6 +83,7 @@
                     $current_page = 1;
                 }
                 $start = ($current_page - 1) * $limit;
+                $start = max($start, 0); // Đảm bảo giá trị không nhỏ hơn 0
                 // lọc
                 if(isset($_POST['id_dm'])&&$_POST['id_dm']>0){
                     $id_dm =$_POST['id_dm']; 
