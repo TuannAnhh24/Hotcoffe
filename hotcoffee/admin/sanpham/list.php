@@ -81,7 +81,7 @@
                                         echo ' <span class="pager_current active ">'.$i.'</span>';
                                     }
                                     else{
-                                        echo '<a href="index.php?act=listSp&page='.$i.'">'.$i.'</a>';
+                                        echo '<a href="index.php?act=listSp&id_dm='.$id_dm.'&page='.$i.'">'.$i.'</a>';
                                     }
                                 }
                                     ?>

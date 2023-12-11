@@ -258,11 +258,11 @@
                                             <span class="price">
                                             <del>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'</span>
+                                                    <span class="woocommerce-Price-currencySymbol"> </span>'.number_format($gia_goc, 0, '.', ',').'VNĐ</span>
                                             </del>
                                             <ins>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_km.'
+                                                    <span class="woocommerce-Price-currencySymbol"> </span>'.number_format($gia_km, 0, '.', ',').' VNĐ
                                                 </span>
                                             </ins>
                                             </span>
@@ -322,7 +322,7 @@
                                             <span class="product-title">'.$name_sp.'</span>
                                         </a>
                                         <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">&#36;</span>'.$gia_goc.'</span>
+                                        <span class="woocommerce-Price-currencySymbol"> </span>'.number_format($gia_goc, 0, '.', ',').'VNĐ</span>
                                     </li>';
                                     }
                                     ?>

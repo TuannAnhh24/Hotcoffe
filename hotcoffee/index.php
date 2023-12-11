@@ -309,20 +309,29 @@
                         foreach($maVoucher as $voucher) {
                             $id_vc = $voucher['id_vc'];
                             if($voucher['ma_vc'] === $maGiamgia && $voucher['tinh_trang'] === 'Chưa sử dụng') {
-                                // Mã voucher hợp lệ
-                                $voucherTonTai = true; 
-                                // Áp dụng giảm giá vào tổng tiền
-                                if($voucher['gia_tri'] <= $tong) {
-                                   $tongMoi-= $voucher['gia_tri']; // Giảm giá trực tiếp từ tổng tiền
-
+                                $voucherTonTai = true; // Mã voucher hợp lệ
+                        
+                                // Kiểm tra ngày bắt đầu và ngày kết thúc của mã voucher
+                                $ngayBatDau = strtotime($voucher['ngay_bd']);
+                                $ngayKetThuc = strtotime($voucher['ngay_kt']);
+                                $ngayHienTai = time(); // Thời gian hiện tại
+                        
+                                if ($ngayHienTai >= $ngayBatDau && $ngayHienTai <= $ngayKetThuc) {
+                                    // Mã voucher còn trong thời gian sử dụng hợp lệ
+                                    if ($voucher['gia_tri'] <= $tong) {
+                                        $tongMoi -= $voucher['gia_tri']; // Giảm giá trực tiếp từ tổng tiền
+                                    } else {
+                                        $tong = 0; // Nếu giảm giá lớn hơn tổng tiền, gán tổng tiền về 0
+                                    }
                                 } else {
-                                    // Nếu giảm giá lớn hơn tổng tiền, gán tổng tiền về 0
-                                    $tong = 0;
+                                    // Thông báo khi mã voucher không còn trong thời gian sử dụng
+                                    $voucherTonTai = false;
                                 }
-
+                        
                                 break; // Thoát khỏi vòng lặp khi tìm thấy mã voucher hợp lệ
                             }
                         }
+                        
 
                         // Kiểm tra và gửi thông báo nếu mã voucher không tồn tại
                         if(!$voucherTonTai) {
