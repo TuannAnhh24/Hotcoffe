@@ -10,9 +10,7 @@
     $lay_name = loadone_sanpham($id_sp);
     extract($lay_name);
     $dsbl = loadall_binhluan($id_sp); 
-    // join tài khoản 
-    $sql = 'SELECT * FROM `tai_khoan` as tk INNER JOIN `binh_luan` as bl ON tk.id_tk = bl.id_tk ';
-    $lay_tk = pdo_query_one($sql); 
+    
     
 ?>
 
@@ -35,6 +33,8 @@
                 } else {
                     foreach($dsbl as $bl){
                         extract($bl);
+                        $sql = 'SELECT * FROM `tai_khoan` as tk WHERE tk.id_tk = '.$id_tk;
+                        $lay_tk = pdo_query_one($sql); 
                         echo '<div style="background-color: #f8f8f8; margin-bottom: 15px; padding: 10px; border-radius: 5px;">';
                         echo '<h4 style="margin: 0;">'.$lay_tk['email'].'</h4>';
                         echo '<span style="font-size: 0.8em; color: #888;">'.$ngay_bl.'</span>';
