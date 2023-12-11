@@ -227,7 +227,7 @@
                 elseif ($current_page < 1){
                     $current_page = 1;
                 }
-                $start = ($current_page - 1) * $limit;
+                $start = max(0, ($current_page - 1) * $limit);
                 //Lọc theo ngày
                 $ngay_BatDau = "";
                 $ngay_KetThuc = "";
