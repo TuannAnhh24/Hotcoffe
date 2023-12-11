@@ -17,7 +17,7 @@
                         <th>Ảnh</th>
                         <th>Giới tính</th>
                         <th>Vai trò</th>
-                        <td></td>
+                        <th></th>
                     </tr>
                     <?php 
                         foreach($listtaikhoan as $taikhoan){
