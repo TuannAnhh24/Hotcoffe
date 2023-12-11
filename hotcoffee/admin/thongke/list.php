@@ -34,13 +34,13 @@
         <div class="statistics">
             <div class="statistic-item">
                 <h2>Tổng số đơn hàng</h2>
-                <p id="total_orders"><?= $total_orders ?></p>
+                <p id="total_orders"><?= $total_orders  ?></p>
                 <a href="index.php?act=oder_list">Xem tất cả đơn hàng</a>
                 <a style="margin-left: 20px;" href="index.php?act=tk-donhang">Xem thống kê</a>
             </div>
             <div class="statistic-item">
                 <h2>Doanh thu</h2>
-                <p id="revenue"><?= $revenue ?> VNĐ</p>
+                <p id="revenue"><?= number_format($revenue, 0, '.', ',') ?> VNĐ</p>
                 <a href="index.php?act=tk-doanhthu">Xem thống kê</a>
             </div>
             <div class="statistic-item">
