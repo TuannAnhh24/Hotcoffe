@@ -339,20 +339,86 @@
 
 
                 if(isset($_POST['thanhtoan'])){
-                    $username=$_POST['username'];
-                    $email = $_POST['email'];
-                    $sdt = $_POST['sdt'];
-                    $address = $_POST['address'];
-                    $pttt = $_POST['pttt'];
-                    $tong = $_POST['tongtien'];
-                    $id_tk = $_POST['id_tk'];
-                    $code_cart = rand(1, 10000);
-                    $id_vc = isset($_POST['id_vc']) ? $_POST['id_vc'] : null;
-                   
-                    if($pttt == "Thanh toán bằng tiền mặt"){
+                    if(empty($_SESSION['mycart'])){
+                        echo "<script type='text/javascript'>alert('Vui lòng chọn ít nhất một sản phẩm trước khi thanh toán');</script>";
+                    } else {
+                        $username=$_POST['username'];
+                        $email = $_POST['email'];
+                        $sdt = $_POST['sdt'];
+                        $address = $_POST['address'];
+                        $pttt = $_POST['pttt'];
+                        $tong = $_POST['tongtien'];
+                        $id_tk = $_POST['id_tk'];
+                        $code_cart = rand(1, 10000);
+                        $id_vc = isset($_POST['id_vc']) ? $_POST['id_vc'] : null;
+                    
+                        if($pttt == "Thanh toán bằng tiền mặt"){
+                            insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
+                            $id_hoadon = lay_id_hoadon();
+
+                            foreach ($_SESSION['mycart'] as $cart) {
+                                $name = $cart[0]; 
+                                $size_sp = $cart[5]; 
+                                $soluong_sp= $cart[1]; 
+                                $da_sp = $cart[6]; 
+                                $duong_sp = $cart[7];
+                                if($size_sp=="M"){
+                                    $thanhtien=$cart[3]*$soluong_sp;
+                                }elseif($size_sp=="L"){
+                                    $thanhtien=($cart[3]+$cart[3]*15/100)*$soluong_sp;
+                                }elseif($size_sp=="XL"){
+                                    $thanhtien=($cart[3]+$cart[3]*25/100)*$soluong_sp;
+                                } 
+                                $id_sp = $cart[8];
+                                $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
+                                if(isset($id_vc)){
+                                    update_vc($id_vc);
+                                }
+                            }  
+                            unset($_SESSION['mycart']);
+                            header("Location: index.php?act=camon");
+
+                        }else if($pttt == "Thanh toán bằng VN Pay"){
+                            $vnp_TxnRef = $code_cart; //Mã giao dịch thanh toán tham chiếu của merchant
+                            $vnp_Amount = $tong; // Số tiền thanh toán
+                            $vnp_Locale = "vn"; //Ngôn ngữ chuyển hướng thanh toán
+                            $vnp_BankCode = "NCB"; //Mã phương thức thanh toán
+                            $vnp_IpAddr = $_SERVER['REMOTE_ADDR']; //IP Khách hàng thanh toán
+
+                            $inputData = array(
+                                "vnp_Version" => "2.1.0",
+                                "vnp_TmnCode" => $vnp_TmnCode,
+                                "vnp_Amount" => $vnp_Amount * 100,
+                                "vnp_Command" => "pay",
+                                "vnp_CreateDate" => date('YmdHis'),
+                                "vnp_CurrCode" => "VND",
+                                "vnp_IpAddr" => $vnp_IpAddr,
+                                "vnp_Locale" => $vnp_Locale,
+                                "vnp_OrderInfo" => "Thanh toan GD: " . $vnp_TxnRef,
+                                "vnp_OrderType" => "other",
+                                "vnp_ReturnUrl" => $vnp_Returnurl,
+                                "vnp_TxnRef" => $vnp_TxnRef,
+                                "vnp_ExpireDate"=> $expire
+                            );
+                        if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                            $inputData['vnp_BankCode'] = $vnp_BankCode;
+                        }
+
+                        ksort($inputData);
+                        $query = "";
+                        $i = 0;
+                        $hashdata = "";
+                        foreach ($inputData as $key => $value) {
+                            if ($i == 1) {
+                                $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                            } else {
+                                $hashdata .= urlencode($key) . "=" . urlencode($value);
+                                $i = 1;
+                            }
+                            $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                        }
                         insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
                         $id_hoadon = lay_id_hoadon();
-
                         foreach ($_SESSION['mycart'] as $cart) {
                             $name = $cart[0]; 
                             $size_sp = $cart[5]; 
@@ -367,88 +433,22 @@
                                 $thanhtien=($cart[3]+$cart[3]*25/100)*$soluong_sp;
                             } 
                             $id_sp = $cart[8];
+                            
                             $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
-                            if(isset($id_vc)){
-                                update_vc($id_vc);
-                            }
-                           
                         }
                         unset($_SESSION['mycart']);
-                        // session_destroy();
-                        header("Location: index.php?act=camon");
-
-                    }else if($pttt == "Thanh toán bằng VN Pay"){
-                        $vnp_TxnRef = $code_cart; //Mã giao dịch thanh toán tham chiếu của merchant
-                        $vnp_Amount = $tong; // Số tiền thanh toán
-                        $vnp_Locale = "vn"; //Ngôn ngữ chuyển hướng thanh toán
-                        $vnp_BankCode = "NCB"; //Mã phương thức thanh toán
-                        $vnp_IpAddr = $_SERVER['REMOTE_ADDR']; //IP Khách hàng thanh toán
-
-                        $inputData = array(
-                            "vnp_Version" => "2.1.0",
-                            "vnp_TmnCode" => $vnp_TmnCode,
-                            "vnp_Amount" => $vnp_Amount * 100000,
-                            "vnp_Command" => "pay",
-                            "vnp_CreateDate" => date('YmdHis'),
-                            "vnp_CurrCode" => "VND",
-                            "vnp_IpAddr" => $vnp_IpAddr,
-                            "vnp_Locale" => $vnp_Locale,
-                            "vnp_OrderInfo" => "Thanh toan GD: " . $vnp_TxnRef,
-                            "vnp_OrderType" => "other",
-                            "vnp_ReturnUrl" => $vnp_Returnurl,
-                            "vnp_TxnRef" => $vnp_TxnRef,
-                            "vnp_ExpireDate"=> $expire
-                        );
-                    if (isset($vnp_BankCode) && $vnp_BankCode != "") {
-                        $inputData['vnp_BankCode'] = $vnp_BankCode;
-                    }
-
-                    ksort($inputData);
-                    $query = "";
-                    $i = 0;
-                    $hashdata = "";
-                    foreach ($inputData as $key => $value) {
-                        if ($i == 1) {
-                            $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
-                        } else {
-                            $hashdata .= urlencode($key) . "=" . urlencode($value);
-                            $i = 1;
+                        $vnp_Url = $vnp_Url . "?" . $query;
+                        if (isset($vnp_HashSecret)) {
+                            $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
+                            $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
                         }
-                        $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                        header('Location: ' . $vnp_Url);
+                        if(isset($id_vc)){
+                            update_vc($id_vc);
+                        }
                     }
-                    insert_hoadon($id_tk,$tong,$pttt,$username,$email,$sdt,$address);
-                    $id_hoadon = lay_id_hoadon();
-                    foreach ($_SESSION['mycart'] as $cart) {
-                        $name = $cart[0]; 
-                        $size_sp = $cart[5]; 
-                        $soluong_sp= $cart[1]; 
-                        $da_sp = $cart[6]; 
-                        $duong_sp = $cart[7];
-                        if($size_sp=="M"){
-                            $thanhtien=$cart[3]*$soluong_sp;
-                        }elseif($size_sp=="L"){
-                            $thanhtien=($cart[3]+$cart[3]*15/100)*$soluong_sp;
-                        }elseif($size_sp=="XL"){
-                            $thanhtien=($cart[3]+$cart[3]*25/100)*$soluong_sp;
-                        } 
-                        $id_sp = $cart[8];
-                        
-                        $ct_hd=insert_ct_hd($id_hoadon,$id_sp,$name,$size_sp,$soluong_sp,$da_sp,$duong_sp,$thanhtien);
-                    }
-                    unset($_SESSION['mycart']);
-                    $vnp_Url = $vnp_Url . "?" . $query;
-                    if (isset($vnp_HashSecret)) {
-                        $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
-                        $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
-                    }
-                    header('Location: ' . $vnp_Url);
-                    if(isset($id_vc)){
-                        update_vc($id_vc);
                     }
                 }
-                
-                }
-                
                 include "view/hoadon.php";
                 break;
             // ------------------------------------ Trang theo dõi đơn hàng  ------------------------------------
