@@ -64,7 +64,7 @@
             case 'listSp':    
               //phân page
                 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-                $limit = 5;
+                $limit = 10;
                 //$total_records = get_total_products();
                 // Lấy tổng số sản phẩm với hoặc không có điều kiện lọc theo id_dm
                 if (isset($_POST['id_dm']) && $_POST['id_dm'] > 0) {
@@ -242,6 +242,7 @@
             case 'xoabl':
                 if(isset($_GET['id_bl']) && ($_GET['id_bl'] > 0)){
                     delete_binhluan($_GET['id_bl']);
+                    header('location:index.php?act=dsbl');
                 }
                 $listbl= loadall_binhluan(0);
                 include "binhluan/list.php";
