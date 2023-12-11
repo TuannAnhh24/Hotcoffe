@@ -99,6 +99,8 @@
                                         echo '<a href="'.$giaodonhang.'"><input type="button" value="Giao"></a> ';
                                     }else if ($trang_thai == "Đã Hoàn Thành"){
                                         echo ' <a onclick="return confirm("Bạn có chắc muốn xóa danh mục này không?")" href="'.$xoadh.'"><input type="button" value="Xóa"></a>';
+                                    }else if ($trang_thai == "Đã Hủy"){
+                                        echo ' <a onclick="return confirm("Bạn có chắc muốn xóa danh mục này không?")" href="'.$xoadh.'"><input type="button" value="Xóa"></a>';
                                     }
                                 ?>
                             </td>

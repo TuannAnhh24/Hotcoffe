@@ -488,7 +488,23 @@
             // ------------------------------------ Đặt lại đơn hàng ------------------------------------
             case 'datlai':
                 if(isset($_GET['id_hd']) && ($_GET['id_hd'] > 0)){
-                    datlai_hd($_GET['id_hd']);
+                    // Gọi hàm đã tạo ở trên để lấy thông tin chi tiết của đơn hàng
+                    $order_details = dat_lai_san_pham($_GET['id_hd']); 
+                    foreach($order_details as $product){
+                        // Thêm sản phẩm vào giỏ hàng
+                        $_SESSION['mycart'][] = array(
+                            $product['name_sp'],  // Tên sản phẩm
+                            $product['so_luong'], // Số lượng
+                            $product['gia_goc'],  // Giá gốc
+                            $product['gia_km'],   // Giá bán
+                            'images/'.$product['img'],      // Hình ảnh
+                            $product['size'],     // Kích cỡ
+                            $product['luong_da'], // Lượng đá
+                            $product['luong_duong'], // Lượng đường
+                            $product['id_sp'],
+                        );
+                    }
+                    header("Location: index.php?act=cart");
                 }
                 $listhoadon = load_more_hoadon($id_tk);
                 include "view/ct.donhang.php";

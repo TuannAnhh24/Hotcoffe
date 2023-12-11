@@ -79,11 +79,6 @@
         pdo_execute($sql);
     }
 
-    function datlai_hd($id_hd){
-        $sql = "UPDATE `hoa_don` SET `trang_thai` = '0' WHERE id_hd=".$id_hd;
-        pdo_execute($sql);
-    }
-
     function cap_nhat_trang_thai_don_hang(){
         $sql = "UPDATE hoa_don SET trang_thai='3' WHERE trang_thai='2' AND DATEDIFF(NOW(), ngay_dat) > 1";
         pdo_execute($sql);
@@ -113,5 +108,13 @@
         $sql = "INSERT INTO vnpay(vnp_amount, vnp_bankcode, vnp_banktranno, vnp_orderinfo, vnp_paydate, vnp_tmncode, vnp_cardtype, vnp_transactionno, code_cart) 
         VALUES ('$vnp_Amount', '$vnp_BankCode', '$vnp_BankTranNo', '$vnp_OrderInfo', '$vnp_PayDate', '$vnp_TmnCode', '$vnp_CardType', '$vnp_TransactionNo', '$code_cart')";
         pdo_execute($sql);
+    }
+
+    function dat_lai_san_pham($id_hd){
+        $sql = "SELECT ct_hd.*, sp.* 
+                FROM `ct_hd` as ct_hd
+                JOIN `san_pham` as sp ON ct_hd.id_sp = sp.id_sp
+                WHERE ct_hd.id_hd=".$id_hd;
+        return pdo_query($sql);
     }
 ?>
