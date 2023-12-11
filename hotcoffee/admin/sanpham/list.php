@@ -1,6 +1,7 @@
 <div class="row2">
     <div class="row2 font_title">
           <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
+<<<<<<< HEAD
          </div>
          <div class="timkiem">
             <form action="index.php?act=listSp" method="POST">
@@ -19,6 +20,23 @@
         </div>
         <div class="row2 form_content ">
     </div>
+=======
+    </div>
+    <form action="index.php?act=listSp" method="POST">
+        <input type="text" name= "kyw">
+        <select name="id_dm" >
+            <option value="0">Tất Cả</option>
+            <?php 
+            foreach($tendanhmuc as $danhmuc){
+                extract($danhmuc);  
+                echo '<option value="'.$id_dm.'">'.$name.'</option>';
+            } 
+        ?>
+        </select>
+        <input type="submit" name="listok" value= "GO">
+    </form>
+         <div class="row2 form_content ">
+>>>>>>> f6058af007c0dc738e04e24252b15e802f90a65b
           <form action="#" method="POST">
            <div class="row2 mb10 formds_loai">
            <table>
