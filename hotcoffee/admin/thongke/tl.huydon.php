@@ -26,7 +26,7 @@
 
         var options = {
           title: 'Thống kê tỷ lệ hủy đơn',
-          colors: ['#e0440e', '#e6693e'], // Customize the colors
+          colors: ['#e6693e', '#4682b4'], // Customize the colors
           pieHole: 0.4, // Make it a donut chart
         };
 
