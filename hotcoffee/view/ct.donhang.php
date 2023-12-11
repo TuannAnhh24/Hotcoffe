@@ -53,7 +53,7 @@
                 🏚  <?php  echo "Địa chỉ: ".$dia_chi?>
                 </td>
                 <td class="cot"><a href="index.php?act=chitiethoadon&id_hd=<?=$id_hd?>"><input style="border: 1px solid #ccc; color: #5031eb; width: 180px; font-size: 12px;" type="button" value="Xem chi tiết hóa đơn"></input></a></td>
-                <td class="cot"><?= $tong_tien ?> VNĐ</td>
+                <td class="cot"><?= number_format($tong_tien, 0, '.', ',') ?> VNĐ</td>
                 <td class="cot"><?= $phuong_thuc_tt ?></td>
                 <td class="cot"><?= $trang_thai ?>
                     <?php 

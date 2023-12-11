@@ -96,7 +96,6 @@
                         $tong=0;
                         $ttien=0;
                         $i=0;
-                        
                         foreach ($_SESSION['mycart'] as $cart){
                             if($cart[5]=="M"){
                                 $ttien=$cart[3]*$cart[1];
@@ -106,7 +105,6 @@
                                 $ttien=($cart[3]+$cart[3]*25/100)*$cart[1];
                             } 
                         $tong+=$ttien;
-                        
                     ?>
         
                     <tr>

@@ -48,11 +48,6 @@
                 <p id="best_selling_product"><?= $best_selling_product ?></p>
                 <a href="index.php?act=banchay">Xem thống kê </a>
             </div>
-            <!-- <div class="statistic-item">
-                <h2>Khách hàng thân thiết</h2>
-                <p id="loyal_customer"><?= $loyal_customer ?></p>
-                <a href=" ">Xem </a>
-            </div> -->
             <div class="statistic-item">
                 <h2>Tỉ lệ hủy đơn</h2>
                 <p id="cancellation_rate"><?= $cancellation_rate ?>%</p>

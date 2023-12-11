@@ -60,10 +60,7 @@
           <label for="gia_goc">Giá Gốc:</label>
           <input type="text" id="gia_Goc" name="gia_Goc" placeholder="Nhập giá gốc sản phẩm" required ><br>
         </div>
-        <div class="row2 mb10 form_content_container">
-          <label for="discountCheckbox">Sản phẩm không được giảm giá</label>
-          <input type="checkbox" id="discountCheckbox" name="discountCheckbox">
-        </div>
+        
         <div class="row2 mb10 form_content_container">
           <label for="">Giá khuyến mãi:</label>
           <input type="text" id="gia_Km" name="gia_Km" required><br>

@@ -89,7 +89,7 @@
                             🏚  <?php  echo "Địa chỉ: ".$dia_chi?>
                             </td>
                             <td><a href="index.php?act=chitiethoadon&id_hd=<?=$id_hd?>"><input style="border: 1px solid #ccc; color: #5031eb; width: 180px; font-size: 12px;" type="button" value="Xem chi tiết hóa đơn"></input></a></td>
-                            <td><?= $tong_tien ?> VNĐ</td>
+                            <td><?= number_format($tong_tien, 0, '.', ',') ?> VNĐ</td>
                             <td><?= $phuong_thuc_tt ?></td>
                             <td><?= $trang_thai ?></td>
                             <td>
@@ -99,6 +99,8 @@
                                     }else if($trang_thai=="Đã Xác Nhận"){
                                         echo '<a href="'.$giaodonhang.'"><input type="button" value="Giao"></a> ';
                                     }else if ($trang_thai == "Đã Hoàn Thành"){
+                                        echo ' <a onclick="return confirm("Bạn có chắc muốn xóa danh mục này không?")" href="'.$xoadh.'"><input type="button" value="Xóa"></a>';
+                                    }else if ($trang_thai == "Đã Hủy"){
                                         echo ' <a onclick="return confirm("Bạn có chắc muốn xóa danh mục này không?")" href="'.$xoadh.'"><input type="button" value="Xóa"></a>';
                                     }
                                 ?>
@@ -123,7 +125,7 @@
                         }
                     }
                         ?>
-                </nav>                            
+                </nav>                         
 
             </div>
                

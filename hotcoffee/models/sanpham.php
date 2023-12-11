@@ -13,10 +13,6 @@
         $sql = " DELETE FROM san_pham WHERE id_sp =" .$id;
         pdo_execute($sql);
     }
-    function delete_Ctsanpham($id){
-        $sql = " DELETE FROM ct_san_pham WHERE id_sp IN ($id) " ;
-        pdo_execute($sql);
-    }
 
     function loadall_sanpham_home(){
         $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY id_sp desc limit 0,9";

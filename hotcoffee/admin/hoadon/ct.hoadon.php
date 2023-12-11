@@ -29,7 +29,7 @@
                         <td><?= $so_luong ?></td>
                         <td><?= $luong_da ?></td> 
                         <td><?= $luong_duong ?></td>
-                        <td><?= $tien ?> VNĐ</td> 
+                        <td><?= number_format($tien, 0, '.', ',')?> VNĐ</td> 
                     </tr>
                 <?php } ?>
             
