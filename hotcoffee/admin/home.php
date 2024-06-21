@@ -1,1 +1,0 @@
-<h1>Welcome to the Admin Hot Coffee Page</h1>
